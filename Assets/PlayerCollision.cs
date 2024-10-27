@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;
+using System;
 using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
@@ -14,10 +14,16 @@ public class PlayerCollision : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.transform.CompareTag("Obstacle"))
+        if (other.transform.CompareTag("Obstacle"))
         {
             gameObject.SetActive(false);
             GameManager.Instance.GameOver();
+        }
+
+        if (other.transform.CompareTag("Coin"))
+        {
+
+            Console.WriteLine("Coinssssssssssssssssssssss");
         }
     }
 }

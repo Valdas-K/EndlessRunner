@@ -57,6 +57,8 @@ public class GameManager : MonoBehaviour
             string saveString = JsonUtility.ToJson(data);
             SaveSystem.Save("save", saveString);
         }
+
+
         onGameOver.Invoke();
         isPlaying = false;
     }

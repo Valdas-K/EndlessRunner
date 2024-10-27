@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
     {
         gameOverUI.SetActive(true);
         gameOverScoreUI.text = "Score: " + gm.PrettyScore();
-        gameOverHighscoreUI.text = "Highscore: " + gm.PrettyHighscore();
+        gameOverHighscoreUI.text = "Highscore: " + gm.PrettyScore();
     }
 
     public void PlayButtonHandler()
