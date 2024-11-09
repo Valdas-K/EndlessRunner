@@ -1,0 +1,98 @@
+﻿using UnityEngine;
+
+public class Spawner : MonoBehaviour
+{
+    //Visų kliūčių masyvas
+    [SerializeField] private GameObject[] obstaclePrefabs;
+
+    //Visų kliūčių laikymo objektas
+    [SerializeField] private Transform obstacleParent;
+
+    //Pradinis kliūčių atsiradimo laikas ir greitis
+    public float startingObstacleSpawnTime;
+    public float startingObstacleSpeed;
+
+    //Kintamieji, pagal kuriuos bus apskaičiuojamas žaidimo sunkumas
+    [Range(0, 1)] public float obstacleSpawnTimeFactor = 0.1f;
+    [Range(0, 1)] public float obstacleSpeedFactor = 0.2f;
+
+    //Kliūčių atsiradimo laikas ir greitis
+    private float obstacleSpawnTime;
+    private float obstacleSpeed;
+
+    //Išgyventas laikas
+    private float timeAlive;
+
+    //Laikas iki kitos kliūties
+    private float timeUntilObstacleSpawn = 2f;
+
+    private void Start()
+    {
+        //Pasibaigus žaidimui, išvalomos kliūtys
+        GameManager.Instance.onGameOver.AddListener(ClearObstacles);
+
+        //Pradedant žaidimą, atstatomos pradinės reikšmės
+        GameManager.Instance.onPlay.AddListener(ResetFactors);
+    }
+    private void Update()
+    {
+        if(GameManager.Instance.isPlaying)
+        {
+            //Jei yra žaidžiama, yra skaičiuojamas išgyventas laikas, apskaičiuojamas tolesnis žaidimo sunkumas ir generuojamos kliūtys
+            timeAlive += Time.deltaTime;
+            CalculateFactors();
+            SpawnLoop();
+        }
+    }
+
+    private void CalculateFactors()
+    {
+        //Apskaičiuojamas kliūčių atsiradimo greitis ir kliūčių greitis
+        obstacleSpawnTime = startingObstacleSpawnTime / Mathf.Pow(timeAlive, obstacleSpawnTimeFactor);
+        obstacleSpeed = startingObstacleSpeed * Mathf.Pow(timeAlive, obstacleSpeedFactor);
+    }
+
+    private void SpawnLoop()
+    {
+        //Kaupiamas laikis iki sekančios kliūties
+        timeUntilObstacleSpawn += Time.deltaTime;
+
+        if(timeUntilObstacleSpawn >= obstacleSpawnTime)
+        {
+            //Jei sukauptas laikas didesnis už kliūties atsiradimo laiką, generuojama nauja kliūtis ir atnaujinamas sukauptas laikas
+            Spawn();
+            timeUntilObstacleSpawn = 0f;
+        }
+    }
+
+    private void ResetFactors()
+    {
+        //Atstatomi kintamieji į pradines reikšmes
+        timeAlive = 1f;
+        obstacleSpawnTime = startingObstacleSpawnTime;
+        obstacleSpeed = startingObstacleSpeed;
+    }
+
+    //Išvalomos kliūtys
+    private void ClearObstacles()
+    {
+        foreach(Transform child in obstacleParent)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
+    private void Spawn()
+    {
+        //Parenkama kliūtis
+        GameObject obstacleToSpawn = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
+
+        //Kliūtis sugeneruojama
+        GameObject spawnedObstacle = Instantiate(obstacleToSpawn, transform.position, Quaternion.identity);
+        spawnedObstacle.transform.parent = obstacleParent;
+
+        //Parenkamas greitis
+        Rigidbody2D obstacleRB = spawnedObstacle.GetComponent<Rigidbody2D>();
+        obstacleRB.linearVelocity = Vector2.left * obstacleSpeed;
+    }
+}
