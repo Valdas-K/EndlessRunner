@@ -513,8 +513,8 @@ MonoBehaviour:
   - {fileID: 7252808694372594816, guid: 7d1c52ab82e00ed4fa0b6e94f5ab4bd9, type: 3}
   - {fileID: 1451194980854508684, guid: 96d8a6875e0b33042b4254dc6bc5baa2, type: 3}
   - {fileID: 860704146474536765, guid: 6e3f368ace7a44c4fad1f133c97f2f77, type: 3}
-  startingObstacleSpawnTime: 5
-  startingObstacleSpeed: 3
+  startingObstacleSpawnTime: 9
+  startingObstacleSpeed: 2.5
   obstacleSpawnTimeFactor: 0.05
   obstacleSpeedFactor: 0.1
 --- !u!4 &160456791
@@ -526,7 +526,7 @@ Transform:
   m_GameObject: {fileID: 160456789}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 6, z: 0}
+  m_LocalPosition: {x: 10, y: 7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1766,8 +1766,8 @@ MonoBehaviour:
   - {fileID: 860704146474536765, guid: 6e3f368ace7a44c4fad1f133c97f2f77, type: 3}
   - {fileID: 8553014846927901817, guid: f80f3dda7c8322842b17a8288b42e58b, type: 3}
   - {fileID: 3720982948277837048, guid: 9726d8f5fcbd5a4469cde14ca9345a7b, type: 3}
-  startingObstacleSpawnTime: 4
-  startingObstacleSpeed: 4
+  startingObstacleSpawnTime: 6
+  startingObstacleSpeed: 3.5
   obstacleSpawnTimeFactor: 0.1
   obstacleSpeedFactor: 0.15
 --- !u!4 &554005576
@@ -1779,7 +1779,7 @@ Transform:
   m_GameObject: {fileID: 554005574}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 1, z: 0}
+  m_LocalPosition: {x: 25, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3571,7 +3571,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.3301541, y: 0.3969981}
+  m_Offset: {x: 0.3230464, y: 0.3969981}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3581,7 +3581,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.30448717, y: 0.20600379}
+  m_Size: {x: 1.6108881, y: 0.20600379}
   m_EdgeRadius: 0
 --- !u!4 &1005886501
 Transform:
@@ -6286,10 +6286,10 @@ MonoBehaviour:
   obstaclePrefabs:
   - {fileID: 860704146474536765, guid: 6e3f368ace7a44c4fad1f133c97f2f77, type: 3}
   - {fileID: 1227845991043812912, guid: b8f2b7bcb88bff748bb3e4d19c3e1c83, type: 3}
-  startingObstacleSpawnTime: 6
+  startingObstacleSpawnTime: 7
   startingObstacleSpeed: 3
   obstacleSpawnTimeFactor: 0.05
-  obstacleSpeedFactor: 0.1
+  obstacleSpeedFactor: 0.125
 --- !u!4 &1463244921
 Transform:
   m_ObjectHideFlags: 0
@@ -6299,7 +6299,7 @@ Transform:
   m_GameObject: {fileID: 1463244919}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: 0.5, z: 0}
+  m_LocalPosition: {x: 6.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9006,7 +9006,7 @@ Rigidbody2D:
   m_Mass: 1.2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 3.5
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -9030,8 +9030,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ebfe51f5186a349a5faa56a9df4c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 12
-  jumpTime: 0.2
+  jumpForce: 11
+  jumpTime: 0.3
 --- !u!114 &2085312831
 MonoBehaviour:
   m_ObjectHideFlags: 0

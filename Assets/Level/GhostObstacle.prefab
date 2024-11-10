@@ -14,7 +14,7 @@ GameObject:
   m_Layer: 8
   m_Name: GhostObstacle
   m_TagString: Obstacle
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -101,7 +101,7 @@ Transform:
   m_GameObject: {fileID: 1341303390868547182}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05, y: 0.56, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -208,12 +208,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.34508017, y: 0.14040789}
-      - {x: 0.12982494, y: 0.35026985}
-      - {x: -0.146862, y: 0.3446405}
-      - {x: -0.3181548, y: 0.26266435}
-      - {x: -0.4279126, y: -0.378196}
-      - {x: 0.38536564, y: -0.4005258}
+    - - {x: 0.3208492, y: 0.24478981}
+      - {x: 0.16151172, y: 0.3838213}
+      - {x: -0.18600556, y: 0.38564765}
+      - {x: -0.41466284, y: 0.11216119}
+      - {x: -0.41156566, y: -0.44300622}
+      - {x: 0.49720398, y: -0.439669}
   m_UseDelaunayMesh: 0
 --- !u!95 &888097362598863503
 Animator:

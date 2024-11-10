@@ -135,11 +135,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.13890794, y: 0.10850652}
-      - {x: -0.128696, y: 0.12705357}
-      - {x: -0.15465888, y: 0.004783471}
-      - {x: -0.12817073, y: -0.12837397}
-      - {x: 0.121956706, y: -0.142645}
+    - - {x: 0.48128033, y: -0.19794536}
+      - {x: 0.46885732, y: -0.0030937493}
+      - {x: 0.020750046, y: 0.34691513}
+      - {x: -0.19420007, y: 0.34540218}
+      - {x: -0.52099955, y: -0.03888623}
+      - {x: -0.36350226, y: -0.56021893}
+      - {x: 0.32817447, y: -0.5647856}
   m_UseDelaunayMesh: 0
 --- !u!95 &3072098926177921472
 Animator:
@@ -151,7 +153,7 @@ Animator:
   m_GameObject: {fileID: 5480794876059592627}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d10748e026acf8147b08e30747760af9, type: 2}
+  m_Controller: {fileID: 9100000, guid: dfdba005b97ba94428a15b8e535b9fd9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -177,7 +179,7 @@ GameObject:
   m_Layer: 8
   m_Name: DuckObstacle
   m_TagString: Obstacle
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
