@@ -10,7 +10,7 @@ public class BackgroundScroller : MonoBehaviour
     private float width;
 
     //Fono judėjimo greičio kintamasis
-    private float scrollSpeed = -2f;
+    public float scrollSpeed;
 
     private void Start()
     {

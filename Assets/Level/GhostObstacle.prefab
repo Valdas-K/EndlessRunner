@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2050548138133148906}
   - component: {fileID: 6708574587259023986}
+  - component: {fileID: 610450687940334616}
   m_Layer: 8
   m_Name: GhostObstacle
   m_TagString: Obstacle
@@ -60,6 +61,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 6
+--- !u!114 &610450687940334616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860704146474536765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b132b61f30bc84d9059debe007ba74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1341303390868547182
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +102,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.05, y: 0.56, z: 0}
-  m_LocalScale: {x: 0.98926765, y: 1.1150081, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2050548138133148906}

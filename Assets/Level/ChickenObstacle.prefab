@@ -78,12 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -23792059411196189, guid: f729d6acae7cd754a864abda75a4bbd7, type: 3}
+  m_Sprite: {fileID: 8599900626152481272, guid: 505531a920a60324aa02b4ed57eba7a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.44, y: 0.26}
+  m_Size: {x: 1, y: 1.0625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -128,25 +128,36 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1.0625}
-    newSize: {x: 0.44, y: 0.26}
+    newSize: {x: 1, y: 1.0625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.38381767, y: -0.08586812}
-      - {x: 0.4123993, y: 0.054596663}
-      - {x: 0.060355186, y: 0.09580386}
+    - - {x: 0.24882221, y: -0.38054752}
+      - {x: 0.44085884, y: -0.12535775}
+      - {x: 0.43653202, y: 0.061178327}
+      - {x: 0.37537766, y: 0.12833118}
+      - {x: 0.13275337, y: 0.20330346}
       - {x: 0.062823296, y: 0.27402842}
       - {x: 0.03085041, y: 0.37938273}
-      - {x: -0.22969246, y: 0.49938035}
-      - {x: -0.31965733, y: 0.3202052}
-      - {x: -0.47445488, y: 0.029322267}
+      - {x: -0.16606998, y: 0.455503}
+      - {x: -0.3220377, y: 0.3762449}
+      - {x: -0.33281994, y: 0.2829095}
+      - {x: -0.37965775, y: 0.25093699}
+      - {x: -0.3841009, y: 0.15203512}
+      - {x: -0.44812775, y: 0.08416903}
+      - {x: -0.44748402, y: -0.0276165}
+      - {x: -0.3997469, y: -0.05976367}
       - {x: -0.28904057, y: -0.062381744}
-      - {x: -0.22883987, y: -0.24056578}
-      - {x: -0.070934296, y: -0.428679}
-      - {x: 0.14310741, y: -0.4560296}
+      - {x: -0.28452873, y: -0.19655633}
+      - {x: -0.25516605, y: -0.24056578}
+      - {x: -0.1586895, y: -0.32776093}
+      - {x: -0.18171501, y: -0.40280426}
+      - {x: -0.22529507, y: -0.46196508}
+      - {x: -0.105137825, y: -0.4642402}
+      - {x: 0.14411068, y: -0.46405298}
   m_UseDelaunayMesh: 0
 --- !u!95 &4138719889810155854
 Animator:
@@ -180,10 +191,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4159710954676037240}
   - component: {fileID: 1792106641554664512}
+  - component: {fileID: 2878177753411611111}
   m_Layer: 8
   m_Name: ChickenObstacle
   m_TagString: Obstacle
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -230,3 +242,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 6
+--- !u!114 &2878177753411611111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8553014846927901817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b132b61f30bc84d9059debe007ba74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

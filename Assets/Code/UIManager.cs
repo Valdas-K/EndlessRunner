@@ -23,15 +23,15 @@ public class UIManager : MonoBehaviour
     private void OnGUI()
     {
         //Rezultatas suapvalinamas
-        scoreUI.text = gm.PrettyScore("1");
+        scoreUI.text = "Score: " + gm.currentScore.ToString("F0");
     }
 
     public void ActivateGameOverUI()
     {
         //Pasibaigus žaidimui, paleidžiamas meniu ir parodomi rezultatai
         gameOverUI.SetActive(true);
-        gameOverScoreUI.text = "Score: " + gm.PrettyScore("1");
-        gameOverHighscoreUI.text = "Highscore: " + gm.PrettyScore("2");
+        gameOverScoreUI.text = "Score: " + gm.currentScore.ToString("F0");
+        gameOverHighscoreUI.text = "Highscore: " + gm.data.highscore.ToString("F0");
     }
 
     //Paspaudus pradėti žaidimą mygtuką, žaidimas prasideda

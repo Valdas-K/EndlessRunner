@@ -72,22 +72,4 @@ public class GameManager : MonoBehaviour
         onGameOver.Invoke();
         isPlaying = false;
     }
-
-    //Suapvalinami rezultatai
-    public string PrettyScore(string func)
-    {
-        float result;
-        if(func == "1")
-        {
-            result = currentScore;
-        }
-        else
-        {
-            result = data.highscore;
-
-        }
-
-        return Mathf.RoundToInt(result).ToString();
-
-    }
 }

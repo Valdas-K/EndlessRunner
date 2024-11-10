@@ -5,9 +5,6 @@ public class Spawner : MonoBehaviour
     //Visų kliūčių masyvas
     [SerializeField] private GameObject[] obstaclePrefabs;
 
-    //Visų kliūčių laikymo objektas
-    [SerializeField] private Transform obstacleParent;
-
     //Pradinis kliūčių atsiradimo laikas ir greitis
     public float startingObstacleSpawnTime;
     public float startingObstacleSpeed;
@@ -28,9 +25,6 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        //Pasibaigus žaidimui, išvalomos kliūtys
-        GameManager.Instance.onGameOver.AddListener(ClearObstacles);
-
         //Pradedant žaidimą, atstatomos pradinės reikšmės
         GameManager.Instance.onPlay.AddListener(ResetFactors);
     }
@@ -73,15 +67,6 @@ public class Spawner : MonoBehaviour
         obstacleSpeed = startingObstacleSpeed;
     }
 
-    //Išvalomos kliūtys
-    private void ClearObstacles()
-    {
-        foreach(Transform child in obstacleParent)
-        {
-            Destroy(child.gameObject);
-        }
-    }
-
     private void Spawn()
     {
         //Parenkama kliūtis
@@ -89,7 +74,6 @@ public class Spawner : MonoBehaviour
 
         //Kliūtis sugeneruojama
         GameObject spawnedObstacle = Instantiate(obstacleToSpawn, transform.position, Quaternion.identity);
-        spawnedObstacle.transform.parent = obstacleParent;
 
         //Parenkamas greitis
         Rigidbody2D obstacleRB = spawnedObstacle.GetComponent<Rigidbody2D>();
