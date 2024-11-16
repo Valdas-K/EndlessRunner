@@ -10,8 +10,8 @@ public class Spawner : MonoBehaviour
     public float startingObstacleSpeed;
 
     //Kintamieji, pagal kuriuos bus apskaičiuojamas žaidimo sunkumas
-    [Range(0, 1)] public float obstacleSpawnTimeFactor = 0.1f;
-    [Range(0, 1)] public float obstacleSpeedFactor = 0.2f;
+    [Range(0, 1)] public float obstacleSpawnTimeFactor;
+    [Range(0, 1)] public float obstacleSpeedFactor;
 
     //Kliūčių atsiradimo laikas ir greitis
     private float obstacleSpawnTime;
@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
     private float timeAlive;
 
     //Laikas iki kitos kliūties
-    private float timeUntilObstacleSpawn = 2f;
+    private float timeUntilObstacleSpawn;
 
     private void Start()
     {

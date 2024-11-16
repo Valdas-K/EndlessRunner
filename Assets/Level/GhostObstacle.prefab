@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2050548138133148906}
   - component: {fileID: 6708574587259023986}
   - component: {fileID: 610450687940334616}
+  - component: {fileID: 4458424453883722234}
   m_Layer: 8
   m_Name: GhostObstacle
   m_TagString: Obstacle
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 860704146474536765}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.614378, y: 0.83291674, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -42,7 +43,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860704146474536765}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -60,7 +61,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!114 &610450687940334616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,6 +72,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10b132b61f30bc84d9059debe007ba74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4458424453883722234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860704146474536765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51877ec32cdd05441ad897a69fd03861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1341303390868547182
@@ -156,7 +169,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.375, y: 0.9375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -201,7 +214,7 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.375, y: 0.9375}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 1.375, y: 0.9375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -225,7 +238,7 @@ Animator:
   m_GameObject: {fileID: 1341303390868547182}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: efd301b588e038a41b55f1a02c06fa4d, type: 2}
+  m_Controller: {fileID: 9100000, guid: a5356e7f7c38c8048bcf8f29062a90d5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

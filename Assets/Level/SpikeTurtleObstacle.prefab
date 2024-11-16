@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &457747866098633484
+--- !u!1 &4046093125570328597
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5108653024737350975}
-  - component: {fileID: 2577823518004699979}
-  - component: {fileID: 502275974715065499}
-  - component: {fileID: 7884623345667777269}
+  - component: {fileID: 7059048969935231913}
+  - component: {fileID: 5610318853965711035}
+  - component: {fileID: 635439854536262990}
+  - component: {fileID: 5066687296596296559}
   m_Layer: 8
   m_Name: SpikeTurtle
   m_TagString: Obstacle
@@ -19,28 +19,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5108653024737350975
+--- !u!4 &7059048969935231913
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457747866098633484}
+  m_GameObject: {fileID: 4046093125570328597}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1967896399575787733}
+  m_Father: {fileID: 8418356000015382117}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2577823518004699979
+--- !u!212 &5610318853965711035
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457747866098633484}
+  m_GameObject: {fileID: 4046093125570328597}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -89,14 +89,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &502275974715065499
+--- !u!95 &635439854536262990
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457747866098633484}
+  m_GameObject: {fileID: 4046093125570328597}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 1a08aece99f5be64b85398ada1d6ab30, type: 2}
@@ -111,13 +111,13 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!60 &7884623345667777269
+--- !u!60 &5066687296596296559
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457747866098633484}
+  m_GameObject: {fileID: 4046093125570328597}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -173,7 +173,7 @@ PolygonCollider2D:
       - {x: 0.86924934, y: 0.13980031}
       - {x: 0.9680939, y: 0.4986863}
   m_UseDelaunayMesh: 0
---- !u!1 &3720982948277837048
+--- !u!1 &7630132476307739333
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,9 +181,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1967896399575787733}
-  - component: {fileID: 8377421374302323510}
-  - component: {fileID: 6654691159146399623}
+  - component: {fileID: 8418356000015382117}
+  - component: {fileID: 670674647612519519}
+  - component: {fileID: 3917084123695189297}
   m_Layer: 8
   m_Name: SpikeTurtleObstacle
   m_TagString: Obstacle
@@ -191,30 +191,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1967896399575787733
+--- !u!4 &8418356000015382117
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3720982948277837048}
+  m_GameObject: {fileID: 7630132476307739333}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.06, y: 1.18, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5108653024737350975}
+  - {fileID: 7059048969935231913}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &8377421374302323510
+--- !u!50 &670674647612519519
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3720982948277837048}
+  m_GameObject: {fileID: 7630132476307739333}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -234,13 +234,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 6
---- !u!114 &6654691159146399623
+--- !u!114 &3917084123695189297
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3720982948277837048}
+  m_GameObject: {fileID: 7630132476307739333}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10b132b61f30bc84d9059debe007ba74, type: 3}
