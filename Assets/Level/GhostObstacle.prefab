@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6708574587259023986}
   - component: {fileID: 610450687940334616}
   - component: {fileID: 4458424453883722234}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: GhostObstacle
   m_TagString: Obstacle
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 5903698726740817587}
   - component: {fileID: 5720257337150177133}
   - component: {fileID: 888097362598863503}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Ghost
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

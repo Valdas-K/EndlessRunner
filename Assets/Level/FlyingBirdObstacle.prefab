@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3463516053565248185}
   - component: {fileID: 3800927627747697497}
   - component: {fileID: -4143106311716311950}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: FlyingBirdObstacle
   m_TagString: Obstacle
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 7028789356582661720}
   - component: {fileID: 8373962204822518731}
   - component: {fileID: 3457552631093911365}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: FlyingBird
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

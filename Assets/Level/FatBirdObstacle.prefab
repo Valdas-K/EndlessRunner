@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 126131367321685132}
   - component: {fileID: 3749940013617436884}
   - component: {fileID: 697957261958960123}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: FatBird
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 1467133616150105483}
   - component: {fileID: -4258958932431269021}
   - component: {fileID: 2771289349018677587}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: FatBirdObstacle
   m_TagString: Obstacle
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}

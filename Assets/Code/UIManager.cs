@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private TextMeshProUGUI gameOverScoreUI;
     [SerializeField] private TextMeshProUGUI gameOverHighscoreUI;
+    [SerializeField] private TextMeshProUGUI gameOverCoinsCollectedUI;
+    [SerializeField] private TextMeshProUGUI gameOverTotalCoinsUI;
 
     //Sukuriamas klasės objektas
     GameManager gm;
@@ -23,7 +25,7 @@ public class UIManager : MonoBehaviour
     private void OnGUI()
     {
         //Rezultatas suapvalinamas
-        scoreUI.text = "Score: " + gm.currentScore.ToString("F0");
+        scoreUI.text = "Score: " + gm.currentScore.ToString("F0") + "\nCoins: " + gm.collectedCoins;
     }
 
     public void ActivateGameOverUI()
@@ -31,7 +33,9 @@ public class UIManager : MonoBehaviour
         //Pasibaigus žaidimui, paleidžiamas meniu ir parodomi rezultatai
         gameOverUI.SetActive(true);
         gameOverScoreUI.text = "Score: " + gm.currentScore.ToString("F0");
-        gameOverHighscoreUI.text = "Highscore: " + gm.data.highscore.ToString("F0");
+        gameOverHighscoreUI.text = "Highscore: " + gm.highScore.ToString("F0");
+        gameOverCoinsCollectedUI.text = "Coins Collected: " + gm.collectedCoins.ToString();
+        gameOverTotalCoinsUI.text = "Total Coins: " + gm.totalCoins.ToString();
     }
 
     //Paspaudus pradėti žaidimą mygtuką, žaidimas prasideda

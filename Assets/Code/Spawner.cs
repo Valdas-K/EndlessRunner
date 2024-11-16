@@ -3,7 +3,7 @@
 public class Spawner : MonoBehaviour
 {
     //Visų kliūčių masyvas
-    [SerializeField] private GameObject[] obstaclePrefabs;
+    [SerializeField] private GameObject[] spawnObjectPrefabs;
 
     //Pradinis kliūčių atsiradimo laikas ir greitis
     public float startingObstacleSpawnTime;
@@ -69,14 +69,17 @@ public class Spawner : MonoBehaviour
 
     private void Spawn()
     {
-        //Parenkama kliūtis
-        GameObject obstacleToSpawn = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
+        if(spawnObjectPrefabs.Length > 0)
+        {
+            //Parenkama kliūtis
+            GameObject obstacleToSpawn = spawnObjectPrefabs[Random.Range(0, spawnObjectPrefabs.Length)];
 
-        //Kliūtis sugeneruojama
-        GameObject spawnedObstacle = Instantiate(obstacleToSpawn, transform.position, Quaternion.identity);
+            //Kliūtis sugeneruojama
+            GameObject spawnedObstacle = Instantiate(obstacleToSpawn, transform.position, Quaternion.identity);
 
-        //Parenkamas greitis
-        Rigidbody2D obstacleRB = spawnedObstacle.GetComponent<Rigidbody2D>();
-        obstacleRB.linearVelocity = Vector2.left * obstacleSpeed;
+            //Parenkamas greitis
+            Rigidbody2D obstacleRB = spawnedObstacle.GetComponent<Rigidbody2D>();
+            obstacleRB.linearVelocity = Vector2.left * obstacleSpeed;
+        }
     }
 }

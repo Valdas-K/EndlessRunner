@@ -22,4 +22,14 @@ public class PlayerCollision : MonoBehaviour
             GameManager.Instance.GameOver();
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        //Palietus coin 
+        if (other.transform.CompareTag("Coin"))
+        {
+            GameManager.Instance.CoinCollected();
+            Destroy(other.gameObject);
+        }
+    }
 }
