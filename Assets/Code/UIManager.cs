@@ -10,6 +10,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gameOverHighscoreUI;
     [SerializeField] private TextMeshProUGUI gameOverCoinsCollectedUI;
     [SerializeField] private TextMeshProUGUI gameOverTotalCoinsUI;
+    [SerializeField] private TextMeshProUGUI gameOverObstaclesUI;
+    [SerializeField] private TextMeshProUGUI gameOverDistanceUI;
+
 
     //Sukuriamas klasės objektas
     GameManager gm;
@@ -25,17 +28,22 @@ public class UIManager : MonoBehaviour
     private void OnGUI()
     {
         //Rezultatas suapvalinamas
-        scoreUI.text = "Score: " + gm.currentScore.ToString("F0") + "\nCoins: " + gm.collectedCoins;
+        scoreUI.text = "Distance: " + gm.distanceScore.ToString("F0") + "\nCoins: " + gm.coinsScore + "\nEnemies: " + gm.enemiesScore;
     }
 
     public void ActivateGameOverUI()
     {
         //Pasibaigus žaidimui, paleidžiamas meniu ir parodomi rezultatai
         gameOverUI.SetActive(true);
-        gameOverScoreUI.text = "Score: " + gm.currentScore.ToString("F0");
+
+        gameOverDistanceUI.text = "Distance: " + gm.distanceScore.ToString("F0");
+        gameOverObstaclesUI.text = "Obstacles: " + gm.enemiesScore.ToString();
+        gameOverCoinsCollectedUI.text = "Coins: " + gm.coinsScore.ToString();
+        gameOverScoreUI.text = "Game Score: " + gm.gameScore.ToString();
+
         gameOverHighscoreUI.text = "Highscore: " + gm.highScore.ToString("F0");
-        gameOverCoinsCollectedUI.text = "Coins Collected: " + gm.collectedCoins.ToString();
         gameOverTotalCoinsUI.text = "Total Coins: " + gm.totalCoins.ToString();
+
     }
 
     //Paspaudus pradėti žaidimą mygtuką, žaidimas prasideda

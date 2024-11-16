@@ -18,22 +18,26 @@ public class Spawner : MonoBehaviour
     private float obstacleSpeed;
 
     //Išgyventas laikas
-    private float timeAlive;
+    //private float timeAlive;
 
     //Laikas iki kitos kliūties
     private float timeUntilObstacleSpawn;
 
+    //Sukuriamas klasės objektas
+    GameManager gm;
+
     private void Start()
     {
+        gm = GameManager.Instance;
         //Pradedant žaidimą, atstatomos pradinės reikšmės
-        GameManager.Instance.onPlay.AddListener(ResetFactors);
+        gm.onPlay.AddListener(ResetFactors);
     }
     private void Update()
     {
-        if(GameManager.Instance.isPlaying)
+        if(gm.isPlaying)
         {
             //Jei yra žaidžiama, yra skaičiuojamas išgyventas laikas, apskaičiuojamas tolesnis žaidimo sunkumas ir generuojamos kliūtys
-            timeAlive += Time.deltaTime;
+            //timeAlive += Time.deltaTime;
             CalculateFactors();
             SpawnLoop();
         }
@@ -42,8 +46,8 @@ public class Spawner : MonoBehaviour
     private void CalculateFactors()
     {
         //Apskaičiuojamas kliūčių atsiradimo greitis ir kliūčių greitis
-        obstacleSpawnTime = startingObstacleSpawnTime / Mathf.Pow(timeAlive, obstacleSpawnTimeFactor);
-        obstacleSpeed = startingObstacleSpeed * Mathf.Pow(timeAlive, obstacleSpeedFactor);
+        obstacleSpawnTime = startingObstacleSpawnTime / Mathf.Pow(gm.distanceScore, obstacleSpawnTimeFactor);
+        obstacleSpeed = startingObstacleSpeed * Mathf.Pow(gm.distanceScore, obstacleSpeedFactor);
     }
 
     private void SpawnLoop()
@@ -62,7 +66,7 @@ public class Spawner : MonoBehaviour
     private void ResetFactors()
     {
         //Atstatomi kintamieji į pradines reikšmes
-        timeAlive = 1f;
+        //timeAlive = 1f;
         obstacleSpawnTime = startingObstacleSpawnTime;
         obstacleSpeed = startingObstacleSpeed;
     }
