@@ -52,6 +52,9 @@ public class GameManager : MonoBehaviour
                 coins = 0
             };
         }
+
+        totalCoins = data.coins;
+        highScore = data.highscore;
     }
 
     private void Update()
@@ -93,7 +96,10 @@ public class GameManager : MonoBehaviour
     //Pasibaigus žaidimui
     public void GameOver()
     {
-        gameScore = coinsScore + enemiesScore + MathF.Ceiling(distanceScore);
+
+        distanceScore = Mathf.RoundToInt(distanceScore);
+
+        gameScore = coinsScore + enemiesScore + distanceScore;
 
         //Prie visų pinigų pridedami surinkti pinigai
         totalCoins += coinsScore;

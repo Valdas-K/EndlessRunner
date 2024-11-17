@@ -4,6 +4,7 @@ public class UIManager : MonoBehaviour
 {
     //Sukuriami vartotojo sąsajos elementai
     [SerializeField] private TextMeshProUGUI scoreUI;
+    [SerializeField] private TextMeshProUGUI coinsUI;
     [SerializeField] private GameObject startMenuUI;
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private TextMeshProUGUI gameOverScoreUI;
@@ -29,6 +30,7 @@ public class UIManager : MonoBehaviour
     {
         //Rezultatas suapvalinamas
         scoreUI.text = "Distance: " + gm.distanceScore.ToString("F0") + "\nCoins: " + gm.coinsScore + "\nEnemies: " + gm.enemiesScore;
+        coinsUI.text = "Total Coins: " + gm.totalCoins.ToString();
     }
 
     public void ActivateGameOverUI()
