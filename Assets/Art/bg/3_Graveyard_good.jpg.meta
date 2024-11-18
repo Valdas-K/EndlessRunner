@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      3_Graveyard_good_0: -1286988670326038710
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

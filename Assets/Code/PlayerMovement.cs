@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping = false;
     private float jumpTimer;
 
+    //Aprašomas klasės kintamasis, iš kurio bus paimami valdymo nustatymai
+    public InputControl inputcontrol;
+
     //Aprašomas veikėjo fizikos komponentas
     private Rigidbody2D rb;
     private void Awake()
@@ -21,24 +24,30 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+
+
     private void Update()
     {
         //Jei veikėjas yra ant žemės ir yra paspaustas pašokimo mygtukas, veikėjas pašoka į orą
-        if(isGrounded && Input.GetButtonDown("Jump"))
+        if (isGrounded && Input.GetKeyDown(inputcontrol.JumpKey))
         {
             isJumping = true;
             rb.AddForce(Vector2.up * jumpForce);
         }
 
         //Tikrinama, ar veikėjas jau yra ore ir toliau yra laikomas pašokimo mygtukas
-        if(isJumping && Input.GetButton("Jump"))
+        if(isJumping && Input.GetKey(inputcontrol.JumpKey))
         {
             //Tikrinama, ar veikėjas dar gali šokti į orą
             if(jumpTimer < jumpTime)
             {
-                //Jei taip, veikėjas toliau šoka aukštyn 
-                rb.AddForce(Vector2.up * jumpForce);
-
+                //max greitis
+                if(rb.linearVelocityY < 9f)
+                {
+                    //Jei taip, veikėjas toliau šoka aukštyn 
+                    rb.AddForce(Vector2.up * jumpForce);
+                }
+                
                 //Kintamojo reikšmė didėja priklausomai nuo laiko, kurį buvo nuspaustas pašokimo mygtukas
                 jumpTimer += Time.deltaTime;
             } else
@@ -49,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Tikrinama, ar pašokimo mygtukas yra nebenaudojamas
-        if (Input.GetButtonUp("Jump"))
+        if (Input.GetKeyUp(inputcontrol.JumpKey))
         {
             //Jei taip, veikėjas nebegali toliau šokti į orą
             isJumping = false;
@@ -57,7 +66,6 @@ public class PlayerMovement : MonoBehaviour
             //Pašokimo laiko reikšmė atnaujinama
             jumpTimer = 0;
         }
-
     }
 
     //Tikrinama, ar Veikėjas yra ant žemės

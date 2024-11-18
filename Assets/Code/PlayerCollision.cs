@@ -18,7 +18,7 @@ public class PlayerCollision : MonoBehaviour
         //Palietus kliūtį, žaidimas pasibaigia
         if (other.transform.CompareTag("Obstacle"))
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
             GameManager.Instance.GameOver();
         }
     }
