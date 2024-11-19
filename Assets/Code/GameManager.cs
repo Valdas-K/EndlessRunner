@@ -1,15 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
     //Sukuriamas klasės objektas (singleton)
     public static GameManager Instance;
-    private void Awake()
-    {
-        if (Instance == null)
-        {
+    private void Awake() {
+        if (Instance == null) {
             Instance = this;
         }
     }
@@ -38,19 +35,14 @@ public class GameManager : MonoBehaviour
     public UnityEvent onEnemyDefeated = new();
     public UnityEvent onCollectedPower = new();
 
-
-    private void Start()
-    {
+    private void Start() {
         //Įkeliami išsaugoti duomenys
         string loadedData = SaveSystem.Load("save");
-        if (loadedData != null)
-        {
+        if (loadedData != null) {
             data = JsonUtility.FromJson<Data>(loadedData);
-        } else
-        {
+        } else {
             //Jei nėra duomenų, sukuriamas naujas duomenų kintamasis
-            data = new Data
-            {
+            data = new Data {
                 highscore = 0,
                 coins = 0
             };
@@ -60,17 +52,14 @@ public class GameManager : MonoBehaviour
         highScore = data.highscore;
     }
 
-    private void Update()
-    {
+    private void Update() {
         //Jei žaidžiama, rezultatas didėja pagal išgyventą laiką
-        if(isPlaying)
-        {
+        if(isPlaying) {
             distanceScore += Time.deltaTime;
         }    
     }
 
-    public void StartGame()
-    {
+    public void StartGame() {
         //Pradedamas žaidimas, pradinis rezultatas yra 0
         onPlay.Invoke();
         isPlaying = true;
@@ -83,15 +72,13 @@ public class GameManager : MonoBehaviour
     }
 
     //Paėmus pinigą
-    public void CoinCollected()
-    {
+    public void CoinCollected() {
         onCollectedCoin.Invoke();
         coinsScore += 1;
     }
 
     //Paėmus pinigą
-    public void PowerCollected()
-    {
+    public void PowerCollected() {
         onCollectedPower.Invoke();
         powers += 1;
         Debug.Log(powers);
@@ -99,15 +86,13 @@ public class GameManager : MonoBehaviour
     }
 
     //Paėmus pinigą
-    public void EnemyDefeated()
-    {
+    public void EnemyDefeated() {
         onEnemyDefeated.Invoke();
         enemiesScore += 1;
     }
 
     //Pasibaigus žaidimui
-    public void GameOver()
-    {
+    public void GameOver() {
         Time.timeScale = 1;
         PauseGame.gameIsPaused = false;
 
@@ -122,8 +107,7 @@ public class GameManager : MonoBehaviour
         data.coins = totalCoins;
 
         //Jei rezultatas yra aukščiausias, jis tampa geriausiu
-        if (data.highscore < gameScore)
-        {
+        if (data.highscore < gameScore) {
             data.highscore = gameScore;
             highScore = gameScore;
         }

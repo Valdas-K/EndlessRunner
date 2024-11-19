@@ -2,8 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InputControl : MonoBehaviour
-{
+public class InputControl : MonoBehaviour {
     //Sukuriami mygtuko, teksto komponentai
     public Button changeJumpButton;
     public TMP_Text jumpButtonText;
@@ -17,13 +16,9 @@ public class InputControl : MonoBehaviour
     //Ar keičiamas mygtukas
     private bool isChangingKey = false;
 
-
-
-    private void Start()
-    {
+    private void Start() {
         jumpKey = (KeyCode)LoadSettings();
-        if(jumpKey == KeyCode.None)
-        {
+        if (jumpKey == KeyCode.None) {
             jumpKey = KeyCode.Space;
         }
         //Atnaujinamas tekstas ir aprašomas įvykis
@@ -31,30 +26,24 @@ public class InputControl : MonoBehaviour
         changeJumpButton.onClick.AddListener(StartKeyChange);
     }
 
-    private void Update()
-    {
+    private void Update() {
         //Tikrinama, ar keičiamas mygtukas
-        if (isChangingKey)
-        {
+        if (isChangingKey) {
             //Jei taip, paleidžiama mygtuko priskyrimo funkcija
             DetectNewKey();
         }
     }
 
     //Pradedamas mygtuko keitimas
-    void StartKeyChange()
-    {
+    void StartKeyChange() {
         isChangingKey = true;
     }
 
     //Priskiriamas naujas mygtukas
-    void DetectNewKey()
-    {
+    void DetectNewKey() {
         //Randamas paspaustas naujas mygtukas
-        foreach (KeyCode keyCode in System.Enum.GetValues(typeof(KeyCode)))
-        {
-            if (Input.GetKeyDown(keyCode))
-            {
+        foreach (KeyCode keyCode in System.Enum.GetValues(typeof(KeyCode))) {
+            if (Input.GetKeyDown(keyCode)) {
                 //Priskiriama reikšmė
                 jumpKey = keyCode;
 
@@ -72,18 +61,15 @@ public class InputControl : MonoBehaviour
     }
 
     //Atnaujinamas mygtuko tekstas
-    void UpdateJumpButtonText()
-    {
+    void UpdateJumpButtonText() {
         jumpButtonText.text = "(" + jumpKey + ")";
     }
 
-    public void SaveSettings(KeyCode key)
-    {
+    public void SaveSettings(KeyCode key) {
         PlayerPrefs.SetInt("jumpKey", (int)key);
     }
 
-    public int LoadSettings()
-    {
+    public int LoadSettings() {
         return PlayerPrefs.GetInt("jumpKey");
     }
 }

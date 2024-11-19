@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-public class BackgroundScroller : MonoBehaviour
-{
+public class BackgroundScroller : MonoBehaviour {
     //Aprašomi foninės nuotraukos komponentai
     public BoxCollider2D collider2d;
     public Rigidbody2D rb;
@@ -12,8 +11,7 @@ public class BackgroundScroller : MonoBehaviour
     //Fono judėjimo greičio kintamasis
     public float scrollSpeed;
 
-    private void Start()
-    {
+    private void Start(){
         //Pridedami foninės nuotraukos komponentai
         collider2d = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
@@ -28,9 +26,9 @@ public class BackgroundScroller : MonoBehaviour
         rb.linearVelocity = new Vector2(scrollSpeed, 0);
     }
 
-    private void Update()
-    {
+    private void Update() {
         //Suteikiamas besikartojančio fono efektas
+
         if (transform.position.x < -width) {
             //Pasibaigus pirmai fono nuotraukai, yra atkartojamas paveikslėlis
             Vector2 resetPosition = new(width * 2f, 0);

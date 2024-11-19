@@ -26,16 +26,13 @@ public class Spawner : MonoBehaviour
     //Sukuriamas klasės objektas
     GameManager gm;
 
-    private void Start()
-    {
+    private void Start() {
         gm = GameManager.Instance;
         //Pradedant žaidimą, atstatomos pradinės reikšmės
         gm.onPlay.AddListener(ResetFactors);
     }
-    private void Update()
-    {
-        if(gm.isPlaying)
-        {
+    private void Update() {
+        if (gm.isPlaying) {
             //Jei yra žaidžiama, yra skaičiuojamas išgyventas laikas, apskaičiuojamas tolesnis žaidimo sunkumas ir generuojamos kliūtys
             //timeAlive += Time.deltaTime;
             CalculateFactors();
@@ -43,38 +40,32 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void CalculateFactors()
-    {
+    private void CalculateFactors() {
         //Apskaičiuojamas kliūčių atsiradimo greitis ir kliūčių greitis
         obstacleSpawnTime = startingObstacleSpawnTime / Mathf.Pow(gm.distanceScore, obstacleSpawnTimeFactor);
         obstacleSpeed = startingObstacleSpeed * Mathf.Pow(gm.distanceScore, obstacleSpeedFactor);
     }
 
-    private void SpawnLoop()
-    {
+    private void SpawnLoop() {
         //Kaupiamas laikis iki sekančios kliūties
         timeUntilObstacleSpawn += Time.deltaTime;
 
-        if(timeUntilObstacleSpawn >= obstacleSpawnTime)
-        {
+        if (timeUntilObstacleSpawn >= obstacleSpawnTime) {
             //Jei sukauptas laikas didesnis už kliūties atsiradimo laiką, generuojama nauja kliūtis ir atnaujinamas sukauptas laikas
             Spawn();
             timeUntilObstacleSpawn = 0f;
         }
     }
 
-    private void ResetFactors()
-    {
+    private void ResetFactors() {
         //Atstatomi kintamieji į pradines reikšmes
         //timeAlive = 1f;
         obstacleSpawnTime = startingObstacleSpawnTime;
         obstacleSpeed = startingObstacleSpeed;
     }
 
-    private void Spawn()
-    {
-        if(spawnObjectPrefabs.Length > 0)
-        {
+    private void Spawn() {
+        if (spawnObjectPrefabs.Length > 0) {
             //Parenkama kliūtis
             GameObject obstacleToSpawn = spawnObjectPrefabs[Random.Range(0, spawnObjectPrefabs.Length)];
 
