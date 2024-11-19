@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Destroy
   - Others
+  - PowerUp
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Coin
   - Obstacle
   - OtherObstacles
-  - 
+  - PowerUp
   - 
   - 
   - 

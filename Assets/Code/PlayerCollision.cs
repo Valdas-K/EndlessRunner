@@ -31,5 +31,13 @@ public class PlayerCollision : MonoBehaviour
             GameManager.Instance.CoinCollected();
             Destroy(other.gameObject);
         }
+
+        //palietus powerup
+        if (other.transform.CompareTag("PowerUp"))
+        {
+            GameManager.Instance.PowerCollected();
+
+            Destroy(other.gameObject);
+        }
     }
 }

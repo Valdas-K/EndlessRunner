@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gameOverDistanceUI;
 
 
+
+
     //Sukuriamas klasės objektas
     GameManager gm;
 

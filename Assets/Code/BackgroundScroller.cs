@@ -27,11 +27,11 @@ public class BackgroundScroller : MonoBehaviour
         //Fonui suteikiamas judėjimo greitis: x reikšmei suteikiamas "scrollSpeed" kintamasis, y - 0, nes y ašyje fonas nejuda
         rb.linearVelocity = new Vector2(scrollSpeed, 0);
     }
+
     private void Update()
     {
         //Suteikiamas besikartojančio fono efektas
-        if(transform.position.x < -width)
-        {
+        if (transform.position.x < -width) {
             //Pasibaigus pirmai fono nuotraukai, yra atkartojamas paveikslėlis
             Vector2 resetPosition = new(width * 2f, 0);
             transform.position = (Vector2)transform.position + resetPosition;

@@ -1,6 +1,4 @@
 ﻿using TMPro;
-using Unity.VisualScripting;
-using Unity.VisualScripting.AssemblyQualifiedNameParser;
 using UnityEngine;
 using UnityEngine.UI;
 

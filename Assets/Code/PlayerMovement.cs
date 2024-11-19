@@ -28,44 +28,49 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        //Jei veikėjas yra ant žemės ir yra paspaustas pašokimo mygtukas, veikėjas pašoka į orą
-        if (isGrounded && Input.GetKeyDown(inputcontrol.JumpKey))
+        if (!PauseGame.gameIsPaused)
         {
-            isJumping = true;
-            rb.AddForce(Vector2.up * jumpForce);
-        }
+            //Jei veikėjas yra ant žemės ir yra paspaustas pašokimo mygtukas, veikėjas pašoka į orą
+            if (isGrounded && Input.GetKeyDown(inputcontrol.JumpKey))
+            {
+                isJumping = true;
+                rb.AddForce(Vector2.up * jumpForce);
+            }
 
-        //Tikrinama, ar veikėjas jau yra ore ir toliau yra laikomas pašokimo mygtukas
-        if(isJumping && Input.GetKey(inputcontrol.JumpKey))
-        {
-            //Tikrinama, ar veikėjas dar gali šokti į orą
-            if(jumpTimer < jumpTime)
+            //Tikrinama, ar veikėjas jau yra ore ir toliau yra laikomas pašokimo mygtukas
+            if (isJumping && Input.GetKey(inputcontrol.JumpKey))
             {
-                //max greitis
-                if(rb.linearVelocityY < 9f)
+                //Tikrinama, ar veikėjas dar gali šokti į orą
+                if (jumpTimer < jumpTime)
                 {
-                    //Jei taip, veikėjas toliau šoka aukštyn 
-                    rb.AddForce(Vector2.up * jumpForce);
+                    //max greitis
+                    if (rb.linearVelocityY < 9f)
+                    {
+                        //Jei taip, veikėjas toliau šoka aukštyn 
+                        rb.AddForce(Vector2.up * jumpForce);
+                    }
+
+                    //Kintamojo reikšmė didėja priklausomai nuo laiko, kurį buvo nuspaustas pašokimo mygtukas
+                    jumpTimer += Time.deltaTime;
                 }
-                
-                //Kintamojo reikšmė didėja priklausomai nuo laiko, kurį buvo nuspaustas pašokimo mygtukas
-                jumpTimer += Time.deltaTime;
-            } else
+                else
+                {
+                    //Jei ne, veikėjas nebegali toliau šokti į orą
+                    isJumping = false;
+                }
+            }
+
+            //Tikrinama, ar pašokimo mygtukas yra nebenaudojamas
+            if (Input.GetKeyUp(inputcontrol.JumpKey))
             {
-                //Jei ne, veikėjas nebegali toliau šokti į orą
+                //Jei taip, veikėjas nebegali toliau šokti į orą
                 isJumping = false;
+
+                //Pašokimo laiko reikšmė atnaujinama
+                jumpTimer = 0;
             }
         }
-
-        //Tikrinama, ar pašokimo mygtukas yra nebenaudojamas
-        if (Input.GetKeyUp(inputcontrol.JumpKey))
-        {
-            //Jei taip, veikėjas nebegali toliau šokti į orą
-            isJumping = false;
-
-            //Pašokimo laiko reikšmė atnaujinama
-            jumpTimer = 0;
-        }
+       
     }
 
     //Tikrinama, ar Veikėjas yra ant žemės

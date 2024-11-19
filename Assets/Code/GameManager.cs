@@ -1,6 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public float highScore;
     public int totalCoins;
 
+    public float powers = 0;
 
     //Ar žaidžiama
     public bool isPlaying = false;
@@ -35,6 +36,8 @@ public class GameManager : MonoBehaviour
     public UnityEvent onGameOver = new();
     public UnityEvent onCollectedCoin = new();
     public UnityEvent onEnemyDefeated = new();
+    public UnityEvent onCollectedPower = new();
+
 
     private void Start()
     {
@@ -63,7 +66,7 @@ public class GameManager : MonoBehaviour
         if(isPlaying)
         {
             distanceScore += Time.deltaTime;
-        }
+        }    
     }
 
     public void StartGame()
@@ -87,6 +90,15 @@ public class GameManager : MonoBehaviour
     }
 
     //Paėmus pinigą
+    public void PowerCollected()
+    {
+        onCollectedPower.Invoke();
+        powers += 1;
+        Debug.Log(powers);
+
+    }
+
+    //Paėmus pinigą
     public void EnemyDefeated()
     {
         onEnemyDefeated.Invoke();
@@ -96,6 +108,8 @@ public class GameManager : MonoBehaviour
     //Pasibaigus žaidimui
     public void GameOver()
     {
+        Time.timeScale = 1;
+        PauseGame.gameIsPaused = false;
 
         distanceScore = Mathf.RoundToInt(distanceScore);
 
