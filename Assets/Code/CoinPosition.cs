@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class CoinPosition : MonoBehaviour
-{
+public class CoinPosition : MonoBehaviour {
     private Rigidbody2D rb;
 
     void Start() {

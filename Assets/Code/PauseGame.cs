@@ -7,24 +7,24 @@ public class PauseGame : MonoBehaviour {
     public static bool gameIsPaused;
     [SerializeField] private GameObject pauseMenu;
 
+    //Aprašomas klasės kintamasis, iš kurio bus paimami valdymo nustatymai
+    public InputControl inputcontrol;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start() {
         gm = GameManager.Instance;
         pauseMenu.SetActive(false);
-
     }
 
     // Update is called once per frame
     private void Update() {
         //Jei žaidžiama, rezultatas didėja pagal išgyventą laiką
-        if (GameManager.Instance.isPlaying == true) {
+        if (gm.isPlaying == true) {
 
-            if (Input.GetKeyDown(KeyCode.Escape)) {
+            if (Input.GetKeyDown(inputcontrol.PauseKey)) {
                 gameIsPaused = !gameIsPaused;
                 StopGame();
             }
-
-        
         }
     }
 

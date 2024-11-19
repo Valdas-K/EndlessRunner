@@ -1,17 +1,16 @@
 ﻿using UnityEngine;
 using TMPro;
-public class UIManager : MonoBehaviour
-{
+public class UIManager : MonoBehaviour {
     //Sukuriami vartotojo sąsajos elementai
     [SerializeField] private TextMeshProUGUI scoreUI;
     [SerializeField] private TextMeshProUGUI coinsUI;
-    [SerializeField] private GameObject gameOverUI;
-    [SerializeField] private TextMeshProUGUI gameOverScoreUI;
-    [SerializeField] private TextMeshProUGUI gameOverHighscoreUI;
-    [SerializeField] private TextMeshProUGUI gameOverCoinsCollectedUI;
-    [SerializeField] private TextMeshProUGUI gameOverTotalCoinsUI;
-    [SerializeField] private TextMeshProUGUI gameOverObstaclesUI;
-    [SerializeField] private TextMeshProUGUI gameOverDistanceUI;
+    [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private TextMeshProUGUI gameOverTimeScore;
+    [SerializeField] private TextMeshProUGUI gameOverObstacleScore;
+    [SerializeField] private TextMeshProUGUI gameOverCoinsScore;
+    [SerializeField] private TextMeshProUGUI gameOverTotalScore;
+    [SerializeField] private TextMeshProUGUI gameOverHighScore;
+    [SerializeField] private TextMeshProUGUI gameOverTotalCoins;
 
     //Sukuriamas klasės objektas
     GameManager gm;
@@ -25,26 +24,27 @@ public class UIManager : MonoBehaviour
 
     private void OnGUI() {
         //Rezultatas suapvalinamas
-        scoreUI.text = "Distance: " + gm.distanceScore.ToString("F0") + "\nCoins: " + gm.coinsScore + "\nEnemies: " + gm.enemiesScore;
+        scoreUI.text = "Time: " + gm.timeScore.ToString("F0") + "\nCoins: " + gm.coinsScore + "\nEnemies: " + gm.obstaclesScore;
         coinsUI.text = "Total Coins: " + gm.totalCoins.ToString();
     }
 
     public void ActivateGameOverUI() {
+        scoreUI.enabled = false;
         //Pasibaigus žaidimui, paleidžiamas meniu ir parodomi rezultatai
-        gameOverUI.SetActive(true);
+        gameOverMenu.SetActive(true);
 
-        gameOverDistanceUI.text = "Distance: " + gm.distanceScore.ToString("F0");
-        gameOverObstaclesUI.text = "Obstacles: " + gm.enemiesScore.ToString();
-        gameOverCoinsCollectedUI.text = "Coins: " + gm.coinsScore.ToString();
-        gameOverScoreUI.text = "Game Score: " + gm.gameScore.ToString();
-
-        gameOverHighscoreUI.text = "Highscore: " + gm.highScore.ToString("F0");
-        gameOverTotalCoinsUI.text = "Total Coins: " + gm.totalCoins.ToString();
+        gameOverTimeScore.text = "Time: " + gm.timeScore.ToString("F0");
+        gameOverObstacleScore.text = "Obstacles: " + gm.obstaclesScore.ToString();
+        gameOverCoinsScore.text = "Coins: " + gm.coinsScore.ToString();
+        gameOverTotalScore.text = "Game Score: " + gm.gameScore.ToString();
+        gameOverHighScore.text = "Highscore: " + gm.highScore.ToString("F0");
+        gameOverTotalCoins.text = "Total Coins: " + gm.totalCoins.ToString();
 
     }
 
     //Paspaudus pradėti žaidimą mygtuką, žaidimas prasideda
     public void PlayButtonHandler() {
+        scoreUI.enabled = true;
         gm.StartGame();
     }
 }

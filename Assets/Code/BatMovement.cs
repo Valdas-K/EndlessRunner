@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
-public class BatMovement : MonoBehaviour
-{
+public class BatMovement : MonoBehaviour {
     //Aprašomas kliūties fizikos komponentas
     private Rigidbody2D rb;
 

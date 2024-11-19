@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-public class Spawner : MonoBehaviour
-{
+public class Spawner : MonoBehaviour {
     //Visų kliūčių masyvas
     [SerializeField] private GameObject[] spawnObjectPrefabs;
 
@@ -17,9 +16,6 @@ public class Spawner : MonoBehaviour
     private float obstacleSpawnTime;
     private float obstacleSpeed;
 
-    //Išgyventas laikas
-    //private float timeAlive;
-
     //Laikas iki kitos kliūties
     private float timeUntilObstacleSpawn;
 
@@ -33,8 +29,6 @@ public class Spawner : MonoBehaviour
     }
     private void Update() {
         if (gm.isPlaying) {
-            //Jei yra žaidžiama, yra skaičiuojamas išgyventas laikas, apskaičiuojamas tolesnis žaidimo sunkumas ir generuojamos kliūtys
-            //timeAlive += Time.deltaTime;
             CalculateFactors();
             SpawnLoop();
         }
@@ -42,8 +36,8 @@ public class Spawner : MonoBehaviour
 
     private void CalculateFactors() {
         //Apskaičiuojamas kliūčių atsiradimo greitis ir kliūčių greitis
-        obstacleSpawnTime = startingObstacleSpawnTime / Mathf.Pow(gm.distanceScore, obstacleSpawnTimeFactor);
-        obstacleSpeed = startingObstacleSpeed * Mathf.Pow(gm.distanceScore, obstacleSpeedFactor);
+        obstacleSpawnTime = startingObstacleSpawnTime / Mathf.Pow(gm.timeScore, obstacleSpawnTimeFactor);
+        obstacleSpeed = startingObstacleSpeed * Mathf.Pow(gm.timeScore, obstacleSpeedFactor);
     }
 
     private void SpawnLoop() {
@@ -59,7 +53,6 @@ public class Spawner : MonoBehaviour
 
     private void ResetFactors() {
         //Atstatomi kintamieji į pradines reikšmes
-        //timeAlive = 1f;
         obstacleSpawnTime = startingObstacleSpawnTime;
         obstacleSpeed = startingObstacleSpeed;
     }

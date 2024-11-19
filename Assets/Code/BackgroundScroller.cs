@@ -11,7 +11,7 @@ public class BackgroundScroller : MonoBehaviour {
     //Fono judėjimo greičio kintamasis
     public float scrollSpeed;
 
-    private void Start(){
+    private void Start() {
         //Pridedami foninės nuotraukos komponentai
         collider2d = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();

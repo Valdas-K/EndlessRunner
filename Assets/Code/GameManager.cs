@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
+
     //Sukuriamas klasės objektas (singleton)
     public static GameManager Instance;
+
     private void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -16,8 +17,8 @@ public class GameManager : MonoBehaviour
 
     //Esamas rezultatas distancija
     public int coinsScore;
-    public int enemiesScore;
-    public float distanceScore;
+    public int obstaclesScore;
+    public float timeScore;
 
     public float gameScore;
     public float highScore;
@@ -47,7 +48,6 @@ public class GameManager : MonoBehaviour
                 coins = 0
             };
         }
-
         totalCoins = data.coins;
         highScore = data.highscore;
     }
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     private void Update() {
         //Jei žaidžiama, rezultatas didėja pagal išgyventą laiką
         if(isPlaying) {
-            distanceScore += Time.deltaTime;
+            timeScore += Time.deltaTime;
         }    
     }
 
@@ -63,9 +63,9 @@ public class GameManager : MonoBehaviour
         //Pradedamas žaidimas, pradinis rezultatas yra 0
         onPlay.Invoke();
         isPlaying = true;
-        distanceScore = 0;
+        timeScore = 0;
         coinsScore = 0;
-        enemiesScore = 0;
+        obstaclesScore = 0;
         gameScore = 0;
         totalCoins = data.coins;
         highScore = data.highscore;
@@ -88,23 +88,16 @@ public class GameManager : MonoBehaviour
     //Paėmus pinigą
     public void EnemyDefeated() {
         onEnemyDefeated.Invoke();
-        enemiesScore += 1;
+        obstaclesScore += 1;
     }
 
     //Pasibaigus žaidimui
     public void GameOver() {
-        Time.timeScale = 1;
-        PauseGame.gameIsPaused = false;
-
-        distanceScore = Mathf.RoundToInt(distanceScore);
-
-        gameScore = coinsScore + enemiesScore + distanceScore;
+        timeScore = Mathf.RoundToInt(timeScore);
+        gameScore = coinsScore + obstaclesScore + timeScore;
 
         //Prie visų pinigų pridedami surinkti pinigai
         totalCoins += coinsScore;
-
-        //Duomenų kintamajam priskiriami visi pinigai
-        data.coins = totalCoins;
 
         //Jei rezultatas yra aukščiausias, jis tampa geriausiu
         if (data.highscore < gameScore) {
@@ -112,10 +105,15 @@ public class GameManager : MonoBehaviour
             highScore = gameScore;
         }
 
+        //Duomenų kintamajam priskiriami visi pinigai
+        data.coins = totalCoins;
+
         //Išsaugomi surinkti pinigai ir geriausias rezultatas
         string saveString = JsonUtility.ToJson(data);
         SaveSystem.Save("save", saveString);
 
+        Time.timeScale = 1;
+        PauseGame.gameIsPaused = false;
 
         //Baigiamas žaidimas
         onGameOver.Invoke();

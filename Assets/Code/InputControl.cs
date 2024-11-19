@@ -6,70 +6,101 @@ public class InputControl : MonoBehaviour {
     //Sukuriami mygtuko, teksto komponentai
     public Button changeJumpButton;
     public TMP_Text jumpButtonText;
+    public Button changePauseButton;
+    public TMP_Text pauseButtonText;
 
     //Pašokimo mygtuko kintamasis
     private KeyCode jumpKey = KeyCode.Space;
+    private KeyCode pauseKey = KeyCode.Escape;
 
     //Kreipimasis į kintamąjį
     public KeyCode JumpKey => jumpKey;
+    public KeyCode PauseKey => pauseKey;
 
-    //Ar keičiamas mygtukas
-    private bool isChangingKey = false;
+    //Ar keičiamas pasokimo mygtukas
+    private bool waitingForInput = false;
+    private string actionToChange = "";
 
     private void Start() {
-        jumpKey = (KeyCode)LoadSettings();
-        if (jumpKey == KeyCode.None) {
-            jumpKey = KeyCode.Space;
-        }
+        LoadSettings();
+
         //Atnaujinamas tekstas ir aprašomas įvykis
-        UpdateJumpButtonText();
-        changeJumpButton.onClick.AddListener(StartKeyChange);
+        UpdateButtonText();
+        changeJumpButton.onClick.AddListener(() => StartKeyChange("Jump"));
+        changePauseButton.onClick.AddListener(() => StartKeyChange("Pause"));
     }
 
     private void Update() {
         //Tikrinama, ar keičiamas mygtukas
-        if (isChangingKey) {
+        if (waitingForInput) {
             //Jei taip, paleidžiama mygtuko priskyrimo funkcija
             DetectNewKey();
         }
     }
 
     //Pradedamas mygtuko keitimas
-    void StartKeyChange() {
-        isChangingKey = true;
+    void StartKeyChange(string action) {
+        actionToChange = action;
+        waitingForInput = true;
     }
 
     //Priskiriamas naujas mygtukas
     void DetectNewKey() {
         //Randamas paspaustas naujas mygtukas
+        if (Input.anyKeyDown) {
+            KeyCode key = GetPressedKey();
+            if(key != KeyCode.None) {
+                UpdateKey(key);
+            }
+
+            waitingForInput = false;
+            SaveSettings();
+            UpdateButtonText();
+        }
+    }
+
+    public KeyCode GetPressedKey() {
         foreach (KeyCode keyCode in System.Enum.GetValues(typeof(KeyCode))) {
             if (Input.GetKeyDown(keyCode)) {
-                //Priskiriama reikšmė
-                jumpKey = keyCode;
-
-                //Atnaujinamas tekstas
-                UpdateJumpButtonText();
-
-                //Išsaugoma reikšmė
-                SaveSettings(jumpKey);
-
-                //Užbaigiamas mygtukko keitimas
-                isChangingKey = false;
-                return;
+                return keyCode;
             }
+        }
+        return KeyCode.None;
+    }
+
+    public void UpdateKey(KeyCode newKey) {
+        if(actionToChange == "Jump") {
+            jumpKey = newKey;
+        }
+        if (actionToChange == "Pause") {
+            pauseKey = newKey;
         }
     }
 
     //Atnaujinamas mygtuko tekstas
-    void UpdateJumpButtonText() {
+    void UpdateButtonText() {
         jumpButtonText.text = "(" + jumpKey + ")";
+        pauseButtonText.text = "(" + pauseKey + ")";
     }
 
-    public void SaveSettings(KeyCode key) {
-        PlayerPrefs.SetInt("jumpKey", (int)key);
+    public void SaveSettings() {
+        PlayerPrefs.SetInt("JumpKey", (int)jumpKey);
+        PlayerPrefs.SetInt("PauseKey", (int)pauseKey);
+
     }
 
-    public int LoadSettings() {
-        return PlayerPrefs.GetInt("jumpKey");
+    public void LoadSettings() {
+        if (PlayerPrefs.HasKey("JumpKey")) {
+            jumpKey = (KeyCode)PlayerPrefs.GetInt("JumpKey");
+        } else if (jumpKey == KeyCode.None) {
+            jumpKey = KeyCode.Space;
+        }
+
+        if (PlayerPrefs.HasKey("PauseKey")) {
+            pauseKey = (KeyCode)PlayerPrefs.GetInt("PauseKey");
+        }
+        else if (pauseKey == KeyCode.None) {
+            jumpKey = KeyCode.Escape;
+        }
     }
 }

@@ -19,7 +19,7 @@ public class Settings : MonoBehaviour {
 
         //Vartotojo ekrano rezoliucijos indeksas (rezoliucijų masyve), kurio bus ieškoma
         int currentResIndex = 0;
-        for(int i = 0; i < resolutions.Length; i++) {
+        for (int i = 0; i < resolutions.Length; i++) {
             //Į sąrašą pridedami elementai
             string hz = resolutions[i].refreshRateRatio.value.ToString("F0");
 

@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-public class DestroyObstacle : MonoBehaviour
-{
+public class DestroyObstacle : MonoBehaviour {
     //Sukuriamas klasės objektas
     GameManager gm;
 
