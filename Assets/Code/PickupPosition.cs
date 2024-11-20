@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class PickupPosition : MonoBehaviour {
     private Rigidbody2D rb;
+    float posY, posX;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
-        float posY = Random.Range(1f, 8f);
-        rb.transform.position = new Vector2(20f, posY);
+        posY = Random.Range(1f, 9f);
+        posX = Random.Range(15f, 25f);
+        rb.transform.position = new Vector2(posX, posY);
     }
 }

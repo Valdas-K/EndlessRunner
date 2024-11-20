@@ -215,3 +215,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sizeMultiplier: 0.5
+  sizeDuration: 3
+  timeMultiplier: 1.5
+  timeDuration: 1.5
