@@ -119,4 +119,9 @@ public class GameManager : MonoBehaviour {
         onGameOver.Invoke();
         isPlaying = false;
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

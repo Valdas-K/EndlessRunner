@@ -49,10 +49,9 @@ public class InputControl : MonoBehaviour {
         //Randamas paspaustas naujas mygtukas
         if (Input.anyKeyDown) {
             KeyCode key = GetPressedKey();
-            if(key != KeyCode.None) {
+            if(key != KeyCode.None && key != JumpKey && key != PauseKey) {
                 UpdateKey(key);
             }
-
             waitingForInput = false;
             SaveSettings();
             UpdateButtonText();
