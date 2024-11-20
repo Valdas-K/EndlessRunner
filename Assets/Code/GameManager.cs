@@ -81,7 +81,6 @@ public class GameManager : MonoBehaviour {
     public void PowerCollected() {
         onCollectedPower.Invoke();
         powers += 1;
-        Debug.Log(powers);
 
     }
 
@@ -114,7 +113,8 @@ public class GameManager : MonoBehaviour {
 
         Time.timeScale = 1;
         PauseGame.gameIsPaused = false;
-
+        
+        GameObject.FindWithTag("Player").transform.localScale = new Vector3(1f, 1f, 1f);
         //Baigiamas žaidimas
         onGameOver.Invoke();
         isPlaying = false;

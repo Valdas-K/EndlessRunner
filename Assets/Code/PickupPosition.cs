@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CoinPosition : MonoBehaviour {
+public class PickupPosition : MonoBehaviour {
     private Rigidbody2D rb;
 
     void Start() {
