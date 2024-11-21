@@ -354,7 +354,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2085312832}
         m_TargetAssemblyTypeName: SwitchPlayer, Assembly-CSharp
-        m_MethodName: SwitchLJBody
+        m_MethodName: LoadLJ
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 1451194980854508684, guid: 96d8a6875e0b33042b4254dc6bc5baa2, type: 3}
-  startingObstacleSpawnTime: 35
+  startingObstacleSpawnTime: 45
   startingObstacleSpeed: 2.5
   obstacleSpawnTimeFactor: 0.05
   obstacleSpeedFactor: 0.1
@@ -635,7 +635,7 @@ MonoBehaviour:
   spawnObjectPrefabs:
   - {fileID: 3230723760321511379, guid: 486a65d260a7bef44b60d949dd8b8ca3, type: 3}
   - {fileID: 769090483790306232, guid: ea6ba0be14128d547a4c7b02cd798a0f, type: 3}
-  startingObstacleSpawnTime: 5
+  startingObstacleSpawnTime: 11
   startingObstacleSpeed: 2
   obstacleSpawnTimeFactor: 0.01
   obstacleSpeedFactor: 0.01
@@ -3057,6 +3057,7 @@ MonoBehaviour:
   data:
     highscore: 0
     coins: 0
+    ownedCharacters: 
   coinsScore: 0
   obstaclesScore: 0
   timeScore: 0
@@ -4622,7 +4623,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761711271}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -4635,7 +4636,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Not Enough Coins!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4662,7 +4663,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 52.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5034,7 +5035,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 860704146474536765, guid: 6e3f368ace7a44c4fad1f133c97f2f77, type: 3}
-  startingObstacleSpawnTime: 45
+  startingObstacleSpawnTime: 60
   startingObstacleSpeed: 2
   obstacleSpawnTimeFactor: 0.025
   obstacleSpeedFactor: 0.05
@@ -9388,7 +9389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 8454754817216932882, guid: d50b934de168af24180bb7dba19a7a8a, type: 3}
-  startingObstacleSpawnTime: 3
+  startingObstacleSpawnTime: 4
   startingObstacleSpeed: 2
   obstacleSpawnTimeFactor: 0.01
   obstacleSpeedFactor: 0.01
@@ -10186,7 +10187,7 @@ MonoBehaviour:
   spawnObjectPrefabs:
   - {fileID: 1227845991043812912, guid: b8f2b7bcb88bff748bb3e4d19c3e1c83, type: 3}
   - {fileID: 860704146474536765, guid: 6e3f368ace7a44c4fad1f133c97f2f77, type: 3}
-  startingObstacleSpawnTime: 25
+  startingObstacleSpawnTime: 30
   startingObstacleSpeed: 3
   obstacleSpawnTimeFactor: 0.075
   obstacleSpeedFactor: 0.15
@@ -14649,13 +14650,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   longJumpBody: {fileID: 1050899565}
   doubleJumpBody: {fileID: 1088518479}
-  price: 20
+  price: 10
   coinsUI: {fileID: 1652816592}
   dJButtonText: {fileID: 1693350066}
   djHintText: {fileID: 761711273}
   data:
     highscore: 0
     coins: 0
+    ownedCharacters: 
   gm: {fileID: 544746394}
 --- !u!1 &2089248244
 GameObject:

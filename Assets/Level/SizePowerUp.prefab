@@ -150,7 +150,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5625
+  m_Radius: 0.7
 --- !u!50 &5338403701489294664
 Rigidbody2D:
   serializedVersion: 5
@@ -215,6 +215,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sizeMultiplier: 0.5
-  sizeDuration: 3
+  sizeDuration: 5
   timeMultiplier: 1.5
-  timeDuration: 1.5
+  timeDuration: 3

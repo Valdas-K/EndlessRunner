@@ -1,14 +1,17 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
+//LJ - Long Jump (Default)
+//DJ - Double Jump (Frog)
 
 public class SwitchPlayer : MonoBehaviour {
     public GameObject longJumpBody, doubleJumpBody;
-    public int price = 10;
-    bool isOwned = false;
+    public int price;
     public TextMeshProUGUI coinsUI;
     public TextMeshProUGUI dJButtonText;
     public TextMeshProUGUI djHintText;
-    private int playerPicked = 1;
+    private int playerPicked;
 
     //Duomenų saugojimo klasės kintamasis
     public Data data;
@@ -17,62 +20,71 @@ public class SwitchPlayer : MonoBehaviour {
     void Start() {
         LoadPlayer();
         gm = GameManager.Instance;
+        coinsUI.text = "Total Coins: " + gm.data.coins;
+
+        if (gm.data.ownedCharacters == "DJ")
+        {
+            dJButtonText.text = "Select";
+        }
     }
 
     private void LoadPlayer() {
         playerPicked = PlayerPrefs.GetInt("PlayerPicked");
-        if (playerPicked == 0) {
-            LoadLJ();
-        } else if (playerPicked == 0){
-            //ckeck if isowned
+        if (playerPicked == 1 && gm.data.ownedCharacters == "DJ"){
             LoadDJ();
+        } else {
+            LoadLJ();
         }
     }
 
-    private void LoadLJ() {
+    public void LoadLJ() {
+        playerPicked = 0;
         longJumpBody.SetActive(true);
         doubleJumpBody.SetActive(false);
-        djHintText.text = "";
+        HideText();
+        PlayerPrefs.SetInt("PlayerPicked", playerPicked);
+        PlayerPrefs.Save();
+        coinsUI.text = "Total Coins: " + gm.totalCoins;
     }
 
-    private void LoadDJ() {
+    public void LoadDJ() {
+        playerPicked = 1;
         doubleJumpBody.SetActive(true);
         longJumpBody.SetActive(false);
-        djHintText.text = "";
-    }
-
-    public void SwitchLJBody() {
-        playerPicked = 1;
-        LoadLJ();
+        HideText();
         PlayerPrefs.SetInt("PlayerPicked", playerPicked);
+        PlayerPrefs.Save();
+        coinsUI.text = "Total Coins: " + gm.totalCoins;
     }
 
     public void SwitchDJBody() {
-        if (isOwned == false) {
+        if (gm.data.ownedCharacters != "DJ") {
             if (gm.data.coins > price) {
                 gm.data.coins -= price;
-                Debug.Log(gm.data.coins);
-                dJButtonText.text = "Select";
-                playerPicked = 2; 
-                PlayerPrefs.SetInt("PlayerPicked", playerPicked);
+                gm.totalCoins = gm.data.coins;
                 LoadDJ();
 
-                //Išsaugomi surinkti pinigai ir geriausias rezultatas
+                gm.data.ownedCharacters = "DJ";
                 string saveString = JsonUtility.ToJson(gm.data);
                 SaveSystem.Save("save", saveString);
 
-                isOwned = true;
-                djHintText.text = "";
-                //not working
-                coinsUI.text = "Total Coins: " + gm.data.coins;
+                dJButtonText.text = "Select";
+                HideText();
+
+                coinsUI.text = "Total Coins: " + gm.totalCoins;
             }
             else {
-                djHintText.text = "Not Enough Coins!";
+                djHintText.enabled = true;
+                Invoke(nameof(HideText), 2f);
             }
         } else {
-            djHintText.text = "";
-            dJButtonText.text = "Select";
+            HideText();
             LoadDJ();
         }
+    }
+
+    public void HideText()
+    {
+        djHintText.enabled = false;
     }
 }
