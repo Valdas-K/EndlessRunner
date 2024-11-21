@@ -7968,17 +7968,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0048952103, y: -0.11748266}
+  m_Offset: {x: 0.007041216, y: -0.05095321}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.3333334, y: 1.3333334}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.69650364, y: 0.7650347}
+  m_Size: {x: 0.8209777, y: 0.8980936}
   m_EdgeRadius: 0
 --- !u!95 &1088518482
 Animator:
@@ -14594,10 +14594,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.4
+  m_Mass: 0.1
   m_LinearDamping: 0
   m_AngularDamping: 0
-  m_GravityScale: 1.2
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -14621,9 +14621,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ebfe51f5186a349a5faa56a9df4c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 25
+  jumpForce: 12
   jumpTime: 0.3
   inputcontrol: {fileID: 603159558}
+  pickedPlayer: {fileID: 2085312832}
+  maxJumps: 2
 --- !u!114 &2085312831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14654,6 +14656,8 @@ MonoBehaviour:
   coinsUI: {fileID: 1652816592}
   dJButtonText: {fileID: 1693350066}
   djHintText: {fileID: 761711273}
+  playerPicked: 0
+  rb: {fileID: 2085312829}
   data:
     highscore: 0
     coins: 0

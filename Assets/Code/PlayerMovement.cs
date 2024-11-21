@@ -17,6 +17,11 @@ public class PlayerMovement : MonoBehaviour {
 
     //Aprašomas veikėjo fizikos komponentas
     private Rigidbody2D rb;
+
+    public SwitchPlayer pickedPlayer;
+    private int jumps = 0;
+    public int maxJumps = 2;
+
     private void Awake() {
         //Pridedamas veikėjo fizikos komponentas
         rb = GetComponent<Rigidbody2D>();
@@ -27,7 +32,23 @@ public class PlayerMovement : MonoBehaviour {
             //Jei veikėjas yra ant žemės ir yra paspaustas pašokimo mygtukas, veikėjas pašoka į orą
             if (isGrounded && Input.GetKeyDown(inputcontrol.JumpKey)) {
                 isJumping = true;
-                rb.AddForce(Vector2.up * jumpForce);
+                if (pickedPlayer.playerPicked == 0)
+                {
+                    rb.AddForce(Vector2.up * jumpForce);
+                }
+                if (pickedPlayer.playerPicked == 1)
+                {
+                    jumps++;
+                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                }
+            }
+
+            else if (Input.GetKeyDown(inputcontrol.JumpKey) &&
+                pickedPlayer.playerPicked == 1 && jumps < maxJumps)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                jumps++;
+                
             }
 
             //Tikrinama, ar veikėjas jau yra ore ir toliau yra laikomas pašokimo mygtukas
@@ -35,9 +56,12 @@ public class PlayerMovement : MonoBehaviour {
                 //Tikrinama, ar veikėjas dar gali šokti į orą
                 if (jumpTimer < jumpTime) {
                     //max greitis
-                    if (rb.linearVelocityY < 9f) {
+                    if (rb.linearVelocityY < 8f) {
+
                         //Jei taip, veikėjas toliau šoka aukštyn 
+
                         rb.AddForce(Vector2.up * jumpForce);
+                        
                     }
 
                     //Kintamojo reikšmė didėja priklausomai nuo laiko, kurį buvo nuspaustas pašokimo mygtukas
@@ -63,6 +87,7 @@ public class PlayerMovement : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Ground")) {
             isGrounded = true;
+            jumps = 0;
         }
     }
 

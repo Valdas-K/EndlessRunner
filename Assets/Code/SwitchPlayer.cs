@@ -1,6 +1,5 @@
 ﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 //LJ - Long Jump (Default)
 //DJ - Double Jump (Frog)
@@ -11,13 +10,15 @@ public class SwitchPlayer : MonoBehaviour {
     public TextMeshProUGUI coinsUI;
     public TextMeshProUGUI dJButtonText;
     public TextMeshProUGUI djHintText;
-    private int playerPicked;
+    public int playerPicked;
+    public Rigidbody2D rb;
 
     //Duomenų saugojimo klasės kintamasis
     public Data data;
     public GameManager gm;
 
     void Start() {
+        rb = GetComponent<Rigidbody2D>();
         LoadPlayer();
         gm = GameManager.Instance;
         coinsUI.text = "Total Coins: " + gm.data.coins;
@@ -38,6 +39,7 @@ public class SwitchPlayer : MonoBehaviour {
     }
 
     public void LoadLJ() {
+        rb.mass = 0.1f;
         playerPicked = 0;
         longJumpBody.SetActive(true);
         doubleJumpBody.SetActive(false);
@@ -48,6 +50,7 @@ public class SwitchPlayer : MonoBehaviour {
     }
 
     public void LoadDJ() {
+        rb.mass = 0.3f;
         playerPicked = 1;
         doubleJumpBody.SetActive(true);
         longJumpBody.SetActive(false);
