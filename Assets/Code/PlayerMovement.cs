@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour {
     //Aprašomas veikėjo fizikos komponentas
     private Rigidbody2D rb;
 
+    //Parinkto veikėjo, pašokimų kiekio ir didžiausio pašokimų skaičiaus kintamieji
     public SwitchPlayer pickedPlayer;
     private int jumps = 0;
     public int maxJumps = 2;
@@ -28,27 +29,25 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Update() {
+        //Jei žaidimas nėra sutabdytas
         if (!PauseGame.gameIsPaused) {
             //Jei veikėjas yra ant žemės ir yra paspaustas pašokimo mygtukas, veikėjas pašoka į orą
             if (isGrounded && Input.GetKeyDown(inputcontrol.JumpKey)) {
                 isJumping = true;
-                if (pickedPlayer.playerPicked == 0)
-                {
+                //Vykdomas pašokimas pagal pasirinktą veikėją
+                if (pickedPlayer.playerPicked == 0) {
                     rb.AddForce(Vector2.up * jumpForce);
                 }
-                if (pickedPlayer.playerPicked == 1)
-                {
+                if (pickedPlayer.playerPicked == 1) {
                     jumps++;
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 }
-            }
-
-            else if (Input.GetKeyDown(inputcontrol.JumpKey) &&
-                pickedPlayer.playerPicked == 1 && jumps < maxJumps)
-            {
+            } else if (Input.GetKeyDown(inputcontrol.JumpKey) &&
+                pickedPlayer.playerPicked == 1 && jumps < maxJumps) {
+                //Jei pasirinktas antras veikėjas ir yra pašokama jau esant ore,
+                //leidžiama pašokti dar kartą
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 jumps++;
-                
             }
 
             //Tikrinama, ar veikėjas jau yra ore ir toliau yra laikomas pašokimo mygtukas
@@ -57,11 +56,8 @@ public class PlayerMovement : MonoBehaviour {
                 if (jumpTimer < jumpTime) {
                     //max greitis
                     if (rb.linearVelocityY < 8f) {
-
                         //Jei taip, veikėjas toliau šoka aukštyn 
-
                         rb.AddForce(Vector2.up * jumpForce);
-                        
                     }
 
                     //Kintamojo reikšmė didėja priklausomai nuo laiko, kurį buvo nuspaustas pašokimo mygtukas

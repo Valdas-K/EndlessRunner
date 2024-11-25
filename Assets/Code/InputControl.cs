@@ -9,22 +9,25 @@ public class InputControl : MonoBehaviour {
     public Button changePauseButton;
     public TMP_Text pauseButtonText;
 
-    //Pašokimo mygtuko kintamasis
+    //Pašokimo ir žaidimo sustabdymo mygtukų kintamieji
     private KeyCode jumpKey = KeyCode.Space;
     private KeyCode pauseKey = KeyCode.Escape;
 
-    //Kreipimasis į kintamąjį
+    //Kreipimasis į kintamuosius
     public KeyCode JumpKey => jumpKey;
     public KeyCode PauseKey => pauseKey;
 
-    //Ar keičiamas pasokimo mygtukas
+    //Ar keičiamas mygtukas
     private bool waitingForInput = false;
+
+    //Kuris veiksmas atliekamas
     private string actionToChange = "";
 
     private void Start() {
+        //Užkraunami nustatymai
         LoadSettings();
 
-        //Atnaujinamas tekstas ir aprašomas įvykis
+        //Atnaujinamas mygtukų tekstas ir aprašomi įvykiai
         UpdateButtonText();
         changeJumpButton.onClick.AddListener(() => StartKeyChange("Jump"));
         changePauseButton.onClick.AddListener(() => StartKeyChange("Pause"));
@@ -49,15 +52,18 @@ public class InputControl : MonoBehaviour {
         //Randamas paspaustas naujas mygtukas
         if (Input.anyKeyDown) {
             KeyCode key = GetPressedKey();
+            //Jei naujas mygtukas nėra priskirtas kitam veiksmui, jis atnaujinamas
             if(key != KeyCode.None && key != JumpKey && key != PauseKey) {
                 UpdateKey(key);
             }
+            //Išsaugomi nustatymai ir atnaujinamas tekstas
             waitingForInput = false;
             SaveSettings();
             UpdateButtonText();
         }
     }
 
+    //Grąžinamas paspaustas mygtukas
     public KeyCode GetPressedKey() {
         foreach (KeyCode keyCode in System.Enum.GetValues(typeof(KeyCode))) {
             if (Input.GetKeyDown(keyCode)) {
@@ -67,6 +73,7 @@ public class InputControl : MonoBehaviour {
         return KeyCode.None;
     }
 
+    //Atnaujinamas mygtukas pagal veiksmą
     public void UpdateKey(KeyCode newKey) {
         if(actionToChange == "Jump") {
             jumpKey = newKey;
@@ -82,12 +89,15 @@ public class InputControl : MonoBehaviour {
         pauseButtonText.text = "(" + pauseKey + ")";
     }
 
+    //Išsaugomi nustatymai, kurie bus išsaugomi ir perkrovus žaidimą
     public void SaveSettings() {
         PlayerPrefs.SetInt("JumpKey", (int)jumpKey);
         PlayerPrefs.SetInt("PauseKey", (int)pauseKey);
 
     }
 
+    //Užkraunami nustatymai kiekvienam mygtukui
+    //Jei nėra išsaugotas joks mygtukas, yra priskiriama nutylėta reikšmė
     public void LoadSettings() {
         if (PlayerPrefs.HasKey("JumpKey")) {
             jumpKey = (KeyCode)PlayerPrefs.GetInt("JumpKey");

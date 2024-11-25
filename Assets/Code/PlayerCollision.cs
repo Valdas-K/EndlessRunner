@@ -2,15 +2,15 @@
 
 public class PlayerCollision : MonoBehaviour {
 
+    //Palietus kliūtį, žaidimas pasibaigia
     private void OnCollisionEnter2D(Collision2D other) {
-        //Palietus kliūtį, žaidimas pasibaigia
         if (other.transform.CompareTag("Obstacle")) {
             GameManager.Instance.GameOver();
         }
     }
 
+    //Palietus pinigą, yra paleidžiamas įvykis ir pinigas sunaikinamas
     private void OnTriggerEnter2D(Collider2D other) {
-        //Palietus coin 
         if (other.transform.CompareTag("Coin")) {
             GameManager.Instance.CoinCollected();
             Destroy(other.gameObject);

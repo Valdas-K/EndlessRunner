@@ -23,14 +23,14 @@ public class UIManager : MonoBehaviour {
     }
 
     private void OnGUI() {
-        //Rezultatas suapvalinamas
+        //Atvaizduojami rezultatai
         scoreUI.text = "Time: " + gm.timeScore.ToString("F0") + "\nCoins: " + gm.coinsScore + "\nEnemies: " + gm.obstaclesScore;
         coinsUI.text = "Total Coins: " + gm.totalCoins.ToString();
     }
 
+    //Pasibaigus žaidimui, paleidžiamas meniu ir parodomi rezultatai
     public void ActivateGameOverUI() {
         scoreUI.enabled = false;
-        //Pasibaigus žaidimui, paleidžiamas meniu ir parodomi rezultatai
         gameOverMenu.SetActive(true);
 
         gameOverTimeScore.text = "Time: " + gm.timeScore.ToString("F0");

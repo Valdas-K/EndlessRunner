@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-public class FatBirdMovement : MonoBehaviour
-{
+public class FatBirdMovement : MonoBehaviour {
     //Aprašomas kliūties fizikos komponentas
     private Rigidbody2D rb;
 

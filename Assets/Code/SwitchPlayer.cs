@@ -5,11 +5,18 @@ using UnityEngine;
 //DJ - Double Jump (Frog)
 
 public class SwitchPlayer : MonoBehaviour {
+    //Aprašomi veikėjų objektai
     public GameObject longJumpBody, doubleJumpBody;
+
+    //Kaina
     public int price;
+
+    //Vartotojo sąsajos komponentai
     public TextMeshProUGUI coinsUI;
     public TextMeshProUGUI dJButtonText;
     public TextMeshProUGUI djHintText;
+
+    //Kuris veikėjas pasirinktas
     public int playerPicked;
     public Rigidbody2D rb;
 
@@ -19,16 +26,19 @@ public class SwitchPlayer : MonoBehaviour {
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+
+        //Žaidimo pradžioje užkraunamas išsaugotas pasirinktas veikėjas
         LoadPlayer();
         gm = GameManager.Instance;
-        coinsUI.text = "Total Coins: " + gm.data.coins;
 
-        if (gm.data.ownedCharacters == "DJ")
-        {
+        //Pakeičiami UI elementai
+        coinsUI.text = "Total Coins: " + gm.data.coins;
+        if (gm.data.ownedCharacters == "DJ") {
             dJButtonText.text = "Select";
         }
     }
 
+    //Užkraunamas išsaugotas veikėjas
     private void LoadPlayer() {
         playerPicked = PlayerPrefs.GetInt("PlayerPicked");
         if (playerPicked == 1 && gm.data.ownedCharacters == "DJ"){
@@ -38,6 +48,8 @@ public class SwitchPlayer : MonoBehaviour {
         }
     }
 
+    //Pasirenkamas pirmas veikėjas, aprašomi masės, pasirinkto žaidėjo kintamieji
+    //Aktyvuojamas veikėjo objektas, išsaugomas pasirinkimas
     public void LoadLJ() {
         rb.mass = 0.1f;
         playerPicked = 0;
@@ -49,6 +61,8 @@ public class SwitchPlayer : MonoBehaviour {
         coinsUI.text = "Total Coins: " + gm.totalCoins;
     }
 
+    //Pasirenkamas antras veikėjas (jei nupirktas), aprašomi masės, pasirinkto žaidėjo kintamieji
+    //Aktyvuojamas veikėjo objektas, išsaugomas pasirinkimas
     public void LoadDJ() {
         rb.mass = 0.3f;
         playerPicked = 1;
@@ -60,9 +74,14 @@ public class SwitchPlayer : MonoBehaviour {
         coinsUI.text = "Total Coins: " + gm.totalCoins;
     }
 
+
+    //Perkamas antras veikėjas
     public void SwitchDJBody() {
+        //Tikrinama, ar veikėjas jau nėra nupirktas
         if (gm.data.ownedCharacters != "DJ") {
+            //Jei nėra, tikrinama, ar užtenka pinigų nupirkti veikėją
             if (gm.data.coins > price) {
+                //Jei užtenka, veikėja nuperkamas, užkraunamas ir išsaugomas
                 gm.data.coins -= price;
                 gm.totalCoins = gm.data.coins;
                 LoadDJ();
@@ -77,15 +96,18 @@ public class SwitchPlayer : MonoBehaviour {
                 coinsUI.text = "Total Coins: " + gm.totalCoins;
             }
             else {
+                //Jei neužtenka pinigų, porai sekundžių įjungiamas pagalbinis tekstas
                 djHintText.enabled = true;
                 Invoke(nameof(HideText), 2f);
             }
         } else {
+            //Jei yra, jis užkraunamas
             HideText();
             LoadDJ();
         }
     }
 
+    //Paslepiamas papildomas tekstas
     public void HideText()
     {
         djHintText.enabled = false;

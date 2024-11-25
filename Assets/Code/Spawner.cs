@@ -51,6 +51,7 @@ public class Spawner : MonoBehaviour {
         }
     }
 
+    //Atstatomi parametrai
     private void ResetFactors() {
         //Atstatomi kintamieji į pradines reikšmes
         obstacleSpawnTime = startingObstacleSpawnTime;

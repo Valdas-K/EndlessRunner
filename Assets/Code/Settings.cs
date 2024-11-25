@@ -22,7 +22,6 @@ public class Settings : MonoBehaviour {
         for (int i = 0; i < resolutions.Length; i++) {
             //Į sąrašą pridedami elementai
             string hz = resolutions[i].refreshRateRatio.value.ToString("F0");
-
             string option = resolutions[i].width + " x " + resolutions[i].height + " @ " + hz + "hz";
             options.Add(option);
 

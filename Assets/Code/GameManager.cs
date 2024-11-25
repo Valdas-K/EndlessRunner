@@ -12,14 +12,13 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    //Duomenų saugojimo klasės kintamasis
+    //Aprašomas duomenų saugojimo klasės kintamasis
     public Data data;
 
-    //Esamas rezultatas distancija
+    //Aprašomi rezultatai: pinigų, kliučių, laiko, bendras, geriausias ir visi surinkti pinigai
     public int coinsScore;
     public int obstaclesScore;
     public float timeScore;
-
     public float gameScore;
     public float highScore;
     public int totalCoins;
@@ -29,7 +28,7 @@ public class GameManager : MonoBehaviour {
     //Ar žaidžiama
     public bool isPlaying = false;
 
-    //Sukuriami įvykiai pradedant ir baigiant žaidimą
+    //Sukuriami įvykiai žaidimo pradžiai, pabaigai, surinkus pinigą, pastiprinimą ir įveikus kliūtį
     public UnityEvent onPlay = new();
     public UnityEvent onGameOver = new();
     public UnityEvent onCollectedCoin = new();
@@ -60,7 +59,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void StartGame() {
-        //Pradedamas žaidimas, pradinis rezultatas yra 0
+        //Nustatomi kintamieji pradedant žaidimą
         onPlay.Invoke();
         isPlaying = true;
         timeScore = 0;
@@ -77,14 +76,14 @@ public class GameManager : MonoBehaviour {
         coinsScore += 1;
     }
 
-    //Paėmus pinigą
+    //Paėmus pastiprinimą
     public void PowerCollected() {
         onCollectedPower.Invoke();
         powers += 1;
 
     }
 
-    //Paėmus pinigą
+    //Įveikus kliūtį
     public void EnemyDefeated() {
         onEnemyDefeated.Invoke();
         obstaclesScore += 1;
@@ -92,6 +91,7 @@ public class GameManager : MonoBehaviour {
 
     //Pasibaigus žaidimui
     public void GameOver() {
+        //Apskaičiuojamas bendras rezultatas
         timeScore = Mathf.RoundToInt(timeScore);
         gameScore = coinsScore + obstaclesScore + timeScore;
 
@@ -111,15 +111,17 @@ public class GameManager : MonoBehaviour {
         string saveString = JsonUtility.ToJson(data);
         SaveSystem.Save("save", saveString);
 
+        //Kintamieji gauna reikšmes, kad vėliau neatsirastų klaidų
         Time.timeScale = 1;
         PauseGame.gameIsPaused = false;
-        
         GameObject.FindWithTag("Player").transform.localScale = new Vector3(1f, 1f, 1f);
+        
         //Baigiamas žaidimas
         onGameOver.Invoke();
         isPlaying = false;
     }
 
+    //Išjungiamas žaidimas
     public void QuitGame()
     {
         Application.Quit();
