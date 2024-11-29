@@ -1,11 +1,15 @@
 ﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Settings : MonoBehaviour {
     //Bus laikomos visos ekrano rezoliucijos, priklausomai nuo kompiuterio
     Resolution[] resolutions;
     public TMP_Dropdown resolutionDropdown;
+
+    //Garso komponentas
+    public AudioMixer audioMixer;
 
     private void Start() {
         //Priskiriamos rezoliucijos
@@ -52,5 +56,10 @@ public class Settings : MonoBehaviour {
     //Yra tikrinama, ar yra naudojamas viso ekrano režimas
     public void SetFullScreen(bool isFullScreen) {
         Screen.fullScreen = isFullScreen;
+    }
+
+    //Atnaujinamas garsas
+    public void SetVolume(float volume) {
+        audioMixer.SetFloat("volume", volume);
     }
 }

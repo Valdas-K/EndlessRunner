@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour {
     //Sukuriamas klasės objektas (singleton)
     public static GameManager Instance;
 
+    [SerializeField] private AudioSource deathSound;
+
     private void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -22,8 +24,6 @@ public class GameManager : MonoBehaviour {
     public float gameScore;
     public float highScore;
     public int totalCoins;
-
-    public float powers = 0;
 
     //Ar žaidžiama
     public bool isPlaying = false;
@@ -73,14 +73,13 @@ public class GameManager : MonoBehaviour {
     //Paėmus pinigą
     public void CoinCollected() {
         onCollectedCoin.Invoke();
+        //Paleidžiamas pašokimo garso efektas
         coinsScore += 1;
     }
 
     //Paėmus pastiprinimą
     public void PowerCollected() {
         onCollectedPower.Invoke();
-        powers += 1;
-
     }
 
     //Įveikus kliūtį
@@ -91,6 +90,9 @@ public class GameManager : MonoBehaviour {
 
     //Pasibaigus žaidimui
     public void GameOver() {
+        deathSound.Play();
+
+
         //Apskaičiuojamas bendras rezultatas
         timeScore = Mathf.RoundToInt(timeScore);
         gameScore = coinsScore + obstaclesScore + timeScore;

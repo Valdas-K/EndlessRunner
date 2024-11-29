@@ -8,10 +8,10 @@ public class PowerUpLogic : MonoBehaviour {
     //sustiprinimo modifikacijos reikšmės (multipliers),
     //sustiprinimo veikimo laikas
     private string powerUpName;
-    public float sizeMultiplier = 0.5f;
-    public float sizeDuration = 3f;
-    public float timeMultiplier = 2f;
-    public float timeDuration = 2f;
+    public float sizeMultiplier;
+    public float sizeDuration;
+    public float timeMultiplier;
+    public float timeDuration;
 
     //Palietus žaidėją, paleidžiamas metodas
     private void OnTriggerEnter2D(Collider2D other) {

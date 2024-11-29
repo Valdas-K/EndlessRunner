@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7241129624251971547}
   - component: {fileID: 2323819112621123725}
   - component: {fileID: 1269684691132691566}
-  - component: {fileID: 8832814351694138349}
+  - component: {fileID: 823792633678129642}
   m_Layer: 8
   m_Name: Coin
   m_TagString: Coin
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b132b61f30bc84d9059debe007ba74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8832814351694138349
+--- !u!114 &823792633678129642
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

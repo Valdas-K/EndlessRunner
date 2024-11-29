@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour {
     private int jumps = 0;
     public int maxJumps = 2;
 
+    [SerializeField] private AudioSource jumpSound;
+
     private void Awake() {
         //Pridedamas veikėjo fizikos komponentas
         rb = GetComponent<Rigidbody2D>();
@@ -34,6 +36,7 @@ public class PlayerMovement : MonoBehaviour {
             //Jei veikėjas yra ant žemės ir yra paspaustas pašokimo mygtukas, veikėjas pašoka į orą
             if (isGrounded && Input.GetKeyDown(inputcontrol.JumpKey)) {
                 isJumping = true;
+
                 //Vykdomas pašokimas pagal pasirinktą veikėją
                 if (pickedPlayer.playerPicked == 0) {
                     rb.AddForce(Vector2.up * jumpForce);
@@ -42,11 +45,18 @@ public class PlayerMovement : MonoBehaviour {
                     jumps++;
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 }
+
+                //Paleidžiamas pašokimo garso efektas
+                jumpSound.Play();
             } else if (Input.GetKeyDown(inputcontrol.JumpKey) &&
                 pickedPlayer.playerPicked == 1 && jumps < maxJumps) {
                 //Jei pasirinktas antras veikėjas ir yra pašokama jau esant ore,
                 //leidžiama pašokti dar kartą
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+
+                //Paleidžiamas pašokimo garso efektas
+                jumpSound.Play();
+
                 jumps++;
             }
 
