@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField] private AudioSource deathSound;
 
+    [SerializeField] private AudioSource menuMusic;
+    [SerializeField] private AudioSource gameMusic;
+
     private void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -49,6 +52,8 @@ public class GameManager : MonoBehaviour {
         }
         totalCoins = data.coins;
         highScore = data.highscore;
+
+        StartMenuMusic();
     }
 
     private void Update() {
@@ -68,6 +73,7 @@ public class GameManager : MonoBehaviour {
         gameScore = 0;
         totalCoins = data.coins;
         highScore = data.highscore;
+        StartGameMusic();
     }
 
     //Paėmus pinigą
@@ -90,8 +96,7 @@ public class GameManager : MonoBehaviour {
 
     //Pasibaigus žaidimui
     public void GameOver() {
-        deathSound.Play();
-
+        gameMusic.Stop();
 
         //Apskaičiuojamas bendras rezultatas
         timeScore = Mathf.RoundToInt(timeScore);
@@ -117,15 +122,29 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
         PauseGame.gameIsPaused = false;
         GameObject.FindWithTag("Player").transform.localScale = new Vector3(1f, 1f, 1f);
-        
+
+        deathSound.Play();
+        isPlaying = false;
+
         //Baigiamas žaidimas
         onGameOver.Invoke();
-        isPlaying = false;
     }
 
     //Išjungiamas žaidimas
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    //Paleidžiama meniu muzika
+    public void StartMenuMusic() {
+        gameMusic.Stop();
+        menuMusic.Play();
+    }
+
+    //Paleidžiama lygio muzika
+    public void StartGameMusic() {
+        gameMusic.Play();
+        menuMusic.Stop();
     }
 }

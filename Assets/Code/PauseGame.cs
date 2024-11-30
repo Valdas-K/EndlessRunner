@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 
 public class PauseGame : MonoBehaviour {
     //Sukuriamas klasės objektas
@@ -32,9 +33,11 @@ public class PauseGame : MonoBehaviour {
         if (gameIsPaused) {
             Time.timeScale = 0f;
             pauseMenu.SetActive(true);
+            AudioListener.pause = true;
         } else {
             Time.timeScale = 1;
             pauseMenu.SetActive(false);
+            AudioListener.pause = false;
         }
     }
 

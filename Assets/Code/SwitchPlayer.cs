@@ -51,7 +51,7 @@ public class SwitchPlayer : MonoBehaviour {
     //Pasirenkamas pirmas veikėjas, aprašomi masės, pasirinkto žaidėjo kintamieji
     //Aktyvuojamas veikėjo objektas, išsaugomas pasirinkimas
     public void LoadLJ() {
-        rb.mass = 0.1f;
+        rb.mass = 0.3f;
         playerPicked = 0;
         longJumpBody.SetActive(true);
         doubleJumpBody.SetActive(false);
@@ -64,7 +64,7 @@ public class SwitchPlayer : MonoBehaviour {
     //Pasirenkamas antras veikėjas (jei nupirktas), aprašomi masės, pasirinkto žaidėjo kintamieji
     //Aktyvuojamas veikėjo objektas, išsaugomas pasirinkimas
     public void LoadDJ() {
-        rb.mass = 0.3f;
+        rb.mass = 0.9f;
         playerPicked = 1;
         doubleJumpBody.SetActive(true);
         longJumpBody.SetActive(false);
