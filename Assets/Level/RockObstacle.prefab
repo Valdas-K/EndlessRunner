@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleSound: {fileID: 5209362690511067179}
-  soundTime: 3
+  soundTime: 6
 --- !u!82 &5209362690511067179
 AudioSource:
   m_ObjectHideFlags: 0

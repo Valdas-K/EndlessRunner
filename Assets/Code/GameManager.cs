@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour {
     public UnityEvent onCollectedPower = new();
 
     private void Start() {
+
         //Įkeliami išsaugoti duomenys
         string loadedData = SaveSystem.Load("save");
         if (loadedData != null) {
@@ -74,6 +75,7 @@ public class GameManager : MonoBehaviour {
         totalCoins = data.coins;
         highScore = data.highscore;
         StartGameMusic();
+        Time.timeScale = 1.0f;
     }
 
     //Paėmus pinigą
@@ -98,6 +100,9 @@ public class GameManager : MonoBehaviour {
     public void GameOver() {
         gameMusic.Stop();
 
+        //Kintamieji gauna reikšmes, kad vėliau neatsirastų klaidų
+        Time.timeScale = 1.0f;
+
         //Apskaičiuojamas bendras rezultatas
         timeScore = Mathf.RoundToInt(timeScore);
         gameScore = coinsScore + obstaclesScore + timeScore;
@@ -118,11 +123,6 @@ public class GameManager : MonoBehaviour {
         string saveString = JsonUtility.ToJson(data);
         SaveSystem.Save("save", saveString);
 
-        //Kintamieji gauna reikšmes, kad vėliau neatsirastų klaidų
-        Time.timeScale = 1;
-        PauseGame.gameIsPaused = false;
-        GameObject.FindWithTag("Player").transform.localScale = new Vector3(1f, 1f, 1f);
-
         deathSound.Play();
         isPlaying = false;
 
@@ -131,20 +131,21 @@ public class GameManager : MonoBehaviour {
     }
 
     //Išjungiamas žaidimas
-    public void QuitGame()
-    {
+    public void QuitGame() {
         Application.Quit();
     }
 
     //Paleidžiama meniu muzika
     public void StartMenuMusic() {
         gameMusic.Stop();
+        menuMusic.time = Random.Range(0f, gameMusic.clip.length);
         menuMusic.Play();
     }
 
     //Paleidžiama lygio muzika
     public void StartGameMusic() {
-        gameMusic.Play();
         menuMusic.Stop();
+        gameMusic.time = Random.Range(0f, gameMusic.clip.length);
+        gameMusic.Play();
     }
 }

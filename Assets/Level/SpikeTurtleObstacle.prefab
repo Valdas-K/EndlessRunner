@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleSound: {fileID: 4634383901193036781}
-  soundTime: 3
+  soundTime: 7
 --- !u!82 &4634383901193036781
 AudioSource:
   m_ObjectHideFlags: 0
@@ -272,8 +272,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 0c8865e27372c694390fe164874ee9de, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 841ab59022c0bd941b5737afdc1d7582, type: 3}
-  m_Resource: {fileID: 8300000, guid: 841ab59022c0bd941b5737afdc1d7582, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9877f8faec7498f45bc73266935a5ca2, type: 3}
+  m_Resource: {fileID: 8300000, guid: 9877f8faec7498f45bc73266935a5ca2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

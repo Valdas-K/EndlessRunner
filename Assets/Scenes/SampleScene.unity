@@ -581,9 +581,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 1451194980854508684, guid: 96d8a6875e0b33042b4254dc6bc5baa2, type: 3}
-  startingObstacleSpawnTime: 45
+  startingObstacleSpawnTime: 50
   startingObstacleSpeed: 2.5
-  obstacleSpawnTimeFactor: 0.05
+  obstacleSpawnTimeFactor: 0.005
   obstacleSpeedFactor: 0.1
 --- !u!4 &107132757
 Transform:
@@ -628,7 +628,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 20, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2089248245}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1087,9 +1087,9 @@ MonoBehaviour:
   spawnObjectPrefabs:
   - {fileID: 4233396240888655795, guid: ae03c6b6a7270f84aaea6adb4376ebb7, type: 3}
   - {fileID: 7252808694372594816, guid: 7d1c52ab82e00ed4fa0b6e94f5ab4bd9, type: 3}
-  startingObstacleSpawnTime: 15
+  startingObstacleSpawnTime: 17
   startingObstacleSpeed: 4
-  obstacleSpawnTimeFactor: 0.1
+  obstacleSpawnTimeFactor: 0.08
   obstacleSpeedFactor: 0.2
 --- !u!4 &160456791
 Transform:
@@ -5148,9 +5148,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 860704146474536765, guid: 6e3f368ace7a44c4fad1f133c97f2f77, type: 3}
-  startingObstacleSpawnTime: 60
+  startingObstacleSpawnTime: 70
   startingObstacleSpeed: 2
-  obstacleSpawnTimeFactor: 0.025
+  obstacleSpawnTimeFactor: 0.0025
   obstacleSpeedFactor: 0.05
 --- !u!4 &897926244
 Transform:
@@ -8744,18 +8744,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 544746396}
         m_TargetAssemblyTypeName: PauseGame, Assembly-CSharp
-        m_MethodName: ChangeValues
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 544746396}
-        m_TargetAssemblyTypeName: PauseGame, Assembly-CSharp
         m_MethodName: StopGame
         m_Mode: 1
         m_Arguments:
@@ -10094,9 +10082,9 @@ MonoBehaviour:
   spawnObjectPrefabs:
   - {fileID: 1227845991043812912, guid: b8f2b7bcb88bff748bb3e4d19c3e1c83, type: 3}
   - {fileID: 860704146474536765, guid: 6e3f368ace7a44c4fad1f133c97f2f77, type: 3}
-  startingObstacleSpawnTime: 30
+  startingObstacleSpawnTime: 35
   startingObstacleSpeed: 3
-  obstacleSpawnTimeFactor: 0.075
+  obstacleSpawnTimeFactor: 0.0075
   obstacleSpeedFactor: 0.15
 --- !u!4 &1463244921
 Transform:
@@ -15797,7 +15785,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7043650992698235007}
   - {fileID: 8980202627118110113}
