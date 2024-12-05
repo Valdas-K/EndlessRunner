@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour {
     public UnityEvent onGameOver = new();
     public UnityEvent onCollectedCoin = new();
     public UnityEvent onEnemyDefeated = new();
-    public UnityEvent onCollectedPower = new();
 
     private void Start() {
 
@@ -81,13 +80,7 @@ public class GameManager : MonoBehaviour {
     //Paėmus pinigą
     public void CoinCollected() {
         onCollectedCoin.Invoke();
-        //Paleidžiamas pašokimo garso efektas
         coinsScore += 1;
-    }
-
-    //Paėmus pastiprinimą
-    public void PowerCollected() {
-        onCollectedPower.Invoke();
     }
 
     //Įveikus kliūtį
@@ -138,7 +131,7 @@ public class GameManager : MonoBehaviour {
     //Paleidžiama meniu muzika
     public void StartMenuMusic() {
         gameMusic.Stop();
-        menuMusic.time = Random.Range(0f, gameMusic.clip.length);
+        menuMusic.time = Random.Range(0f, menuMusic.clip.length);
         menuMusic.Play();
     }
 

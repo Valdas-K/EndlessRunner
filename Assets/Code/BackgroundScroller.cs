@@ -1,38 +1,42 @@
 ﻿using UnityEngine;
 
 public class BackgroundScroller : MonoBehaviour {
-    //Aprašomi foninės nuotraukos komponentai
-    public BoxCollider2D collider2d;
-    public Rigidbody2D rb;
+    //Foninės nuotraukos komponentai
+    [SerializeField] GameObject bg1;
+    [SerializeField] GameObject bg2;
     
-    //Nuotraukos pločio kintamasis
-    private float width;
+    //Fono judėjimo greitis
+    [SerializeField] float scrollSpeed;
 
-    //Fono judėjimo greičio kintamasis
-    public float scrollSpeed;
+    //Vienos nuotraukos plotis (Nuotraukų pločiai turi būti vienodi)
+    [SerializeField] float imageSize;
+
+    //Pozicija, į kurią bus padėta fono nuotrauka
+    private Vector2 resetPosition;
 
     private void Start() {
-        //Pridedami foninės nuotraukos komponentai
-        collider2d = GetComponent<BoxCollider2D>();
-        rb = GetComponent<Rigidbody2D>();
+        //Fonui suteikiamas judėjimo greitis:
+        //x reikšmei suteikiamas minusinis "scrollSpeed" kintamasis (tada fonas juda link žaidėjo),
+        //y - 0, nes y ašyje fonas nejuda        
+        bg1.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(-scrollSpeed, 0);
+        bg2.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(-scrollSpeed, 0);
 
-        //Randamas foninės nuotraukos plotis
-        width = collider2d.size.x;
-
-        //Toliau collider komponento nebereikia, todėl jis yra išjungiamas. Sumažės atliekamų skaičiavimų ir naudojamos atminties kiekiai
-        collider2d.enabled = false;
-
-        //Fonui suteikiamas judėjimo greitis: x reikšmei suteikiamas "scrollSpeed" kintamasis, y - 0, nes y ašyje fonas nejuda
-        rb.linearVelocity = new Vector2(scrollSpeed, 0);
+        //Naujai pozicijai suteikiama reikšmė:
+        //x - vienos nuotraukos plotis, y - 2.5, nes nuotraukos yra šiame aukštyje
+        resetPosition = new(imageSize, 2.5f);
     }
 
     private void Update() {
         //Suteikiamas besikartojančio fono efektas
-
-        if (transform.position.x < -width) {
-            //Pasibaigus pirmai fono nuotraukai, yra atkartojamas paveikslėlis
-            Vector2 resetPosition = new(width * 2f, 0);
-            transform.position = (Vector2)transform.position + resetPosition;
+        //Pasibaigusi nuotrauka perkeliama už sekančios
+        if (bg1.transform.position.x < -imageSize) {
+            ResetPicture(bg1);
+        } else if (bg2.transform.position.x < -imageSize) {
+            ResetPicture(bg2);
         }
+    }
+
+    private void ResetPicture(GameObject bg) {
+        bg.transform.position = (Vector2)transform.position + resetPosition;
     }
 }
