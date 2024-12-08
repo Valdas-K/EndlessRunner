@@ -2,9 +2,9 @@
 
 public class ObstacleSound : MonoBehaviour {
     //Aprašomi garso komponento, laiko tarp garsų kintamieji
-    [SerializeField] private AudioSource obstacleSound;
+    [SerializeField] AudioSource obstacleSound;
+    [SerializeField] float soundTime;
     private float soundTimer = 0f;
-    [SerializeField] private float soundTime;
 
     private void Update() {
         //Kaupiamas laikas iki kito garso paleidimo

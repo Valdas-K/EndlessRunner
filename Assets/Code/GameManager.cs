@@ -6,10 +6,10 @@ public class GameManager : MonoBehaviour {
     //Sukuriamas klasės objektas (singleton)
     public static GameManager Instance;
 
-    [SerializeField] private AudioSource deathSound;
+    [SerializeField] AudioSource deathSound;
 
-    [SerializeField] private AudioSource menuMusic;
-    [SerializeField] private AudioSource gameMusic;
+    [SerializeField] MusicController mc;
+
 
     private void Awake() {
         if (Instance == null) {
@@ -52,8 +52,7 @@ public class GameManager : MonoBehaviour {
         }
         totalCoins = data.coins;
         highScore = data.highscore;
-
-        StartMenuMusic();
+        mc.StartMenuMusic();
     }
 
     private void Update() {
@@ -73,7 +72,7 @@ public class GameManager : MonoBehaviour {
         gameScore = 0;
         totalCoins = data.coins;
         highScore = data.highscore;
-        StartGameMusic();
+        mc.StartGameMusic();
         Time.timeScale = 1.0f;
     }
 
@@ -91,7 +90,7 @@ public class GameManager : MonoBehaviour {
 
     //Pasibaigus žaidimui
     public void GameOver() {
-        gameMusic.Stop();
+        mc.StopAllMusic();
 
         //Kintamieji gauna reikšmes, kad vėliau neatsirastų klaidų
         Time.timeScale = 1.0f;
@@ -121,24 +120,5 @@ public class GameManager : MonoBehaviour {
 
         //Baigiamas žaidimas
         onGameOver.Invoke();
-    }
-
-    //Išjungiamas žaidimas
-    public void QuitGame() {
-        Application.Quit();
-    }
-
-    //Paleidžiama meniu muzika
-    public void StartMenuMusic() {
-        gameMusic.Stop();
-        menuMusic.time = Random.Range(0f, menuMusic.clip.length);
-        menuMusic.Play();
-    }
-
-    //Paleidžiama lygio muzika
-    public void StartGameMusic() {
-        menuMusic.Stop();
-        gameMusic.time = Random.Range(0f, gameMusic.clip.length);
-        gameMusic.Play();
     }
 }

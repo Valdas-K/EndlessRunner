@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour {
     private void Start() {
         gm = GameManager.Instance;
         //Pradedant žaidimą, atstatomos pradinės reikšmės
-        gm.onPlay.AddListener(ResetFactors);
+        gm.onGameOver.AddListener(ResetFactors);
     }
     private void Update() {
         if (gm.isPlaying) {

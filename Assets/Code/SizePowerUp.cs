@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class SizePowerUp : PowerUp {
     protected override void StartLogic(Collider2D player) {
+        //Paleidžiame korutina
         StartCoroutine(Pickup(player));
     }
 

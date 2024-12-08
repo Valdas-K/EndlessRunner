@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class PickupPosition : MonoBehaviour {
-    //Aprašomas objekto fizikos komponentas
+    //Objekto fizikos komponentas
     private Rigidbody2D rb;
 
     //X ir Y reikšmės

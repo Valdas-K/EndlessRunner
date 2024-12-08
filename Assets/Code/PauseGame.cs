@@ -7,7 +7,7 @@ public class PauseGame : MonoBehaviour {
     //Pauzės meniu komponentas
     [SerializeField] private GameObject pauseMenu;
 
-    //Aprašomas klasės kintamasis, iš kurio bus paimami valdymo nustatymai
+    //Valdymo nustatymai
     public InputControl inputcontrol;
 
     private void Update() {

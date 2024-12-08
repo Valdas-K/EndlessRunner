@@ -1,0 +1,26 @@
+using UnityEngine;
+
+public class MusicController : MonoBehaviour
+{
+    [SerializeField] AudioSource menuMusic;
+    [SerializeField] AudioSource gameMusic;
+
+    //Paleidžiama meniu muzika
+    public void StartMenuMusic() {
+        gameMusic.Stop();
+        menuMusic.time = Random.Range(0f, menuMusic.clip.length);
+        menuMusic.Play();
+    }
+
+    //Paleidžiama lygio muzika
+    public void StartGameMusic() {
+        menuMusic.Stop();
+        gameMusic.time = Random.Range(0f, gameMusic.clip.length);
+        gameMusic.Play();
+    }
+
+    public void StopAllMusic() {
+        menuMusic.Stop();
+        gameMusic.Stop();
+    }
+}

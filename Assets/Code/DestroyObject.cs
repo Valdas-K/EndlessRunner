@@ -1,14 +1,9 @@
 ﻿using UnityEngine;
 
-public class DestroyObstacle : MonoBehaviour {
-    //Sukuriamas klasės objektas
-    GameManager gm;
+public class DestroyObject : MonoBehaviour {
 
-    private void Start() {
-        gm = GameManager.Instance;
-    }
     private void Update() {
-        //Jei nėra paleistas lygis, visos kliūtys sunaikinamos
+        //Pasibaigus žaidimui, visos kliūtys sunaikinamos
         if (!GameManager.Instance.isPlaying) {
             Destroy(gameObject);
         }
@@ -18,7 +13,7 @@ public class DestroyObstacle : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.transform.CompareTag("Destroy")) {
             if (gameObject.CompareTag("Obstacle")) {
-                gm.EnemyDefeated();
+                GameManager.Instance.EnemyDefeated();
             }
             Destroy(gameObject);
         }
