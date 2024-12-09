@@ -161,8 +161,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 0c8865e27372c694390fe164874ee9de, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
-  m_Resource: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
+  m_audioClip: {fileID: 8300000, guid: df729d213c4be44a9b55cd109f5cd4f9, type: 3}
+  m_Resource: {fileID: 8300000, guid: df729d213c4be44a9b55cd109f5cd4f9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -484,18 +484,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1427288039480618431}
         m_TargetAssemblyTypeName: SwitchPlayer, Assembly-CSharp
         m_MethodName: LoadLJ
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
-        m_MethodName: ClickButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1218,7 +1206,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &107132756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1456,7 +1444,7 @@ MonoBehaviour:
   spawnObjectPrefabs:
   - {fileID: 3230723760321511379, guid: 486a65d260a7bef44b60d949dd8b8ca3, type: 3}
   - {fileID: 769090483790306232, guid: ea6ba0be14128d547a4c7b02cd798a0f, type: 3}
-  startingObstacleSpawnTime: 2
+  startingObstacleSpawnTime: 11
   startingObstacleSpeed: 2
   obstacleSpawnTimeFactor: 0.01
   obstacleSpeedFactor: 0.01
@@ -1754,8 +1742,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -1832,7 +1820,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &160456790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1990,8 +1978,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -2492,8 +2480,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 0c8865e27372c694390fe164874ee9de, type: 2}
-  m_audioClip: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
-  m_Resource: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
+  m_Resource: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2986,7 +2974,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 166384550}
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: HideMenus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1879607557}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -2997,78 +2997,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1751002977}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1065037154}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1729063439}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1652816590}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1751002977}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
-        m_MethodName: ClickButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &385220124
 MonoBehaviour:
@@ -3191,8 +3119,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -3658,7 +3586,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 603159560}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
         m_MethodName: ClickButton
         m_Mode: 1
@@ -3791,8 +3719,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -4220,8 +4148,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -4687,16 +4615,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 603159554}
+  - component: {fileID: 603159557}
   - component: {fileID: 603159553}
   - component: {fileID: 603159552}
   - component: {fileID: 603159551}
   - component: {fileID: 603159555}
-  - component: {fileID: 603159557}
   - component: {fileID: 603159558}
   - component: {fileID: 603159559}
-  - component: {fileID: 603159560}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4811,13 +4738,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreUI: {fileID: 1585190335}
   coinsUI: {fileID: 1652816592}
-  gameOverMenu: {fileID: 1729063439}
   gameOverTimeScore: {fileID: 2039362426}
   gameOverObstacleScore: {fileID: 225734009}
   gameOverCoinsScore: {fileID: 682043940}
   gameOverTotalScore: {fileID: 726716986}
   gameOverHighScore: {fileID: 1156445777}
   gameOverTotalCoins: {fileID: 87143888}
+  startMenu: {fileID: 166384550}
+  profileMenu: {fileID: 1879607557}
+  registerMenu: {fileID: 1751002977}
+  levelSelectMenu: {fileID: 1751573722}
+  shopMenu: {fileID: 1364933076}
+  leaderboardsMenu: {fileID: 1182887615}
+  settingsMenu: {fileID: 1065037154}
+  controlsMenu: {fileID: 740610417}
+  creditsMenu: {fileID: 2142504732}
+  pauseMenu: {fileID: 1483903932}
+  gameOverMenu: {fileID: 1729063439}
+  mc: {fileID: 2100013332}
 --- !u!222 &603159557
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4855,31 +4793,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resolutionDropdown: {fileID: 1370961282}
-  audioMixer: {fileID: 24100000, guid: 0c8865e27372c694390fe164874ee9de, type: 2}
---- !u!114 &603159560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603159550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 992e3937d63df29479b8d01afc90c731, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mc: {fileID: 2100013332}
-  startMenu: {fileID: 166384550}
-  profileMenu: {fileID: 1879607557}
-  registerMenu: {fileID: 1751002977}
-  levelSelectMenu: {fileID: 1751573722}
-  shopMenu: {fileID: 1364933076}
-  leaderboardsMenu: {fileID: 1182887615}
-  settingsMenu: {fileID: 1065037154}
-  controlsMenu: {fileID: 740610417}
-  creditsMenu: {fileID: 2142504732}
-  pauseMenu: {fileID: 1483903932}
-  gameOverMenu: {fileID: 1729063439}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -5591,8 +5504,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -6314,8 +6227,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -7068,7 +6981,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &897926243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7805,8 +7718,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -8628,8 +8541,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -10102,18 +10015,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
-        m_MethodName: ClickButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1078933253
 GameObject:
@@ -10198,8 +10099,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -10331,8 +10232,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -11433,8 +11334,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -12190,7 +12091,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1342453822
 Transform:
   m_ObjectHideFlags: 0
@@ -12512,18 +12413,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
-        m_MethodName: ClickButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1370961283
 MonoBehaviour:
@@ -12640,135 +12529,6 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!1 &1388296344
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1388296345}
-  - component: {fileID: 1388296346}
-  m_Layer: 0
-  m_Name: Power
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1388296345
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1388296344}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2100013329}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1388296346
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1388296344}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 0c8865e27372c694390fe164874ee9de, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
-  m_Resource: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1391452859
 GameObject:
   m_ObjectHideFlags: 0
@@ -13401,7 +13161,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1463244920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13519,7 +13279,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
         m_MethodName: ClickButton
         m_Mode: 1
@@ -13866,8 +13626,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -14011,8 +13771,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -16747,8 +16507,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -17049,8 +16809,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -17194,8 +16954,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -17432,8 +17192,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -17863,8 +17623,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -18198,18 +17958,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
-        m_MethodName: ClickButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2000870903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18338,8 +18086,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159559}
-        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
+      - m_Target: {fileID: 2100013332}
+        m_TargetAssemblyTypeName: MusicController, Assembly-CSharp
         m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:
@@ -18960,8 +18708,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -19238,8 +18986,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 0c8865e27372c694390fe164874ee9de, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
-  m_Resource: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
+  m_Resource: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -19436,7 +19184,6 @@ Transform:
   - {fileID: 24248444}
   - {fileID: 2089548315}
   - {fileID: 263626248}
-  - {fileID: 1388296345}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2100013332
@@ -19457,7 +19204,7 @@ MonoBehaviour:
   deathSound: {fileID: 24248445}
   coinSound: {fileID: 2089548316}
   jumpSound: {fileID: 263626249}
-  powerSound: {fileID: 1388296346}
+  audioMixer: {fileID: 24100000, guid: 0c8865e27372c694390fe164874ee9de, type: 2}
 --- !u!1 &2105098699
 GameObject:
   m_ObjectHideFlags: 0
@@ -19653,8 +19400,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -19810,8 +19557,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159560}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 603159555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
         m_Arguments:
@@ -19938,7 +19685,7 @@ MonoBehaviour:
   doubleJumpBody: {fileID: 6506812372986070304}
   price: 10
   coinsUI: {fileID: 1652816592}
-  dJButtonText: {fileID: 1693350066}
+  djButtonText: {fileID: 1693350066}
   djHintText: {fileID: 761711273}
   playerPicked: 0
   rb: {fileID: 8453297276261454566}
