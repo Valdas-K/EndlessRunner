@@ -6,10 +6,8 @@ public class GameManager : MonoBehaviour {
     //Sukuriamas klasės objektas (singleton)
     public static GameManager Instance;
 
-    [SerializeField] AudioSource deathSound;
-
     [SerializeField] MusicController mc;
-
+    [SerializeField] Collider2D[] playerBody;
 
     private void Awake() {
         if (Instance == null) {
@@ -38,7 +36,6 @@ public class GameManager : MonoBehaviour {
     public UnityEvent onEnemyDefeated = new();
 
     private void Start() {
-
         //Įkeliami išsaugoti duomenys
         string loadedData = SaveSystem.Load("save");
         if (loadedData != null) {
@@ -73,12 +70,12 @@ public class GameManager : MonoBehaviour {
         totalCoins = data.coins;
         highScore = data.highscore;
         mc.StartGameMusic();
-        Time.timeScale = 1.0f;
     }
 
     //Paėmus pinigą
     public void CoinCollected() {
         onCollectedCoin.Invoke();
+        mc.PlayCoinSound();
         coinsScore += 1;
     }
 
@@ -90,10 +87,15 @@ public class GameManager : MonoBehaviour {
 
     //Pasibaigus žaidimui
     public void GameOver() {
-        mc.StopAllMusic();
-
-        //Kintamieji gauna reikšmes, kad vėliau neatsirastų klaidų
+        //Veikėjų dydžiai ir laikas atstatomi į pradines padėtis, kad vėliau neatsirastų klaidų
         Time.timeScale = 1.0f;
+        for (int i = 0; i < playerBody.Length; i++) {
+            playerBody[i].transform.localScale = Vector3.one;
+        }
+
+        //Sustabdoma muzika ir paleidžiamas žaidimo pabaigos garsas
+        mc.StopAllMusic();
+        mc.PlayDeathSound();
 
         //Apskaičiuojamas bendras rezultatas
         timeScore = Mathf.RoundToInt(timeScore);
@@ -115,7 +117,6 @@ public class GameManager : MonoBehaviour {
         string saveString = JsonUtility.ToJson(data);
         SaveSystem.Save("save", saveString);
 
-        deathSound.Play();
         isPlaying = false;
 
         //Baigiamas žaidimas

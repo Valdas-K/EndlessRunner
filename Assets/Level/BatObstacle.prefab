@@ -176,10 +176,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8159886079722104138}
   - component: {fileID: 5206090211422537605}
-  - component: {fileID: 2052685148155109541}
   - component: {fileID: 2514008746213188083}
   - component: {fileID: 4286597580412078192}
   - component: {fileID: 3075950531705293419}
+  - component: {fileID: 8125604760270314962}
   m_Layer: 9
   m_Name: BatObstacle
   m_TagString: Obstacle
@@ -230,18 +230,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &2052685148155109541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7252808694372594816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10b132b61f30bc84d9059debe007ba74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2514008746213188083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,3 +353,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8125604760270314962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7252808694372594816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b132b61f30bc84d9059debe007ba74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

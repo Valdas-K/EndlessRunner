@@ -9,7 +9,7 @@ public class TimePowerUp : PowerUp {
 
     public IEnumerator Pickup() {
         //Paleidžiamas garsas, vykdomas efektas, išjungiami komponentai
-        collectionSound.Play();
+        mc.PlayPowerSound();
         Time.timeScale *= multiplier;
         ChangeFactors();
 

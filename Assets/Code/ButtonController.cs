@@ -1,8 +1,7 @@
 using UnityEngine;
 
 public class ButtonController : MonoBehaviour {
-    //Mygtuko paspaudimo garsas
-    [SerializeField] AudioSource clickSound;
+    [SerializeField] MusicController mc;
 
     //Meniu komponentai
     [SerializeField] GameObject startMenu;
@@ -19,7 +18,7 @@ public class ButtonController : MonoBehaviour {
 
     //Paslepiami visi meniu
     public void HideMenus() {
-        ClickButton();
+        mc.ClickButton();
         startMenu.SetActive(false);
         profileMenu.SetActive(false);
         registerMenu.SetActive(false);
@@ -33,13 +32,9 @@ public class ButtonController : MonoBehaviour {
         gameOverMenu.SetActive(false);
     }
 
-    //Paspaustas bet kuris mygtukas
-    public void ClickButton() {
-        clickSound.Play();
-    }
-
     //Išjungiamas žaidimas
     public void QuitGame() {
+        mc.ClickButton();
         Application.Quit();
     }
 }

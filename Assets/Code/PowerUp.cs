@@ -4,7 +4,7 @@ public abstract class PowerUp : MonoBehaviour {
     //Pastiprinimo modifikacijos reikšmė, veikimo laikas ir garso efektas
     [SerializeField] protected float multiplier;
     [SerializeField] protected float duration;
-    [SerializeField] protected AudioSource collectionSound;
+    [SerializeField] protected MusicController mc;
 
     protected void OnTriggerEnter2D(Collider2D other) {
         //Palietus žaidėją, paleidžiamas metodas

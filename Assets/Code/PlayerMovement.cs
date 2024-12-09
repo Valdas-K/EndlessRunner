@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour {
     private int jumps = 0;
     public int maxJumps = 2;
 
-    [SerializeField] private AudioSource jumpSound;
+    [SerializeField] MusicController mc;
 
     private void Awake() {
         //Pridedamas veikėjo fizikos komponentas
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour {
                 }
 
                 //Paleidžiamas pašokimo garso efektas
-                jumpSound.Play();
+                mc.PlayJumpSound();
             } else if (Input.GetKeyDown(inputcontrol.JumpKey) &&
                 pickedPlayer.playerPicked == 1 && jumps < maxJumps) {
                 //Jei pasirinktas antras veikėjas ir yra pašokama jau esant ore,
@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
 
                 //Paleidžiamas pašokimo garso efektas
-                jumpSound.Play();
+                mc.PlayJumpSound();
 
                 jumps++;
             }

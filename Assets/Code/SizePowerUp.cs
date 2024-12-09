@@ -9,7 +9,7 @@ public class SizePowerUp : PowerUp {
 
     public IEnumerator Pickup(Collider2D player) {
         //Paleidžiamas garsas, vykdomas efektas, išjungiami komponentai
-        collectionSound.Play();
+        mc.PlayPowerSound();
         player.transform.localScale /= multiplier;
         ChangeFactors();
 
