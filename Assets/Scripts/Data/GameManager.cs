@@ -16,25 +16,35 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-
-    //Aprašomi rezultatai: pinigų, kliučių, laiko, bendras, geriausias ir visi surinkti pinigai
+    //Rezultatai: pinigų, kliučių, laiko, bendras, geriausias ir visi surinkti pinigai
     public int coinsScore;
     public int obstaclesScore;
     public float timeScore;
     public float gameScore;
     public float highScore;
     public int totalCoins;
+    public string ownedCharacters;
 
     //Ar žaidžiama
     public bool isPlaying = false;
 
-    //Sukuriami įvykiai žaidimo pradžiai, pabaigai, surinkus pinigą, pastiprinimą ir įveikus kliūtį
+    //Įvykiai žaidimo pradžiai, pabaigai, surinkus pinigą, pastiprinimą ir įveikus kliūtį
     public UnityEvent onPlay = new();
     public UnityEvent onGameOver = new();
-    public UnityEvent onCollectedCoin = new();
-    public UnityEvent onEnemyDefeated = new();
 
     private void Start() {
+        LoadData();
+        mc.StartMenuMusic();
+    }
+
+    private void Update() {
+        //Jei žaidžiama, rezultatas didėja pagal išgyventą laiką
+        if (isPlaying) {
+            timeScore += Time.deltaTime;
+        }
+    }
+
+    public void LoadData() {
         //Įkeliami išsaugoti duomenys
         string loadedData = SaveSystem.Load("save");
         if (loadedData != null) {
@@ -43,44 +53,41 @@ public class GameManager : MonoBehaviour {
             //Jei nėra duomenų, sukuriamas naujas duomenų kintamasis
             data = new Data {
                 highscore = 0,
-                coins = 0
+                coins = 0,
+                ownedCharacters = ""
             };
         }
         totalCoins = data.coins;
         highScore = data.highscore;
-        mc.StartMenuMusic();
-    }
-
-    private void Update() {
-        //Jei žaidžiama, rezultatas didėja pagal išgyventą laiką
-        if(isPlaying) {
-            timeScore += Time.deltaTime;
-        }    
+        ownedCharacters = data.ownedCharacters;
     }
 
     public void StartGame() {
         //Nustatomi kintamieji pradedant žaidimą
-        onPlay.Invoke();
         isPlaying = true;
+        totalCoins = data.coins;
+        highScore = data.highscore;
+        ownedCharacters = data.ownedCharacters;
+        ResetScores();
+        mc.StartGameMusic();
+        onPlay.Invoke();
+    }
+
+    public void ResetScores() {
         timeScore = 0;
         coinsScore = 0;
         obstaclesScore = 0;
         gameScore = 0;
-        totalCoins = data.coins;
-        highScore = data.highscore;
-        mc.StartGameMusic();
     }
 
     //Paėmus pinigą
     public void CoinCollected() {
-        onCollectedCoin.Invoke();
         mc.PlayCoinSound();
         coinsScore += 1;
     }
 
     //Įveikus kliūtį
     public void EnemyDefeated() {
-        onEnemyDefeated.Invoke();
         obstaclesScore += 1;
     }
 
@@ -100,17 +107,15 @@ public class GameManager : MonoBehaviour {
         timeScore = Mathf.RoundToInt(timeScore);
         gameScore = coinsScore + obstaclesScore + timeScore;
 
-        //Prie visų pinigų pridedami surinkti pinigai
+        //Duomenų kintamajam priskiriami visi pinigai
         totalCoins += coinsScore;
+        data.coins = totalCoins;
 
         //Jei rezultatas yra aukščiausias, jis tampa geriausiu
         if (data.highscore < gameScore) {
             data.highscore = gameScore;
             highScore = gameScore;
         }
-
-        //Duomenų kintamajam priskiriami visi pinigai
-        data.coins = totalCoins;
 
         //Išsaugomi surinkti pinigai ir geriausias rezultatas
         string saveString = JsonUtility.ToJson(data);

@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 8034252466822025579}
-  soundTime: 5
+  soundTime: 6
 --- !u!82 &8034252466822025579
 AudioSource:
   m_ObjectHideFlags: 0

@@ -23,10 +23,8 @@ public class Settings : MonoBehaviour {
             //Į sąrašą pridedami elementai
             string hz = resolutions[i].refreshRateRatio.value.ToString("F0");
             string option = resolutions[i].width + " x " + resolutions[i].height + " @ " + hz + "hz";
-            if(float.Parse(hz) > 54) {
-                //Kad sąraše būtų mažiau nereikalingų pasirinkimų, pridedami tik tie nustatymai, kurių atnaujinimo dažnis yra didesnis
-                options.Add(option);
-            }
+            
+            options.Add(option);
 
             //Ieškoma vartotojo ekrano rezoliucija, kad dropdown laukelyje užimtų pirmą reikšmę
             if (resolutions[i].width == Screen.width &&

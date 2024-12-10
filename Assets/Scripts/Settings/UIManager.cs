@@ -18,7 +18,6 @@ public class UIManager : MonoBehaviour {
     [SerializeField] GameObject registerMenu;
     [SerializeField] GameObject levelSelectMenu;
     [SerializeField] GameObject shopMenu;
-    [SerializeField] GameObject leaderboardsMenu;
     [SerializeField] GameObject settingsMenu;
     [SerializeField] GameObject controlsMenu;
     [SerializeField] GameObject creditsMenu;
@@ -67,7 +66,6 @@ public class UIManager : MonoBehaviour {
         registerMenu.SetActive(false);
         levelSelectMenu.SetActive(false);
         shopMenu.SetActive(false);
-        leaderboardsMenu.SetActive(false);
         settingsMenu.SetActive(false);
         controlsMenu.SetActive(false);
         creditsMenu.SetActive(false);
@@ -79,5 +77,9 @@ public class UIManager : MonoBehaviour {
     public void QuitGame() {
         mc.ClickButton();
         Application.Quit();
+    }
+
+    public void UpdateCoinsUI() {
+        coinsUI.text = "Total Coins: " + gm.data.coins;
     }
 }
