@@ -61,6 +61,7 @@ public class SwitchPlayer : MonoBehaviour {
         longJumpBody.SetActive(true);
         doubleJumpBody.SetActive(false);
         SaveSettings();
+        longJumpBody.transform.localPosition = new Vector3(0f, 1f, 0f);
     }
 
     //Pasirenkamas antras veikėjas (jei nupirktas), pasirinkto žaidėjo kintamieji
@@ -70,6 +71,7 @@ public class SwitchPlayer : MonoBehaviour {
         doubleJumpBody.SetActive(true);
         longJumpBody.SetActive(false);
         SaveSettings();
+        doubleJumpBody.transform.localPosition = new Vector3(0f, 1.5f, 0f);
     }
 
     //Perkamas antras veikėjas

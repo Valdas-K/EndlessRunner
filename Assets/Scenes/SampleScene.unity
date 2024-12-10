@@ -6649,7 +6649,7 @@ Transform:
   m_GameObject: {fileID: 908632684}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.9542823, y: 6.9051075, z: -0.08107991}
+  m_LocalPosition: {x: -8, y: 7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7402,7 +7402,7 @@ Transform:
   m_GameObject: {fileID: 977251628}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.3178797, y: 3.3073156, z: -3.1496167}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7862,7 +7862,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.09969351, y: 0.3969981}
+  m_Offset: {x: -0.31354582, y: 0.3969981}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -7872,7 +7872,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0015237, y: 0.20600379}
+  m_Size: {x: 1.4292231, y: 0.20600379}
   m_EdgeRadius: 0
 --- !u!4 &1005886501
 Transform:
@@ -7883,8 +7883,8 @@ Transform:
   m_GameObject: {fileID: 1005886498}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.954283, y: -6.5951076, z: 0.08107991}
-  m_LocalScale: {x: 22.493034, y: 1.2183875, z: 1}
+  m_LocalPosition: {x: 12, y: -6.1, z: 0}
+  m_LocalScale: {x: 20, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 908632685}
@@ -9751,7 +9751,7 @@ Transform:
   m_GameObject: {fileID: 1120029090}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.013711929, y: 1.8104084, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11327,7 +11327,7 @@ Transform:
   m_GameObject: {fileID: 1318866544}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.9542823, y: -1.9051075, z: 0.08107991}
+  m_LocalPosition: {x: 3, y: -1.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11735,7 +11735,7 @@ Transform:
   m_GameObject: {fileID: 1372802783}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.9542823, y: -1.9051075, z: 0.08107991}
+  m_LocalPosition: {x: 5, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18306,7 +18306,7 @@ Transform:
   m_GameObject: {fileID: 2100013327}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.6454701, y: 2.1392698, z: 1.40807}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18830,9 +18830,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5402312914941829994}
   - component: {fileID: 8453297276261454566}
-  - component: {fileID: 8330342337811795038}
   - component: {fileID: 101526327024297933}
   - component: {fileID: 1427288039480618431}
+  - component: {fileID: 8453297276261454567}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -18850,7 +18850,7 @@ Animator:
   m_GameObject: {fileID: 6506812372986070304}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 57a8a5ae7fb149e40965a4a5f5ed3c06, type: 2}
+  m_Controller: {fileID: 9100000, guid: 50a06d246d99362429bde24241531d7d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -18926,7 +18926,7 @@ Transform:
   m_GameObject: {fileID: 1764921760001020260}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 1, z: 0}
+  m_LocalPosition: {x: -5, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -18968,6 +18968,7 @@ GameObject:
   - component: {fileID: 5180173805140496180}
   - component: {fileID: 2128072601552686720}
   - component: {fileID: 9104377147137867163}
+  - component: {fileID: 9104377147137867164}
   m_Layer: 7
   m_Name: DoubleJumpBody
   m_TagString: Player
@@ -19024,7 +19025,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0048952103, y: -0.11748266}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -19034,7 +19035,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.69650364, y: 0.7650347}
+  m_Size: {x: 0.6, y: 0.8}
   m_EdgeRadius: 0
 --- !u!212 &8102890579267973727
 SpriteRenderer:
@@ -19091,26 +19092,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8330342337811795038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1764921760001020260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81ebfe51f5186a349a5faa56a9df4c49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpForce: 15
-  jumpTime: 1
-  playerOneMass: 0.8
-  playerTwoMass: 10
-  maxJumps: 2
-  inputcontrol: {fileID: 603159558}
-  mc: {fileID: 2100013332}
-  pickedPlayer: {fileID: 1427288039480618431}
 --- !u!50 &8453297276261454566
 Rigidbody2D:
   serializedVersion: 5
@@ -19138,6 +19119,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 5
+--- !u!114 &8453297276261454567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764921760001020260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67055984bbbfb79489d024c93371a1ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8980202627118110113
 Transform:
   m_ObjectHideFlags: 0
@@ -19147,7 +19140,7 @@ Transform:
   m_GameObject: {fileID: 6506812372986070304}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19187,7 +19180,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.007041216, y: -0.05095321}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -19197,8 +19190,29 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8209777, y: 0.8980936}
+  m_Size: {x: 0.8, y: 1.1}
   m_EdgeRadius: 0
+--- !u!114 &9104377147137867164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6506812372986070304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1ba54b0a8edcbb45af6cf17501d4433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 15
+  mass: 10
+  animM: {fileID: 8453297276261454567}
+  inputcontrol: {fileID: 603159558}
+  mc: {fileID: 2100013332}
+  player: {fileID: 1764921760001020260}
+  doubleJumpForce: 12
+  anim: {fileID: 2128072601552686720}
+  maxJumps: 2
 --- !u!1 &9218071952471561782
 GameObject:
   m_ObjectHideFlags: 0
@@ -19211,6 +19225,7 @@ GameObject:
   - component: {fileID: 8102890579267973727}
   - component: {fileID: 5572122899256294840}
   - component: {fileID: 7470312869129220373}
+  - component: {fileID: 9218071952471561783}
   m_Layer: 7
   m_Name: LongJumpBody
   m_TagString: Player
@@ -19218,6 +19233,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9218071952471561783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9218071952471561782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6bee895af85ba43821fffc2cfc7442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 15
+  mass: 1
+  animM: {fileID: 8453297276261454567}
+  inputcontrol: {fileID: 603159558}
+  mc: {fileID: 2100013332}
+  player: {fileID: 1764921760001020260}
+  jumpTime: 1
+  anim: {fileID: 5572122899256294840}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
