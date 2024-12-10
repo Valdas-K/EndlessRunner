@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour {
     //Kiek laiko veikėjas gali būti pašokęs į orą
     [SerializeField] float jumpTime;
 
+    [SerializeField] float playerOneMass;
+    [SerializeField] float playerTwoMass;
+
     //Didžiausias pašokimų kiekis
     public int maxJumps = 2;
 
@@ -26,7 +29,6 @@ public class PlayerMovement : MonoBehaviour {
     public SwitchPlayer pickedPlayer;
     private int jumps = 0;
 
-
     private void Awake() {
         //Pridedamas veikėjo fizikos komponentas
         rb = GetComponent<Rigidbody2D>();
@@ -37,7 +39,7 @@ public class PlayerMovement : MonoBehaviour {
         if (!PauseGame.gameIsPaused) {
             //Tikrinama, kuris veikėjas pasirinktas
             if (pickedPlayer.playerPicked == 0) {
-                rb.mass = 0.5f;
+                rb.mass = playerOneMass;
                 if (isGrounded && Input.GetKeyDown(inputcontrol.JumpKey)) {
                     //Paleidžiamas garso efektas ir veikėjas šoka į viršų
                     isJumping = true;
@@ -73,7 +75,7 @@ public class PlayerMovement : MonoBehaviour {
 
             //Tikrinama, kuris veikėjas pasirinktas
             if (pickedPlayer.playerPicked == 1 && Input.GetKeyDown(inputcontrol.JumpKey)) {
-                rb.mass = 5f;
+                rb.mass = playerTwoMass;
                 if (isGrounded) {
                     //Paleidžiamas garso efektas ir veikėjas šoka į viršų, pridedama pašokimo reikšmė
                     mc.PlayJumpSound();

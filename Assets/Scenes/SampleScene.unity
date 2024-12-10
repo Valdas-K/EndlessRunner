@@ -4086,17 +4086,12 @@ MonoBehaviour:
   gameScore: 0
   highScore: 0
   totalCoins: 0
+  ownedCharacters: 
   isPlaying: 0
   onPlay:
     m_PersistentCalls:
       m_Calls: []
   onGameOver:
-    m_PersistentCalls:
-      m_Calls: []
-  onCollectedCoin:
-    m_PersistentCalls:
-      m_Calls: []
-  onEnemyDefeated:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &544746395
@@ -19108,8 +19103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ebfe51f5186a349a5faa56a9df4c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 20
-  jumpTime: 0.5
+  jumpForce: 15
+  jumpTime: 1
+  playerOneMass: 0.8
+  playerTwoMass: 10
   maxJumps: 2
   inputcontrol: {fileID: 603159558}
   mc: {fileID: 2100013332}
