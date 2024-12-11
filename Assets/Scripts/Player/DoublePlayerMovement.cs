@@ -22,7 +22,7 @@ public class DoublePlayerMovement : PlayerMovement
             }
             if (!isGrounded && jumps < maxJumps && Input.GetKeyDown(inputcontrol.JumpKey)) {
                 PlayerDoubleJump();
-            } 
+            }
             if (!isGrounded && Input.GetKeyUp(inputcontrol.JumpKey)) {
                 PlayerFall();
             }

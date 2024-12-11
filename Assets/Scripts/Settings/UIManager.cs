@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] GameObject startMenu;
     [SerializeField] GameObject profileMenu;
     [SerializeField] GameObject registerMenu;
+    [SerializeField] GameObject loginMenu;
     [SerializeField] GameObject levelSelectMenu;
     [SerializeField] GameObject shopMenu;
     [SerializeField] GameObject settingsMenu;
@@ -71,6 +72,7 @@ public class UIManager : MonoBehaviour {
         creditsMenu.SetActive(false);
         pauseMenu.SetActive(false);
         gameOverMenu.SetActive(false);
+        loginMenu.SetActive(false);
     }
 
     //Išjungiamas žaidimas
