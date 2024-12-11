@@ -9,6 +9,8 @@ public class AuthManager : MonoBehaviour {
 
     [SerializeField] UIManager ui;
     [SerializeField] GameObject profileMenu;
+    [SerializeField] GameObject startMenu;
+    [SerializeField] TMP_Text profileButtonText;
 
     //Firebase variables
     [Header("Firebase")]
@@ -20,8 +22,8 @@ public class AuthManager : MonoBehaviour {
     [Header("Login")]
     public TMP_InputField emailLoginField;
     public TMP_InputField passwordLoginField;
-    public TMP_Text warningLoginText;
-    public TMP_Text confirmLoginText;
+    public TMP_Text loginText;
+    //public TMP_Text confirmLoginText;
 
     //Register variables
     [Header("Register")]
@@ -29,7 +31,7 @@ public class AuthManager : MonoBehaviour {
     public TMP_InputField emailRegisterField;
     public TMP_InputField passwordRegisterField;
     public TMP_InputField passwordRegisterVerifyField;
-    public TMP_Text warningRegisterText;
+    public TMP_Text registerText;
 
     void Awake() {
         //Check that all of the necessary dependencies for Firebase are present on the system
@@ -91,23 +93,32 @@ public class AuthManager : MonoBehaviour {
                     message = "Account does not exist";
                     break;
             }
-            warningLoginText.text = message;
+            loginText.text = message;
         } else {
             //User is now logged in
             //Now get the result
             User = LoginTask.Result.User;
-            warningLoginText.text = "";
-            confirmLoginText.text = "Logged In";
+            loginText.text = "Logged In!";
+            profileButtonText.text = User.DisplayName;
+            StartCoroutine(ExecuteAfterTime(3f));
         }
+    }
+
+    IEnumerator ExecuteAfterTime(float time) {
+        yield return new WaitForSeconds(time);
+        // Code to execute after the delay
+        loginText.text = "";
+        ui.HideMenus();
+        startMenu.SetActive(true);
     }
 
     private IEnumerator Register(string _email, string _password, string _username) {
         if (_username == "") {
             //If the username field is blank show a warning
-            warningRegisterText.text = "Missing Username";
+            registerText.text = "Missing Username";
         } else if (passwordRegisterField.text != passwordRegisterVerifyField.text) {
             //If the password does not match show a warning
-            warningRegisterText.text = "Password Does Not Match!";
+            registerText.text = "Password Does Not Match!";
         } else {
             //Call the Firebase auth signin function passing the email and password
             Task<AuthResult> RegisterTask = auth.CreateUserWithEmailAndPasswordAsync(_email, _password);
@@ -135,7 +146,7 @@ public class AuthManager : MonoBehaviour {
                         message = "Email Already In Use";
                         break;
                 }
-                warningRegisterText.text = message;
+                registerText.text = message;
             } else {
                 //User has now been created
                 //Now get the result
@@ -143,7 +154,7 @@ public class AuthManager : MonoBehaviour {
 
                 if (User != null) {
                     //Create a user profile and set the username
-                    UserProfile profile = new UserProfile { DisplayName = _username };
+                    UserProfile profile = new() { DisplayName = _username };
 
                     //Call the Firebase auth update user profile function passing the profile with the username
                     Task ProfileTask = User.UpdateUserProfileAsync(profile);
@@ -155,13 +166,15 @@ public class AuthManager : MonoBehaviour {
                         Debug.LogWarning(message: $"Failed to register task with {ProfileTask.Exception}");
                         FirebaseException firebaseEx = ProfileTask.Exception.GetBaseException() as FirebaseException;
                         AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
-                        warningRegisterText.text = "Username Set Failed!";
+                        registerText.text = "Username Set Failed!";
                     } else {
                         //Username is now set
                         //Now return to login screen
                         ui.HideMenus();
                         profileMenu.SetActive(true);
-                        warningRegisterText.text = "";
+
+                        registerText.text = "";
+                        profileButtonText.text = "Welcome, " + User.DisplayName;
                     }
                 }
             }
