@@ -19245,13 +19245,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b6bee895af85ba43821fffc2cfc7442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 15
-  mass: 1
+  jumpForce: 20
+  mass: 0.8
   animM: {fileID: 8453297276261454567}
   inputcontrol: {fileID: 603159558}
   mc: {fileID: 2100013332}
   player: {fileID: 1764921760001020260}
-  jumpTime: 1
+  jumpTime: 0.8
   anim: {fileID: 5572122899256294840}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
