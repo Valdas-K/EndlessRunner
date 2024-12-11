@@ -17,6 +17,7 @@ public class LongPlayerMovement : PlayerMovement
             rb.mass = mass;
             if (isGrounded && Input.GetKeyDown(inputcontrol.JumpKey)) {
                 isJumping = true;
+                mc.PlayJumpSound();
                 PlayerJump();
             }
 
@@ -63,7 +64,6 @@ public class LongPlayerMovement : PlayerMovement
 
     protected override void PlayerJump() {
         //Paleidžiamas garso efektas ir veikėjas šoka į viršų
-        mc.PlayJumpSound();
         rb.AddForce(Vector2.up * jumpForce);
     }
 

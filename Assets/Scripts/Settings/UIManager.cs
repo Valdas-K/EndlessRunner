@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour {
     private void OnGUI() {
         //Atvaizduojami rezultatai
         scoreUI.text = "Time: " + gm.timeScore.ToString("F0") + "\nCoins: " + gm.coinsScore + "\nEnemies: " + gm.obstaclesScore;
-        coinsUI.text = "Total Coins: " + gm.totalCoins.ToString();
+        //coinsUI.text = "Total Coins: " + gm.totalCoins.ToString();
     }
 
     //Pasibaigus žaidimui, paleidžiamas meniu ir parodomi rezultatai
@@ -79,9 +79,5 @@ public class UIManager : MonoBehaviour {
     public void QuitGame() {
         mc.ClickButton();
         Application.Quit();
-    }
-
-    public void UpdateCoinsUI() {
-        coinsUI.text = "Total Coins: " + gm.data.coins;
     }
 }

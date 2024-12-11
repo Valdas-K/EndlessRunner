@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "170749012944",
+    "firebase_url": "https://endlessrunnercoursework-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "endlessrunnercoursework",
     "storage_bucket": "endlessrunnercoursework.firebasestorage.app"
   },

@@ -5,15 +5,19 @@ using Firebase.Auth;
 using Firebase.Database;
 using TMPro;
 using System.Threading.Tasks;
-using static UnityEngine.Rendering.DebugUI;
 
-public class FirebaseManager : MonoBehaviour
-{
+public class FirebaseManager : MonoBehaviour {
     [SerializeField] UIManager ui;
     [SerializeField] GameObject startMenu;
     [SerializeField] GameObject profileMenu;
     [SerializeField] GameObject loginMenu;
     [SerializeField] GameObject registerMenu;
+    [SerializeField] TMP_Text profileButtonText;
+    [SerializeField] GameManager gm;
+    [SerializeField] SwitchPlayer player;
+
+    private bool isLoggedIn;
+    private string ownedCharacters;
 
     //Firebase variables
     [Header("Firebase")]
@@ -39,81 +43,96 @@ public class FirebaseManager : MonoBehaviour
     //User Data variables
     [Header("UserData")]
     public TMP_InputField usernameField;
+    public TMP_Text highscoreText;
+    public TMP_Text allCoinsText;
 
-    void Awake()
-    {
+    void Awake() {
         //Check that all of the necessary dependencies for Firebase are present on the system
-        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
-        {
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
             dependencyStatus = task.Result;
-            if (dependencyStatus == DependencyStatus.Available)
-            {
+            if (dependencyStatus == DependencyStatus.Available) {
                 //If they are avalible Initialize Firebase
                 InitializeFirebase();
-            }
-            else
-            {
+            } else {
                 Debug.LogError("Could not resolve all Firebase dependencies: " + dependencyStatus);
             }
         });
+
+        if (isLoggedIn) {
+            UpdateScores();
+        }
     }
 
-    private void InitializeFirebase()
+    private void Start() {
+        gm = GameManager.Instance;
+    }
+
+    private void UpdateScores()
     {
+        gm.data.highscore = int.Parse(highscoreText.text);
+        gm.data.coins = int.Parse(allCoinsText.text);
+        gm.data.ownedCharacters = ownedCharacters;
+        SaveDataButton();
+    }
+
+    private void InitializeFirebase() {
         //Set the authentication instance object
         auth = FirebaseAuth.DefaultInstance;
         DBreference = FirebaseDatabase.DefaultInstance.RootReference;
     }
-    public void ClearLoginFeilds()
-    {
+
+    public void ClearLoginFields() {
         emailLoginField.text = "";
         passwordLoginField.text = "";
     }
-    public void ClearRegisterFeilds()
-    {
+
+    public void ClearRegisterFields() {
         usernameRegisterField.text = "";
         emailRegisterField.text = "";
         passwordRegisterField.text = "";
         passwordRegisterVerifyField.text = "";
     }
 
-    //Function for the login button
-    public void LoginButton()
-    {
+    public void LoginButton() {
+        //Function for the login button
         //Call the login coroutine passing the email and password
         StartCoroutine(Login(emailLoginField.text, passwordLoginField.text));
     }
-    //Function for the register button
-    public void RegisterButton()
-    {
+
+    public void RegisterButton() {
+        //Function for the register button
         //Call the register coroutine passing the email, password, and username
         StartCoroutine(Register(emailRegisterField.text, passwordRegisterField.text, usernameRegisterField.text));
     }
-    //Function for the sign out button
-    public void SignOutButton()
-    {
+
+    public void SignOutButton() {
+        //Function for the sign out button
         auth.SignOut();
         ui.HideMenus();
         loginMenu.SetActive(true);
-        ClearRegisterFeilds();
-        ClearLoginFeilds();
-    }
-    //Function for the save button
-    public void SaveDataButton()
-    {
-        StartCoroutine(UpdateUsernameAuth(usernameField.text));
-        StartCoroutine(UpdateUsernameDatabase(usernameField.text));
+        isLoggedIn = false;
+        profileButtonText.text = "Profile";
+        ClearRegisterFields();
+        ClearLoginFields();
     }
 
-    private IEnumerator Login(string _email, string _password)
-    {
+    public void SaveDataButton() {
+        //Function for the save button
+        StartCoroutine(UpdateUsernameAuth(usernameField.text));
+        StartCoroutine(UpdateUsernameDatabase(usernameField.text));
+
+        StartCoroutine(UpdateHighScore(int.Parse(highscoreText.text)));
+        StartCoroutine(UpdateCoinsCollected(int.Parse(allCoinsText.text)));
+        StartCoroutine(UpdateCharactersOwned(ownedCharacters));
+    }
+
+    private IEnumerator Login(string _email, string _password) {
         //Call the Firebase auth signin function passing the email and password
         Task<AuthResult> LoginTask = auth.SignInWithEmailAndPasswordAsync(_email, _password);
         //Wait until the task completes
         yield return new WaitUntil(predicate: () => LoginTask.IsCompleted);
 
-        if (LoginTask.Exception != null)
-        {
+        if (LoginTask.Exception != null) {
             Debug.Log("something is wrong!!!");
             //If there are errors handle them
             Debug.LogWarning(message: $"Failed to register task with {LoginTask.Exception}");
@@ -121,8 +140,7 @@ public class FirebaseManager : MonoBehaviour
             AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
 
             string message = "Login Failed!";
-            switch (errorCode)
-            {
+            switch (errorCode) {
                 case AuthError.MissingEmail:
                     message = "Missing Email";
                     break;
@@ -140,57 +158,49 @@ public class FirebaseManager : MonoBehaviour
                     break;
             }
             loginText.text = message;
-        }
-        else
-        {
+        } else {
             //User is now logged in
             //Now get the result
             User = LoginTask.Result.User;
-            loginText.text = "Logged In";
+            loginText.text = "Logged In!";
+            isLoggedIn = true;
 
             StartCoroutine(LoadUserData());
 
-
-            yield return new WaitForSecondsRealtime(5f);
+            yield return new WaitForSecondsRealtime(1f);
 
             usernameField.text = User.DisplayName;
+            profileButtonText.text = "Welcome, " + User.DisplayName;
             ui.HideMenus();
             profileMenu.SetActive(true);
             loginText.text = "";
-            ClearLoginFeilds();
-            ClearRegisterFeilds();
+            ClearLoginFields();
+            ClearRegisterFields();
+            UpdateScores();
         }
     }
 
-    private IEnumerator Register(string _email, string _password, string _username)
-    {
-        if (_username == "")
-        {
+    private IEnumerator Register(string _email, string _password, string _username) {
+        if (_username == "") {
             //If the username field is blank show a warning
             registerText.text = "Missing Username";
-        }
-        else if (passwordRegisterField.text != passwordRegisterVerifyField.text)
-        {
+        } else if (passwordRegisterField.text != passwordRegisterVerifyField.text) {
             //If the password does not match show a warning
             registerText.text = "Password Does Not Match!";
-        }
-        else
-        {
+        } else {
             //Call the Firebase auth signin function passing the email and password
             Task<AuthResult> RegisterTask = auth.CreateUserWithEmailAndPasswordAsync(_email, _password);
             //Wait until the task completes
             yield return new WaitUntil(predicate: () => RegisterTask.IsCompleted);
 
-            if (RegisterTask.Exception != null)
-            {
+            if (RegisterTask.Exception != null) {
                 //If there are errors handle them
                 Debug.LogWarning(message: $"Failed to register task with {RegisterTask.Exception}");
                 FirebaseException firebaseEx = RegisterTask.Exception.GetBaseException() as FirebaseException;
                 AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
 
                 string message = "Register Failed!";
-                switch (errorCode)
-                {
+                switch (errorCode) {
                     case AuthError.MissingEmail:
                         message = "Missing Email";
                         break;
@@ -205,15 +215,12 @@ public class FirebaseManager : MonoBehaviour
                         break;
                 }
                 registerText.text = message;
-            }
-            else
-            {
+            } else {
                 //User has now been created
                 //Now get the result
                 User = RegisterTask.Result.User;
 
-                if (User != null)
-                {
+                if (User != null) { 
                     //Create a user profile and set the username
                     UserProfile profile = new() { DisplayName = _username };
 
@@ -222,29 +229,26 @@ public class FirebaseManager : MonoBehaviour
                     //Wait until the task completes
                     yield return new WaitUntil(predicate: () => ProfileTask.IsCompleted);
 
-                    if (ProfileTask.Exception != null)
-                    {
+                    if (ProfileTask.Exception != null) {
                         //If there are errors handle them
                         Debug.LogWarning(message: $"Failed to register task with {ProfileTask.Exception}");
                         registerText.text = "Username Set Failed!";
-                    }
-                    else
-                    {
+                    } else {
                         //Username is now set
                         //Now return to login screen
                         ui.HideMenus();
                         loginMenu.SetActive(true);
                         registerText.text = "";
-                        ClearRegisterFeilds();
-                        ClearLoginFeilds();
+                        ClearRegisterFields();
+                        ClearLoginFields();
+                        profileButtonText.text = "Welcome, " + User.DisplayName;
                     }
                 }
             }
         }
     }
 
-    private IEnumerator UpdateUsernameAuth(string _username)
-    {
+    private IEnumerator UpdateUsernameAuth(string _username) {
         //Create a user profile and set the username
         UserProfile profile = new() { DisplayName = _username };
 
@@ -253,57 +257,105 @@ public class FirebaseManager : MonoBehaviour
         //Wait until the task completes
         yield return new WaitUntil(predicate: () => ProfileTask.IsCompleted);
 
-        if (ProfileTask.Exception != null)
-        {
+        profileButtonText.text = "Welcome, " + User.DisplayName;
+
+        if (ProfileTask.Exception != null) {
             Debug.LogWarning(message: $"Failed to register task with {ProfileTask.Exception}");
-        }
-        else
-        {
+        } else {
+
             //Auth username is now updated
         }
     }
 
-    private IEnumerator UpdateUsernameDatabase(string _username)
-    {
+    private IEnumerator UpdateUsernameDatabase(string _username) {
         //Set the currently logged in user username in the database
         Task DBTask = DBreference.Child("users").Child(User.UserId).Child("username").SetValueAsync(_username);
-        Debug.Log(DBTask.ToString());
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
-        if (DBTask.Exception != null)
-        {
+        profileButtonText.text = "Welcome, " + User.DisplayName;
+
+        if (DBTask.Exception != null) {
             Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
-        }
-        else
-        {
+        } else {
             //Database username is now updated
         }
     }
 
+    private IEnumerator UpdateHighScore(int _highScore) {
+        //Set the currently logged in user xp
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("highscore").SetValueAsync(_highScore);
 
-    private IEnumerator LoadUserData()
-    {
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null) {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        } else {
+            //Xp is now updated
+        }
+    }
+
+    private IEnumerator UpdateCoinsCollected(int _coins) {
+        //Set the currently logged in user xp
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("coins").SetValueAsync(_coins);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null) {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        } else {
+            //Xp is now updated
+        }
+    }
+
+    private IEnumerator UpdateCharactersOwned(string _characters) {
+        //Set the currently logged in user xp
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("characters").SetValueAsync(_characters);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null) {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        } else {
+            //Xp is now updated
+        }
+    }
+
+    private IEnumerator LoadUserData() {
         //Get the currently logged in user data
         Task<DataSnapshot> DBTask = DBreference.Child("users").Child(User.UserId).GetValueAsync();
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
-        if (DBTask.Exception != null)
-        {
+        if (DBTask.Exception != null) {
             Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        } else if (DBTask.Result.Value == null) {
+            highscoreText.text = "0";
+            allCoinsText.text = "0";
+            ownedCharacters = "";
+
+            gm.data.highscore = int.Parse(highscoreText.text);
+            gm.data.coins = int.Parse(allCoinsText.text);
+            gm.data.ownedCharacters = ownedCharacters;
+            player.LoadSettings();
         }
-        else if (DBTask.Result.Value == null)
-        {
-            //No data exists yet
-            Debug.Log("nothing!!!!");
-        }
-        else
-        {
+        else {
             //Data has been retrieved
             DataSnapshot snapshot = DBTask.Result;
+            highscoreText.text = snapshot.Child("highscore").Value.ToString();
+            allCoinsText.text = snapshot.Child("coins").Value.ToString();
+        }
+    }
 
-            Debug.Log("something!!1");
+    public void OpenMenu() {
+        if (isLoggedIn) {
+            profileMenu.SetActive(true);
+            loginMenu.SetActive(false);
+            UpdateScores();
+        }
+        else {
+            profileMenu.SetActive(false);
+            loginMenu.SetActive(true);
         }
     }
 }

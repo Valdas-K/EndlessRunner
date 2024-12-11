@@ -28,7 +28,7 @@ public class SwitchPlayer : MonoBehaviour {
     }
 
     //Užkraunamas išsaugotas veikėjas
-    private void LoadSettings() {
+    public void LoadSettings() {
         playerPicked = PlayerPrefs.GetInt("PlayerPicked");
         if (playerPicked == 1 && gm.data.ownedCharacters == "DJ") {
             hintText = "Select";
@@ -44,13 +44,11 @@ public class SwitchPlayer : MonoBehaviour {
             LoadLJ();
         }
         ChangeHintText();
-        UI.UpdateCoinsUI();
     }
 
     private void SaveSettings() {
         PlayerPrefs.SetInt("PlayerPicked", playerPicked);
         PlayerPrefs.Save();
-        UI.UpdateCoinsUI();
         ChangeHintText();
     }
 
