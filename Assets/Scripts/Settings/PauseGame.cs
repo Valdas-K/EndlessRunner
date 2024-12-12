@@ -7,16 +7,6 @@ public class PauseGame : MonoBehaviour {
     //Pauzės meniu komponentas
     [SerializeField] GameObject pauseMenu;
 
-    //Valdymo nustatymai
-    public InputControl inputcontrol;
-
-    private void Update() {
-        //Jei žaidžiama ir yra paspaustas pauzės mygtukas, žaidimas sustoja
-        if (GameManager.Instance.isPlaying && Input.GetKeyDown(inputcontrol.PauseKey)) {
-            StopGame();
-        }
-    }
-
     //Žaidimas yra sustabdomas ir atvaizduojamas pauzės meniu
     public void StopGame() {
         //Pakeičiamos reikšmės

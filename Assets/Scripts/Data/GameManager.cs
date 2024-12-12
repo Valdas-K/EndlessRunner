@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour {
 
     //Sukuriamas klasės objektas (singleton)
     public static GameManager Instance;
 
+    //Valdymo nustatymai
     [SerializeField] MusicController mc;
+    [SerializeField] InputControl input;
+    [SerializeField] PauseGame pause;
     [SerializeField] Collider2D[] playerBody;
     public Data data;
 
@@ -41,6 +45,9 @@ public class GameManager : MonoBehaviour {
         //Jei žaidžiama, rezultatas didėja pagal išgyventą laiką
         if (isPlaying) {
             timeScore += Time.deltaTime;
+            if (Input.GetKeyDown(input.PauseKey)) {
+                pause.StopGame();
+            }
         }
     }
 

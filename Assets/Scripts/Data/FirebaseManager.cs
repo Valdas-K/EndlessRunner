@@ -57,22 +57,17 @@ public class FirebaseManager : MonoBehaviour {
                 Debug.LogError("Could not resolve all Firebase dependencies: " + dependencyStatus);
             }
         });
-
-        if (isLoggedIn) {
-            UpdateScores();
-        }
     }
 
     private void Start() {
         gm = GameManager.Instance;
-    }
-
-    private void UpdateScores()
-    {
-        gm.data.highscore = int.Parse(highscoreText.text);
-        gm.data.coins = int.Parse(allCoinsText.text);
-        gm.data.ownedCharacters = ownedCharacters;
-        SaveDataButton();
+        if (isLoggedIn) {
+            gm.data.highscore = int.Parse(highscoreText.text);
+            gm.data.coins = int.Parse(allCoinsText.text);
+            gm.data.ownedCharacters = ownedCharacters;
+        } else {
+            player.LoadSettings();
+        }
     }
 
     private void InitializeFirebase() {
@@ -114,6 +109,14 @@ public class FirebaseManager : MonoBehaviour {
         profileButtonText.text = "Profile";
         ClearRegisterFields();
         ClearLoginFields();
+
+        gm.data.highscore = 0;
+        gm.data.coins = 0;
+        gm.data.ownedCharacters = "";
+
+        player.LoadSettings();
+        player.hintText = "Buy";
+        player.ChangeHintText();
     }
 
     public void SaveDataButton() {
@@ -133,7 +136,6 @@ public class FirebaseManager : MonoBehaviour {
         yield return new WaitUntil(predicate: () => LoginTask.IsCompleted);
 
         if (LoginTask.Exception != null) {
-            Debug.Log("something is wrong!!!");
             //If there are errors handle them
             Debug.LogWarning(message: $"Failed to register task with {LoginTask.Exception}");
             FirebaseException firebaseEx = LoginTask.Exception.GetBaseException() as FirebaseException;
@@ -167,7 +169,7 @@ public class FirebaseManager : MonoBehaviour {
 
             StartCoroutine(LoadUserData());
 
-            yield return new WaitForSecondsRealtime(1f);
+            yield return new WaitForSecondsRealtime(1.5f);
 
             usernameField.text = User.DisplayName;
             profileButtonText.text = "Welcome, " + User.DisplayName;
@@ -176,7 +178,6 @@ public class FirebaseManager : MonoBehaviour {
             loginText.text = "";
             ClearLoginFields();
             ClearRegisterFields();
-            UpdateScores();
         }
     }
 
@@ -236,12 +237,12 @@ public class FirebaseManager : MonoBehaviour {
                     } else {
                         //Username is now set
                         //Now return to login screen
-                        ui.HideMenus();
-                        loginMenu.SetActive(true);
-                        registerText.text = "";
+                        registerText.text = "Registration successful!";
                         ClearRegisterFields();
                         ClearLoginFields();
+                        usernameField.text = User.DisplayName;
                         profileButtonText.text = "Welcome, " + User.DisplayName;
+                        Invoke(nameof(ShowLogin), 1.5f);
                     }
                 }
             }
@@ -258,6 +259,7 @@ public class FirebaseManager : MonoBehaviour {
         yield return new WaitUntil(predicate: () => ProfileTask.IsCompleted);
 
         profileButtonText.text = "Welcome, " + User.DisplayName;
+        usernameField.text = User.DisplayName;
 
         if (ProfileTask.Exception != null) {
             Debug.LogWarning(message: $"Failed to register task with {ProfileTask.Exception}");
@@ -274,6 +276,7 @@ public class FirebaseManager : MonoBehaviour {
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
         profileButtonText.text = "Welcome, " + User.DisplayName;
+        usernameField.text = User.DisplayName;
 
         if (DBTask.Exception != null) {
             Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
@@ -330,32 +333,49 @@ public class FirebaseManager : MonoBehaviour {
         if (DBTask.Exception != null) {
             Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
         } else if (DBTask.Result.Value == null) {
-            highscoreText.text = "0";
-            allCoinsText.text = "0";
-            ownedCharacters = "";
-
-            gm.data.highscore = int.Parse(highscoreText.text);
-            gm.data.coins = int.Parse(allCoinsText.text);
-            gm.data.ownedCharacters = ownedCharacters;
-            player.LoadSettings();
-        }
-        else {
+            SaveGameStats();
+        } else {
             //Data has been retrieved
             DataSnapshot snapshot = DBTask.Result;
             highscoreText.text = snapshot.Child("highscore").Value.ToString();
             allCoinsText.text = snapshot.Child("coins").Value.ToString();
+            ownedCharacters = snapshot.Child("characters").Value.ToString();
+            usernameField.text = User.DisplayName;
+
+            gm.data.highscore = int.Parse(highscoreText.text);
+            gm.data.coins = int.Parse(allCoinsText.text);
+            gm.data.ownedCharacters = ownedCharacters;
+            SaveDataButton();
         }
+
+        if (ownedCharacters == "DJ") {
+            player.hintText = "Select";
+        } else {
+            player.hintText = "Buy";
+        }
+        player.ChangeHintText();
     }
 
     public void OpenMenu() {
         if (isLoggedIn) {
             profileMenu.SetActive(true);
             loginMenu.SetActive(false);
-            UpdateScores();
-        }
-        else {
+            SaveGameStats();
+        } else {
             profileMenu.SetActive(false);
             loginMenu.SetActive(true);
         }
+    }
+
+    public void SaveGameStats() {
+        highscoreText.text = gm.data.highscore.ToString();
+        allCoinsText.text = gm.data.coins.ToString();
+        ownedCharacters = gm.data.ownedCharacters;
+        SaveDataButton();
+    }
+
+    public void ShowLogin() {
+        ui.HideMenus();
+        loginMenu.SetActive(true);
     }
 }

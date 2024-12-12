@@ -19,7 +19,7 @@ public class SwitchPlayer : MonoBehaviour {
     [SerializeField] UIManager UI;
     public GameManager gm;
 
-    private string hintText = "Buy";
+    public string hintText = "Buy";
 
     void Start() {
         //Užkraunamas išsaugotas veikėjo pasirinkimas
