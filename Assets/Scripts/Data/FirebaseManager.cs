@@ -378,4 +378,13 @@ public class FirebaseManager : MonoBehaviour {
         ui.HideMenus();
         loginMenu.SetActive(true);
     }
+
+    public void ResetProfile() {
+        highscoreText.text = "0";
+        allCoinsText.text = "0";
+        ownedCharacters = "";
+        usernameField.text = "";
+        SaveDataButton();
+        player.LoadSettings();
+    }
 }
