@@ -5,6 +5,7 @@ using Firebase.Auth;
 using Firebase.Database;
 using TMPro;
 using System.Threading.Tasks;
+using UnityEngine.UI;
 
 public class FirebaseManager : MonoBehaviour {
     [SerializeField] UIManager ui;
@@ -15,6 +16,7 @@ public class FirebaseManager : MonoBehaviour {
     [SerializeField] TMP_Text profileButtonText;
     [SerializeField] GameManager gm;
     [SerializeField] SwitchPlayer player;
+    [SerializeField] Button loginButton;
 
     private bool isLoggedIn;
     private string ownedCharacters;
@@ -155,7 +157,10 @@ public class FirebaseManager : MonoBehaviour {
                     message = "Account does not exist";
                     break;
             }
+            ClearLoginFields();
             loginText.text = message;
+            loginButton.enabled = false;
+            Invoke(nameof(EnableButton), 3f);
         } else {
             //User is now logged in
             //Now get the result
@@ -175,6 +180,11 @@ public class FirebaseManager : MonoBehaviour {
             ClearLoginFields();
             ClearRegisterFields();
         }
+    }
+
+    private void EnableButton() {
+        loginButton.enabled = true;
+        loginText.text = "";
     }
 
     private IEnumerator Register(string _email, string _password, string _username) {
