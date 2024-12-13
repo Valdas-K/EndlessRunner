@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
 
-public class DoublePlayerMovement : PlayerMovement
-{
+public class DoublePlayerMovement : PlayerMovement {
     //Pašokimo jėgos kintamasis
     [SerializeField] float doubleJumpForce;
-
     [SerializeField] Animator anim;
-
     //Didžiausias pašokimų kiekis
     [SerializeField] int maxJumps;
 

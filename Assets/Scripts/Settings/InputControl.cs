@@ -42,13 +42,13 @@ public class InputControl : MonoBehaviour {
     }
 
     //Pradedamas mygtuko keitimas
-    void StartKeyChange(string action) {
+    private void StartKeyChange(string action) {
         actionToChange = action;
         waitingForInput = true;
     }
 
     //Priskiriamas naujas mygtukas
-    void DetectNewKey() {
+    private void DetectNewKey() {
         //Randamas paspaustas naujas mygtukas
         if (Input.anyKeyDown) {
             KeyCode key = GetPressedKey();
@@ -64,7 +64,7 @@ public class InputControl : MonoBehaviour {
     }
 
     //Grąžinamas paspaustas mygtukas
-    public KeyCode GetPressedKey() {
+    private KeyCode GetPressedKey() {
         foreach (KeyCode keyCode in System.Enum.GetValues(typeof(KeyCode))) {
             if (Input.GetKeyDown(keyCode)) {
                 return keyCode;
@@ -74,7 +74,7 @@ public class InputControl : MonoBehaviour {
     }
 
     //Atnaujinamas mygtukas pagal veiksmą
-    public void UpdateKey(KeyCode newKey) {
+    private void UpdateKey(KeyCode newKey) {
         if(actionToChange == "Jump") {
             jumpKey = newKey;
         }
@@ -84,13 +84,13 @@ public class InputControl : MonoBehaviour {
     }
 
     //Atnaujinamas mygtuko tekstas
-    void UpdateButtonText() {
+    private void UpdateButtonText() {
         jumpButtonText.text = "(" + jumpKey + ")";
         pauseButtonText.text = "(" + pauseKey + ")";
     }
 
     //Išsaugomi nustatymai, kurie bus išsaugomi ir perkrovus žaidimą
-    public void SaveSettings() {
+    private void SaveSettings() {
         PlayerPrefs.SetInt("JumpKey", (int)jumpKey);
         PlayerPrefs.SetInt("PauseKey", (int)pauseKey);
 
@@ -98,7 +98,7 @@ public class InputControl : MonoBehaviour {
 
     //Užkraunami nustatymai kiekvienam mygtukui
     //Jei nėra išsaugotas joks mygtukas, yra priskiriama nutylėta reikšmė
-    public void LoadSettings() {
+    private void LoadSettings() {
         if (PlayerPrefs.HasKey("JumpKey")) {
             jumpKey = (KeyCode)PlayerPrefs.GetInt("JumpKey");
         } else if (jumpKey == KeyCode.None) {

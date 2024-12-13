@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class AnimationManager : MonoBehaviour
-{
+public class AnimationManager : MonoBehaviour {
     public void GroundAnimation(Animator anim) {
         anim.SetBool("isGrounded", true);
         anim.SetBool("isFalling", false);

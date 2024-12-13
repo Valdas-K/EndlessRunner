@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
 
-public class MusicController : MonoBehaviour
-{
+public class MusicController : MonoBehaviour {
     //meniu ir žaidimo muzikos, mygtuko paspaudimo, mirties, pinigo ir pašokimo garso efektai
     [SerializeField] AudioSource menuMusic;
     [SerializeField] AudioSource gameMusic;

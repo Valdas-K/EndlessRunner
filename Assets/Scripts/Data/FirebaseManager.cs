@@ -20,33 +20,29 @@ public class FirebaseManager : MonoBehaviour {
     private string ownedCharacters;
 
     //Firebase variables
-    [Header("Firebase")]
     public DependencyStatus dependencyStatus;
     public FirebaseAuth auth;
     public FirebaseUser User;
     public DatabaseReference DBreference;
 
     //Login variables
-    [Header("Login")]
-    public TMP_InputField emailLoginField;
-    public TMP_InputField passwordLoginField;
-    public TMP_Text loginText;
+    [SerializeField] TMP_InputField emailLoginField;
+    [SerializeField] TMP_InputField passwordLoginField;
+    [SerializeField] TMP_Text loginText;
 
     //Register variables
-    [Header("Register")]
-    public TMP_InputField usernameRegisterField;
-    public TMP_InputField emailRegisterField;
-    public TMP_InputField passwordRegisterField;
-    public TMP_InputField passwordRegisterVerifyField;
-    public TMP_Text registerText;
+    [SerializeField] TMP_InputField usernameRegisterField;
+    [SerializeField] TMP_InputField emailRegisterField;
+    [SerializeField] TMP_InputField passwordRegisterField;
+    [SerializeField] TMP_InputField passwordRegisterVerifyField;
+    [SerializeField] TMP_Text registerText;
 
     //User Data variables
-    [Header("UserData")]
-    public TMP_InputField usernameField;
-    public TMP_Text highscoreText;
-    public TMP_Text allCoinsText;
+    [SerializeField] TMP_InputField usernameField;
+    [SerializeField] TMP_Text highscoreText;
+    [SerializeField] TMP_Text allCoinsText;
 
-    void Awake() {
+    private void Awake() {
         //Check that all of the necessary dependencies for Firebase are present on the system
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
             dependencyStatus = task.Result;
@@ -76,12 +72,12 @@ public class FirebaseManager : MonoBehaviour {
         DBreference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
-    public void ClearLoginFields() {
+    private void ClearLoginFields() {
         emailLoginField.text = "";
         passwordLoginField.text = "";
     }
 
-    public void ClearRegisterFields() {
+    private void ClearRegisterFields() {
         usernameRegisterField.text = "";
         emailRegisterField.text = "";
         passwordRegisterField.text = "";

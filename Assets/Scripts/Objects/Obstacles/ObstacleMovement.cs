@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class ObstacleMovement : MonoBehaviour
-{
+public abstract class ObstacleMovement : MonoBehaviour {
     //Kliūties fizikos komponentas
     protected Rigidbody2D rb;
 

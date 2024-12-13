@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-public class LongPlayerMovement : PlayerMovement
-{
+public class LongPlayerMovement : PlayerMovement {
     //Kiek laiko veikėjas gali būti pašokęs į orą
     [SerializeField] float jumpTime;
 
