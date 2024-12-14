@@ -38,7 +38,6 @@ public class UIManager : MonoBehaviour {
     private void OnGUI() {
         //Atvaizduojami rezultatai
         scoreUI.text = "Time: " + gm.timeScore.ToString("F0") + "\nCoins: " + gm.coinsScore + "\nEnemies: " + gm.obstaclesScore;
-        //coinsUI.text = "Total Coins: " + gm.totalCoins.ToString();
     }
 
     //Pasibaigus žaidimui, paleidžiamas meniu ir parodomi rezultatai
@@ -80,5 +79,60 @@ public class UIManager : MonoBehaviour {
         mc.ClickButton();
         fbM.auth.SignOut();
         Application.Quit();
+    }
+
+    public void OpenStartMenu() {
+        HideMenus();
+        startMenu.SetActive(true);
+    }
+
+    public void OpenProfileMenu() {
+        HideMenus();
+        profileMenu.SetActive(true);
+    }
+
+    public void OpenRegisterMenu() {
+        HideMenus();
+        registerMenu.SetActive(true);
+    }
+
+    public void OpenLevelSelectMenu() {
+        HideMenus();
+        levelSelectMenu.SetActive(true);
+    }
+
+    public void OpenShopMenu() {
+        HideMenus();
+        shopMenu.SetActive(true);
+    }
+
+    public void OpenSettingsMenu() {
+        HideMenus();
+        settingsMenu.SetActive(true);
+    }
+
+    public void OpenControlsMenu() {
+        HideMenus();
+        controlsMenu.SetActive(true);
+    }
+
+    public void OpenCreditsMenu() {
+        HideMenus();
+        creditsMenu.SetActive(true);
+    }
+
+    public void OpenPauseMenu() {
+        HideMenus();
+        pauseMenu.SetActive(true);
+    }
+
+    public void OpenGameOverMenu() {
+        HideMenus();
+        gameOverMenu.SetActive(true);
+    }
+
+    public void OpenLoginMenu() {
+        HideMenus();
+        loginMenu.SetActive(true);
     }
 }
