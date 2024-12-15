@@ -79,6 +79,7 @@ public class FirebaseLogin : MonoBehaviour {
             firebase.SaveDataButton();
         }
 
+        player.LoadSettings();
         if (firebase.ownedCharacters == "DJ") {
             player.hintText = "Select";
         } else {
