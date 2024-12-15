@@ -1734,8 +1734,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Passwords must be at least 8 symbols long, have one number. lower case
-    & upper case letters
+  m_text: 'Hint: Password Must Be At Least 8 Characters Long, Have One Number, Lower
+    & Upper Case Symbols'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17003,13 +17003,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1575876747}
-  - {fileID: 188949093}
   - {fileID: 709188128}
   - {fileID: 1783099230}
   - {fileID: 1987419444}
   - {fileID: 95218005}
   - {fileID: 385220122}
   - {fileID: 1195574622}
+  - {fileID: 188949093}
   - {fileID: 2061701900}
   m_Father: {fileID: 603159554}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
