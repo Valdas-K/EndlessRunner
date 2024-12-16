@@ -22115,6 +22115,7 @@ MonoBehaviour:
   inputcontrol: {fileID: 603159558}
   mc: {fileID: 2100013332}
   player: {fileID: 1764921760001020260}
+  jumpbufferTime: 0.2
   doubleJumpForce: 7
   anim: {fileID: 2128072601552686720}
   maxJumps: 2
@@ -22156,6 +22157,7 @@ MonoBehaviour:
   inputcontrol: {fileID: 603159558}
   mc: {fileID: 2100013332}
   player: {fileID: 1764921760001020260}
+  jumpbufferTime: 0.3
   jumpTime: 0.7
   anim: {fileID: 5572122899256294840}
 --- !u!1660057539 &9223372036854775807

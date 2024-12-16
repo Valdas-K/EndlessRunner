@@ -6,7 +6,7 @@ public abstract class PlayerMovement : MonoBehaviour {
     [SerializeField] protected float mass;
     [SerializeField] protected AnimationManager animM;
 
-    //Aprašomas klasės kintamasis, iš kurio bus paimami valdymo nustatymai
+    //Valdymo nustatymai
     [SerializeField] protected InputControl inputcontrol;
     [SerializeField] protected MusicController mc;
     [SerializeField] protected GameObject player;
