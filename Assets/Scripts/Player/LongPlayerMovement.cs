@@ -63,7 +63,7 @@ public class LongPlayerMovement : PlayerMovement {
 
     protected override void PlayerJump() {
         //Paleidžiamas garso efektas ir veikėjas šoka į viršų
-        rb.AddForce(Vector2.up * jumpForce);
+        rb.AddForce(new Vector2(0f, jumpForce));
     }
 
     protected override void PlayerFall() {

@@ -105,8 +105,7 @@ public class UIManager : MonoBehaviour {
     }
 
     public void OpenSettingsMenu() {
-        //HideMenus();
-        startMenu.SetActive(false);
+        HideMenus();
         settingsMenu.SetActive(true);
     }
 

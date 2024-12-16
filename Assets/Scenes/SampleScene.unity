@@ -5111,7 +5111,6 @@ MonoBehaviour:
   pauseMenu: {fileID: 1483903932}
   gameOverMenu: {fileID: 1729063439}
   mc: {fileID: 2100013332}
-  fbM: {fileID: 1088347408}
 --- !u!222 &603159557
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20013,7 +20012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -20046,8 +20045,8 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: -80
   m_MaxValue: 20
-  m_WholeNumbers: 0
-  m_Value: 0
+  m_WholeNumbers: 1
+  m_Value: -20
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -22163,13 +22162,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b6bee895af85ba43821fffc2cfc7442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 18
+  jumpForce: 11
   mass: 1
   animM: {fileID: 8453297276261454567}
   inputcontrol: {fileID: 603159558}
   mc: {fileID: 2100013332}
   player: {fileID: 1764921760001020260}
-  jumpTime: 0.7
+  jumpTime: 0.5
   anim: {fileID: 5572122899256294840}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
