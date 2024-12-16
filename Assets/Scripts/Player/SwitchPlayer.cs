@@ -43,6 +43,7 @@ public class SwitchPlayer : MonoBehaviour {
             LoadLJ();
         } else {
             LoadLJ();
+            hintText = "Buy";
         }
         ChangeHintText();
         ChangeCoinsUI();

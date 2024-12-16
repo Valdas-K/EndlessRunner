@@ -10,7 +10,7 @@ public class FirebaseManager : MonoBehaviour {
     public DatabaseReference DBreference;
     public FirebaseUser User;
 
-    [SerializeField] public UIManager gameUI;
+    public UIManager gameUI;
 
     public FirebaseLogin login;
     public FirebaseUpdate update;
@@ -24,6 +24,8 @@ public class FirebaseManager : MonoBehaviour {
     public TMP_Text profileButtonText;
     public string ownedCharacters;
 
+    [SerializeField] SwitchPlayer player;
+
     public bool isLoggedIn;
 
     private void Awake() {
@@ -32,6 +34,7 @@ public class FirebaseManager : MonoBehaviour {
             if (dependencyStatus == DependencyStatus.Available) {
                 auth = FirebaseAuth.DefaultInstance;
                 DBreference = FirebaseDatabase.DefaultInstance.RootReference;
+                signOut.SignOut();
             }
         });
     }
@@ -46,6 +49,7 @@ public class FirebaseManager : MonoBehaviour {
 
     public void SignOutButton() {
         signOut.SignOut();
+        gameUI.OpenLoginMenu();
     }
 
     public void SaveDataButton() {

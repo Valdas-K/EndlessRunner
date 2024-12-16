@@ -11,7 +11,7 @@ public class PickupPosition : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
 
         //Sugeneruojamos atsitiktinės X ir Y reikšmės
-        posY = Random.Range(1f, 9f);
+        posY = Random.Range(2f, 8f);
         posX = Random.Range(15f, 25f);
 
         //Objektui suteikiama pozicija

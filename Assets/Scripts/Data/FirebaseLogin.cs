@@ -105,6 +105,10 @@ public class FirebaseLogin : MonoBehaviour {
         firebase.allCoinsText.text = "0";
         firebase.ownedCharacters = "";
         firebase.usernameField.text = "";
+
+        gm.data.highscore = 0;
+        gm.data.coins = 0;
+        gm.data.ownedCharacters = "";
         firebase.SaveDataButton();
         player.LoadSettings();
     }

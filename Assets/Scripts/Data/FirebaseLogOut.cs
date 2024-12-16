@@ -7,7 +7,6 @@ public class FirebaseLogOut : MonoBehaviour {
 
     public void SignOut() {
         firebase.auth.SignOut();
-        firebase.gameUI.OpenLoginMenu();
 
         firebase.isLoggedIn = false;
         firebase.profileButtonText.text = "Profile";

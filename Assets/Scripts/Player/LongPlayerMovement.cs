@@ -28,7 +28,7 @@ public class LongPlayerMovement : PlayerMovement {
                     PlayerJump();
 
                     //Kintamojo reikšmė didėja priklausomai nuo laiko, kurį buvo nuspaustas pašokimo mygtukas
-                    jumpTimer += Time.deltaTime;
+                    jumpTimer += Time.unscaledDeltaTime;
                 } else {
                     PlayerFall();
                 }

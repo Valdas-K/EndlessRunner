@@ -26,7 +26,6 @@ public class UIManager : MonoBehaviour {
 
     GameManager gm;
     [SerializeField] MusicController mc;
-    [SerializeField] FirebaseManager fbM;
 
     private void Start() {
         gm = GameManager.Instance;
@@ -77,7 +76,6 @@ public class UIManager : MonoBehaviour {
     //Išjungiamas žaidimas
     public void QuitGame() {
         mc.ClickButton();
-        fbM.auth.SignOut();
         Application.Quit();
     }
 
@@ -107,7 +105,8 @@ public class UIManager : MonoBehaviour {
     }
 
     public void OpenSettingsMenu() {
-        HideMenus();
+        //HideMenus();
+        startMenu.SetActive(false);
         settingsMenu.SetActive(true);
     }
 
