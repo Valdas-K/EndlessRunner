@@ -2,7 +2,7 @@
 
 public class LongPlayerMovement : PlayerMovement {
     //Kiek laiko veikėjas gali būti pašokęs į orą
-    [SerializeField] float jumpTime;
+    public float jumpTime;
 
     [SerializeField] Animator anim;
 
@@ -28,7 +28,7 @@ public class LongPlayerMovement : PlayerMovement {
                     PlayerJump();
 
                     //Kintamojo reikšmė didėja priklausomai nuo laiko, kurį buvo nuspaustas pašokimo mygtukas
-                    jumpTimer += Time.unscaledDeltaTime;
+                    jumpTimer += Time.smoothDeltaTime;
                 } else {
                     PlayerFall();
                 }

@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void StartGame() {
+        SaveData();
         //Nustatomi kintamieji pradedant žaidimą
         isPlaying = true;
         totalCoins = data.coins;
@@ -103,6 +104,10 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1.0f;
         for (int i = 0; i < playerBody.Length; i++) {
             playerBody[i].transform.localScale = Vector3.one;
+            playerBody[i].transform.position = new Vector3(-5f, 6f, 0f);
+            if (playerBody[i].GetComponent<LongPlayerMovement>() != null) {
+                playerBody[i].GetComponent<LongPlayerMovement>().jumpForce = 13f;
+            }
         }
 
         //Sustabdoma muzika ir paleidžiamas žaidimo pabaigos garsas
@@ -123,13 +128,24 @@ public class GameManager : MonoBehaviour {
             highScore = gameScore;
         }
 
-        //Išsaugomi surinkti pinigai ir geriausias rezultatas
-        string saveString = JsonUtility.ToJson(data);
-        SaveSystem.Save("save", saveString);
+        SaveData();
 
         isPlaying = false;
 
         //Baigiamas žaidimas
         onGameOver.Invoke();
+    }
+
+    //Išjungiamas žaidimas
+    public void QuitGame() {
+        SaveData();
+        mc.ClickButton();
+        Application.Quit();
+    }
+
+    public void SaveData() {
+        //Išsaugomi surinkti pinigai ir geriausias rezultatas
+        string saveString = JsonUtility.ToJson(data);
+        SaveSystem.Save("save", saveString);
     }
 }

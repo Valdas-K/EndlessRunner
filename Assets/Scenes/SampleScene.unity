@@ -1306,7 +1306,7 @@ MonoBehaviour:
   spawnObjectPrefabs:
   - {fileID: 1451194980854508684, guid: 96d8a6875e0b33042b4254dc6bc5baa2, type: 3}
   startingObstacleSpawnTime: 52
-  startingObstacleSpeed: 2.5
+  startingObstacleSpeed: 3
   obstacleSpawnTimeFactor: 0.005
   obstacleSpeedFactor: 0.1
 --- !u!4 &107132757
@@ -1619,7 +1619,7 @@ MonoBehaviour:
   - {fileID: 4233396240888655795, guid: ae03c6b6a7270f84aaea6adb4376ebb7, type: 3}
   - {fileID: 7252808694372594816, guid: 7d1c52ab82e00ed4fa0b6e94f5ab4bd9, type: 3}
   startingObstacleSpawnTime: 18
-  startingObstacleSpeed: 4
+  startingObstacleSpeed: 5
   obstacleSpawnTimeFactor: 0.08
   obstacleSpeedFactor: 0.2
 --- !u!4 &160456791
@@ -4944,10 +4944,10 @@ MonoBehaviour:
   - {fileID: 7630132476307739333, guid: 9726d8f5fcbd5a4469cde14ca9345a7b, type: 3}
   - {fileID: 860704146474536765, guid: 6e3f368ace7a44c4fad1f133c97f2f77, type: 3}
   - {fileID: 8553014846927901817, guid: f80f3dda7c8322842b17a8288b42e58b, type: 3}
-  startingObstacleSpawnTime: 5
-  startingObstacleSpeed: 5
+  startingObstacleSpawnTime: 5.5
+  startingObstacleSpeed: 5.5
   obstacleSpawnTimeFactor: 0.15
-  obstacleSpeedFactor: 0.225
+  obstacleSpeedFactor: 0.2
 --- !u!4 &554005576
 Transform:
   m_ObjectHideFlags: 0
@@ -5185,7 +5185,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000c9e69731
+  m_ApplyToSortingLayers: 00000000c9e697316772e964
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -7450,7 +7450,7 @@ MonoBehaviour:
   spawnObjectPrefabs:
   - {fileID: 860704146474536765, guid: 6e3f368ace7a44c4fad1f133c97f2f77, type: 3}
   startingObstacleSpawnTime: 72
-  startingObstacleSpeed: 2
+  startingObstacleSpeed: 2.5
   obstacleSpawnTimeFactor: 0.0025
   obstacleSpeedFactor: 0.05
 --- !u!4 &897926244
@@ -10368,9 +10368,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159555}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: QuitGame
+      - m_Target: {fileID: 1088347413}
+        m_TargetAssemblyTypeName: FirebaseLogOut, Assembly-CSharp
+        m_MethodName: SignOut
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10380,9 +10380,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1088347413}
-        m_TargetAssemblyTypeName: FirebaseLogOut, Assembly-CSharp
-        m_MethodName: SignOut
+      - m_Target: {fileID: 544746394}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11027,6 +11027,7 @@ MonoBehaviour:
   bg2: {fileID: 890511595}
   scrollSpeed: 2
   imageSize: 20
+  imageY: 2.5
 --- !u!1 &1156445775
 GameObject:
   m_ObjectHideFlags: 0
@@ -14208,7 +14209,7 @@ MonoBehaviour:
   - {fileID: 1227845991043812912, guid: b8f2b7bcb88bff748bb3e4d19c3e1c83, type: 3}
   - {fileID: 860704146474536765, guid: 6e3f368ace7a44c4fad1f133c97f2f77, type: 3}
   startingObstacleSpawnTime: 36
-  startingObstacleSpeed: 3
+  startingObstacleSpeed: 4
   obstacleSpawnTimeFactor: 0.0075
   obstacleSpeedFactor: 0.15
 --- !u!4 &1463244921
@@ -21736,6 +21737,8 @@ MonoBehaviour:
   djButtonText: {fileID: 1693350066}
   UI: {fileID: 603159555}
   gm: {fileID: 544746394}
+  ljButton: {fileID: 57997949}
+  djButton: {fileID: 2000870902}
   hintText: Buy
 --- !u!1 &1764921760001020260
 GameObject:
@@ -22162,13 +22165,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b6bee895af85ba43821fffc2cfc7442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 11
+  jumpForce: 13
   mass: 1
   animM: {fileID: 8453297276261454567}
   inputcontrol: {fileID: 603159558}
   mc: {fileID: 2100013332}
   player: {fileID: 1764921760001020260}
-  jumpTime: 0.5
+  jumpTime: 1.05
   anim: {fileID: 5572122899256294840}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

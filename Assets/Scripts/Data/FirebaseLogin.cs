@@ -51,7 +51,7 @@ public class FirebaseLogin : MonoBehaviour {
             loginText.text = "Logged In!";
             firebase.isLoggedIn = true;
             StartCoroutine(LoadUserData());
-            yield return new WaitForSecondsRealtime(1.5f);
+            yield return new WaitForSecondsRealtime(1f);
 
             firebase.ui.UpdateFields();
             firebase.gameUI.OpenProfileMenu();
@@ -76,6 +76,7 @@ public class FirebaseLogin : MonoBehaviour {
             gm.data.highscore = int.Parse(firebase.highscoreText.text);
             gm.data.coins = int.Parse(firebase.allCoinsText.text);
             gm.data.ownedCharacters = firebase.ownedCharacters;
+            gm.SaveData();
             firebase.SaveDataButton();
         }
 

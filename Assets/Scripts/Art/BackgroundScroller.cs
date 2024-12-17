@@ -11,8 +11,8 @@ public class BackgroundScroller : MonoBehaviour {
     //Vienos nuotraukos plotis (Nuotraukų pločiai turi būti vienodi)
     [SerializeField] float imageSize;
 
-    //Pozicija, į kurią bus padėta fono nuotrauka
-    private Vector2 resetPosition;
+    //Nuotraukos y aukštis
+    [SerializeField] float imageY;
 
     private void Start() {
         //Fonui suteikiamas judėjimo greitis:
@@ -20,10 +20,6 @@ public class BackgroundScroller : MonoBehaviour {
         //y - 0, nes y ašyje fonas nejuda        
         bg1.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(-scrollSpeed, 0);
         bg2.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(-scrollSpeed, 0);
-
-        //Naujai pozicijai suteikiama reikšmė:
-        //x - vienos nuotraukos plotis, y - 2.5, nes nuotraukos yra šiame aukštyje
-        resetPosition = new(imageSize, 2.5f);
     }
 
     private void Update() {
@@ -37,6 +33,7 @@ public class BackgroundScroller : MonoBehaviour {
     }
 
     private void ResetPicture(GameObject bg) {
-        bg.transform.position = (Vector2)transform.position + resetPosition;
+        //bg.transform.position = (Vector2)transform.position + resetPosition;
+        bg.transform.localPosition = new Vector3(transform.localPosition.x + imageSize, imageY, 0f);
     }
 }

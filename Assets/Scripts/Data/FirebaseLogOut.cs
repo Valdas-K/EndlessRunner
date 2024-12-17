@@ -6,19 +6,17 @@ public class FirebaseLogOut : MonoBehaviour {
     [SerializeField] SwitchPlayer player;
 
     public void SignOut() {
+        if(firebase.isLoggedIn) {
+            gm.data.highscore = 0;
+            gm.data.coins = 0;
+            gm.data.ownedCharacters = "";
+            firebase.ui.ClearRegisterFields();
+            firebase.ui.ClearLoginFields();
+            firebase.profileButtonText.text = "Profile";
+            player.LoadSettings();
+            firebase.isLoggedIn = false;
+        }
         firebase.auth.SignOut();
-
-        firebase.isLoggedIn = false;
-        firebase.profileButtonText.text = "Profile";
-        firebase.ui.ClearRegisterFields();
-        firebase.ui.ClearLoginFields();
-
-        gm.data.highscore = 0;
-        gm.data.coins = 0;
-        gm.data.ownedCharacters = "";
-
-        player.LoadSettings();
-        player.hintText = "Buy";
-        player.ChangeHintText();
+        gm.SaveData();
     }
 }

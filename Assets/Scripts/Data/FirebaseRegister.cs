@@ -86,7 +86,7 @@ public class FirebaseRegister : MonoBehaviour {
     }
 
     IEnumerator ShowLogin() {
-        yield return new WaitForSecondsRealtime(1.5f);
+        yield return new WaitForSecondsRealtime(1f);
         ShowText();
         firebase.ui.ClearRegisterFields();
         firebase.gameUI.OpenLoginMenu();

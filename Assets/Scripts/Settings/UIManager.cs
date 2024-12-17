@@ -73,12 +73,6 @@ public class UIManager : MonoBehaviour {
         loginMenu.SetActive(false);
     }
 
-    //Išjungiamas žaidimas
-    public void QuitGame() {
-        mc.ClickButton();
-        Application.Quit();
-    }
-
     public void OpenStartMenu() {
         HideMenus();
         startMenu.SetActive(true);

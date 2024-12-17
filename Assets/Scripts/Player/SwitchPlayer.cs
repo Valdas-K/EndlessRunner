@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 //LJ - Long Jump (Default)
 //DJ - Double Jump (Frog)
@@ -19,6 +20,9 @@ public class SwitchPlayer : MonoBehaviour {
     [SerializeField] TextMeshProUGUI djButtonText;
     [SerializeField] UIManager UI;
     public GameManager gm;
+
+    [SerializeField] Button ljButton;
+    [SerializeField] Button djButton;
 
     public string hintText = "Buy";
 
@@ -63,7 +67,11 @@ public class SwitchPlayer : MonoBehaviour {
         longJumpBody.SetActive(true);
         doubleJumpBody.SetActive(false);
         SaveSettings();
-        longJumpBody.transform.localPosition = new Vector3(0f, 1f, 0f);
+        longJumpBody.transform.position = new Vector3(-5f, 6f, 0f);
+
+        ljButton.enabled = false;
+        djButton.enabled = false;
+        Invoke(nameof(EnableButton), 1f);
     }
 
     //Pasirenkamas antras veikėjas (jei nupirktas), pasirinkto žaidėjo kintamieji
@@ -73,7 +81,11 @@ public class SwitchPlayer : MonoBehaviour {
         doubleJumpBody.SetActive(true);
         longJumpBody.SetActive(false);
         SaveSettings();
-        doubleJumpBody.transform.localPosition = new Vector3(0f, 1.5f, 0f);
+        doubleJumpBody.transform.position = new Vector3(-5f, 6f, 0f);
+
+        ljButton.enabled = false;
+        djButton.enabled = false;
+        Invoke(nameof(EnableButton), 1f);
     }
 
     //Perkamas antras veikėjas
@@ -86,8 +98,7 @@ public class SwitchPlayer : MonoBehaviour {
                 gm.data.coins -= price;
                 gm.totalCoins = gm.data.coins;
                 gm.data.ownedCharacters = "DJ";
-                string saveString = JsonUtility.ToJson(gm.data);
-                SaveSystem.Save("save", saveString);
+                gm.SaveData();
                 hintText = "Select";
                 ChangeHintText();
                 ChangeCoinsUI();
@@ -120,5 +131,10 @@ public class SwitchPlayer : MonoBehaviour {
 
     public void ChangeCoinsUI() {
         coinsUI.text = "Coins: " + gm.data.coins;
+    }
+
+    public void EnableButton() {
+        ljButton.enabled = true;
+        djButton.enabled = true;
     }
 }

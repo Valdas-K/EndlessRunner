@@ -2,7 +2,7 @@
 
 public abstract class PlayerMovement : MonoBehaviour {
     //Pašokimo jėgos kintamasis
-    [SerializeField] protected float jumpForce;
+    public float jumpForce;
     [SerializeField] protected float mass;
     [SerializeField] protected AnimationManager animM;
 
