@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour {
 
     private void OnGUI() {
         //Atvaizduojami rezultatai
-        scoreUI.text = "Time: " + gm.timeScore.ToString("F0") + "\nCoins: " + gm.coinsScore + "\nEnemies: " + gm.obstaclesScore;
+        scoreUI.text = "Time: " + gm.timeScore.ToString("F0") + "\nCoins: " + gm.coinsScore + "\nObstacles: " + gm.obstaclesScore;
     }
 
     //Pasibaigus žaidimui, paleidžiamas meniu ir parodomi rezultatai

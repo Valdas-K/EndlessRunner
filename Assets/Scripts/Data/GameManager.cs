@@ -52,9 +52,9 @@ public class GameManager : MonoBehaviour {
 
     public void LoadData() {
         //Įkeliami išsaugoti duomenys
-        string loadedData = SaveSystem.Load("save");
+        Data loadedData = SaveSystem.Load("save");
         if (loadedData != null) {
-            data = JsonUtility.FromJson<Data>(loadedData);
+            data = loadedData;
         } else {
             //Jei nėra duomenų, sukuriamas naujas duomenų kintamasis
             data = new Data {
@@ -122,6 +122,10 @@ public class GameManager : MonoBehaviour {
         totalCoins += coinsScore;
         data.coins = totalCoins;
 
+        if (timeScore < 0) {
+            gameScore = 0;
+        }
+
         //Jei rezultatas yra aukščiausias, jis tampa geriausiu
         if (data.highscore < gameScore) {
             data.highscore = gameScore;
@@ -145,7 +149,7 @@ public class GameManager : MonoBehaviour {
 
     public void SaveData() {
         //Išsaugomi surinkti pinigai ir geriausias rezultatas
-        string saveString = JsonUtility.ToJson(data);
-        SaveSystem.Save("save", saveString);
+        //string saveString = JsonUtility.ToJson(data);
+        SaveSystem.Save("save", data);
     }
 }

@@ -33,7 +33,7 @@ public class BackgroundScroller : MonoBehaviour {
     }
 
     private void ResetPicture(GameObject bg) {
-        //bg.transform.position = (Vector2)transform.position + resetPosition;
-        bg.transform.localPosition = new Vector3(transform.localPosition.x + imageSize, imageY, 0f);
+        float imageX = ((bg == bg1) ? bg2 : bg1).transform.localPosition.x + imageSize;
+        bg.transform.localPosition = new Vector3(imageX, imageY, 0f);
     }
 }
