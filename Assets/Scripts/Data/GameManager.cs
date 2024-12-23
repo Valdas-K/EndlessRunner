@@ -117,14 +117,13 @@ public class GameManager : MonoBehaviour {
         //Apskaičiuojamas bendras rezultatas
         timeScore = Mathf.RoundToInt(timeScore);
         gameScore = coinsScore + obstaclesScore + timeScore;
+        if (timeScore < 0) {
+            gameScore = 0;
+        }
 
         //Duomenų kintamajam priskiriami visi pinigai
         totalCoins += coinsScore;
         data.coins = totalCoins;
-
-        if (timeScore < 0) {
-            gameScore = 0;
-        }
 
         //Jei rezultatas yra aukščiausias, jis tampa geriausiu
         if (data.highscore < gameScore) {
@@ -133,7 +132,6 @@ public class GameManager : MonoBehaviour {
         }
 
         SaveData();
-
         isPlaying = false;
 
         //Baigiamas žaidimas
@@ -149,7 +147,6 @@ public class GameManager : MonoBehaviour {
 
     public void SaveData() {
         //Išsaugomi surinkti pinigai ir geriausias rezultatas
-        //string saveString = JsonUtility.ToJson(data);
         SaveSystem.Save("save", data);
     }
 }
