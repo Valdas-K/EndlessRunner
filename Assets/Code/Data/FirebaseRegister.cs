@@ -89,6 +89,6 @@ public class FirebaseRegister : MonoBehaviour {
         yield return new WaitForSecondsRealtime(1f);
         ShowText();
         firebase.ui.ClearRegisterFields();
-        firebase.gameUI.OpenLoginMenu();
+        //firebase.gameUI.OpenProfileMenu();
     }
 }

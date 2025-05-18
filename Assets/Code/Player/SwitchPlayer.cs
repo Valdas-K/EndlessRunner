@@ -14,11 +14,12 @@ public class SwitchPlayer : MonoBehaviour {
 
     //Veikėjo kaina
     [SerializeField] int price;
-    [SerializeField] TextMeshProUGUI coinsUI;
 
     //Vartotojo sąsajos komponentai
     [SerializeField] TextMeshProUGUI djButtonText;
     [SerializeField] UIManager UI;
+    [SerializeField] MenuController mc;
+
     public GameManager gm;
 
     [SerializeField] Button ljButton;
@@ -50,14 +51,14 @@ public class SwitchPlayer : MonoBehaviour {
             hintText = "Buy";
         }
         ChangeHintText();
-        ChangeCoinsUI();
+        mc.UpdateCoinsUI();
     }
 
     private void SaveSettings() {
         PlayerPrefs.SetInt("PlayerPicked", playerPicked);
         PlayerPrefs.Save();
         ChangeHintText();
-        ChangeCoinsUI();
+        mc.UpdateCoinsUI();
     }
 
     //Pasirenkamas pirmas veikėjas, pasirinkto žaidėjo kintamieji
@@ -101,7 +102,7 @@ public class SwitchPlayer : MonoBehaviour {
                 gm.SaveData();
                 hintText = "Select";
                 ChangeHintText();
-                ChangeCoinsUI();
+                mc.UpdateCoinsUI();
                 LoadDJ();
             }
             else {
@@ -127,10 +128,6 @@ public class SwitchPlayer : MonoBehaviour {
             "More" => "Not Enough Coins",
             _ => "Price: 10C",
         };
-    }
-
-    public void ChangeCoinsUI() {
-        coinsUI.text = "Coins: " + gm.data.coins;
     }
 
     public void EnableButton() {

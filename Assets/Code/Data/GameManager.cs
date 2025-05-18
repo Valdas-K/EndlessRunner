@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour {
 
     //Sukuriamas klasės objektas (singleton)
     public static GameManager Instance;
+
+    [SerializeField] TextMeshProUGUI scoreUI;
 
     //Valdymo nustatymai
     [SerializeField] MusicController mc;
@@ -70,6 +73,7 @@ public class GameManager : MonoBehaviour {
 
     public void StartGame() {
         SaveData();
+        scoreUI.enabled = true;
         //Nustatomi kintamieji pradedant žaidimą
         isPlaying = true;
         totalCoins = data.coins;
@@ -136,13 +140,6 @@ public class GameManager : MonoBehaviour {
 
         //Baigiamas žaidimas
         onGameOver.Invoke();
-    }
-
-    //Išjungiamas žaidimas
-    public void QuitGame() {
-        SaveData();
-        mc.ClickButton();
-        Application.Quit();
     }
 
     public void SaveData() {

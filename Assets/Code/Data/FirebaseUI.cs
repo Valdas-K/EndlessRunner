@@ -4,11 +4,6 @@ public class FirebaseUI : MonoBehaviour {
     [SerializeField] UIManager ui;
     [SerializeField] FirebaseManager firebase;
 
-    public void UpdateFields() {
-        firebase.usernameField.text = firebase.User.DisplayName;
-        firebase.profileButtonText.text = "Welcome, " + firebase.User.DisplayName;
-    }
-
     public void ClearRegisterFields() {
         firebase.register.usernameRegister.text = "";
         firebase.register.emailRegister.text = "";
@@ -23,10 +18,10 @@ public class FirebaseUI : MonoBehaviour {
 
     public void OpenMenu() {
         if (firebase.isLoggedIn) {
-            ui.OpenProfileMenu();
+            //ui.OpenProfileMenu();
             firebase.login.SaveGameStats();
         } else {
-            ui.OpenLoginMenu();
+            //ui.OpenLoginMenu();
             ClearLoginFields();
         }
     }

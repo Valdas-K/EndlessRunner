@@ -5,7 +5,6 @@ public class MusicController : MonoBehaviour {
     //meniu ir žaidimo muzikos, mygtuko paspaudimo, mirties, pinigo ir pašokimo garso efektai
     [SerializeField] AudioSource menuMusic;
     [SerializeField] AudioSource gameMusic;
-    [SerializeField] AudioSource clickSound;
     [SerializeField] AudioSource deathSound;
     [SerializeField] AudioSource coinSound;
     [SerializeField] AudioSource jumpSound;
@@ -48,13 +47,12 @@ public class MusicController : MonoBehaviour {
         jumpSound.Play();
     }
 
-    //Paleidžiamas mygtuko paspaudimo efektas
-    public void ClickButton() {
-        clickSound.Play();
+    //Atnaujinamas muzikos ir efektų nustatymai
+    public void SetMusicVolume(float volume) {
+        audioMixer.SetFloat("MusicVolume", volume);
     }
 
-    //Atnaujinamas garso nustatymas
-    public void SetVolume(float volume) {
-        audioMixer.SetFloat("volume", volume);
+    public void SetEffectsVolume(float volume) {
+        audioMixer.SetFloat("EffectsVolume", volume);
     }
 }

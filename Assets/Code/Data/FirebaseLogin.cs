@@ -52,9 +52,8 @@ public class FirebaseLogin : MonoBehaviour {
             firebase.isLoggedIn = true;
             StartCoroutine(LoadUserData());
             yield return new WaitForSecondsRealtime(1f);
-
-            firebase.ui.UpdateFields();
-            firebase.gameUI.OpenProfileMenu();
+            firebase.usernameField.text = firebase.User.DisplayName;
+            //firebase.gameUI.OpenProfileMenu();
 
             loginText.text = "";
             firebase.ui.ClearLoginFields();

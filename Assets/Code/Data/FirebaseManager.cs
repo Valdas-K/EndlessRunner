@@ -49,7 +49,7 @@ public class FirebaseManager : MonoBehaviour {
 
     public void SignOutButton() {
         signOut.SignOut();
-        gameUI.OpenLoginMenu();
+        //gameUI.OpenLoginMenu();
     }
 
     public void SaveDataButton() {
