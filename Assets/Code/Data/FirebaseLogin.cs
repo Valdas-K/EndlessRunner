@@ -73,7 +73,7 @@ public class FirebaseLogin : MonoBehaviour {
             firebase.ownedCharacters = snapshot.Child("characters").Value.ToString();
             firebase.usernameField.text = firebase.User.DisplayName;
 
-            gm.data.highscore = int.Parse(firebase.highscoreText.text);
+            //gm.data.highscore = int.Parse(firebase.highscoreText.text);
             gm.data.coins = int.Parse(firebase.allCoinsText.text);
             gm.data.ownedCharacters = firebase.ownedCharacters;
             gm.SaveData();
@@ -95,7 +95,7 @@ public class FirebaseLogin : MonoBehaviour {
     }
 
     public void SaveGameStats() {
-        firebase.highscoreText.text = gm.data.highscore.ToString();
+        firebase.highscoreText.text = gm.data.level1.ToString();
         firebase.allCoinsText.text = gm.data.coins.ToString();
         firebase.ownedCharacters = gm.data.ownedCharacters;
         firebase.SaveDataButton();
@@ -107,7 +107,7 @@ public class FirebaseLogin : MonoBehaviour {
         firebase.ownedCharacters = "";
         firebase.usernameField.text = "";
 
-        gm.data.highscore = 0;
+        gm.data.level1 = 0;
         gm.data.coins = 0;
         gm.data.ownedCharacters = "";
         firebase.SaveDataButton();

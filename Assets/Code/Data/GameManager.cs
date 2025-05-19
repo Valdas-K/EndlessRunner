@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour {
 
@@ -16,8 +17,6 @@ public class GameManager : MonoBehaviour {
     [SerializeField] Collider2D[] playerBody;
     public Data data;
 
-
-
     [SerializeField] TextMeshProUGUI gameOverTimeScore;
     [SerializeField] TextMeshProUGUI gameOverObstacleScore;
     [SerializeField] TextMeshProUGUI gameOverCoinsScore;
@@ -26,6 +25,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] TextMeshProUGUI gameOverTotalCoins;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject gameOverMenu;
+    public int chosenLevel;
 
     private void Awake() {
         if (Instance == null) {
@@ -38,7 +38,9 @@ public class GameManager : MonoBehaviour {
     public int obstaclesScore;
     public float timeScore;
     public float gameScore;
-    public float highScore;
+    public float highScore1;
+    public float highScore2;
+    public float highScore3;
     public int totalCoins;
     public string ownedCharacters;
 
@@ -46,7 +48,6 @@ public class GameManager : MonoBehaviour {
     public bool isPlaying = false;
 
     //Įvykiai žaidimo pradžiai, pabaigai, surinkus pinigą, pastiprinimą ir įveikus kliūtį
-    public UnityEvent onPlay = new();
     public UnityEvent onGameOver = new();
 
     private void Start() {
@@ -74,27 +75,33 @@ public class GameManager : MonoBehaviour {
         } else {
             //Jei nėra duomenų, sukuriamas naujas duomenų kintamasis
             data = new Data {
-                highscore = 0,
+                level1 = 0,
+                level2 = 0,
+                level3 = 0,
                 coins = 0,
                 ownedCharacters = ""
             };
         }
         totalCoins = data.coins;
-        highScore = data.highscore;
+        highScore1 = data.level1;
+        highScore2 = data.level2;
+        highScore3 = data.level3;
         ownedCharacters = data.ownedCharacters;
+        chosenLevel = PlayerPrefs.GetInt("lastLevel");
     }
 
     public void StartGame() {
+        //Nustatomi kintamieji pradedant žaidimą
         SaveData();
         scoreUI.enabled = true;
-        //Nustatomi kintamieji pradedant žaidimą
         isPlaying = true;
         totalCoins = data.coins;
-        highScore = data.highscore;
+        highScore1 = data.level1;
+        highScore2 = data.level2;
+        highScore3 = data.level3;
         ownedCharacters = data.ownedCharacters;
         ResetScores();
         mc.StartGameMusic();
-        onPlay.Invoke();
     }
 
     public void ResetScores() {
@@ -131,6 +138,8 @@ public class GameManager : MonoBehaviour {
         mc.StopAllMusic();
         mc.PlayDeathSound();
 
+
+
         //Apskaičiuojamas bendras rezultatas
         timeScore = Mathf.RoundToInt(timeScore);
         gameScore = coinsScore + obstaclesScore + timeScore;
@@ -143,9 +152,29 @@ public class GameManager : MonoBehaviour {
         data.coins = totalCoins;
 
         //Jei rezultatas yra aukščiausias, jis tampa geriausiu
-        if (data.highscore < gameScore) {
-            data.highscore = gameScore;
-            highScore = gameScore;
+        if (chosenLevel == 0)
+        {
+            if (data.level1 < gameScore)
+            {
+                data.level1 = gameScore;
+                highScore1 = gameScore;
+            }
+        }
+        else if (chosenLevel == 1)
+        {
+            if (data.level2 < gameScore)
+            {
+                data.level2 = gameScore;
+                highScore2 = gameScore;
+            }
+        }
+        else
+        {
+            if (data.level3 < gameScore)
+            {
+                data.level3 = gameScore;
+                highScore3 = gameScore;
+            }
         }
 
         SaveData();
@@ -173,7 +202,22 @@ public class GameManager : MonoBehaviour {
         gameOverObstacleScore.text = "Obstacles: " + obstaclesScore.ToString();
         gameOverCoinsScore.text = "Coins: " + coinsScore.ToString();
         gameOverTotalScore.text = "Game Score: " + gameScore.ToString();
-        gameOverHighScore.text = "Highscore: " + highScore.ToString("F0");
         gameOverTotalCoins.text = "Total Coins: " + totalCoins.ToString();
+        if (chosenLevel == 0)
+        {
+            gameOverHighScore.text = "Highscore: " + highScore1.ToString("F0");
+
+        }
+        else if (chosenLevel == 1)
+        {
+            gameOverHighScore.text = "Highscore: " + highScore2.ToString("F0");
+
+        }
+        else
+        {
+            gameOverHighScore.text = "Highscore: " + highScore3.ToString("F0");
+
+        }
+
     }
 }

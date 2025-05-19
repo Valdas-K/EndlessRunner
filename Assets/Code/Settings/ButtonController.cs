@@ -5,6 +5,8 @@ public class ButtonController : MonoBehaviour {
     [SerializeField] Transform levelContainer;
     [SerializeField] AudioSource clickSound;
     [SerializeField] Button[] allButtons;
+    [SerializeField] ChangeLevel bg;
+    [SerializeField] GameManager gm;
 
     private void Start() {
         UpdateButtonSound();
@@ -36,6 +38,8 @@ public class ButtonController : MonoBehaviour {
 
     private void ClickLoadLevelButton(int index) {
         //Lygio perjungimo mygtukas
-        Debug.Log("level index " + index);
+        bg.LoadBackground(index);
+        PlayerPrefs.SetInt("lastLevel", index);
+        GameManager.Instance.chosenLevel = index;
     }
 }

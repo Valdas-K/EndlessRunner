@@ -4,7 +4,10 @@ using UnityEngine.Audio;
 public class MusicController : MonoBehaviour {
     //meniu ir žaidimo muzikos, mygtuko paspaudimo, mirties, pinigo ir pašokimo garso efektai
     [SerializeField] AudioSource menuMusic;
-    [SerializeField] AudioSource gameMusic;
+    AudioSource gameMusic;
+    [SerializeField] AudioSource sandyDessertMusic;
+    [SerializeField] AudioSource spookyForrestMusic;
+    [SerializeField] AudioSource pixelCityMusic;
     [SerializeField] AudioSource deathSound;
     [SerializeField] AudioSource coinSound;
     [SerializeField] AudioSource jumpSound;
@@ -12,9 +15,13 @@ public class MusicController : MonoBehaviour {
     //Garso nustatymų komponentas
     [SerializeField] AudioMixer audioMixer;
 
+    public void ChangeGameMusic(int id) {
+        if (id == 0) gameMusic = sandyDessertMusic; else if (id == 1) gameMusic = spookyForrestMusic; else gameMusic = pixelCityMusic;
+    }
+
     //Paleidžiama meniu muzika
     public void StartMenuMusic() {
-        gameMusic.Stop();
+        //gameMusic.Stop();
         menuMusic.time = Random.Range(0f, menuMusic.clip.length);
         menuMusic.Play();
     }
