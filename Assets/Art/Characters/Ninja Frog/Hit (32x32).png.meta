@@ -1,32 +1,35 @@
 fileFormatVersion: 2
-guid: 4099f676255555240b5240f897805dce
+guid: 18a451ae5d817e04bbf3101eaed9466e
 AssetOrigin:
   serializedVersion: 1
   productId: 155360
   packageName: Pixel Adventure 1
   packageVersion: 1.0
-  assetPath: Assets/Art/Characters/Ninja Frog/Double Jump (32x32).png
+  assetPath: Assets/Art/Characters/Ninja Frog/Hit (32x32).png
   uploadId: 332803
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9101230857065804138
-    second: Double Jump (32x32)_0
+      213: 6868122594974341346
+    second: Hit (32x32)_0
   - first:
-      213: -6204479477933590408
-    second: Double Jump (32x32)_1
+      213: 7167584040609486739
+    second: Hit (32x32)_1
   - first:
-      213: 7040038629683462113
-    second: Double Jump (32x32)_2
+      213: -1675461080110260169
+    second: Hit (32x32)_2
   - first:
-      213: 781615245368611544
-    second: Double Jump (32x32)_3
+      213: 8480664182131228983
+    second: Hit (32x32)_3
   - first:
-      213: -3939753913355333839
-    second: Double Jump (32x32)_4
+      213: -953560442851353963
+    second: Hit (32x32)_4
   - first:
-      213: 6301718139250434432
-    second: Double Jump (32x32)_5
+      213: -3450976776972242761
+    second: Hit (32x32)_5
+  - first:
+      213: 7062579536633761780
+    second: Hit (32x32)_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -161,7 +164,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Double Jump (32x32)_0
+      name: Hit (32x32)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -176,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 186a1066cebb26a4080b1dee4987e1ef
-      internalID: -9101230857065804138
+      spriteID: 14bd7961791c34d4c8762c98a5b61c2d
+      internalID: 6868122594974341346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Double Jump (32x32)_1
+      name: Hit (32x32)_1
       rect:
         serializedVersion: 2
         x: 32
@@ -198,14 +201,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14ca7b2721c7ddb45aaa8b4c08b77336
-      internalID: -6204479477933590408
+      spriteID: 25bd412ae96423c4287f7b0d874b51b0
+      internalID: 7167584040609486739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Double Jump (32x32)_2
+      name: Hit (32x32)_2
       rect:
         serializedVersion: 2
         x: 64
@@ -220,14 +223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37a1d8e673892e049bdc53e93eef5630
-      internalID: 7040038629683462113
+      spriteID: 0dbb0f71bf278274baa2baf491d0b14c
+      internalID: -1675461080110260169
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Double Jump (32x32)_3
+      name: Hit (32x32)_3
       rect:
         serializedVersion: 2
         x: 96
@@ -242,14 +245,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b2768d00d49a5346b5d6274c943f0ec
-      internalID: 781615245368611544
+      spriteID: b13cde08f448df14381e1ca7d37fd218
+      internalID: 8480664182131228983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Double Jump (32x32)_4
+      name: Hit (32x32)_4
       rect:
         serializedVersion: 2
         x: 128
@@ -264,14 +267,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f09e13b1f198094589cb06cde993cb3
-      internalID: -3939753913355333839
+      spriteID: 1cea3e2e13c79734c8450e5795159982
+      internalID: -953560442851353963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Double Jump (32x32)_5
+      name: Hit (32x32)_5
       rect:
         serializedVersion: 2
         x: 160
@@ -286,8 +289,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f356363b0b3c3e4ab8639f2baf65603
-      internalID: 6301718139250434432
+      spriteID: 38f1a7edc9e4ff94eaa0c5248061f942
+      internalID: -3450976776972242761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hit (32x32)_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db57bcfe7021e4441ab47fb75a63a916
+      internalID: 7062579536633761780
       vertices: []
       indices: 
       edges: []
@@ -306,12 +331,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Double Jump (32x32)_0: -9101230857065804138
-      Double Jump (32x32)_1: -6204479477933590408
-      Double Jump (32x32)_2: 7040038629683462113
-      Double Jump (32x32)_3: 781615245368611544
-      Double Jump (32x32)_4: -3939753913355333839
-      Double Jump (32x32)_5: 6301718139250434432
+      Hit (32x32)_0: 6868122594974341346
+      Hit (32x32)_1: 7167584040609486739
+      Hit (32x32)_2: -1675461080110260169
+      Hit (32x32)_3: 8480664182131228983
+      Hit (32x32)_4: -953560442851353963
+      Hit (32x32)_5: -3450976776972242761
+      Hit (32x32)_6: 7062579536633761780
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

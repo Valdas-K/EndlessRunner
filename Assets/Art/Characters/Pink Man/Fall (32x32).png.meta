@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: b6d14bcb8d9dbb349beb9d3619096732
+guid: 1a6feec238b9a99499082bb755fa32df
 AssetOrigin:
   serializedVersion: 1
   productId: 155360
   packageName: Pixel Adventure 1
   packageVersion: 1.0
-  assetPath: Assets/Art/Characters/Ninja Frog/Fall (32x32).png
+  assetPath: Assets/Pixel Adventure 1/Assets/Main Characters/Pink Man/Fall (32x32).png
   uploadId: 332803
 TextureImporter:
   internalIDToNameTable: []

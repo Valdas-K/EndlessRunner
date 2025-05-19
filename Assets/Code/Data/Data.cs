@@ -5,5 +5,6 @@ public class Data {
     public float level2;
     public float level3;
     public int coins;
-    public string ownedCharacters;
+    public bool frogBodyOwned;
+    public bool thirdPlayerBodyOwned;
 }

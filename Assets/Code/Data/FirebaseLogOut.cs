@@ -11,7 +11,8 @@ public class FirebaseLogOut : MonoBehaviour {
             gm.data.level2 = 0;
             gm.data.level3 = 0;
             gm.data.coins = 0;
-            gm.data.ownedCharacters = "";
+            gm.data.frogBodyOwned = false;
+            gm.data.thirdPlayerBodyOwned = false;
             firebase.ui.ClearRegisterFields();
             firebase.ui.ClearLoginFields();
             firebase.profileButtonText.text = "Profile";

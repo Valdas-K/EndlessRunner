@@ -74,17 +74,17 @@ public class FirebaseLogin : MonoBehaviour {
 
             //gm.data.highscore = int.Parse(firebase.highscoreText.text);
             gm.data.coins = int.Parse(firebase.allCoinsText.text);
-            gm.data.ownedCharacters = firebase.ownedCharacters;
+            //gm.data.ownedCharacters = firebase.ownedCharacters;
             gm.SaveData();
             firebase.SaveDataButton();
         }
 
         player.LoadSettings();
-        if (firebase.ownedCharacters == "DJ") {
-            player.hintText = "Select";
-        } else {
-            player.hintText = "Buy";
-        }
+        //if (firebase.ownedCharacters == "DJ") {
+        //    player.hintText = "Select";
+        //} else {
+        //    player.hintText = "Buy";
+        //}
         player.ChangeHintText();
     }
 
@@ -96,7 +96,7 @@ public class FirebaseLogin : MonoBehaviour {
     public void SaveGameStats() {
         firebase.highscoreText.text = gm.data.level1.ToString();
         firebase.allCoinsText.text = gm.data.coins.ToString();
-        firebase.ownedCharacters = gm.data.ownedCharacters;
+        //firebase.ownedCharacters = gm.data.ownedCharacters;
         firebase.SaveDataButton();
     }
 
@@ -109,7 +109,8 @@ public class FirebaseLogin : MonoBehaviour {
         gm.data.level2 = 0;
         gm.data.level3 = 0;
         gm.data.coins = 0;
-        gm.data.ownedCharacters = "";
+        gm.data.frogBodyOwned = false;
+        gm.data.thirdPlayerBodyOwned = false;
         firebase.SaveDataButton();
         player.LoadSettings();
     }

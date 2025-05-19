@@ -1,7 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour {
 
@@ -42,7 +41,8 @@ public class GameManager : MonoBehaviour {
     public float highScore2;
     public float highScore3;
     public int totalCoins;
-    public string ownedCharacters;
+    public bool frogBodyOwned;
+    public bool thirdPlayerBodyOwned;
 
     //Ar žaidžiama
     public bool isPlaying = false;
@@ -79,14 +79,16 @@ public class GameManager : MonoBehaviour {
                 level2 = 0,
                 level3 = 0,
                 coins = 0,
-                ownedCharacters = ""
+                frogBodyOwned = false,
+                thirdPlayerBodyOwned = false,
             };
         }
         totalCoins = data.coins;
         highScore1 = data.level1;
         highScore2 = data.level2;
         highScore3 = data.level3;
-        ownedCharacters = data.ownedCharacters;
+        frogBodyOwned = data.frogBodyOwned;
+        thirdPlayerBodyOwned = data.thirdPlayerBodyOwned;
         chosenLevel = PlayerPrefs.GetInt("lastLevel");
     }
 
@@ -99,7 +101,8 @@ public class GameManager : MonoBehaviour {
         highScore1 = data.level1;
         highScore2 = data.level2;
         highScore3 = data.level3;
-        ownedCharacters = data.ownedCharacters;
+        //frogBodyOwned = data.frogBodyOwned;
+        //thirdPlayerBodyOwned = data.thirdPlayerBodyOwned;
         ResetScores();
         mc.StartGameMusic();
     }
@@ -138,8 +141,6 @@ public class GameManager : MonoBehaviour {
         mc.StopAllMusic();
         mc.PlayDeathSound();
 
-
-
         //Apskaičiuojamas bendras rezultatas
         timeScore = Mathf.RoundToInt(timeScore);
         gameScore = coinsScore + obstaclesScore + timeScore;
@@ -152,26 +153,18 @@ public class GameManager : MonoBehaviour {
         data.coins = totalCoins;
 
         //Jei rezultatas yra aukščiausias, jis tampa geriausiu
-        if (chosenLevel == 0)
-        {
-            if (data.level1 < gameScore)
-            {
+        if (chosenLevel == 0) {
+            if (data.level1 < gameScore) {
                 data.level1 = gameScore;
                 highScore1 = gameScore;
             }
-        }
-        else if (chosenLevel == 1)
-        {
-            if (data.level2 < gameScore)
-            {
+        } else if (chosenLevel == 1) {
+            if (data.level2 < gameScore) {
                 data.level2 = gameScore;
                 highScore2 = gameScore;
             }
-        }
-        else
-        {
-            if (data.level3 < gameScore)
-            {
+        } else {
+            if (data.level3 < gameScore) {
                 data.level3 = gameScore;
                 highScore3 = gameScore;
             }
@@ -203,21 +196,13 @@ public class GameManager : MonoBehaviour {
         gameOverCoinsScore.text = "Coins: " + coinsScore.ToString();
         gameOverTotalScore.text = "Game Score: " + gameScore.ToString();
         gameOverTotalCoins.text = "Total Coins: " + totalCoins.ToString();
-        if (chosenLevel == 0)
-        {
+
+        if (chosenLevel == 0) {
             gameOverHighScore.text = "Highscore: " + highScore1.ToString("F0");
-
-        }
-        else if (chosenLevel == 1)
-        {
+        } else if (chosenLevel == 1) {
             gameOverHighScore.text = "Highscore: " + highScore2.ToString("F0");
-
-        }
-        else
-        {
+        } else {
             gameOverHighScore.text = "Highscore: " + highScore3.ToString("F0");
-
         }
-
     }
 }

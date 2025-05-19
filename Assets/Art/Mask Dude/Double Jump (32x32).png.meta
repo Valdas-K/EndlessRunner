@@ -1,11 +1,12 @@
 fileFormatVersion: 2
-guid: 4099f676255555240b5240f897805dce
+guid: 241f742f0911c3a428eea6612ae23b77
 AssetOrigin:
   serializedVersion: 1
   productId: 155360
   packageName: Pixel Adventure 1
   packageVersion: 1.0
-  assetPath: Assets/Art/Characters/Ninja Frog/Double Jump (32x32).png
+  assetPath: Assets/Pixel Adventure 1/Assets/Main Characters/Mask Dude/Double Jump
+    (32x32).png
   uploadId: 332803
 TextureImporter:
   internalIDToNameTable:
@@ -73,7 +74,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -176,7 +177,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 186a1066cebb26a4080b1dee4987e1ef
+      spriteID: 8d33dc45120fa5543915052198af8846
       internalID: -9101230857065804138
       vertices: []
       indices: 
@@ -198,7 +199,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14ca7b2721c7ddb45aaa8b4c08b77336
+      spriteID: 5342c216d32f700498d2494b73f1a1b4
       internalID: -6204479477933590408
       vertices: []
       indices: 
@@ -220,7 +221,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37a1d8e673892e049bdc53e93eef5630
+      spriteID: 1f17e67ea4b029e4892234616431dcef
       internalID: 7040038629683462113
       vertices: []
       indices: 
@@ -242,7 +243,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b2768d00d49a5346b5d6274c943f0ec
+      spriteID: 2953b313efcbc314fbe941952125062e
       internalID: 781615245368611544
       vertices: []
       indices: 
@@ -264,7 +265,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f09e13b1f198094589cb06cde993cb3
+      spriteID: f229188cc8169154ca21f4f398f8b554
       internalID: -3939753913355333839
       vertices: []
       indices: 
@@ -286,7 +287,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f356363b0b3c3e4ab8639f2baf65603
+      spriteID: 8ebfea11b697e8b4e9f2498449034377
       internalID: 6301718139250434432
       vertices: []
       indices: 
