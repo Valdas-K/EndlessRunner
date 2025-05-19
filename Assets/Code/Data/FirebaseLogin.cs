@@ -12,6 +12,7 @@ public class FirebaseLogin : MonoBehaviour {
     [SerializeField] FirebaseManager firebase;
     [SerializeField] GameManager gm;
     [SerializeField] protected SwitchPlayer player;
+    [SerializeField] MenuController mc;
 
     public TMP_InputField emailLogin;
     public TMP_InputField passwordLogin;

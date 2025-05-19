@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InputControl : MonoBehaviour {
+public class InputSettings : MonoBehaviour {
     //Sukuriami mygtuko, teksto komponentai
     public Button changeJumpButton;
     public TMP_Text jumpButtonText;
@@ -10,12 +10,8 @@ public class InputControl : MonoBehaviour {
     public TMP_Text pauseButtonText;
 
     //Pašokimo ir žaidimo sustabdymo mygtukų kintamieji
-    private KeyCode jumpKey = KeyCode.Space;
-    private KeyCode pauseKey = KeyCode.Escape;
-
-    //Kreipimasis į kintamuosius
-    public KeyCode JumpKey => jumpKey;
-    public KeyCode PauseKey => pauseKey;
+    public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode pauseKey = KeyCode.Escape;
 
     //Ar keičiamas mygtukas
     private bool waitingForInput = false;
@@ -53,7 +49,7 @@ public class InputControl : MonoBehaviour {
         if (Input.anyKeyDown) {
             KeyCode key = GetPressedKey();
             //Jei naujas mygtukas nėra priskirtas kitam veiksmui, jis atnaujinamas
-            if (key != KeyCode.None && key != JumpKey && key != PauseKey) {
+            if (key != KeyCode.None && key != jumpKey && key != pauseKey) {
                 UpdateKey(key);
             }
             //Išsaugomi nustatymai ir atnaujinamas tekstas
@@ -109,7 +105,7 @@ public class InputControl : MonoBehaviour {
             pauseKey = (KeyCode)PlayerPrefs.GetInt("PauseKey");
         }
         else if (pauseKey == KeyCode.None) {
-            jumpKey = KeyCode.Escape;
+            pauseKey = KeyCode.Escape;
         }
     }
 }

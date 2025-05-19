@@ -4,10 +4,10 @@ public abstract class PlayerMovement : MonoBehaviour {
     //Pašokimo jėgos kintamasis
     public float jumpForce;
     [SerializeField] protected float mass;
-    [SerializeField] protected AnimationManager animM;
+    [SerializeField] protected PlayerAnimation playerAnimation;
 
     //Valdymo nustatymai
-    [SerializeField] protected InputControl inputcontrol;
+    [SerializeField] protected InputSettings input;
     [SerializeField] protected MusicController mc;
     [SerializeField] protected GameObject player;
 

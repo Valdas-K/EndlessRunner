@@ -10,7 +10,7 @@ public class FirebaseManager : MonoBehaviour {
     public DatabaseReference DBreference;
     public FirebaseUser User;
 
-    public UIManager gameUI;
+    //public UIManager gameUI;
 
     public FirebaseLogin login;
     public FirebaseUpdate update;
@@ -49,7 +49,6 @@ public class FirebaseManager : MonoBehaviour {
 
     public void SignOutButton() {
         signOut.SignOut();
-        //gameUI.OpenLoginMenu();
     }
 
     public void SaveDataButton() {

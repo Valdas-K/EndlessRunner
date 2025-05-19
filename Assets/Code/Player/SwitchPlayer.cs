@@ -16,16 +16,15 @@ public class SwitchPlayer : MonoBehaviour {
     [SerializeField] int price;
 
     //Vartotojo sąsajos komponentai
-    [SerializeField] TextMeshProUGUI djButtonText;
-    [SerializeField] UIManager UI;
     [SerializeField] MenuController mc;
+    [SerializeField] TextMeshProUGUI djButtonText;
 
     public GameManager gm;
+    public string hintText = "Buy";
 
     [SerializeField] Button ljButton;
     [SerializeField] Button djButton;
 
-    public string hintText = "Buy";
 
     void Start() {
         //Užkraunamas išsaugotas veikėjo pasirinkimas
@@ -69,10 +68,7 @@ public class SwitchPlayer : MonoBehaviour {
         doubleJumpBody.SetActive(false);
         SaveSettings();
         longJumpBody.transform.position = new Vector3(-5f, 6f, 0f);
-
-        ljButton.enabled = false;
-        djButton.enabled = false;
-        Invoke(nameof(EnableButton), 1f);
+        mc.ClickMainButton();
     }
 
     //Pasirenkamas antras veikėjas (jei nupirktas), pasirinkto žaidėjo kintamieji
@@ -83,10 +79,6 @@ public class SwitchPlayer : MonoBehaviour {
         longJumpBody.SetActive(false);
         SaveSettings();
         doubleJumpBody.transform.position = new Vector3(-5f, 6f, 0f);
-
-        ljButton.enabled = false;
-        djButton.enabled = false;
-        Invoke(nameof(EnableButton), 1f);
     }
 
     //Perkamas antras veikėjas
@@ -104,6 +96,7 @@ public class SwitchPlayer : MonoBehaviour {
                 ChangeHintText();
                 mc.UpdateCoinsUI();
                 LoadDJ();
+                mc.ClickMainButton();
             }
             else {
                 //Jei neužtenka pinigų, porai sekundžių įjungiamas pagalbinis tekstas
@@ -116,22 +109,17 @@ public class SwitchPlayer : MonoBehaviour {
         } else {
             //Jei yra, jis užkraunamas
             LoadDJ();
+            mc.ClickMainButton();
         }
     }
 
     public void ChangeHintText() {
         string option = hintText;
-        djButtonText.text = option switch
-        {
+        djButtonText.text = option switch {
             "Select" => "Select",
             "Buy" => "Price: 10C",
             "More" => "Not Enough Coins",
             _ => "Price: 10C",
         };
-    }
-
-    public void EnableButton() {
-        ljButton.enabled = true;
-        djButton.enabled = true;
     }
 }

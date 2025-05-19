@@ -14,14 +14,14 @@ public class LongPlayerMovement : PlayerMovement {
         //Jei žaidimas nėra sutabdytas
         if (!PauseGame.gameIsPaused) {
             rb.mass = mass;
-            if (isGrounded && Input.GetKeyDown(inputcontrol.JumpKey)) {
+            if (isGrounded && Input.GetKeyDown(input.jumpKey)) {
                 isJumping = true;
                 mc.PlayJumpSound();
                 PlayerJump();
             }
 
             //Jei veikėjas jau yra ore ir toliau yra laikomas pašokimo mygtukas
-            if (isJumping && Input.GetKey(inputcontrol.JumpKey)) {
+            if (isJumping && Input.GetKey(input.jumpKey)) {
                 //Jei veikėjas dar gali šokti į orą
                 if (jumpTimer < jumpTime) {
                     //Veikėjas toliau šoka aukštyn 
@@ -35,7 +35,7 @@ public class LongPlayerMovement : PlayerMovement {
             }
 
             //Tikrinama, ar pašokimo mygtukas yra nebenaudojamas
-            if (Input.GetKeyUp(inputcontrol.JumpKey)) {
+            if (Input.GetKeyUp(input.jumpKey)) {
                 //Jei taip, veikėjas nebegali toliau šokti į orą
                 PlayerFall();
 
@@ -49,7 +49,7 @@ public class LongPlayerMovement : PlayerMovement {
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Ground")) {
             isGrounded = true;
-            animM.GroundAnimation(anim);
+            playerAnimation.PlayCharacterAnim(anim, "ground");
         }
     }
 
@@ -57,7 +57,7 @@ public class LongPlayerMovement : PlayerMovement {
     private void OnCollisionExit2D(Collision2D other) {
         if (other.gameObject.CompareTag("Ground")) {
             isGrounded = false;
-            animM.JumpAnimation(anim);
+            playerAnimation.PlayCharacterAnim(anim, "jump");
         }
     }
 
@@ -69,6 +69,6 @@ public class LongPlayerMovement : PlayerMovement {
     protected override void PlayerFall() {
         //Jei negali, veikėjas nebegali toliau šokti į orą
         isJumping = false;
-        animM.FallAnimation(anim);
+        playerAnimation.PlayCharacterAnim(anim, "fall");
     }
 }

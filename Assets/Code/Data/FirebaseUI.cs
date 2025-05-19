@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public class FirebaseUI : MonoBehaviour {
-    [SerializeField] UIManager ui;
     [SerializeField] FirebaseManager firebase;
 
     public void ClearRegisterFields() {

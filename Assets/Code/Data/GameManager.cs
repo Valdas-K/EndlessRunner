@@ -11,10 +11,21 @@ public class GameManager : MonoBehaviour {
 
     //Valdymo nustatymai
     [SerializeField] MusicController mc;
-    [SerializeField] InputControl input;
+    [SerializeField] InputSettings input;
     [SerializeField] PauseGame pause;
     [SerializeField] Collider2D[] playerBody;
     public Data data;
+
+
+
+    [SerializeField] TextMeshProUGUI gameOverTimeScore;
+    [SerializeField] TextMeshProUGUI gameOverObstacleScore;
+    [SerializeField] TextMeshProUGUI gameOverCoinsScore;
+    [SerializeField] TextMeshProUGUI gameOverTotalScore;
+    [SerializeField] TextMeshProUGUI gameOverHighScore;
+    [SerializeField] TextMeshProUGUI gameOverTotalCoins;
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject gameOverMenu;
 
     private void Awake() {
         if (Instance == null) {
@@ -41,13 +52,15 @@ public class GameManager : MonoBehaviour {
     private void Start() {
         LoadData();
         mc.StartMenuMusic();
+        //Pasibaigus žaidimui, paleidžiamas atitinkamas meniu
+        onGameOver.AddListener(ActivateGameOverUI);
     }
 
     private void Update() {
         //Jei žaidžiama, rezultatas didėja pagal išgyventą laiką
         if (isPlaying) {
             timeScore += Time.deltaTime;
-            if (Input.GetKeyDown(input.PauseKey)) {
+            if (Input.GetKeyDown(input.pauseKey)) {
                 pause.StopGame();
             }
         }
@@ -145,5 +158,22 @@ public class GameManager : MonoBehaviour {
     public void SaveData() {
         //Išsaugomi surinkti pinigai ir geriausias rezultatas
         SaveSystem.Save("save", data);
+    }
+
+    private void OnGUI() {
+        //Atvaizduojami rezultatai
+        scoreUI.text = "Time: " + timeScore.ToString("F0") + "\nCoins: " + coinsScore + "\nObstacles: " + obstaclesScore;
+    }
+
+    //Pasibaigus žaidimui, paleidžiamas meniu ir parodomi rezultatai
+    public void ActivateGameOverUI() {
+        scoreUI.enabled = false;
+        gameOverMenu.SetActive(true);
+        gameOverTimeScore.text = "Time: " + timeScore.ToString("F0");
+        gameOverObstacleScore.text = "Obstacles: " + obstaclesScore.ToString();
+        gameOverCoinsScore.text = "Coins: " + coinsScore.ToString();
+        gameOverTotalScore.text = "Game Score: " + gameScore.ToString();
+        gameOverHighScore.text = "Highscore: " + highScore.ToString("F0");
+        gameOverTotalCoins.text = "Total Coins: " + totalCoins.ToString();
     }
 }

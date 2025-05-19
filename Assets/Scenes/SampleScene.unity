@@ -574,7 +574,7 @@ GameObject:
   - component: {fileID: 57997950}
   - component: {fileID: 57997949}
   m_Layer: 5
-  m_Name: SelectLJButton
+  m_Name: SelectLJ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1995,7 +1995,7 @@ GameObject:
   - component: {fileID: 197892030}
   - component: {fileID: 197892029}
   m_Layer: 5
-  m_Name: MainButton
+  m_Name: Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2947,6 +2947,7 @@ GameObject:
   m_Component:
   - component: {fileID: 283713947}
   - component: {fileID: 283713948}
+  - component: {fileID: 283713949}
   m_Layer: 0
   m_Name: ButtonController
   m_TagString: Untagged
@@ -3005,6 +3006,24 @@ MonoBehaviour:
   - {fileID: 1007894681}
   - {fileID: 1230350572}
   - {fileID: 699251512}
+--- !u!114 &283713949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283713946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a339f470d12379740af415a769b9242b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeJumpButton: {fileID: 1465629673}
+  jumpButtonText: {fileID: 1170669333}
+  changePauseButton: {fileID: 516957950}
+  pauseButtonText: {fileID: 681805210}
+  jumpKey: 32
+  pauseKey: 27
 --- !u!1 &301997547
 GameObject:
   m_ObjectHideFlags: 0
@@ -4686,7 +4705,7 @@ GameObject:
   - component: {fileID: 498864223}
   - component: {fileID: 498864222}
   m_Layer: 5
-  m_Name: MainButton
+  m_Name: Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5304,7 +5323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreUI: {fileID: 1585190335}
   mc: {fileID: 2100013332}
-  input: {fileID: 603159558}
+  input: {fileID: 283713949}
   pause: {fileID: 544746396}
   playerBody:
   - {fileID: 7470312869129220373}
@@ -5313,6 +5332,14 @@ MonoBehaviour:
     highscore: 0
     coins: 0
     ownedCharacters: 
+  gameOverTimeScore: {fileID: 2039362426}
+  gameOverObstacleScore: {fileID: 225734009}
+  gameOverCoinsScore: {fileID: 682043940}
+  gameOverTotalScore: {fileID: 726716986}
+  gameOverHighScore: {fileID: 1156445777}
+  gameOverTotalCoins: {fileID: 87143888}
+  pauseMenu: {fileID: 1483903932}
+  gameOverMenu: {fileID: 1729063439}
   coinsScore: 0
   obstaclesScore: 0
   timeScore: 0
@@ -5495,8 +5522,6 @@ GameObject:
   - component: {fileID: 603159553}
   - component: {fileID: 603159552}
   - component: {fileID: 603159551}
-  - component: {fileID: 603159555}
-  - component: {fileID: 603159558}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -5590,28 +5615,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &603159555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603159550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b85404940f1a0a4d9fc845bacbef23c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreUI: {fileID: 1585190335}
-  gameOverTimeScore: {fileID: 2039362426}
-  gameOverObstacleScore: {fileID: 225734009}
-  gameOverCoinsScore: {fileID: 682043940}
-  gameOverTotalScore: {fileID: 726716986}
-  gameOverHighScore: {fileID: 1156445777}
-  gameOverTotalCoins: {fileID: 87143888}
-  pauseMenu: {fileID: 1483903932}
-  gameOverMenu: {fileID: 1729063439}
-  mc: {fileID: 2100013332}
 --- !u!222 &603159557
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5620,22 +5623,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603159550}
   m_CullTransparentMesh: 1
---- !u!114 &603159558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603159550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a339f470d12379740af415a769b9242b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  changeJumpButton: {fileID: 1465629673}
-  jumpButtonText: {fileID: 1170669333}
-  changePauseButton: {fileID: 516957950}
-  pauseButtonText: {fileID: 681805210}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -6706,7 +6693,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level Select
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8355,7 +8342,7 @@ GameObject:
   - component: {fileID: 961379288}
   - component: {fileID: 961379287}
   m_Layer: 5
-  m_Name: MainButton
+  m_Name: Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9253,6 +9240,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2100013332}
         m_TargetAssemblyTypeName: MusicController, Assembly-CSharp
         m_MethodName: StartMenuMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1294125404}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: ClickMainButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10896,7 +10895,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dependencyStatus: 0
-  gameUI: {fileID: 603159555}
   login: {fileID: 1088347412}
   update: {fileID: 1088347409}
   register: {fileID: 1088347411}
@@ -10934,7 +10932,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbbce9ac11c2a2d4e98034098b57cc08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui: {fileID: 603159555}
   firebase: {fileID: 1088347408}
 --- !u!114 &1088347411
 MonoBehaviour:
@@ -10969,6 +10966,7 @@ MonoBehaviour:
   firebase: {fileID: 1088347408}
   gm: {fileID: 544746394}
   player: {fileID: 1427288039480618431}
+  mc: {fileID: 1294125404}
   emailLogin: {fileID: 328121657}
   passwordLogin: {fileID: 1838618644}
   loginText: {fileID: 818010870}
@@ -12044,7 +12042,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159555}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
@@ -13465,7 +13463,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159555}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: OpenRegisterMenu
         m_Mode: 1
@@ -17993,7 +17991,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603159555}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HideMenus
         m_Mode: 1
@@ -19561,7 +19559,7 @@ GameObject:
   - component: {fileID: 2000870903}
   - component: {fileID: 2000870902}
   m_Layer: 5
-  m_Name: SelectDJButton
+  m_Name: SelectDJ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21251,13 +21249,12 @@ MonoBehaviour:
   doubleJumpBody: {fileID: 6506812372986070304}
   playerPicked: 0
   price: 10
-  djButtonText: {fileID: 1693350066}
-  UI: {fileID: 603159555}
   mc: {fileID: 1294125404}
+  djButtonText: {fileID: 1693350066}
   gm: {fileID: 544746394}
+  hintText: Buy
   ljButton: {fileID: 57997949}
   djButton: {fileID: 2000870902}
-  hintText: Buy
 --- !u!1 &1764921760001020260
 GameObject:
   m_ObjectHideFlags: 0
@@ -21644,8 +21641,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 9
   mass: 35
-  animM: {fileID: 8453297276261454567}
-  inputcontrol: {fileID: 603159558}
+  playerAnimation: {fileID: 8453297276261454567}
+  input: {fileID: 283713949}
   mc: {fileID: 2100013332}
   player: {fileID: 1764921760001020260}
   doubleJumpForce: 7
@@ -21685,8 +21682,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 13
   mass: 0.6
-  animM: {fileID: 8453297276261454567}
-  inputcontrol: {fileID: 603159558}
+  playerAnimation: {fileID: 8453297276261454567}
+  input: {fileID: 283713949}
   mc: {fileID: 2100013332}
   player: {fileID: 1764921760001020260}
   jumpTime: 0.5

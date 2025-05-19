@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Diagnostics;
 using TMPro;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour {
     //Aprašomi lygių ir meniu konteineriai, meniu pakeitimo laikas, ekrano plotis ir aukštis
