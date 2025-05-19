@@ -14,7 +14,6 @@ public class FirebaseUpdate : MonoBehaviour {
         Task DBTask = firebase.DBreference.Child("users").Child(firebase.User.UserId).Child("username").SetValueAsync(firebase.usernameField.text); 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
-        firebase.profileButtonText.text = "Welcome, " + firebase.User.DisplayName;
         firebase.usernameField.text = firebase.User.DisplayName;
     }
 

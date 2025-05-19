@@ -54,8 +54,7 @@ public class FirebaseLogin : MonoBehaviour {
             StartCoroutine(LoadUserData());
             yield return new WaitForSecondsRealtime(1f);
             firebase.usernameField.text = firebase.User.DisplayName;
-            //firebase.gameUI.OpenProfileMenu();
-
+            mc.ClickProfileButton();
             loginText.text = "";
             firebase.ui.ClearLoginFields();
         }
@@ -106,8 +105,9 @@ public class FirebaseLogin : MonoBehaviour {
         firebase.allCoinsText.text = "0";
         firebase.ownedCharacters = "";
         firebase.usernameField.text = "";
-
         gm.data.level1 = 0;
+        gm.data.level2 = 0;
+        gm.data.level3 = 0;
         gm.data.coins = 0;
         gm.data.ownedCharacters = "";
         firebase.SaveDataButton();

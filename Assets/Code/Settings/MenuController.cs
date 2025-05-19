@@ -12,6 +12,10 @@ public class MenuController : MonoBehaviour {
     [SerializeField] MusicController mc;
     [SerializeField] GameObject menuWindows;
     [SerializeField] TextMeshProUGUI coinsUI;
+    [SerializeField] FirebaseManager firebaseManager;
+    [SerializeField] GameObject profileMenu;
+    [SerializeField] GameObject loginMenu;
+    [SerializeField] GameObject registerMenu;
 
     private int screenWidth;
     private int screenHeight;
@@ -68,6 +72,13 @@ public class MenuController : MonoBehaviour {
 
     public void ClickProfileButton() {
         //Profilio mygtukas
+        if (firebaseManager.isLoggedIn) {
+            loginMenu.SetActive(false);
+            profileMenu.SetActive(true);
+        } else {
+            profileMenu.SetActive(false);
+            loginMenu.SetActive(true);
+        }
         ChangeMenu(MenuType.Profile);
     }
 
@@ -110,5 +121,21 @@ public class MenuController : MonoBehaviour {
 
     public void UpdateCoinsUI() {
         coinsUI.text = "Coins: " + gm.data.coins;
+    }
+
+    public void OpenRegisterMenu() {
+        loginMenu.SetActive(false);
+        registerMenu.SetActive(true);
+    }
+
+    public void OpenLoginMenu() {
+        loginMenu.SetActive(true);
+        registerMenu.SetActive(false);
+    }
+
+    public void ResetProfileMenu() {
+        profileMenu.SetActive(false);
+        loginMenu.SetActive(false);
+        registerMenu.SetActive(false);
     }
 }
