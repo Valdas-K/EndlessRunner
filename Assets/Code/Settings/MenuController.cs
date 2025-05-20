@@ -2,7 +2,6 @@
 using UnityEngine;
 using System.Diagnostics;
 using TMPro;
-using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour {
     //Aprašomi lygių ir meniu konteineriai, meniu pakeitimo laikas, ekrano plotis ir aukštis
@@ -16,13 +15,15 @@ public class MenuController : MonoBehaviour {
     [SerializeField] GameObject profileMenu;
     [SerializeField] GameObject loginMenu;
     [SerializeField] GameObject registerMenu;
+    [SerializeField] TextMeshProUGUI helpText;
+    [SerializeField] Leaderboards board;
 
     private int screenWidth;
     private int screenHeight;
 
     private enum MenuType {
         //Aprašomi meniu langai
-        Main, LevelSelect, Shop, Settings, Profile
+        Main, LevelSelect, Shop, Settings, Profile, Leaderboards
     }
 
     private void Start() {
@@ -42,7 +43,10 @@ public class MenuController : MonoBehaviour {
             newPosition = new Vector3(0f, screenHeight, 0f);
         } else if (menuType == MenuType.Profile) {
             newPosition = new Vector3(0f, -screenHeight, 0f);
-        } else {
+        } else if (menuType == MenuType.Leaderboards) {
+            newPosition = new Vector3(-screenWidth * 2, 0f, 0f);
+        }
+        else {
             newPosition = Vector3.zero;
         }
 
@@ -68,6 +72,19 @@ public class MenuController : MonoBehaviour {
     public void ClickLevelSelectButton() {
         //Lygių pasirinkimo mygtukas
         ChangeMenu(MenuType.LevelSelect);
+    }
+
+    public void ClickLeaderboardsButton() {
+        //Geriausiu rezultatu ekrano mygtukas
+        if (firebaseManager.isLoggedIn) {
+            StartCoroutine(board.LoadScoreboardData());
+            //yield return new WaitForSecondsRealtime(1f);
+
+            ChangeMenu(MenuType.Leaderboards);
+            helpText.text = string.Empty;
+        } else {
+            helpText.text = "Only logged in users can view leaderboards";
+        }
     }
 
     public void ClickProfileButton() {
