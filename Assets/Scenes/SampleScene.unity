@@ -262,7 +262,7 @@ AudioSource:
   m_GameObject: {fileID: 24248443}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 9069034188553106566, guid: 0c8865e27372c694390fe164874ee9de, type: 2}
+  OutputAudioMixerGroup: {fileID: -2013115594259221239, guid: 0c8865e27372c694390fe164874ee9de, type: 2}
   m_audioClip: {fileID: 8300000, guid: df729d213c4be44a9b55cd109f5cd4f9, type: 3}
   m_Resource: {fileID: 8300000, guid: df729d213c4be44a9b55cd109f5cd4f9, type: 3}
   m_PlayOnAwake: 0
@@ -646,7 +646,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1427288039480618431}
         m_TargetAssemblyTypeName: SwitchPlayer, Assembly-CSharp
-        m_MethodName: LoadLJ
+        m_MethodName: SelectLongJump
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4474,7 +4474,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 611, y: -135}
+  m_AnchoredPosition: {x: 611, y: -353}
   m_SizeDelta: {x: 534.01, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &421609317
@@ -5270,7 +5270,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 611, y: 67.5}
+  m_AnchoredPosition: {x: 611, y: -135}
   m_SizeDelta: {x: 534.0154, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &534194736
@@ -12101,7 +12101,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 611, y: -353}
+  m_AnchoredPosition: {x: 0, y: -353}
   m_SizeDelta: {x: 534.01, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1078933255
@@ -12382,7 +12382,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -353}
+  m_AnchoredPosition: {x: -609.72, y: -353}
   m_SizeDelta: {x: 533.2877, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1084916363
@@ -14574,6 +14574,7 @@ MonoBehaviour:
   registerMenu: {fileID: 1842823315}
   helpText: {fileID: 822166907}
   board: {fileID: 1088347414}
+  shop: {fileID: 1427288039480618431}
 --- !u!4 &1294125405
 Transform:
   m_ObjectHideFlags: 0
@@ -15866,7 +15867,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0, y: -198}
+  m_AnchoredPosition: {x: 0, y: -198}
   m_SizeDelta: {x: 884.395, y: 151.579}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1394707416
@@ -22217,7 +22218,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -610, y: -353}
+  m_AnchoredPosition: {x: -609.36, y: -135}
   m_SizeDelta: {x: 534.01, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1943836245

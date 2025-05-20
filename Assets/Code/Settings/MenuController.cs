@@ -17,6 +17,7 @@ public class MenuController : MonoBehaviour {
     [SerializeField] GameObject registerMenu;
     [SerializeField] TextMeshProUGUI helpText;
     [SerializeField] Leaderboards board;
+    [SerializeField] SwitchPlayer shop;
 
     private int screenWidth;
     private int screenHeight;
@@ -101,6 +102,18 @@ public class MenuController : MonoBehaviour {
 
     public void ClickShopButton() {
         //Parduotuvės mygtukas
+        if (gm.data.frogBodyOwned) {
+            shop.hintText1 = "Select";
+        } else {
+            shop.hintText1 = "Buy";
+        } 
+        if (gm.data.thirdPlayerBodyOwned) {
+            shop.hintText2 = "Select";
+        } else {
+            shop.hintText2 = "Buy";
+        }
+        shop.ChangeHintText();
+        UpdateCoinsUI();
         ChangeMenu(MenuType.Shop);
     }
 

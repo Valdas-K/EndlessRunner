@@ -40,28 +40,13 @@ public class SwitchPlayer : MonoBehaviour {
     public void LoadSettings() {
         playerPicked = PlayerPrefs.GetInt("PlayerPicked");
         if (playerPicked == 1 && gm.data.frogBodyOwned == true) {
-            hintText1 = "Select";
-            LoadDJ();
+            ChangePlayer(1);
         } else if (playerPicked == 2 && gm.data.thirdPlayerBodyOwned == true) {
-            hintText2 = "Select";
-            LoadTP();
-        } else if (playerPicked == 0) {
-            if (gm.data.frogBodyOwned == true) {
-                hintText1 = "Select";
-            } else if (gm.data.thirdPlayerBodyOwned == true) {
-                hintText2 = "Select";
-            } else {
-                hintText1 = "Buy";
-                hintText2 = "Buy";
-            }
-            LoadLJ();
-        } else {
-            LoadLJ();
-            hintText1 = "Buy";
-            hintText2 = "Buy";
+            ChangePlayer(2);
         }
-        ChangeHintText();
-        mc.UpdateCoinsUI();
+        else {
+            ChangePlayer(0);
+        }
     }
 
     private void SaveSettings() {
@@ -71,38 +56,28 @@ public class SwitchPlayer : MonoBehaviour {
         mc.UpdateCoinsUI();
     }
 
-    //Pasirenkamas pirmas veikėjas, pasirinkto žaidėjo kintamieji
-    //Aktyvuojamas veikėjo objektas, išsaugomas pasirinkimas
-    public void LoadLJ() {
-        playerPicked = 0;
-        longJumpBody.SetActive(true);
+    //Pasirenkamas reikiamas veikėjas, aktyvuojamas veikėjo objektas, išsaugomas pasirinkimas
+    public void ChangePlayer(int player) {
+        playerPicked = player;
+        longJumpBody.SetActive(false);
         doubleJumpBody.SetActive(false);
         thirdPlayerBody.SetActive(false);
+        if (playerPicked == 1) {
+            doubleJumpBody.SetActive(true);
+            doubleJumpBody.transform.position = new Vector3(-5f, 6f, 0f);
+        } else if (playerPicked == 2) {
+            thirdPlayerBody.SetActive(true);
+            thirdPlayerBody.transform.position = new Vector3(-5f, 6f, 0f);
+        } else {
+            longJumpBody.SetActive(true);
+            longJumpBody.transform.position = new Vector3(-5f, 6f, 0f);
+        }
         SaveSettings();
-        longJumpBody.transform.position = new Vector3(-5f, 6f, 0f);
         mc.ClickMainButton();
     }
 
-    //Pasirenkamas antras veikėjas (jei nupirktas), pasirinkto žaidėjo kintamieji
-    //Aktyvuojamas veikėjo objektas, išsaugomas pasirinkimas
-    public void LoadDJ() {
-        playerPicked = 1;
-        doubleJumpBody.SetActive(true);
-        longJumpBody.SetActive(false);
-        thirdPlayerBody.SetActive(false);
-        SaveSettings();
-        doubleJumpBody.transform.position = new Vector3(-5f, 6f, 0f);
-        mc.ClickMainButton();
-    }
-
-    public void LoadTP() {
-        playerPicked = 2;
-        doubleJumpBody.SetActive(false);
-        longJumpBody.SetActive(false);
-        thirdPlayerBody.SetActive(true);
-        SaveSettings();
-        thirdPlayerBody.transform.position = new Vector3(-5f, 6f, 0f);
-        mc.ClickMainButton();
+    public void SelectLongJump() {
+        ChangePlayer(0);
     }
 
     //Perkamas antras veikėjas
@@ -116,22 +91,18 @@ public class SwitchPlayer : MonoBehaviour {
                 gm.totalCoins = gm.data.coins;
                 gm.data.frogBodyOwned = true;
                 gm.SaveData();
-                hintText1 = "Select";
-                ChangeHintText();
-                mc.UpdateCoinsUI();
-                LoadDJ();
+                ChangePlayer(1);
             }
             else {
                 //Jei neužtenka pinigų, porai sekundžių įjungiamas pagalbinis tekstas
                 hintText1 = "More";
                 ChangeHintText();
-
                 hintText1 = "Buy";
                 Invoke(nameof(ChangeHintText), 2f);
             }
         } else {
             //Jei yra, jis užkraunamas
-            LoadDJ();
+            ChangePlayer(1);
         }
     }
 
@@ -145,11 +116,9 @@ public class SwitchPlayer : MonoBehaviour {
                 gm.totalCoins = gm.data.coins;
                 gm.data.thirdPlayerBodyOwned = true;
                 gm.SaveData();
-                hintText2 = "Select";
-                ChangeHintText();
-                mc.UpdateCoinsUI();
-                LoadTP();
-            } else {
+                ChangePlayer(2);
+            }
+            else {
                 //Jei neužtenka pinigų, porai sekundžių įjungiamas pagalbinis tekstas
                 hintText2 = "More";
                 ChangeHintText();
@@ -158,7 +127,7 @@ public class SwitchPlayer : MonoBehaviour {
             }
         } else {
             //Jei yra, jis užkraunamas
-            LoadTP();
+            ChangePlayer(2);
         }
     }
 

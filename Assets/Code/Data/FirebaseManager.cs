@@ -9,9 +9,6 @@ public class FirebaseManager : MonoBehaviour {
     public FirebaseAuth auth;
     public DatabaseReference DBreference;
     public FirebaseUser User;
-
-    //public UIManager gameUI;
-
     public FirebaseLogin login;
     public FirebaseUpdate update;
     public FirebaseRegister register;
