@@ -6,7 +6,8 @@ public class FirebaseLogOut : MonoBehaviour {
     [SerializeField] SwitchPlayer player;
 
     public void SignOut() {
-        if(firebase.isLoggedIn) {
+        gm.SaveData();
+        if (firebase.isLoggedIn) {
             gm.data.level1 = 0;
             gm.data.level2 = 0;
             gm.data.level3 = 0;
@@ -15,7 +16,6 @@ public class FirebaseLogOut : MonoBehaviour {
             gm.data.thirdPlayerBodyOwned = false;
             firebase.ui.ClearRegisterFields();
             firebase.ui.ClearLoginFields();
-            firebase.profileButtonText.text = "Profile";
             player.LoadSettings();
             firebase.isLoggedIn = false;
         }

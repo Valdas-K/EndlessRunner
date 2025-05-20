@@ -14,6 +14,7 @@ public class FirebaseRegister : MonoBehaviour {
     public TMP_InputField usernameRegister;
     public TMP_Text registerText;
     [SerializeField] FirebaseManager firebase;
+    [SerializeField] MenuController menu;
 
     public IEnumerator Register() {
         if (usernameRegister.text == "") {
@@ -81,14 +82,9 @@ public class FirebaseRegister : MonoBehaviour {
         return Regex.IsMatch(input, @"[a-z]");
     }
 
-    public void ShowText() {
-        registerText.text = "";
-    }
-
     IEnumerator ShowLogin() {
         yield return new WaitForSecondsRealtime(1f);
-        ShowText();
         firebase.ui.ClearRegisterFields();
-        //firebase.gameUI.OpenProfileMenu();
+        menu.OpenLoginMenu();
     }
 }

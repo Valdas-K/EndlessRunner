@@ -6,6 +6,8 @@ using Firebase.Database;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
+using System;
 
 public class FirebaseLogin : MonoBehaviour {
 
@@ -43,20 +45,17 @@ public class FirebaseLogin : MonoBehaviour {
                     message = "Account does not exist";
                     break;
             }
+            loginButton.enabled = false;
             firebase.ui.ClearLoginFields();
             loginText.text = message;
-            loginButton.enabled = false;
             Invoke(nameof(EnableLoginButton), 3f);
         } else {
             firebase.User = LoginTask.Result.User;
+            firebase.usernameField.text = firebase.User.DisplayName;
             loginText.text = "Logged In!";
             firebase.isLoggedIn = true;
             StartCoroutine(LoadUserData());
             yield return new WaitForSecondsRealtime(1f);
-            firebase.usernameField.text = firebase.User.DisplayName;
-            mc.ClickProfileButton();
-            loginText.text = "";
-            firebase.ui.ClearLoginFields();
         }
     }
 
@@ -64,46 +63,41 @@ public class FirebaseLogin : MonoBehaviour {
         Task<DataSnapshot> DBTask = firebase.DBreference.Child("users").Child(firebase.User.UserId).GetValueAsync();
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
         if (DBTask.Result.Value == null) {
-            SaveGameStats();
+            firebase.SaveDataButton();
         } else {
-            DataSnapshot snapshot = DBTask.Result;
-            firebase.highscoreText.text = snapshot.Child("highscore").Value.ToString();
-            firebase.allCoinsText.text = snapshot.Child("coins").Value.ToString();
-            firebase.ownedCharacters = snapshot.Child("characters").Value.ToString();
             firebase.usernameField.text = firebase.User.DisplayName;
+            DataSnapshot snapshot = DBTask.Result;
+            string l1 = snapshot.Child("highscore1").Value.ToString();
+            gm.data.level1 = int.Parse(l1);
+            string l2 = snapshot.Child("highscore2").Value.ToString();
+            gm.data.level2 = int.Parse(l2);
+            string l3 = snapshot.Child("highscore1").Value.ToString();
+            gm.data.level3 = int.Parse(l3);
+            string c = snapshot.Child("coins").Value.ToString();
+            gm.data.coins = int.Parse(c);
 
-            //gm.data.highscore = int.Parse(firebase.highscoreText.text);
-            gm.data.coins = int.Parse(firebase.allCoinsText.text);
-            //gm.data.ownedCharacters = firebase.ownedCharacters;
+            string c1 = snapshot.Child("characters1").Value.ToString();
+            gm.data.frogBodyOwned = Boolean.Parse(c1);
+            string c2 = snapshot.Child("characters2").Value.ToString();
+            gm.data.thirdPlayerBodyOwned = Boolean.Parse(c2);
+
             gm.SaveData();
             firebase.SaveDataButton();
         }
 
-        player.LoadSettings();
-        //if (firebase.ownedCharacters == "DJ") {
-        //    player.hintText = "Select";
-        //} else {
-        //    player.hintText = "Buy";
-        //}
-        player.ChangeHintText();
+        mc.ClickProfileButton();
+        firebase.ui.ClearLoginFields();
     }
 
     private void EnableLoginButton() {
         loginButton.enabled = true;
-        loginText.text = "";
-    }
-
-    public void SaveGameStats() {
-        firebase.highscoreText.text = gm.data.level1.ToString();
-        firebase.allCoinsText.text = gm.data.coins.ToString();
-        //firebase.ownedCharacters = gm.data.ownedCharacters;
-        firebase.SaveDataButton();
     }
 
     public void ResetProfile() {
         firebase.highscoreText.text = "0";
         firebase.allCoinsText.text = "0";
-        firebase.ownedCharacters = "";
+        firebase.frogBodyOwned = false;
+        firebase.thirdPlayerBodyOwned = false;
         firebase.usernameField.text = "";
         gm.data.level1 = 0;
         gm.data.level2 = 0;

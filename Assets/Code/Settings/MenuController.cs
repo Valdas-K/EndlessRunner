@@ -94,6 +94,10 @@ public class MenuController : MonoBehaviour {
 
     public void ClickMainButton() {
         //Pradinio meniu mygtukas
+        gm.SaveData();
+        if (firebaseManager.isLoggedIn) {
+            firebaseManager.SaveDataButton();
+        }
         ChangeMenu(MenuType.Main);
     }
 
@@ -125,12 +129,14 @@ public class MenuController : MonoBehaviour {
 
     public void OpenRegisterMenu() {
         loginMenu.SetActive(false);
+        profileMenu.SetActive(false);
         registerMenu.SetActive(true);
     }
 
     public void OpenLoginMenu() {
-        loginMenu.SetActive(true);
+        profileMenu.SetActive(false);
         registerMenu.SetActive(false);
+        loginMenu.SetActive(true);
     }
 
     public void ResetProfileMenu() {

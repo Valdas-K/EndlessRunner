@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour {
     public int coinsScore;
     public int obstaclesScore;
     public float timeScore;
-    public float gameScore;
+    public int gameScore;
     public float highScore1;
     public float highScore2;
     public float highScore3;
@@ -142,8 +142,7 @@ public class GameManager : MonoBehaviour {
         mc.PlayDeathSound();
 
         //Apskaičiuojamas bendras rezultatas
-        timeScore = Mathf.RoundToInt(timeScore);
-        gameScore = coinsScore + obstaclesScore + timeScore;
+        gameScore = coinsScore + obstaclesScore + Mathf.RoundToInt(timeScore);
         if (timeScore < 0) {
             gameScore = 0;
         }

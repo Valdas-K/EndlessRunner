@@ -459,7 +459,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 762, y: -300}
+  m_AnchoredPosition: {x: 740, y: -226}
   m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &48649915
@@ -3066,7 +3066,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 700, y: -400}
+  m_AnchoredPosition: {x: 700, y: -355}
   m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &301997549
@@ -8571,7 +8571,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1300, y: -300}
+  m_AnchoredPosition: {x: 1278, y: -226}
   m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &905483898
@@ -10105,6 +10105,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1294125404}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: ClickMainButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1729063439}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -10120,18 +10132,6 @@ MonoBehaviour:
       - m_Target: {fileID: 2100013332}
         m_TargetAssemblyTypeName: MusicController, Assembly-CSharp
         m_MethodName: StartMenuMusic
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1294125404}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: ClickMainButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11919,8 +11919,11 @@ MonoBehaviour:
   usernameField: {fileID: 905483898}
   highscoreText: {fileID: 1531405509}
   allCoinsText: {fileID: 1943169155}
-  profileButtonText: {fileID: 0}
-  ownedCharacters: 
+  highscore1Text: {fileID: 1531405509}
+  highscore2Text: {fileID: 1236167781}
+  highscore3Text: {fileID: 1592269543}
+  frogBodyOwned: 0
+  thirdPlayerBodyOwned: 0
   player: {fileID: 1427288039480618431}
   isLoggedIn: 0
 --- !u!114 &1088347409
@@ -11936,6 +11939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firebase: {fileID: 1088347408}
+  gm: {fileID: 544746394}
 --- !u!114 &1088347410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11967,6 +11971,7 @@ MonoBehaviour:
   usernameRegister: {fileID: 709188129}
   registerText: {fileID: 1195574623}
   firebase: {fileID: 1088347408}
+  menu: {fileID: 1294125404}
 --- !u!114 &1088347412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13362,7 +13367,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1300, y: -400}
+  m_AnchoredPosition: {x: 1300, y: -383}
   m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1236167781
@@ -15005,18 +15010,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1088347411}
-        m_TargetAssemblyTypeName: FirebaseRegister, Assembly-CSharp
-        m_MethodName: ShowText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1294125404}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: OpenRegisterMenu
@@ -16007,7 +16000,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 681, y: -400}
+  m_AnchoredPosition: {x: 681, y: -383}
   m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1469016195
@@ -16552,7 +16545,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1300, y: -400}
+  m_AnchoredPosition: {x: 1300, y: -355}
   m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1531405509
@@ -20906,7 +20899,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 749, y: -613}
+  m_AnchoredPosition: {x: 749, y: -628}
   m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1922916148
@@ -21042,7 +21035,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1300, y: -500}
+  m_AnchoredPosition: {x: 1298, y: -628}
   m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1943169155

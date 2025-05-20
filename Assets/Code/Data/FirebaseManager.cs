@@ -21,8 +21,11 @@ public class FirebaseManager : MonoBehaviour {
     public TMP_InputField usernameField;
     public TMP_Text highscoreText;
     public TMP_Text allCoinsText;
-    public TMP_Text profileButtonText;
-    public string ownedCharacters;
+    public TMP_Text highscore1Text;
+    public TMP_Text highscore2Text;
+    public TMP_Text highscore3Text;
+    public bool frogBodyOwned;
+    public bool thirdPlayerBodyOwned;
 
     [SerializeField] SwitchPlayer player;
 

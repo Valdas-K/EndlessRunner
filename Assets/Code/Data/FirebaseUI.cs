@@ -8,20 +8,12 @@ public class FirebaseUI : MonoBehaviour {
         firebase.register.emailRegister.text = "";
         firebase.register.passwordRegister.text = "";
         firebase.register.passwordConfirmRegister.text = "";
+        firebase.register.registerText.text = "";
     }
 
     public void ClearLoginFields() {
         firebase.login.emailLogin.text = "";
         firebase.login.passwordLogin.text = "";
-    }
-
-    public void OpenMenu() {
-        if (firebase.isLoggedIn) {
-            //ui.OpenProfileMenu();
-            firebase.login.SaveGameStats();
-        } else {
-            //ui.OpenLoginMenu();
-            ClearLoginFields();
-        }
+        firebase.login.loginText.text = "";
     }
 }
