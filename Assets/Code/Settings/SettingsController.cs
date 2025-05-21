@@ -15,6 +15,10 @@ public class SettingsController : MonoBehaviour {
         data.LoadSettingsData();
     }
 
+    public void SaveSettings() {
+        data.SaveSettingsData();
+    }
+
     public void ChangeJumpButton() {
         input.StartKeyChange("Jump");
     }
@@ -36,6 +40,6 @@ public class SettingsController : MonoBehaviour {
     }
 
     public void ChangeResolution(int index) {
-        screen.SetResolution(index);
+        screen.SetNewResolution(index);
     }
 }

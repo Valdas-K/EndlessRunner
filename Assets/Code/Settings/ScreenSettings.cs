@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -10,8 +9,10 @@ public class ScreenSettings : MonoBehaviour {
     Resolution[] allResolutions;
     private List<Vector2Int> validRes;
     [SerializeField] TMP_Dropdown resolutionDropdown;
-    [SerializeField] Toggle screenTypeToggle;
+    public Toggle screenTypeToggle;
     public int savedIndex;
+    public int selectedWidth;
+    public int selectedHeight;
 
     public List<Vector2Int> allowedResolutions = new() {
         new(800, 1280), new(1176, 664), new(1366, 768),
@@ -19,11 +20,6 @@ public class ScreenSettings : MonoBehaviour {
         new(1920, 1200), new(1920, 1080), new(2560, 1600),
         new(2560, 1440), new(3840, 2160)
     };
-
-    private void Start() {
-        FillResolutionDropdown();
-        UpdateScreenCheck();
-    }
 
     public void FillResolutionDropdown() {
         //Priskiriamos rezoliucijos
@@ -48,16 +44,14 @@ public class ScreenSettings : MonoBehaviour {
 
         resolutionDropdown.RefreshShownValue();
 
-        SetResolution(currentIndex);
+        SetNewResolution(currentIndex);
     }
 
     //Atnaujinama ekrano rezoliucija
-    public void SetResolution(int index) {
+    public void SetNewResolution(int index) {
         //Randama rezoliucija, kurią norima naudoti
-        int selectedWidth = validRes[index].x;
-        int selectedHeight = validRes[index].y;
-        PlayerPrefs.SetInt("ResolutionX", selectedWidth);
-        PlayerPrefs.SetInt("ResolutionY", selectedHeight);
+        selectedWidth = validRes[index].x;
+        selectedHeight = validRes[index].y;
 
         //Nustatoma ekrano rezoliucija
         if (Screen.fullScreen == true) {
@@ -70,7 +64,6 @@ public class ScreenSettings : MonoBehaviour {
     //Yra tikrinama, ar yra naudojamas viso ekrano režimas
     public void SetFullScreen(bool isFullScreen) {
         Screen.fullScreen = isFullScreen;
-        PlayerPrefs.SetInt("fullScreen", Convert.ToInt16(isFullScreen));
     }
 
     public void UpdateScreenCheck() {

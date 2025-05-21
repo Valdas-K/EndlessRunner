@@ -2137,6 +2137,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1579878175}
+        m_TargetAssemblyTypeName: SettingsController, Assembly-CSharp
+        m_MethodName: SaveSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &197892030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2902,7 +2914,6 @@ GameObject:
   m_Component:
   - component: {fileID: 283713947}
   - component: {fileID: 283713948}
-  - component: {fileID: 283713949}
   m_Layer: 0
   m_Name: ButtonController
   m_TagString: Untagged
@@ -2966,24 +2977,6 @@ MonoBehaviour:
   - {fileID: 697509760}
   bg: {fileID: 1146464804}
   gm: {fileID: 544746394}
---- !u!114 &283713949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283713946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a339f470d12379740af415a769b9242b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  changeJumpButton: {fileID: 1465629673}
-  jumpButtonText: {fileID: 1170669333}
-  changePauseButton: {fileID: 516957950}
-  pauseButtonText: {fileID: 681805210}
-  jumpKey: 32
-  pauseKey: 27
 --- !u!1 &297891804
 GameObject:
   m_ObjectHideFlags: 0
@@ -5486,7 +5479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreUI: {fileID: 1585190335}
   mc: {fileID: 2100013332}
-  input: {fileID: 283713949}
+  input: {fileID: 1579878177}
   pause: {fileID: 544746396}
   playerBody:
   - {fileID: 7470312869129220373}
@@ -5831,7 +5824,7 @@ MonoBehaviour:
   jumpForce: 17
   mass: 2
   playerAnimation: {fileID: 8453297276261454567}
-  input: {fileID: 283713949}
+  input: {fileID: 1579878177}
   mc: {fileID: 2100013332}
   player: {fileID: 1764921760001020260}
   jumpTime: 0.2
@@ -14554,7 +14547,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1294125405}
   - component: {fileID: 1294125404}
-  - component: {fileID: 1294125406}
   m_Layer: 0
   m_Name: MenuController
   m_TagString: Untagged
@@ -14602,33 +14594,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1576961217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1294125406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294125403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3329f797fbf224d409218a77a6d17163, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resolutionDropdown: {fileID: 1370961282}
-  screenTypeToggle: {fileID: 1070205949}
-  savedIndex: 0
-  allowedResolutions:
-  - {x: 800, y: 1280}
-  - {x: 1176, y: 664}
-  - {x: 1366, y: 768}
-  - {x: 1440, y: 900}
-  - {x: 1600, y: 900}
-  - {x: 1680, y: 1050}
-  - {x: 1920, y: 1200}
-  - {x: 1920, y: 1080}
-  - {x: 2560, y: 1600}
-  - {x: 2560, y: 1440}
-  - {x: 3840, y: 2160}
 --- !u!1 &1296527545
 GameObject:
   m_ObjectHideFlags: 0
@@ -17584,12 +17549,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2100013329}
   - {fileID: 1294125405}
   - {fileID: 283713947}
   - {fileID: 544746395}
   - {fileID: 1088347407}
   - {fileID: 1579878174}
+  - {fileID: 2100013329}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1579878173
@@ -17603,6 +17568,8 @@ GameObject:
   - component: {fileID: 1579878174}
   - component: {fileID: 1579878175}
   - component: {fileID: 1579878176}
+  - component: {fileID: 1579878177}
+  - component: {fileID: 1579878178}
   m_Layer: 0
   m_Name: SettingsController
   m_TagString: Untagged
@@ -17637,9 +17604,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db4fe8d535741148a06f434f4b905d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 283713949}
+  input: {fileID: 1579878177}
   data: {fileID: 1579878176}
-  screen: {fileID: 1294125406}
+  screen: {fileID: 1579878178}
   sound: {fileID: 2100013332}
 --- !u!114 &1579878176
 MonoBehaviour:
@@ -17654,6 +17621,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 1579878175}
+--- !u!114 &1579878177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579878173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a339f470d12379740af415a769b9242b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpButtonText: {fileID: 1170669333}
+  pauseButtonText: {fileID: 681805210}
+  jumpKey: 32
+  pauseKey: 27
+--- !u!114 &1579878178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579878173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3329f797fbf224d409218a77a6d17163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resolutionDropdown: {fileID: 1370961282}
+  screenTypeToggle: {fileID: 1070205949}
+  savedIndex: 0
+  selectedWidth: 0
+  selectedHeight: 0
+  allowedResolutions:
+  - {x: 800, y: 1280}
+  - {x: 1176, y: 664}
+  - {x: 1366, y: 768}
+  - {x: 1440, y: 900}
+  - {x: 1600, y: 900}
+  - {x: 1680, y: 1050}
+  - {x: 1920, y: 1200}
+  - {x: 1920, y: 1080}
+  - {x: 2560, y: 1600}
+  - {x: 2560, y: 1440}
+  - {x: 3840, y: 2160}
 --- !u!1 &1585190333
 GameObject:
   m_ObjectHideFlags: 0
@@ -24632,6 +24644,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 0c8865e27372c694390fe164874ee9de, type: 2}
   musicSlider: {fileID: 2005682694}
   effectsSlider: {fileID: 22664635}
+  soundValue: 0
 --- !u!1 &2105098699
 GameObject:
   m_ObjectHideFlags: 0
@@ -25535,7 +25548,7 @@ MonoBehaviour:
   jumpForce: 9
   mass: 35
   playerAnimation: {fileID: 8453297276261454567}
-  input: {fileID: 283713949}
+  input: {fileID: 1579878177}
   mc: {fileID: 2100013332}
   player: {fileID: 1764921760001020260}
   doubleJumpForce: 7
@@ -25576,7 +25589,7 @@ MonoBehaviour:
   jumpForce: 13
   mass: 0.6
   playerAnimation: {fileID: 8453297276261454567}
-  input: {fileID: 283713949}
+  input: {fileID: 1579878177}
   mc: {fileID: 2100013332}
   player: {fileID: 1764921760001020260}
   jumpTime: 0.5

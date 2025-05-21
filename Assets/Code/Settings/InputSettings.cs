@@ -1,12 +1,9 @@
 ﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InputSettings : MonoBehaviour {
     //Sukuriami mygtuko, teksto komponentai
-    public Button changeJumpButton;
     public TMP_Text jumpButtonText;
-    public Button changePauseButton;
     public TMP_Text pauseButtonText;
 
     //Pašokimo ir žaidimo sustabdymo mygtukų kintamieji
@@ -18,11 +15,6 @@ public class InputSettings : MonoBehaviour {
 
     //Kuris veiksmas atliekamas
     private string actionToChange = "";
-
-    private void Start() {
-        //Atnaujinamas mygtukų tekstas ir aprašomi įvykiai
-        UpdateButtonText();
-    }
 
     private void Update() {
         //Tikrinama, ar keičiamas mygtukas
@@ -49,7 +41,6 @@ public class InputSettings : MonoBehaviour {
             }
             //Išsaugomi nustatymai ir atnaujinamas tekstas
             waitingForInput = false;
-            SaveSettings();
             UpdateButtonText();
         }
     }
@@ -75,14 +66,8 @@ public class InputSettings : MonoBehaviour {
     }
 
     //Atnaujinamas mygtuko tekstas
-    private void UpdateButtonText() {
+    public void UpdateButtonText() {
         jumpButtonText.text = "(" + jumpKey + ")";
         pauseButtonText.text = "(" + pauseKey + ")";
-    }
-
-    //Išsaugomi nustatymai, kurie bus išsaugomi ir perkrovus žaidimą
-    private void SaveSettings() {
-        PlayerPrefs.SetInt("JumpKey", (int)jumpKey);
-        PlayerPrefs.SetInt("PauseKey", (int)pauseKey);
     }
 }
