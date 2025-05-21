@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using Firebase.Auth;
 using System.Threading.Tasks;
@@ -8,6 +8,7 @@ public class FirebaseUpdate : MonoBehaviour {
     [SerializeField] GameManager gm;
 
     public IEnumerator UpdateUsername() {
+        //Vartotojo vardo atnaujinimas
         UserProfile profile = new() { DisplayName = firebase.usernameField.text };
         Task ProfileTask = firebase.User.UpdateUserProfileAsync(profile);
         yield return new WaitUntil(predicate: () => ProfileTask.IsCompleted);
@@ -19,6 +20,7 @@ public class FirebaseUpdate : MonoBehaviour {
     }
 
     public IEnumerator UpdateUserStats() {
+        //Rezultatų, surinktų pinigų ir atrakintų veikėjų atnaujinimas
         Task DBTask = firebase.DBreference.Child("users").Child(firebase.User.UserId).Child("highscore1").SetValueAsync(gm.data.level1);
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -37,14 +39,25 @@ public class FirebaseUpdate : MonoBehaviour {
         DBTask = firebase.DBreference.Child("users").Child(firebase.User.UserId).Child("characters2").SetValueAsync(gm.data.thirdPlayerBodyOwned);
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
-        UpdateProfileUI();
+        firebase.ui.UpdateProfileUI();
     }
 
-    public void UpdateProfileUI() {
-        firebase.usernameField.text = firebase.User.DisplayName;
-        firebase.highscore1Text.text = gm.data.level1.ToString();
-        firebase.highscore2Text.text = gm.data.level2.ToString();
-        firebase.highscore3Text.text = gm.data.level3.ToString();
-        firebase.allCoinsText.text = gm.data.coins.ToString();
+    public void SignOut() {
+        //Vykdomas profilio atsijungimas
+        gm.SaveData();
+        if (firebase.isLoggedIn) {
+            gm.data.level1 = 0;
+            gm.data.level2 = 0;
+            gm.data.level3 = 0;
+            gm.data.coins = 0;
+            gm.data.frogBodyOwned = false;
+            gm.data.thirdPlayerBodyOwned = false;
+            firebase.ui.ClearRegisterFields();
+            firebase.ui.ClearLoginFields();
+            //firebase.player.LoadSettings();
+            firebase.isLoggedIn = false;
+        }
+        firebase.auth.SignOut();
+        gm.SaveData();
     }
 }

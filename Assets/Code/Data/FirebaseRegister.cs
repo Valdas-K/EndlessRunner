@@ -1,22 +1,26 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using Firebase;
 using Firebase.Auth;
 using System.Threading.Tasks;
 using TMPro;
 using System.Text.RegularExpressions;
+using UnityEngine.UI;
 
 public class FirebaseRegister : MonoBehaviour {
+    [SerializeField] FirebaseManager firebase;
+    [SerializeField] MenuController menu;
 
+    //Registracijos ekrano laukai
     public TMP_InputField emailRegister;
     public TMP_InputField passwordRegister;
     public TMP_InputField passwordConfirmRegister;
     public TMP_InputField usernameRegister;
     public TMP_Text registerText;
-    [SerializeField] FirebaseManager firebase;
-    [SerializeField] MenuController menu;
+    public Button registerButton;
 
     public IEnumerator Register() {
+        //Atliekama vartotojo registracija
         if (usernameRegister.text == "") {
             registerText.text = "Missing Username";
         } else if (passwordRegister.text != passwordConfirmRegister.text) {
@@ -50,7 +54,10 @@ public class FirebaseRegister : MonoBehaviour {
                         message = "Email Already In Use";
                         break;
                 }
+                registerButton.enabled = false;
+                firebase.ui.ClearRegisterFields();
                 registerText.text = message;
+                Invoke(nameof(EnableRegisterButton), 3f);
             }
             else {
                 firebase.User = RegisterTask.Result.User;
@@ -71,20 +78,30 @@ public class FirebaseRegister : MonoBehaviour {
     }
 
     private bool ContainsNumber(string input) {
+        //Tikrinama, ar yra skaičius
         return Regex.IsMatch(input, @"\d");
     }
 
     private bool ContainsUpperLetter(string input) {
+        //Tikrinama, ar yra didžioji raidė
         return Regex.IsMatch(input, @"[A-Z]");
     }
 
     private bool ContainsLowerLetter(string input) {
+        //Tikrinama, ar yra mažoji raidė
         return Regex.IsMatch(input, @"[a-z]");
     }
 
     IEnumerator ShowLogin() {
+        //Pereinama į prisijungimo ekraną
         yield return new WaitForSecondsRealtime(1f);
         firebase.ui.ClearRegisterFields();
         menu.OpenLoginMenu();
+    }
+
+    public void EnableRegisterButton() {
+        //Įjungiamas registracijos mygtukas
+        registerButton.enabled = true;
+        registerText.text = "";
     }
 }

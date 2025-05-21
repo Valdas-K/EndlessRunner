@@ -866,7 +866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &79890276
 Transform:
   m_ObjectHideFlags: 0
@@ -3948,7 +3948,7 @@ GameObject:
   - component: {fileID: 385220124}
   - component: {fileID: 385220123}
   m_Layer: 5
-  m_Name: RegisterButton
+  m_Name: RegisterProfileButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4019,7 +4019,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1088347408}
-        m_TargetAssemblyTypeName: AuthManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: FirebaseManager, Assembly-CSharp
         m_MethodName: RegisterButton
         m_Mode: 1
         m_Arguments:
@@ -5632,7 +5632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &584249154
 Transform:
   m_ObjectHideFlags: 0
@@ -7995,7 +7995,7 @@ Transform:
   m_GameObject: {fileID: 786170466}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.5, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9030,7 +9030,7 @@ Transform:
   m_GameObject: {fileID: 890511595}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20, y: 4.5, z: 0}
+  m_LocalPosition: {x: 20, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9396,7 +9396,7 @@ Transform:
   m_GameObject: {fileID: 933627500}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.5, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10626,7 +10626,7 @@ Transform:
   m_GameObject: {fileID: 1005886498}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12, y: -6.1, z: 0}
+  m_LocalPosition: {x: 12, y: -5.75, z: 0}
   m_LocalScale: {x: 20, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10717,18 +10717,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1294125404}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: ShowAllMenus
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1294125404}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: ClickMainButton
         m_Mode: 1
         m_Arguments:
@@ -10754,6 +10742,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2100013332}
         m_TargetAssemblyTypeName: MusicController, Assembly-CSharp
         m_MethodName: StartMenuMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1294125404}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: ShowAllMenus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12152,7 +12152,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1088347413}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FirebaseLogOut, Assembly-CSharp
         m_MethodName: SignOut
         m_Mode: 1
@@ -12496,7 +12496,6 @@ GameObject:
   - component: {fileID: 1088347412}
   - component: {fileID: 1088347409}
   - component: {fileID: 1088347411}
-  - component: {fileID: 1088347413}
   - component: {fileID: 1088347410}
   - component: {fileID: 1088347414}
   m_Layer: 0
@@ -12537,17 +12536,8 @@ MonoBehaviour:
   login: {fileID: 1088347412}
   update: {fileID: 1088347409}
   register: {fileID: 1088347411}
-  signOut: {fileID: 1088347413}
   ui: {fileID: 1088347410}
   usernameField: {fileID: 905483898}
-  highscoreText: {fileID: 1531405509}
-  allCoinsText: {fileID: 1943169155}
-  highscore1Text: {fileID: 1531405509}
-  highscore2Text: {fileID: 1236167781}
-  highscore3Text: {fileID: 1592269543}
-  frogBodyOwned: 0
-  thirdPlayerBodyOwned: 0
-  player: {fileID: 1427288039480618431}
   isLoggedIn: 0
 --- !u!114 &1088347409
 MonoBehaviour:
@@ -12576,6 +12566,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firebase: {fileID: 1088347408}
+  gm: {fileID: 544746394}
+  allCoinsText: {fileID: 1943169155}
+  highscore1Text: {fileID: 1531405509}
+  highscore2Text: {fileID: 1236167781}
+  highscore3Text: {fileID: 1592269543}
 --- !u!114 &1088347411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12588,13 +12583,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea6555c1f7207a74ba3d72f24690a16b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firebase: {fileID: 1088347408}
+  menu: {fileID: 1294125404}
   emailRegister: {fileID: 1783099231}
   passwordRegister: {fileID: 1987419445}
   passwordConfirmRegister: {fileID: 95218006}
   usernameRegister: {fileID: 709188129}
   registerText: {fileID: 1195574623}
-  firebase: {fileID: 1088347408}
-  menu: {fileID: 1294125404}
+  registerButton: {fileID: 385220123}
 --- !u!114 &1088347412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12609,27 +12605,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firebase: {fileID: 1088347408}
   gm: {fileID: 544746394}
-  player: {fileID: 1427288039480618431}
   mc: {fileID: 1294125404}
   emailLogin: {fileID: 328121657}
   passwordLogin: {fileID: 1838618644}
   loginText: {fileID: 818010870}
   loginButton: {fileID: 708646191}
---- !u!114 &1088347413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1088347406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a970f2294ff9c0c4a9ae1aaa0382b077, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firebase: {fileID: 1088347408}
-  gm: {fileID: 544746394}
-  player: {fileID: 1427288039480618431}
 --- !u!114 &1088347414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13063,8 +13043,7 @@ MonoBehaviour:
   level3: {fileID: 1973234893}
   scrollSpeed: 2
   imageSize: 20
-  imageY: 2.5
-  music: {fileID: 2100013332}
+  imageY: 5
 --- !u!1 &1156445775
 GameObject:
   m_ObjectHideFlags: 0
@@ -13498,7 +13477,7 @@ Transform:
   m_GameObject: {fileID: 1182208136}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.5, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14568,7 +14547,6 @@ MonoBehaviour:
   menuContainer: {fileID: 1777476524}
   transitionTime: 0.4
   gm: {fileID: 544746394}
-  mc: {fileID: 2100013332}
   menuWindows: {fileID: 1777476523}
   coinsUI: {fileID: 82461012}
   firebaseManager: {fileID: 1088347408}
@@ -15974,7 +15952,7 @@ Transform:
   m_GameObject: {fileID: 1425642649}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20, y: 4.5, z: 0}
+  m_LocalPosition: {x: 20, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21390,7 +21368,7 @@ Transform:
   m_GameObject: {fileID: 1865639626}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20, y: 4.5, z: 0}
+  m_LocalPosition: {x: 20, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22788,7 +22766,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1973234894
 Transform:
   m_ObjectHideFlags: 0
@@ -24640,10 +24618,9 @@ MonoBehaviour:
   deathSound: {fileID: 24248445}
   coinSound: {fileID: 2089548316}
   jumpSound: {fileID: 263626249}
-  audioMixer: {fileID: 24100000, guid: 0c8865e27372c694390fe164874ee9de, type: 2}
   musicSlider: {fileID: 2005682694}
   effectsSlider: {fileID: 22664635}
-  soundValue: 0
+  audioMixer: {fileID: 24100000, guid: 0c8865e27372c694390fe164874ee9de, type: 2}
 --- !u!1 &2105098699
 GameObject:
   m_ObjectHideFlags: 0
@@ -25265,7 +25242,7 @@ Transform:
   m_GameObject: {fileID: 1764921760001020260}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 1.2, z: 0}
+  m_LocalPosition: {x: -5, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:

@@ -2,13 +2,14 @@
 using UnityEngine;
 using System.Diagnostics;
 using TMPro;
+using System.Threading.Tasks;
 
 public class MenuController : MonoBehaviour {
     //Aprašomi lygių ir meniu konteineriai, meniu pakeitimo laikas, ekrano plotis ir aukštis
     [SerializeField] RectTransform menuContainer;
     [SerializeField] float transitionTime;
     [SerializeField] GameManager gm;
-    [SerializeField] MusicController mc;
+    //[SerializeField] MusicController mc;
     [SerializeField] GameObject menuWindows;
     [SerializeField] TextMeshProUGUI coinsUI;
     [SerializeField] FirebaseManager firebaseManager;

@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour {
         //frogBodyOwned = data.frogBodyOwned;
         //thirdPlayerBodyOwned = data.thirdPlayerBodyOwned;
         ResetScores();
+        mc.ChangeGameMusic(chosenLevel);
         mc.StartGameMusic();
     }
 
