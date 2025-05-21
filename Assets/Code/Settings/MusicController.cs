@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class MusicController : MonoBehaviour {
     //meniu ir žaidimo muzikos, mygtuko paspaudimo, mirties, pinigo ir pašokimo garso efektai
@@ -13,7 +15,15 @@ public class MusicController : MonoBehaviour {
     [SerializeField] AudioSource jumpSound;
 
     //Garso nustatymų komponentas
-    [SerializeField] AudioMixer audioMixer;
+    public AudioMixer audioMixer;
+
+    public Slider musicSlider;
+    public Slider effectsSlider;
+
+    private void Start()
+    {
+        UpdateSliders();
+    }
 
     public void ChangeGameMusic(int id) {
         if (id == 0) gameMusic = sandyDessertMusic; else if (id == 1) gameMusic = spookyForrestMusic; else gameMusic = pixelCityMusic;
@@ -21,7 +31,6 @@ public class MusicController : MonoBehaviour {
 
     //Paleidžiama meniu muzika
     public void StartMenuMusic() {
-        //gameMusic.Stop();
         menuMusic.time = Random.Range(0f, menuMusic.clip.length);
         menuMusic.Play();
     }
@@ -57,9 +66,29 @@ public class MusicController : MonoBehaviour {
     //Atnaujinamas muzikos ir efektų nustatymai
     public void SetMusicVolume(float volume) {
         audioMixer.SetFloat("MusicVolume", volume);
+        PlayerPrefs.SetFloat("MusicVolume", volume);
     }
 
     public void SetEffectsVolume(float volume) {
         audioMixer.SetFloat("EffectsVolume", volume);
+        PlayerPrefs.SetFloat("EffectsVolume", volume);
+    }
+
+    public void UpdateSliders() {
+        float musicValue;
+        bool result = audioMixer.GetFloat("MusicVolume", out musicValue);
+        if (result) {
+            musicSlider.value = musicValue;
+        } else {
+            musicSlider.value = -20f;
+        }
+
+        float effectsValue;
+        result = audioMixer.GetFloat("EffectsVolume", out effectsValue);
+        if (result) {
+            effectsSlider.value = effectsValue;
+        } else {
+            effectsSlider.value = -20f;
+        }
     }
 }

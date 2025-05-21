@@ -19,33 +19,24 @@ public class MenuController : MonoBehaviour {
     [SerializeField] Leaderboards board;
     [SerializeField] SwitchPlayer shop;
 
-    private int screenWidth;
-    private int screenHeight;
-
     private enum MenuType {
         //Aprašomi meniu langai
         Main, LevelSelect, Shop, Settings, Profile, Leaderboards
-    }
-
-    private void Start() {
-        //Užkrovus žaidimą, yra priskiriamos reikšmės
-        screenWidth = Screen.width;
-        screenHeight = Screen.height;
     }
 
     private void ChangeMenu(MenuType menuType) {
         //Patikrinamas norimo meniu tipas ir gaunama reikiama pozicija
         Vector3 newPosition;
         if (menuType == MenuType.LevelSelect) {
-            newPosition = new Vector3(-screenWidth, 0f, 0f);
+            newPosition = new Vector3(-3900f, 0f, 0f);
         } else if (menuType == MenuType.Shop) {
-            newPosition = new Vector3(screenWidth, 0f, 0f);
+            newPosition = new Vector3(3900f, 0f, 0f);
         } else if (menuType == MenuType.Settings) {
-            newPosition = new Vector3(0f, screenHeight, 0f);
+            newPosition = new Vector3(0f, 2200f, 0f);
         } else if (menuType == MenuType.Profile) {
-            newPosition = new Vector3(0f, -screenHeight, 0f);
+            newPosition = new Vector3(0f, -2200f, 0f);
         } else if (menuType == MenuType.Leaderboards) {
-            newPosition = new Vector3(-screenWidth * 2, 0f, 0f);
+            newPosition = new Vector3(-7800f, 0f, 0f);
         }
         else {
             newPosition = Vector3.zero;
@@ -112,7 +103,6 @@ public class MenuController : MonoBehaviour {
         } else {
             shop.tpButtonText.text = "Price: 50C";   
         }
-        //shop.ChangeHintText();
         UpdateCoinsUI();
         ChangeMenu(MenuType.Shop);
     }

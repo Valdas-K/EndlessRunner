@@ -20,13 +20,8 @@ public class InputSettings : MonoBehaviour {
     private string actionToChange = "";
 
     private void Start() {
-        //Užkraunami nustatymai
-        LoadSettings();
-
         //Atnaujinamas mygtukų tekstas ir aprašomi įvykiai
         UpdateButtonText();
-        changeJumpButton.onClick.AddListener(() => StartKeyChange("Jump"));
-        changePauseButton.onClick.AddListener(() => StartKeyChange("Pause"));
     }
 
     private void Update() {
@@ -38,7 +33,7 @@ public class InputSettings : MonoBehaviour {
     }
 
     //Pradedamas mygtuko keitimas
-    private void StartKeyChange(string action) {
+    public void StartKeyChange(string action) {
         actionToChange = action;
         waitingForInput = true;
     }
@@ -89,23 +84,5 @@ public class InputSettings : MonoBehaviour {
     private void SaveSettings() {
         PlayerPrefs.SetInt("JumpKey", (int)jumpKey);
         PlayerPrefs.SetInt("PauseKey", (int)pauseKey);
-
-    }
-
-    //Užkraunami nustatymai kiekvienam mygtukui
-    //Jei nėra išsaugotas joks mygtukas, yra priskiriama nutylėta reikšmė
-    private void LoadSettings() {
-        if (PlayerPrefs.HasKey("JumpKey")) {
-            jumpKey = (KeyCode)PlayerPrefs.GetInt("JumpKey");
-        } else if (jumpKey == KeyCode.None) {
-            jumpKey = KeyCode.Space;
-        }
-
-        if (PlayerPrefs.HasKey("PauseKey")) {
-            pauseKey = (KeyCode)PlayerPrefs.GetInt("PauseKey");
-        }
-        else if (pauseKey == KeyCode.None) {
-            pauseKey = KeyCode.Escape;
-        }
     }
 }
