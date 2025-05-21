@@ -3,71 +3,82 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class MusicController : MonoBehaviour {
-    //meniu ir žaidimo muzikos, mygtuko paspaudimo, mirties, pinigo ir pašokimo garso efektai
+    //Meniu ir lygių muzika
     [SerializeField] AudioSource menuMusic;
-    AudioSource gameMusic;
     [SerializeField] AudioSource sandyDessertMusic;
     [SerializeField] AudioSource spookyForrestMusic;
     [SerializeField] AudioSource pixelCityMusic;
+
+    //Mirties, pinigų ir pašokimo garso efektai
     [SerializeField] AudioSource deathSound;
     [SerializeField] AudioSource coinSound;
     [SerializeField] AudioSource jumpSound;
 
-    //Garso nustatymų komponentas
-    public AudioMixer audioMixer;
+    //Garso keitimo elementai
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider effectsSlider;
 
-    public Slider musicSlider;
-    public Slider effectsSlider;
-    public float soundValue;
+    //Garso nustatymų komponentas, pasirinkta žaidimo muzika ir garso lygis
+    public AudioMixer audioMixer;
+    private AudioSource gameMusic;
+    private float soundValue;
 
     public void ChangeGameMusic(int id) {
-        if (id == 0) gameMusic = sandyDessertMusic; else if (id == 1) gameMusic = spookyForrestMusic; else gameMusic = pixelCityMusic;
+        //Paleidžiama reikiamo lygio muzika, vertė gaunama pagal lygio id
+        gameMusic = id switch {
+            0 => sandyDessertMusic,
+            1 => spookyForrestMusic,
+            2 => pixelCityMusic,
+            _ => sandyDessertMusic,
+        };
     }
 
-    //Paleidžiama meniu muzika
     public void StartMenuMusic() {
+        //Paleidžiama meniu muzika
         menuMusic.time = Random.Range(0f, menuMusic.clip.length);
         menuMusic.Play();
     }
 
-    //Paleidžiama lygio muzika
     public void StartGameMusic() {
+        //Paleidžiama lygio muzika
         menuMusic.Stop();
         gameMusic.time = Random.Range(0f, gameMusic.clip.length);
         gameMusic.Play();
     }
 
-    //Sustabdoma visa muzika
     public void StopAllMusic() {
+        //Sustabdoma visa muzika
         menuMusic.Stop();
         gameMusic.Stop();
     }
 
-    //Paleidžiamas mirties efektas
     public void PlayDeathSound() {
+        //Paleidžiamas mirties efektas
         deathSound.Play();
     }
 
-    //Paleidžiamas pinigo efektas
     public void PlayCoinSound() {
+        //Paleidžiamas pinigų efektas
         coinSound.Play();
     }
 
-    //Paleidžiamas pašokimo efektas
     public void PlayJumpSound() {
+        //Paleidžiamas pašokimo efektas
         jumpSound.Play();
     }
 
-    //Atnaujinamas muzikos ir efektų nustatymai
     public void SetMusicVolume(float volume) {
+        //Pakeičiama muzikos nustatymo vertė
         audioMixer.SetFloat("MusicVolume", volume);
     }
 
     public void SetEffectsVolume(float volume) {
+        //Pakeičiama efektų nustatymo vertė
         audioMixer.SetFloat("EffectsVolume", volume);
     }
 
     public void UpdateSliders() {
+        //Žaidimo pradžioje atnaujinami nustatymų mygtukai
         bool result = audioMixer.GetFloat("MusicVolume", out soundValue);
         if (result) {
             musicSlider.value = soundValue;

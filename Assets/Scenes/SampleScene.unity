@@ -2951,6 +2951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelContainer: {fileID: 811386133}
   clickSound: {fileID: 1364697930}
+  level: {fileID: 1146464804}
   allButtons:
   - {fileID: 1918938619}
   - {fileID: 421609317}
@@ -2975,8 +2976,6 @@ MonoBehaviour:
   - {fileID: 1991783024}
   - {fileID: 1849947127}
   - {fileID: 697509760}
-  bg: {fileID: 1146464804}
-  gm: {fileID: 544746394}
 --- !u!1 &297891804
 GameObject:
   m_ObjectHideFlags: 0

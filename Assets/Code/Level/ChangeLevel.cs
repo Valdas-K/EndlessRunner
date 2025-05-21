@@ -28,9 +28,9 @@ public class ChangeLevel : MonoBehaviour {
         int id = PlayerPrefs.GetInt("lastLevel");
         if(id == 0 || id == 1 || id == 2)
         {
-            LoadBackground(id);
-        } else 
-            LoadBackground(0);
+            ChangeGameLevel(id);
+        } else
+            ChangeGameLevel(0);
 
 
         //Fonui suteikiamas judėjimo greitis:
@@ -58,7 +58,7 @@ public class ChangeLevel : MonoBehaviour {
         bg.transform.localPosition = new Vector3(imageX, imageY, 0f);
     }
 
-    public void LoadBackground(int levelID) {
+    public void ChangeGameLevel(int levelID) {
         if (levelID == 0) {
             music.ChangeGameMusic(levelID);
             spookyForrest[0].SetActive(false);

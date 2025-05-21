@@ -2,18 +2,16 @@
 using UnityEngine;
 
 public class InputSettings : MonoBehaviour {
-    //Sukuriami mygtuko, teksto komponentai
+    //Mygtukų komponentai
     public TMP_Text jumpButtonText;
     public TMP_Text pauseButtonText;
 
-    //Pašokimo ir žaidimo sustabdymo mygtukų kintamieji
-    public KeyCode jumpKey = KeyCode.Space;
-    public KeyCode pauseKey = KeyCode.Escape;
+    //Pašokimo ir žaidimo sustabdymo valdymas
+    public KeyCode jumpKey;
+    public KeyCode pauseKey;
 
-    //Ar keičiamas mygtukas
+    //Ar keičiamas mygtukas ir kuris veiksmas atliekamas
     private bool waitingForInput = false;
-
-    //Kuris veiksmas atliekamas
     private string actionToChange = "";
 
     private void Update() {
@@ -24,29 +22,34 @@ public class InputSettings : MonoBehaviour {
         }
     }
 
-    //Pradedamas mygtuko keitimas
     public void StartKeyChange(string action) {
+        //Pradedamas mygtuko keitimas
         actionToChange = action;
         waitingForInput = true;
     }
 
-    //Priskiriamas naujas mygtukas
     private void DetectNewKey() {
-        //Randamas paspaustas naujas mygtukas
+        //Priskiriamas naujas mygtukas, Randamas paspaustas mygtukas
         if (Input.anyKeyDown) {
             KeyCode key = GetPressedKey();
-            //Jei naujas mygtukas nėra priskirtas kitam veiksmui, jis atnaujinamas
+            //Jei naujas mygtukas nėra priskirtas kitam veiksmui, jis yra atnaujinamas
             if (key != KeyCode.None && key != jumpKey && key != pauseKey) {
-                UpdateKey(key);
+                //Atnaujinamas reikiamas mygtukas
+                if (actionToChange == "Jump") {
+                    jumpKey = key;
+                }
+                if (actionToChange == "Pause") {
+                    pauseKey = key;
+                }
             }
-            //Išsaugomi nustatymai ir atnaujinamas tekstas
+            //Atnaujinamas tekstas ir baigiamas keitimas
             waitingForInput = false;
             UpdateButtonText();
         }
     }
 
-    //Grąžinamas paspaustas mygtukas
     private KeyCode GetPressedKey() {
+        //Gaunamas paspaustas naujas mygtukas
         foreach (KeyCode keyCode in System.Enum.GetValues(typeof(KeyCode))) {
             if (Input.GetKeyDown(keyCode)) {
                 return keyCode;
@@ -55,18 +58,8 @@ public class InputSettings : MonoBehaviour {
         return KeyCode.None;
     }
 
-    //Atnaujinamas mygtukas pagal veiksmą
-    private void UpdateKey(KeyCode newKey) {
-        if(actionToChange == "Jump") {
-            jumpKey = newKey;
-        }
-        if (actionToChange == "Pause") {
-            pauseKey = newKey;
-        }
-    }
-
-    //Atnaujinamas mygtuko tekstas
     public void UpdateButtonText() {
+        //Atnaujinami mygtukų tekstai
         jumpButtonText.text = "(" + jumpKey + ")";
         pauseButtonText.text = "(" + pauseKey + ")";
     }

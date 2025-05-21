@@ -4,14 +4,16 @@ public class PauseGame : MonoBehaviour {
     //Ar sustabdytas žaidimas
     public static bool gameIsPaused;
 
-    //Pauzės meniu komponentas
+    //Pauzės meniu
     [SerializeField] GameObject pauseMenu;
 
-    //Žaidimas yra sustabdomas ir atvaizduojamas pauzės meniu
     public void StopGame() {
-        //Pakeičiamos reikšmės
+        //Kai paspaudžiamas sustabdymo mygtukas, gaunama atvirkštinė reikšmė
         gameIsPaused = !gameIsPaused;
+
+        //Pagal naują reikšmę žaidimas yra sustabdomas arba veikia toliau
         if (gameIsPaused) {
+            //Atidaromas meniu, sustabdomi laikas ir muzika
             Time.timeScale = 0f;
             pauseMenu.SetActive(true);
             AudioListener.pause = true;

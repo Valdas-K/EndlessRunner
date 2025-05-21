@@ -2,10 +2,12 @@
 using UnityEngine;
 
 public class SettingsData : MonoBehaviour {
+    //Nustatymų valdymas ir garso lygis
     [SerializeField] SettingsController settings;
-    private float soundValue;
+    private float sliderValue;
+
     public void SaveSettingsData() {
-        //Išsaugomi nustatymai, kurie bus išsaugomi ir perkrovus žaidimą
+        //Išsaugomi nustatymai, kurie bus gaunami perkrovus žaidimą
         //Žaidimo valdymas
         PlayerPrefs.SetInt("JumpKey", (int)settings.input.jumpKey);
         PlayerPrefs.SetInt("PauseKey", (int)settings.input.pauseKey);
@@ -16,10 +18,10 @@ public class SettingsData : MonoBehaviour {
         PlayerPrefs.SetInt("ResolutionY", settings.screen.selectedHeight);
 
         //Muzika ir efektai
-        settings.sound.audioMixer.GetFloat("MusicVolume", out soundValue);
-        PlayerPrefs.SetFloat("MusicVolume", soundValue);
-        settings.sound.audioMixer.GetFloat("EffectsVolume", out soundValue);
-        PlayerPrefs.SetFloat("EffectsVolume", soundValue);
+        settings.sound.audioMixer.GetFloat("MusicVolume", out sliderValue);
+        PlayerPrefs.SetFloat("MusicVolume", sliderValue);
+        settings.sound.audioMixer.GetFloat("EffectsVolume", out sliderValue);
+        PlayerPrefs.SetFloat("EffectsVolume", sliderValue);
 
         PlayerPrefs.Save();
     }
@@ -74,6 +76,7 @@ public class SettingsData : MonoBehaviour {
     }
 
     public void UpdateSettingsUI() {
+        //Atnaujinami nustatymų lango vartotojo sąsajos elementai
         settings.input.UpdateButtonText();
         settings.sound.UpdateSliders();
         settings.screen.UpdateScreenCheck();
