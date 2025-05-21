@@ -103,16 +103,16 @@ public class MenuController : MonoBehaviour {
     public void ClickShopButton() {
         //Parduotuvės mygtukas
         if (gm.data.frogBodyOwned) {
-            shop.hintText1 = "Select";
+            shop.djButtonText.text = "Select";
         } else {
-            shop.hintText1 = "Buy";
+            shop.djButtonText.text = "Price: 10C";
         } 
         if (gm.data.thirdPlayerBodyOwned) {
-            shop.hintText2 = "Select";
+            shop.tpButtonText.text = "Select";
         } else {
-            shop.hintText2 = "Buy";
+            shop.tpButtonText.text = "Price: 50C";   
         }
-        shop.ChangeHintText();
+        //shop.ChangeHintText();
         UpdateCoinsUI();
         ChangeMenu(MenuType.Shop);
     }

@@ -1,10 +1,9 @@
-﻿using TMPro;
+﻿using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-//LJ - Long Jump (Default)
-//DJ - Double Jump (Frog)
-//TP - Third Player
+//LJ - Long Jump (Default), DJ - Double Jump (Frog), TP - Third Player
 
 public class SwitchPlayer : MonoBehaviour {
     //Veikėjų objektai
@@ -19,12 +18,10 @@ public class SwitchPlayer : MonoBehaviour {
 
     //Vartotojo sąsajos komponentai
     [SerializeField] MenuController mc;
-    [SerializeField] TextMeshProUGUI djButtonText;
-    [SerializeField] TextMeshProUGUI tpButtonText;
+    [SerializeField] public TextMeshProUGUI djButtonText;
+    [SerializeField] public TextMeshProUGUI tpButtonText;
 
     public GameManager gm;
-    public string hintText1 = "Buy";
-    public string hintText2 = "Buy";
 
     [SerializeField] Button ljButton;
     [SerializeField] Button djButton;
@@ -52,7 +49,6 @@ public class SwitchPlayer : MonoBehaviour {
     private void SaveSettings() {
         PlayerPrefs.SetInt("PlayerPicked", playerPicked);
         PlayerPrefs.Save();
-        ChangeHintText();
         mc.UpdateCoinsUI();
     }
 
@@ -81,7 +77,7 @@ public class SwitchPlayer : MonoBehaviour {
     }
 
     //Perkamas antras veikėjas
-    public void BuyFrogBody() {
+    async public void BuyFrogBody() {
         //Tikrinama, ar veikėjas jau nėra nupirktas
         if (gm.data.frogBodyOwned == false) {
             //Jei nėra, tikrinama, ar užtenka pinigų nupirkti veikėją
@@ -95,10 +91,9 @@ public class SwitchPlayer : MonoBehaviour {
             }
             else {
                 //Jei neužtenka pinigų, porai sekundžių įjungiamas pagalbinis tekstas
-                hintText1 = "More";
-                ChangeHintText();
-                hintText1 = "Buy";
-                Invoke(nameof(ChangeHintText), 2f);
+                djButtonText.text = "Not Enough Coins";
+                await Task.Delay(2000);
+                djButtonText.text = "Price: 10C";
             }
         } else {
             //Jei yra, jis užkraunamas
@@ -106,7 +101,7 @@ public class SwitchPlayer : MonoBehaviour {
         }
     }
 
-    public void BuyThirdPlayerBody() {
+    async public void BuyThirdPlayerBody() {
         //Tikrinama, ar veikėjas jau nėra nupirktas
         if (gm.data.thirdPlayerBodyOwned == false) {
             //Jei nėra, tikrinama, ar užtenka pinigų nupirkti veikėją
@@ -120,31 +115,13 @@ public class SwitchPlayer : MonoBehaviour {
             }
             else {
                 //Jei neužtenka pinigų, porai sekundžių įjungiamas pagalbinis tekstas
-                hintText2 = "More";
-                ChangeHintText();
-                hintText2 = "Buy";
-                Invoke(nameof(ChangeHintText), 2f);
+                tpButtonText.text = "Not Enough Coins";
+                await Task.Delay(2000);
+                tpButtonText.text = "Price: 50C";
             }
         } else {
             //Jei yra, jis užkraunamas
             ChangePlayer(2);
         }
-    }
-
-    public void ChangeHintText() {
-        string option = hintText1;
-        djButtonText.text = option switch {
-            "Select" => "Select",
-            "Buy" => "Price: 10C",
-            "More" => "Not Enough Coins",
-            _ => "Price: 10C",
-        };
-        string option2 = hintText2;
-        tpButtonText.text = option2 switch {
-            "Select" => "Select",
-            "Buy" => "Price: 50C",
-            "More" => "Not Enough Coins",
-            _ => "Price: 50C",
-        };
     }
 }
