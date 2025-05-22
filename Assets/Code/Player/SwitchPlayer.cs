@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 //LJ - Long Jump (Default), DJ - Double Jump (Frog), TP - Third Player
@@ -91,9 +92,13 @@ public class SwitchPlayer : MonoBehaviour {
             }
             else {
                 //Jei neužtenka pinigų, porai sekundžių įjungiamas pagalbinis tekstas
-                djButtonText.text = "Not Enough Coins";
+                if (LocalizationSettings.SelectedLocale.ToString() == "Lithuanian (lt)") {
+                    djButtonText.text = "Neužtenka pinigų!";
+                } else {
+                    djButtonText.text = "Not Enough Coins!";
+                }
                 await Task.Delay(2000);
-                djButtonText.text = "Price: 10C";
+                djButtonText.text = "10C";
             }
         } else {
             //Jei yra, jis užkraunamas
@@ -115,9 +120,13 @@ public class SwitchPlayer : MonoBehaviour {
             }
             else {
                 //Jei neužtenka pinigų, porai sekundžių įjungiamas pagalbinis tekstas
-                tpButtonText.text = "Not Enough Coins";
+                if (LocalizationSettings.SelectedLocale.ToString() == "Lithuanian (lt)") {
+                    tpButtonText.text = "Neužtenka pinigų!";
+                } else {
+                    tpButtonText.text = "Not Enough Coins!";
+                }
                 await Task.Delay(2000);
-                tpButtonText.text = "Price: 50C";
+                tpButtonText.text = "50C";
             }
         } else {
             //Jei yra, jis užkraunamas

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 public class SettingsData : MonoBehaviour {
     //Nustatymų valdymas ir garso lygis
@@ -22,6 +24,18 @@ public class SettingsData : MonoBehaviour {
         PlayerPrefs.SetFloat("MusicVolume", sliderValue);
         settings.sound.audioMixer.GetFloat("EffectsVolume", out sliderValue);
         PlayerPrefs.SetFloat("EffectsVolume", sliderValue);
+
+        //Kalba
+        if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[1])
+        {
+            PlayerPrefs.SetString("Language", "lt");
+
+        }
+        else
+        {
+            PlayerPrefs.SetString("Language", "en");
+        }
+        Debug.Log(PlayerPrefs.GetString("Language"));
 
         PlayerPrefs.Save();
     }
@@ -72,9 +86,18 @@ public class SettingsData : MonoBehaviour {
             settings.sound.audioMixer.SetFloat("EffectsVolume", -20f);
         }
 
+        //Kalba
+        if (PlayerPrefs.HasKey("Language")) {
+            if (PlayerPrefs.GetString("Language") == "lt") {
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1];
+            } else {
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
+            }
+        } else {
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
+        }
         UpdateSettingsUI();
     }
-
     public void UpdateSettingsUI() {
         //Atnaujinami nustatymų lango vartotojo sąsajos elementai
         settings.input.UpdateButtonText();

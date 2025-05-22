@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Diagnostics;
 using TMPro;
-using System.Threading.Tasks;
+using UnityEngine.Localization.Settings;
 
 public class MenuController : MonoBehaviour {
     //Aprašomi lygių ir meniu konteineriai, meniu pakeitimo laikas, ekrano plotis ir aukštis
@@ -71,38 +71,45 @@ public class MenuController : MonoBehaviour {
         //Geriausiu rezultatu ekrano mygtukas
         if (firebaseManager.isLoggedIn) {
             StartCoroutine(board.LoadScoreboardData());
-            //yield return new WaitForSecondsRealtime(1f);
-
             ChangeMenu(MenuType.Leaderboards);
-            helpText.text = string.Empty;
+            helpText.gameObject.SetActive(false);
         } else {
-            helpText.text = "Only logged in users can view leaderboards";
+            helpText.gameObject.SetActive(true);
         }
     }
 
     public void ClickProfileButton() {
         //Profilio mygtukas
         if (firebaseManager.isLoggedIn) {
-            loginMenu.SetActive(false);
-            profileMenu.SetActive(true);
+            OpenProfileMenu();
         } else {
-            profileMenu.SetActive(false);
-            loginMenu.SetActive(true);
+            OpenLoginMenu();
         }
         ChangeMenu(MenuType.Profile);
     }
 
     public void ClickShopButton() {
         //Parduotuvės mygtukas
-        if (gm.data.frogBodyOwned) {
-            shop.djButtonText.text = "Select";
+        if (LocalizationSettings.SelectedLocale.ToString() == "Lithuanian (lt)") {
+            if (gm.data.frogBodyOwned) {
+                shop.djButtonText.text = "Pasirinkti";
+            }
+            if (gm.data.thirdPlayerBodyOwned) {
+                shop.tpButtonText.text = "Pasirinkti";
+            }
         } else {
-            shop.djButtonText.text = "Price: 10C";
-        } 
-        if (gm.data.thirdPlayerBodyOwned) {
-            shop.tpButtonText.text = "Select";
-        } else {
-            shop.tpButtonText.text = "Price: 50C";   
+            if (gm.data.frogBodyOwned) {
+                shop.djButtonText.text = "Select";
+            }
+            if (gm.data.thirdPlayerBodyOwned) {
+                shop.tpButtonText.text = "Select";
+            }
+        }
+        if(gm.data.frogBodyOwned == false) {
+            shop.djButtonText.text = "10C";
+        }
+        if (gm.data.thirdPlayerBodyOwned == false) {
+            shop.tpButtonText.text = "50C";
         }
         UpdateCoinsUI();
         ChangeMenu(MenuType.Shop);
@@ -145,7 +152,7 @@ public class MenuController : MonoBehaviour {
     }
 
     public void UpdateCoinsUI() {
-        coinsUI.text = "Coins: " + gm.data.coins;
+        coinsUI.text = gm.data.coins.ToString();
     }
 
     public void OpenRegisterMenu() {
@@ -158,6 +165,12 @@ public class MenuController : MonoBehaviour {
         profileMenu.SetActive(false);
         registerMenu.SetActive(false);
         loginMenu.SetActive(true);
+    }
+
+    public void OpenProfileMenu() {
+        profileMenu.SetActive(true);
+        registerMenu.SetActive(false);
+        loginMenu.SetActive(false);
     }
 
     public void ResetProfileMenu() {

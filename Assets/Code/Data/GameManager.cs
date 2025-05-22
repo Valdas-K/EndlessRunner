@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Localization.Settings;
 
 public class GameManager : MonoBehaviour {
 
@@ -95,14 +96,12 @@ public class GameManager : MonoBehaviour {
     public void StartGame() {
         //Nustatomi kintamieji pradedant žaidimą
         SaveData();
-        scoreUI.enabled = true;
+        scoreUI.gameObject.SetActive(true);
         isPlaying = true;
         totalCoins = data.coins;
         highScore1 = data.level1;
         highScore2 = data.level2;
         highScore3 = data.level3;
-        //frogBodyOwned = data.frogBodyOwned;
-        //thirdPlayerBodyOwned = data.thirdPlayerBodyOwned;
         ResetScores();
         mc.ChangeGameMusic(chosenLevel);
         mc.StartGameMusic();
@@ -183,26 +182,46 @@ public class GameManager : MonoBehaviour {
     }
 
     private void OnGUI() {
-        //Atvaizduojami rezultatai
-        scoreUI.text = "Time: " + timeScore.ToString("F0") + "\nCoins: " + coinsScore + "\nObstacles: " + obstaclesScore;
+        if (LocalizationSettings.SelectedLocale.ToString() == "Lithuanian (lt)") {
+            //Atvaizduojami rezultatai
+            scoreUI.text = "Laikas: " + timeScore.ToString("F0") + "\nPinigai: " + coinsScore + "\nKliūtys: " + obstaclesScore;
+        } else {
+            //Atvaizduojami rezultatai
+            scoreUI.text = "Time: " + timeScore.ToString("F0") + "\nCoins: " + coinsScore + "\nObstacles: " + obstaclesScore;
+        }
     }
 
     //Pasibaigus žaidimui, paleidžiamas meniu ir parodomi rezultatai
     public void ActivateGameOverUI() {
-        scoreUI.enabled = false;
+        //scoreUI.text = "";
+        //scoreUI.enabled = false;
         gameOverMenu.SetActive(true);
-        gameOverTimeScore.text = "Time: " + timeScore.ToString("F0");
-        gameOverObstacleScore.text = "Obstacles: " + obstaclesScore.ToString();
-        gameOverCoinsScore.text = "Coins: " + coinsScore.ToString();
-        gameOverTotalScore.text = "Game Score: " + gameScore.ToString();
-        gameOverTotalCoins.text = "Total Coins: " + totalCoins.ToString();
-
-        if (chosenLevel == 0) {
-            gameOverHighScore.text = "Highscore: " + highScore1.ToString("F0");
-        } else if (chosenLevel == 1) {
-            gameOverHighScore.text = "Highscore: " + highScore2.ToString("F0");
+        if (LocalizationSettings.SelectedLocale.ToString() == "Lithuanian (lt)") {
+            gameOverTimeScore.text = "Laikas: " + timeScore.ToString("F0");
+            gameOverObstacleScore.text = "Kliūtys: " + obstaclesScore.ToString();
+            gameOverCoinsScore.text = "Pinigai: " + coinsScore.ToString();
+            gameOverTotalScore.text = "Žaidimo rezultatas: " + gameScore.ToString();
+            gameOverTotalCoins.text = "Visi pinigai: " + totalCoins.ToString();
+            if (chosenLevel == 0) {
+                gameOverHighScore.text = "Geriausias rezultatas: " + highScore1.ToString("F0");
+            } else if (chosenLevel == 1) {
+                gameOverHighScore.text = "Geriausias rezultatas: " + highScore2.ToString("F0");
+            } else {
+                gameOverHighScore.text = "Geriausias rezultatas: " + highScore3.ToString("F0");
+            }
         } else {
-            gameOverHighScore.text = "Highscore: " + highScore3.ToString("F0");
-        }
+            gameOverTimeScore.text = "Time: " + timeScore.ToString("F0");
+            gameOverObstacleScore.text = "Obstacles: " + obstaclesScore.ToString();
+            gameOverCoinsScore.text = "Coins: " + coinsScore.ToString();
+            gameOverTotalScore.text = "Game Score: " + gameScore.ToString();
+            gameOverTotalCoins.text = "Total Coins: " + totalCoins.ToString();
+            if (chosenLevel == 0) {
+                gameOverHighScore.text = "Highscore: " + highScore1.ToString("F0");
+            } else if (chosenLevel == 1) {
+                gameOverHighScore.text = "Highscore: " + highScore2.ToString("F0");
+            } else {
+                gameOverHighScore.text = "Highscore: " + highScore3.ToString("F0");
+            }
+        } 
     }
 }

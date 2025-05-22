@@ -6,6 +6,7 @@ public class SettingsController : MonoBehaviour {
     [SerializeField] SettingsData data;
     public ScreenSettings screen;
     public MusicController sound;
+    public LanguageSwitch language;
 
     void Start() {
         //Užkraunami visi išsaugoti nustatymai
@@ -50,5 +51,10 @@ public class SettingsController : MonoBehaviour {
     public void ChangeEffectsVolume(float volume) {
         //Garso efektų keitimo paleidimas
         sound.SetEffectsVolume(volume);
+    }
+
+    public void ChangeLanguage(string code) {
+        //Kalbos keitimo paleidimas
+        language.SetLocale(code);
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TMPro;
 using System.Text.RegularExpressions;
 using UnityEngine.UI;
+using UnityEngine.Localization.Settings;
 
 public class FirebaseRegister : MonoBehaviour {
     [SerializeField] FirebaseManager firebase;
@@ -22,53 +23,48 @@ public class FirebaseRegister : MonoBehaviour {
     public IEnumerator Register() {
         //Atliekama vartotojo registracija
         if (usernameRegister.text == "") {
-            registerText.text = "Missing Username";
+            UpdateRegisterText(1);
         } else if (passwordRegister.text != passwordConfirmRegister.text) {
-            registerText.text = "Password Does Not Match!";
+            UpdateRegisterText(2);
         } else if (passwordRegister.text.Length < 8 || passwordConfirmRegister.text.Length < 8) {
-            registerText.text = "Password Must Be At Least 8 Symbols Long!";
+            UpdateRegisterText(3);
         } else if (!ContainsNumber(passwordRegister.text)) {
-            registerText.text = "Password Must Have At Least 1 Number!";
+            UpdateRegisterText(4);
         } else if (!ContainsUpperLetter(passwordRegister.text)) {
-            registerText.text = "Password Must Have At Least 1 Upper Case Letter!";
+            UpdateRegisterText(5);
         } else if (!ContainsLowerLetter(passwordRegister.text)) {
-            registerText.text = "Password Must Have At Least 1 Lower Case Letter!";
+            UpdateRegisterText(6);
         } else {
             Task<AuthResult> RegisterTask = firebase.auth.CreateUserWithEmailAndPasswordAsync(emailRegister.text, passwordRegister.text);
             yield return new WaitUntil(predicate: () => RegisterTask.IsCompleted);
             if (RegisterTask.Exception != null) {
                 FirebaseException firebaseEx = RegisterTask.Exception.GetBaseException() as FirebaseException;
                 AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
-                string message = "Register Failed!";
                 switch (errorCode) {
                     case AuthError.MissingEmail:
-                        message = "Missing Email";
+                        UpdateRegisterText(7);
                         break;
                     case AuthError.MissingPassword:
-                        message = "Missing Password";
+                        UpdateRegisterText(8);
                         break;
                     case AuthError.WeakPassword:
-                        message = "Weak Password";
+                        UpdateRegisterText(9);
                         break;
                     case AuthError.EmailAlreadyInUse:
-                        message = "Email Already In Use";
+                        UpdateRegisterText(10);
                         break;
                 }
                 registerButton.enabled = false;
                 firebase.ui.ClearRegisterFields();
-                registerText.text = message;
-                Invoke(nameof(EnableRegisterButton), 3f);
-            }
-            else {
+                Invoke("EnableRegisterButton", 3f);
+            } else {
                 firebase.User = RegisterTask.Result.User;
                 if (firebase.User != null) {
                     UserProfile profile = new() { DisplayName = usernameRegister.text };
                     Task ProfileTask = firebase.User.UpdateUserProfileAsync(profile);
                     yield return new WaitUntil(predicate: () => ProfileTask.IsCompleted);
-                    if (ProfileTask.Exception != null) {
-                        registerText.text = "Username Set Failed!";
-                    } else {
-                        registerText.text = "Registration successful!";
+                    if (ProfileTask.Exception == null) {
+                        UpdateRegisterText(11);
                         firebase.usernameField.text = firebase.User.DisplayName;
                         StartCoroutine(ShowLogin());
                     }
@@ -92,6 +88,12 @@ public class FirebaseRegister : MonoBehaviour {
         return Regex.IsMatch(input, @"[a-z]");
     }
 
+
+    public void EnableRegisterButton() {
+        registerButton.enabled = true;
+        registerText.text = "";
+    }
+
     IEnumerator ShowLogin() {
         //Pereinama į prisijungimo ekraną
         yield return new WaitForSecondsRealtime(1f);
@@ -99,9 +101,37 @@ public class FirebaseRegister : MonoBehaviour {
         menu.OpenLoginMenu();
     }
 
-    public void EnableRegisterButton() {
-        //Įjungiamas registracijos mygtukas
-        registerButton.enabled = true;
-        registerText.text = "";
+    public void UpdateRegisterText(int code) {
+        if (LocalizationSettings.SelectedLocale.ToString() == "Lithuanian (lt)") {
+            registerText.text = code switch {
+                1 => "Trūksta vartotojo vardo!",
+                2 => "Slaptažodžiai nesutampa!",
+                3 => "Slaptažodis turi būti bent 8 simbolių ilgio!",
+                4 => "Slaptažodis turi turėti bent vieną skaičių!",
+                5 => "Slaptažodis turi turėti bent vieną didžiąją raidę!",
+                6 => "Slaptažodis turi turėti bent vieną mažąją raidę!",
+                7 => "Trūksta el. pašto!",
+                8 => "Trūksta slaptažodžio!",
+                9 => "Silpnas slaptažodis!",
+                10 => "El. paštas jau yra naudojamas!",
+                11 => "Registracija sėkminga!",
+                _ => "Registracija nesėkminga!",
+            };
+        } else {
+            registerText.text = code switch {
+                1 => "Missing Username!",
+                2 => "Password Does Not Match!",
+                3 => "Password Must Be At Least 8 Symbols Long!",
+                4 => "Password Must Have At Least 1 Number!",
+                5 => "Password Must Have At Least 1 Upper Case Letter!",
+                6 => "Password Must Have At Least 1 Lower Case Letter!",
+                7 => "Missing Email!",
+                8 => "Missing Password!",
+                9 => "Weak Password!",
+                10 => "Email Already In Use!",
+                11 => "Registration successful!",
+                _ => "Register Failed!",
+            };
+        }
     }
 }

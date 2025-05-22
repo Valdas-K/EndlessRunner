@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using UnityEngine.Localization.Settings;
 
 public class FirebaseLogin : MonoBehaviour {
     [SerializeField] FirebaseManager firebase;
@@ -26,40 +27,38 @@ public class FirebaseLogin : MonoBehaviour {
         if (LoginTask.Exception != null) {
             FirebaseException firebaseEx = LoginTask.Exception.GetBaseException() as FirebaseException;
             AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
-            string message = "Login Failed!";
             switch (errorCode) {
                 case AuthError.MissingEmail:
-                    message = "Missing Email";
+                    UpdateLoginText(1);
                     break;
                 case AuthError.MissingPassword:
-                    message = "Missing Password";
+                    UpdateLoginText(2);
                     break;
                 case AuthError.WrongPassword:
-                    message = "Wrong Password";
+                    UpdateLoginText(3);
                     break;
                 case AuthError.InvalidEmail:
-                    message = "Invalid Email";
+                    UpdateLoginText(4);
                     break;
                 case AuthError.UserNotFound:
-                    message = "Account does not exist";
+                    UpdateLoginText(5);
                     break;
             }
             loginButton.enabled = false;
             firebase.ui.ClearLoginFields();
-            loginText.text = message;
-            Invoke(nameof(EnableLoginButton), 3f);
+            Invoke("EnableLoginButton", 3f);
         } else {
             firebase.User = LoginTask.Result.User;
             firebase.usernameField.text = firebase.User.DisplayName;
-            loginText.text = "Logged In!";
             firebase.isLoggedIn = true;
+            UpdateLoginText(6);
             StartCoroutine(LoadUserData());
-            yield return new WaitForSecondsRealtime(1f);
         }
     }
 
     public IEnumerator LoadUserData() {
         //Užkraunami vartotojo duomenys
+        yield return new WaitForSecondsRealtime(2f);
         Task<DataSnapshot> DBTask = firebase.DBreference.Child("users").Child(firebase.User.UserId).GetValueAsync();
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
         if (DBTask.Result.Value == null) {
@@ -100,8 +99,32 @@ public class FirebaseLogin : MonoBehaviour {
     }
 
     public void EnableLoginButton() {
-        //Įjungiamas prisijungimo mygtukas
         loginButton.enabled = true;
         loginText.text = "";
+    }
+
+    public void UpdateLoginText(int code) {
+        if (LocalizationSettings.SelectedLocale.ToString() == "Lithuanian (lt)") {
+            loginText.text = code switch {
+                1 => "Trūksta el. pašto!",
+                2 => "Trūksta slaptažodžio!",
+                3 => "Neteisingas slaptažodis!",
+                4 => "Neteisingas el. paštas!",
+                5 => "Paskyra neegzistuoja!",
+                6 => "Prisijungta sėkmingai!",
+                _ => "Prisijungti nepavyko!",
+            };
+            Debug.Log("text:"+loginText.text);
+        } else {
+            loginText.text = code switch {
+                1 => "Missing Email!",
+                2 => "Missing Password!",
+                3 => "Wrong Password!",
+                4 => "Invalid Email!",
+                5 => "Account does not exist!",
+                6 => "Logged In!",
+                _ => "Login Failed!",
+            };
+        }
     }
 }
