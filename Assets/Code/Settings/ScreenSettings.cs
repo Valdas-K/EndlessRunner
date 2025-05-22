@@ -1,19 +1,24 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScreenSettings : MonoBehaviour {
-    //Bus laikomos visos ekrano rezoliucijos, priklausomai nuo kompiuterio
-    Resolution[] allResolutions;
-    private List<Vector2Int> validRes;
+    //Visos galimos ekrano rezoliucijos, naudojamos rezoliucijos ir laukelio užpildymas
+    private Resolution[] allResolutions;
+    private List<Vector2Int> validRes = new();
+    private List<string> options = new();
+
+    //rezoliucijų keitimo ir ekrano režimo mygtukai
     [SerializeField] TMP_Dropdown resolutionDropdown;
     public Toggle screenTypeToggle;
+
+    //Išsaugomas rezoliucijos indeksas, aukštis ir plotis
     public int savedIndex;
     public int selectedWidth;
     public int selectedHeight;
 
+    //Leidžiamos rezoliucijos
     public List<Vector2Int> allowedResolutions = new() {
         new(800, 1280), new(1176, 664), new(1366, 768),
         new(1440, 900), new(1600, 900), new(1680, 1050),
@@ -22,38 +27,44 @@ public class ScreenSettings : MonoBehaviour {
     };
 
     public void FillResolutionDropdown() {
-        //Priskiriamos rezoliucijos
-        allResolutions = Screen.resolutions;
-        List<Vector2Int> systemResolutions = allResolutions.Select(res => new Vector2Int(res.width, res.height)).Distinct().ToList();
-
-        validRes = systemResolutions.Where(r => allowedResolutions.Contains(r)).ToList();
-
         //Išvalomas dropdown laukelis, kad nebūtų neteisingų ar atsitiktinių reikšmių
         resolutionDropdown.ClearOptions();
 
-        //Rezoliucijų kintamasis paverčiamas sąrašu, kad būtų galima atvaizduoti laukelyje
-        List<string> options = validRes.Select(res => $"{res.x}x{res.y}").ToList();
+        //Priskiriamos rezoliucijos
+        allResolutions = Screen.resolutions;
 
-        //Į dropdown laukelį pridedamos rezoliucijos reikšmės
+        //Gaunamos visos tinkamos rezoliucijos
+        for (int i = 0; i < allResolutions.Length; i++) {
+            Vector2Int tempRes = new (allResolutions[i].width, allResolutions[i].height);
+            if (allowedResolutions.Contains(tempRes) && !validRes.Contains(tempRes)) {
+                validRes.Add(tempRes);
+            }
+        }
+
+        //Rezoliucijos paverčiamos į teksto tipą, kad būtų galima atvaizduoti
+        for (int i = 0; i < validRes.Count; i++) {
+            string option = validRes[i].x.ToString() + "x" + validRes[i].y.ToString();
+            options.Add(option);
+        }
+
+        //Į laukelį pridedamos tinkamos reikšmės
         resolutionDropdown.AddOptions(options);
 
-        //Vartotojo ekrano rezoliucija įdedama į pirmą dropdown laukelio reikšmę
+        //Surandama dabartinė rezoliucija ir jos vertė įdedama į pirmą laukelį
         Vector2Int currentRes = new(Screen.currentResolution.width, Screen.currentResolution.height);
         int currentIndex = validRes.IndexOf(currentRes);
         resolutionDropdown.value = currentIndex;
 
+        //Atnaujinamas laukelis
         resolutionDropdown.RefreshShownValue();
-
-        SetNewResolution(currentIndex);
     }
 
-    //Atnaujinama ekrano rezoliucija
     public void SetNewResolution(int index) {
         //Randama rezoliucija, kurią norima naudoti
         selectedWidth = validRes[index].x;
         selectedHeight = validRes[index].y;
 
-        //Nustatoma ekrano rezoliucija
+        //Nustatoma nauja rezoliucija ir pritaikomas ekrano režimas
         if (Screen.fullScreen == true) {
             Screen.SetResolution(selectedWidth, selectedHeight, FullScreenMode.FullScreenWindow, Screen.currentResolution.refreshRateRatio);
         } else {
@@ -61,12 +72,13 @@ public class ScreenSettings : MonoBehaviour {
         }
     }
 
-    //Yra tikrinama, ar yra naudojamas viso ekrano režimas
     public void SetFullScreen(bool isFullScreen) {
+        //Priskiriamas ekrano režimas
         Screen.fullScreen = isFullScreen;
     }
 
     public void UpdateScreenCheck() {
+        //Žaidimo pradžioje atnaujinamas ekrano režimo mygtukas
         if (Screen.fullScreen == true) {
             screenTypeToggle.isOn = true;
         } else {
