@@ -1,15 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
-using System.Diagnostics;
 using TMPro;
 using UnityEngine.Localization.Settings;
+using System.Diagnostics;
 
 public class MenuController : MonoBehaviour {
-    //Aprašomi lygių ir meniu konteineriai, meniu pakeitimo laikas, ekrano plotis ir aukštis
+    //Aprašomi meniu konteineriai, meniu pakeitimo laikas ir vartotojo sąsajos elementai
     [SerializeField] RectTransform menuContainer;
     [SerializeField] float transitionTime;
     [SerializeField] GameManager gm;
-    //[SerializeField] MusicController mc;
     [SerializeField] GameObject menuWindows;
     [SerializeField] TextMeshProUGUI coinsUI;
     [SerializeField] FirebaseManager firebaseManager;
@@ -19,6 +18,8 @@ public class MenuController : MonoBehaviour {
     [SerializeField] TextMeshProUGUI helpText;
     [SerializeField] Leaderboards board;
     [SerializeField] SwitchPlayer shop;
+    [SerializeField] SettingsController settings;
+    private float elapsedTime = 0f;
 
     private enum MenuType {
         //Aprašomi meniu langai
@@ -38,8 +39,7 @@ public class MenuController : MonoBehaviour {
             newPosition = new Vector3(0f, -2200f, 0f);
         } else if (menuType == MenuType.Leaderboards) {
             newPosition = new Vector3(-7800f, 0f, 0f);
-        }
-        else {
+        } else {
             newPosition = Vector3.zero;
         }
 
@@ -55,7 +55,7 @@ public class MenuController : MonoBehaviour {
         Vector3 oldPosition = menuContainer.anchoredPosition3D;
 
         //Kaupiamas laikas, atnaujinama pozicija
-        for (float elapsedTime = 0f; elapsedTime <= transitionTime; elapsedTime += Time.deltaTime) {
+        for (elapsedTime = 0f; elapsedTime <= transitionTime; elapsedTime += Time.deltaTime) {
             Vector3 currentPosition = Vector3.Lerp(oldPosition, newPosition, elapsedTime / transitionTime);
             menuContainer.anchoredPosition3D = currentPosition;
             yield return null;
@@ -68,8 +68,9 @@ public class MenuController : MonoBehaviour {
     }
 
     public void ClickLeaderboardsButton() {
-        //Geriausiu rezultatu ekrano mygtukas
+        //Geriausių rezultatų ekrano mygtukas
         if (firebaseManager.isLoggedIn) {
+            //Į meniu galima patekti tik prisijungus
             StartCoroutine(board.LoadScoreboardData());
             ChangeMenu(MenuType.Leaderboards);
             helpText.gameObject.SetActive(false);
@@ -79,7 +80,7 @@ public class MenuController : MonoBehaviour {
     }
 
     public void ClickProfileButton() {
-        //Profilio mygtukas
+        //Profilio mygtukas, patikrinama, ar vartotojas prisijungęs ir atidaromas reikiamas meniu
         if (firebaseManager.isLoggedIn) {
             OpenProfileMenu();
         } else {
@@ -89,7 +90,7 @@ public class MenuController : MonoBehaviour {
     }
 
     public void ClickShopButton() {
-        //Parduotuvės mygtukas
+        //Parduotuvės mygtukas, patikrinama, ar yra atrakinti veikėjai ir atnaujinamas tekstas
         if (LocalizationSettings.SelectedLocale.ToString() == "Lithuanian (lt)") {
             if (gm.data.frogBodyOwned) {
                 shop.djButtonText.text = "Pasirinkti";
@@ -121,8 +122,9 @@ public class MenuController : MonoBehaviour {
     }
 
     public void ClickMainButton() {
-        //Pradinio meniu mygtukas
+        //Pradinio meniu mygtukas, kurį paspaudus yra išsaugomi visi rezultatai
         gm.SaveData();
+        settings.SaveSettings();
         if (firebaseManager.isLoggedIn) {
             firebaseManager.SaveDataButton();
         }
@@ -130,50 +132,58 @@ public class MenuController : MonoBehaviour {
     }
 
     public void ClickQuitButton() {
-        //Žaidimo pabaigos mygtukas
+        //Žaidimo pabaigos mygtukas, sustabdomos korutinos, baigiamos meniu tranzicijos ir išsaugomi duomenys
         gm.SaveData();
+        StopAllCoroutines();
+        elapsedTime = transitionTime;
         Application.Quit();
         Process.GetCurrentProcess().Kill();
     }
 
     public void ClickStartButton() {
-        //Žaidimo pradžios mygtukas
+        //Žaidimo pradžios mygtukas, paleidžiamas pasirinktas lygis
         gm.StartGame();
     }
 
-    //Paslepiami visi meniu
     public void HideAllMenus() {
+        //Paslepiami visi meniu
         menuWindows.SetActive(false);
     }
 
     public void ShowAllMenus() {
+        //Atvaizduojami visi meniu
         menuWindows.SetActive(true);
         UpdateCoinsUI();
     }
 
     public void UpdateCoinsUI() {
+        //Atnaujinamas parduotuvės lange esantis pinigų teksto laukas
         coinsUI.text = gm.data.coins.ToString();
     }
 
     public void OpenRegisterMenu() {
+        //Atidaromas registracijos meniu
         loginMenu.SetActive(false);
         profileMenu.SetActive(false);
         registerMenu.SetActive(true);
     }
 
     public void OpenLoginMenu() {
+        //Atidaromas prisijungimo meniu
         profileMenu.SetActive(false);
         registerMenu.SetActive(false);
         loginMenu.SetActive(true);
     }
 
     public void OpenProfileMenu() {
+        //Atidaromas profilio meniu
         profileMenu.SetActive(true);
         registerMenu.SetActive(false);
         loginMenu.SetActive(false);
     }
 
     public void ResetProfileMenu() {
+        //Uždaromi visi profilio langai
         profileMenu.SetActive(false);
         loginMenu.SetActive(false);
         registerMenu.SetActive(false);

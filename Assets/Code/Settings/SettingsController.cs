@@ -6,7 +6,10 @@ public class SettingsController : MonoBehaviour {
     [SerializeField] SettingsData data;
     public ScreenSettings screen;
     public MusicController sound;
-    public LanguageSwitch language;
+    public LanguageSettings language;
+    public SwitchPlayer player;
+    public GameManager gm;
+    public ButtonController level;
 
     void Start() {
         //Užkraunami visi išsaugoti nustatymai

@@ -182,10 +182,6 @@ MonoBehaviour:
       - Valdas"
     m_Metadata:
       m_Items: []
-  - m_Id: 33339210760192
-    m_Localized: 
-    m_Metadata:
-      m_Items: []
   - m_Id: 55802384646144
     m_Localized: Reset Profile
     m_Metadata:
@@ -216,10 +212,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 56266299834368
     m_Localized: Enter Username...
-    m_Metadata:
-      m_Items: []
-  - m_Id: 59089896898560
-    m_Localized: 
     m_Metadata:
       m_Items: []
   references:

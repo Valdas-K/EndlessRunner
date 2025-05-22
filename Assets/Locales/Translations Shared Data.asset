@@ -181,10 +181,6 @@ MonoBehaviour:
     m_Key: SampleScene/UI/Menu/Settings/Credits
     m_Metadata:
       m_Items: []
-  - m_Id: 33339210760192
-    m_Key: SampleScene/UI/Menu/Profile/LoginText
-    m_Metadata:
-      m_Items: []
   - m_Id: 55802384646144
     m_Key: SampleScene/UI/Menu/Profile/ContextPanel/Profile/ResetButton/Text (TMP)
     m_Metadata:
@@ -216,10 +212,6 @@ MonoBehaviour:
   - m_Id: 56266299834368
     m_Key: SampleScene/UI/Menu/Profile/ContextPanel/Profile/User/UsernameInput/Text
       Area/Placeholder
-    m_Metadata:
-      m_Items: []
-  - m_Id: 59089896898560
-    m_Key: SampleScene/UI/ScoreUI
     m_Metadata:
       m_Items: []
   m_Metadata:

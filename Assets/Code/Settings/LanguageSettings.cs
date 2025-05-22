@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.Localization.Settings;
 
-public class LanguageSwitch : MonoBehaviour {
+public class LanguageSettings : MonoBehaviour {
     public string languageCode;
-    public void SetLocale(string languageCode) {
+    public void SetLocale(string code) {
         //Žaidimo kalbos keitimas pagal duotą reikšmę
-        switch (languageCode) {
+        switch (code) {
             case "en":
                 LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
                 languageCode = "en"; 

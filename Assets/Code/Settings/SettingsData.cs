@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 
@@ -26,16 +25,17 @@ public class SettingsData : MonoBehaviour {
         PlayerPrefs.SetFloat("EffectsVolume", sliderValue);
 
         //Kalba
-        if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[1])
-        {
+        if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[1]) {
             PlayerPrefs.SetString("Language", "lt");
-
-        }
-        else
-        {
+        } else {
             PlayerPrefs.SetString("Language", "en");
         }
-        Debug.Log(PlayerPrefs.GetString("Language"));
+
+        //Paskutinis pasirinktas lygis
+        PlayerPrefs.SetInt("lastLevel", settings.level.levelId);
+
+        //Paskutinis naudotas veikėjas
+        PlayerPrefs.SetInt("PlayerPicked", settings.player.playerPicked);
 
         PlayerPrefs.Save();
     }
@@ -96,6 +96,33 @@ public class SettingsData : MonoBehaviour {
         } else {
             LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
         }
+
+        //Paskutinis pasirinktas lygis
+        if (PlayerPrefs.HasKey("lastLevel")) {
+            if (PlayerPrefs.GetInt("lastLevel") == 1) {
+                settings.level.ChangeGameLevel(1);
+            } else if (PlayerPrefs.GetInt("lastLevel") == 2) {
+                settings.level.ChangeGameLevel(2);
+            } else {
+                settings.level.ChangeGameLevel(0);
+            }
+        } else {
+            settings.level.ChangeGameLevel(0);
+        }
+
+        //Paskutinis naudotas veikėjas
+        if (PlayerPrefs.HasKey("PlayerPicked")) {
+            if (PlayerPrefs.GetInt("PlayerPicked") == 1 && settings.gm.data.frogBodyOwned == true) {
+                settings.player.ChangePlayer(1);
+            } else if (PlayerPrefs.GetInt("PlayerPicked") == 2 && settings.gm.data.thirdPlayerBodyOwned == true) {
+                settings.player.ChangePlayer(2);
+            } else {
+                settings.player.ChangePlayer(0);
+            }
+        } else {
+            settings.player.ChangePlayer(0);
+        }
+
         UpdateSettingsUI();
     }
     public void UpdateSettingsUI() {

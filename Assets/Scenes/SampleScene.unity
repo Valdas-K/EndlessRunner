@@ -2614,18 +2614,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1579878175}
-        m_TargetAssemblyTypeName: SettingsController, Assembly-CSharp
-        m_MethodName: SaveSettings
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &197892030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3465,9 +3453,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b77a601c32a236c448d9bc0b676ab700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sunnyDessert:
+  - {fileID: 933627500}
+  - {fileID: 1425642649}
+  spookyForrest:
+  - {fileID: 1182208136}
+  - {fileID: 890511595}
+  pixelCity:
+  - {fileID: 786170466}
+  - {fileID: 1865639626}
+  level1: {fileID: 79890275}
+  level2: {fileID: 584249153}
+  level3: {fileID: 1973234893}
+  scrollSpeed: 2
+  imageSize: 20
+  imageY: 5
   levelContainer: {fileID: 811386133}
   clickSound: {fileID: 1364697930}
-  level: {fileID: 1146464804}
   allButtons:
   - {fileID: 1918938619}
   - {fileID: 421609317}
@@ -3492,6 +3494,7 @@ MonoBehaviour:
   - {fileID: 1991783024}
   - {fileID: 1849947127}
   - {fileID: 697509760}
+  levelId: 0
 --- !u!1 &297891804
 GameObject:
   m_ObjectHideFlags: 0
@@ -6372,6 +6375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreUI: {fileID: 1585190335}
   mc: {fileID: 2100013332}
+  chosenLevel: {fileID: 283713948}
   input: {fileID: 1579878177}
   pause: {fileID: 544746396}
   playerBody:
@@ -6393,7 +6397,6 @@ MonoBehaviour:
   gameOverTotalCoins: {fileID: 87143888}
   pauseMenu: {fileID: 1483903932}
   gameOverMenu: {fileID: 1729063439}
-  chosenLevel: 0
   coinsScore: 0
   obstaclesScore: 0
   timeScore: 0
@@ -13984,18 +13987,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FirebaseLogOut, Assembly-CSharp
-        m_MethodName: SignOut
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1294125404}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: ClickQuitButton
@@ -14822,7 +14813,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1146464803}
-  - component: {fileID: 1146464804}
   m_Layer: 0
   m_Name: Levels
   m_TagString: Untagged
@@ -14849,33 +14839,6 @@ Transform:
   - {fileID: 5402312914941829994}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1146464804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1146464802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ddaabe7194f0134184f52b676c40350, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sunnyDessert:
-  - {fileID: 933627500}
-  - {fileID: 1425642649}
-  spookyForrest:
-  - {fileID: 1182208136}
-  - {fileID: 890511595}
-  pixelCity:
-  - {fileID: 786170466}
-  - {fileID: 1865639626}
-  level1: {fileID: 79890275}
-  level2: {fileID: 584249153}
-  level3: {fileID: 1973234893}
-  scrollSpeed: 2
-  imageSize: 20
-  imageY: 5
 --- !u!1 &1156445775
 GameObject:
   m_ObjectHideFlags: 0
@@ -16483,6 +16446,7 @@ MonoBehaviour:
   helpText: {fileID: 822166907}
   board: {fileID: 1088347414}
   shop: {fileID: 1427288039480618431}
+  settings: {fileID: 1579878175}
 --- !u!4 &1294125405
 Transform:
   m_ObjectHideFlags: 0
@@ -19848,6 +19812,9 @@ MonoBehaviour:
   screen: {fileID: 1579878178}
   sound: {fileID: 2100013332}
   language: {fileID: 1579878179}
+  player: {fileID: 1427288039480618431}
+  gm: {fileID: 544746394}
+  level: {fileID: 283713948}
 --- !u!114 &1579878176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28334,9 +28301,9 @@ MonoBehaviour:
   price: 10
   TPprice: 50
   mc: {fileID: 1294125404}
+  gm: {fileID: 544746394}
   djButtonText: {fileID: 1693350066}
   tpButtonText: {fileID: 1084737428}
-  gm: {fileID: 544746394}
   ljButton: {fileID: 57997949}
   djButton: {fileID: 2000870902}
   tpButton: {fileID: 1991783024}

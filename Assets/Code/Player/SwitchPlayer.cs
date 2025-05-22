@@ -13,17 +13,15 @@ public class SwitchPlayer : MonoBehaviour {
     //Kuris veikėjas pasirinktas
     public int playerPicked;
 
-    //Veikėjo kaina
+    //Veikėjų kainos
     [SerializeField] int price;
     [SerializeField] int TPprice;
 
     //Vartotojo sąsajos komponentai
     [SerializeField] MenuController mc;
-    [SerializeField] public TextMeshProUGUI djButtonText;
-    [SerializeField] public TextMeshProUGUI tpButtonText;
-
     public GameManager gm;
-
+    public TextMeshProUGUI djButtonText;
+    public TextMeshProUGUI tpButtonText;
     [SerializeField] Button ljButton;
     [SerializeField] Button djButton;
     [SerializeField] Button tpButton;
@@ -31,30 +29,10 @@ public class SwitchPlayer : MonoBehaviour {
     void Start() {
         //Užkraunamas išsaugotas veikėjo pasirinkimas
         gm = GameManager.Instance;
-        LoadSettings();
     }
 
-    //Užkraunamas išsaugotas veikėjas
-    public void LoadSettings() {
-        playerPicked = PlayerPrefs.GetInt("PlayerPicked");
-        if (playerPicked == 1 && gm.data.frogBodyOwned == true) {
-            ChangePlayer(1);
-        } else if (playerPicked == 2 && gm.data.thirdPlayerBodyOwned == true) {
-            ChangePlayer(2);
-        }
-        else {
-            ChangePlayer(0);
-        }
-    }
-
-    private void SaveSettings() {
-        PlayerPrefs.SetInt("PlayerPicked", playerPicked);
-        PlayerPrefs.Save();
-        mc.UpdateCoinsUI();
-    }
-
-    //Pasirenkamas reikiamas veikėjas, aktyvuojamas veikėjo objektas, išsaugomas pasirinkimas
     public void ChangePlayer(int player) {
+        //Keičiamas veikėjas ir aktyvuojamas reikiamas objektas
         playerPicked = player;
         longJumpBody.SetActive(false);
         doubleJumpBody.SetActive(false);
@@ -69,17 +47,16 @@ public class SwitchPlayer : MonoBehaviour {
             longJumpBody.SetActive(true);
             longJumpBody.transform.position = new Vector3(-5f, 6f, 0f);
         }
-        SaveSettings();
         mc.ClickMainButton();
     }
 
     public void SelectLongJump() {
+        //Pasirenkamas pirmas veikėjas
         ChangePlayer(0);
     }
 
-    //Perkamas antras veikėjas
     async public void BuyFrogBody() {
-        //Tikrinama, ar veikėjas jau nėra nupirktas
+        //Tikrinama, ar antras veikėjas jau nėra nupirktas
         if (gm.data.frogBodyOwned == false) {
             //Jei nėra, tikrinama, ar užtenka pinigų nupirkti veikėją
             if (gm.data.coins >= price) {
@@ -107,7 +84,7 @@ public class SwitchPlayer : MonoBehaviour {
     }
 
     async public void BuyThirdPlayerBody() {
-        //Tikrinama, ar veikėjas jau nėra nupirktas
+        //Tikrinama, ar trečias veikėjas jau nėra nupirktas
         if (gm.data.thirdPlayerBodyOwned == false) {
             //Jei nėra, tikrinama, ar užtenka pinigų nupirkti veikėją
             if (gm.data.coins >= TPprice) {

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
 
     //Valdymo nustatymai
     [SerializeField] MusicController mc;
+    [SerializeField] ButtonController chosenLevel;
     [SerializeField] InputSettings input;
     [SerializeField] PauseGame pause;
     [SerializeField] Collider2D[] playerBody;
@@ -25,7 +26,6 @@ public class GameManager : MonoBehaviour {
     [SerializeField] TextMeshProUGUI gameOverTotalCoins;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject gameOverMenu;
-    public int chosenLevel;
 
     private void Awake() {
         if (Instance == null) {
@@ -90,7 +90,6 @@ public class GameManager : MonoBehaviour {
         highScore3 = data.level3;
         frogBodyOwned = data.frogBodyOwned;
         thirdPlayerBodyOwned = data.thirdPlayerBodyOwned;
-        chosenLevel = PlayerPrefs.GetInt("lastLevel");
     }
 
     public void StartGame() {
@@ -103,7 +102,7 @@ public class GameManager : MonoBehaviour {
         highScore2 = data.level2;
         highScore3 = data.level3;
         ResetScores();
-        mc.ChangeGameMusic(chosenLevel);
+        mc.ChangeGameMusic(chosenLevel.levelId);
         mc.StartGameMusic();
     }
 
@@ -152,12 +151,12 @@ public class GameManager : MonoBehaviour {
         data.coins = totalCoins;
 
         //Jei rezultatas yra aukščiausias, jis tampa geriausiu
-        if (chosenLevel == 0) {
+        if (chosenLevel.levelId == 0) {
             if (data.level1 < gameScore) {
                 data.level1 = gameScore;
                 highScore1 = gameScore;
             }
-        } else if (chosenLevel == 1) {
+        } else if (chosenLevel.levelId == 1) {
             if (data.level2 < gameScore) {
                 data.level2 = gameScore;
                 highScore2 = gameScore;
@@ -202,9 +201,9 @@ public class GameManager : MonoBehaviour {
             gameOverCoinsScore.text = "Pinigai: " + coinsScore.ToString();
             gameOverTotalScore.text = "Žaidimo rezultatas: " + gameScore.ToString();
             gameOverTotalCoins.text = "Visi pinigai: " + totalCoins.ToString();
-            if (chosenLevel == 0) {
+            if (chosenLevel.levelId == 0) {
                 gameOverHighScore.text = "Geriausias rezultatas: " + highScore1.ToString("F0");
-            } else if (chosenLevel == 1) {
+            } else if (chosenLevel.levelId == 1) {
                 gameOverHighScore.text = "Geriausias rezultatas: " + highScore2.ToString("F0");
             } else {
                 gameOverHighScore.text = "Geriausias rezultatas: " + highScore3.ToString("F0");
@@ -215,9 +214,9 @@ public class GameManager : MonoBehaviour {
             gameOverCoinsScore.text = "Coins: " + coinsScore.ToString();
             gameOverTotalScore.text = "Game Score: " + gameScore.ToString();
             gameOverTotalCoins.text = "Total Coins: " + totalCoins.ToString();
-            if (chosenLevel == 0) {
+            if (chosenLevel.levelId == 0) {
                 gameOverHighScore.text = "Highscore: " + highScore1.ToString("F0");
-            } else if (chosenLevel == 1) {
+            } else if (chosenLevel.levelId == 1) {
                 gameOverHighScore.text = "Highscore: " + highScore2.ToString("F0");
             } else {
                 gameOverHighScore.text = "Highscore: " + highScore3.ToString("F0");

@@ -14,13 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Localization-Asset-Tables-Lithuanian (lt)
   m_GUID: c4b3a961a71e1214fb04249a2b234094
-  m_SerializeEntries:
-  - m_GUID: 3b9b5eb14ec2fb348a95d1f5c077ee65
-    m_Address: AssetTranslations_lt
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-lt
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: ea2c2c4cc8012f24fbfc3dc60697e4e2, type: 2}
   m_SchemaSet:
