@@ -54,8 +54,8 @@ public class FirebaseRegister : MonoBehaviour {
                         UpdateRegisterText(10);
                         break;
                 }
-                registerButton.enabled = false;
                 firebase.ui.ClearRegisterFields();
+                registerButton.enabled = false;
                 Invoke("EnableRegisterButton", 3f);
             } else {
                 firebase.User = RegisterTask.Result.User;
@@ -88,10 +88,9 @@ public class FirebaseRegister : MonoBehaviour {
         return Regex.IsMatch(input, @"[a-z]");
     }
 
-
     public void EnableRegisterButton() {
-        registerButton.enabled = true;
         registerText.text = "";
+        registerButton.enabled = true;
     }
 
     IEnumerator ShowLogin() {

@@ -41,23 +41,4 @@ public class FirebaseUpdate : MonoBehaviour {
 
         firebase.ui.UpdateProfileUI();
     }
-
-    public void SignOut() {
-        //Vykdomas profilio atsijungimas
-        gm.SaveData();
-        if (firebase.isLoggedIn) {
-            gm.data.level1 = 0;
-            gm.data.level2 = 0;
-            gm.data.level3 = 0;
-            gm.data.coins = 0;
-            gm.data.frogBodyOwned = false;
-            gm.data.thirdPlayerBodyOwned = false;
-            firebase.ui.ClearRegisterFields();
-            firebase.ui.ClearLoginFields();
-            //firebase.player.LoadSettings();
-            firebase.isLoggedIn = false;
-        }
-        firebase.auth.SignOut();
-        gm.SaveData();
-    }
 }

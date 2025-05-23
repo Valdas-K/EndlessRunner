@@ -44,8 +44,8 @@ public class FirebaseLogin : MonoBehaviour {
                     UpdateLoginText(5);
                     break;
             }
-            loginButton.enabled = false;
             firebase.ui.ClearLoginFields();
+            loginButton.enabled = false;
             Invoke("EnableLoginButton", 3f);
         } else {
             firebase.User = LoginTask.Result.User;
@@ -70,7 +70,7 @@ public class FirebaseLogin : MonoBehaviour {
             gm.data.level1 = int.Parse(l1);
             string l2 = snapshot.Child("highscore2").Value.ToString();
             gm.data.level2 = int.Parse(l2);
-            string l3 = snapshot.Child("highscore1").Value.ToString();
+            string l3 = snapshot.Child("highscore3").Value.ToString();
             gm.data.level3 = int.Parse(l3);
             string c = snapshot.Child("coins").Value.ToString();
             gm.data.coins = int.Parse(c);
@@ -84,18 +84,6 @@ public class FirebaseLogin : MonoBehaviour {
         }
         mc.ClickProfileButton();
         firebase.ui.ClearLoginFields();
-    }
-
-    public void ResetProfile() {
-        //Atstatomas vartotojo profilis
-        gm.data.level1 = 0;
-        gm.data.level2 = 0;
-        gm.data.level3 = 0;
-        gm.data.coins = 0;
-        gm.data.frogBodyOwned = false;
-        gm.data.thirdPlayerBodyOwned = false;
-        firebase.SaveDataButton();
-        //player.LoadSettings();
     }
 
     public void EnableLoginButton() {
@@ -114,7 +102,6 @@ public class FirebaseLogin : MonoBehaviour {
                 6 => "Prisijungta sėkmingai!",
                 _ => "Prisijungti nepavyko!",
             };
-            Debug.Log("text:"+loginText.text);
         } else {
             loginText.text = code switch {
                 1 => "Missing Email!",

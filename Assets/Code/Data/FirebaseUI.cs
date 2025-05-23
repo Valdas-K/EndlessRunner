@@ -17,14 +17,12 @@ public class FirebaseUI : MonoBehaviour {
         firebase.register.emailRegister.text = "";
         firebase.register.passwordRegister.text = "";
         firebase.register.passwordConfirmRegister.text = "";
-        firebase.register.registerText.text = "";
     }
 
     public void ClearLoginFields() {
         //Išvalomi prisijungimo laukai
         firebase.login.emailLogin.text = "";
         firebase.login.passwordLogin.text = "";
-        firebase.login.loginText.text = "";
     }
 
     public void UpdateProfileUI() {

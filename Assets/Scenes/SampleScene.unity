@@ -4186,7 +4186,7 @@ GameObject:
   - component: {fileID: 328150067}
   - component: {fileID: 328150066}
   m_Layer: 5
-  m_Name: ResetButton
+  m_Name: DeleteButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14321,6 +14321,7 @@ GameObject:
   - component: {fileID: 1088347411}
   - component: {fileID: 1088347410}
   - component: {fileID: 1088347414}
+  - component: {fileID: 1088347415}
   m_Layer: 0
   m_Name: FirebaseManager
   m_TagString: Untagged
@@ -14360,6 +14361,7 @@ MonoBehaviour:
   update: {fileID: 1088347409}
   register: {fileID: 1088347411}
   ui: {fileID: 1088347410}
+  logout: {fileID: 1088347415}
   usernameField: {fileID: 905483898}
   isLoggedIn: 0
 --- !u!114 &1088347409
@@ -14440,7 +14442,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088347406}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d406c9600ce1526458b56966909a12a9, type: 3}
   m_Name: 
@@ -14448,6 +14450,22 @@ MonoBehaviour:
   firebaseManager: {fileID: 1088347408}
   scoreElement: {fileID: 0}
   scoreboardContent: {fileID: 0}
+--- !u!114 &1088347415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088347406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3796e618e78b71479e9d11bbfd13389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firebase: {fileID: 1088347408}
+  gm: {fileID: 544746394}
+  settings: {fileID: 1579878175}
+  menu: {fileID: 1294125404}
 --- !u!1 &1091197001
 GameObject:
   m_ObjectHideFlags: 0

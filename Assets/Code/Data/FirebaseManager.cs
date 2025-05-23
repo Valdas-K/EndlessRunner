@@ -16,6 +16,7 @@ public class FirebaseManager : MonoBehaviour {
     public FirebaseUpdate update;
     public FirebaseRegister register;
     public FirebaseUI ui;
+    public FirebaseLogout logout;
 
     //Vartotojo vardo laukas
     public TMP_InputField usernameField;
@@ -29,7 +30,7 @@ public class FirebaseManager : MonoBehaviour {
             if (dependencyStatus == DependencyStatus.Available) {
                 auth = FirebaseAuth.DefaultInstance;
                 DBreference = FirebaseDatabase.DefaultInstance.RootReference;
-                update.SignOut();
+                logout.LogOutAccount();
             }
         });
     }
@@ -46,7 +47,7 @@ public class FirebaseManager : MonoBehaviour {
 
     public void SignOutButton() {
         //Atsijungimo mygtukas
-        update.SignOut();
+        logout.LogOutAccount();
     }
 
     public void SaveDataButton() {
@@ -56,7 +57,7 @@ public class FirebaseManager : MonoBehaviour {
     }
 
     public void ResetButton() {
-        //Profilio atstatymo mygtukas
-        login.ResetProfile();
+        //Profilio šalinimo mygtukas
+        logout.DeleteAccount();        
     }
 }
