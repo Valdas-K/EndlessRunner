@@ -20,7 +20,7 @@ public class PlayerCollision : MonoBehaviour {
 
     private void Update() {
         //Jei žaidėjas iškrenta iš žaidimo, jo pozicija yra atstatoma
-        if (player.transform.position.x != -5f || player.transform.position.y > 11f || player.transform.position.y < -6f) {
+        if (player.transform.position.x != -5f || player.transform.position.y > 10f || player.transform.position.y < -6f) {
             player.transform.position = new Vector3(-5f, 4.5f, 0f);
         }
     }

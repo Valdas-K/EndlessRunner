@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,13 +19,13 @@ public class ScreenSettings : MonoBehaviour {
     public int selectedWidth;
     public int selectedHeight;
 
-    //Leidžiamos rezoliucijos
-    public List<Vector2Int> allowedResolutions = new() {
-        new(800, 1280), new(1176, 664), new(1366, 768), new(1440, 900), new(1600, 900), new(1680, 1050),
-        new(1920, 1200), new(1920, 1080), new(2560, 1600), new(2560, 1440), new(3840, 2160)
-    };
-
     public void FillResolutionDropdown() {
+        //Leidžiamos rezoliucijos
+        List<Vector2Int> allowedResolutions = new() {
+            new(800, 1280), new(1366, 768), new(1440, 900), new(1600, 900), new(1680, 1050),
+            new(1920, 1200), new(1920, 1080), new(2560, 1600), new(2560, 1440), new(3840, 2160)
+        };
+
         //Išvalomas dropdown laukelis, kad nebūtų neteisingų ar atsitiktinių reikšmių
         resolutionDropdown.ClearOptions();
 
@@ -40,10 +41,7 @@ public class ScreenSettings : MonoBehaviour {
         }
 
         //Rezoliucijos paverčiamos į teksto tipą, kad būtų galima atvaizduoti
-        for (int i = 0; i < validRes.Count; i++) {
-            string option = validRes[i].x.ToString() + "x" + validRes[i].y.ToString();
-            options.Add(option);
-        }
+        List<string> options = validRes.Select(res => $"{res.x}x{res.y}").ToList();
 
         //Į laukelį pridedamos tinkamos reikšmės
         resolutionDropdown.AddOptions(options);
@@ -55,6 +53,8 @@ public class ScreenSettings : MonoBehaviour {
 
         //Atnaujinamas laukelis
         resolutionDropdown.RefreshShownValue();
+
+        SetNewResolution(currentIndex);
     }
 
     public void SetNewResolution(int index) {

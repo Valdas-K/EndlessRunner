@@ -32,17 +32,18 @@ public class FirebaseLogout : MonoBehaviour {
 
     public void LogOutAccount() {
         //Vykdomas profilio atsijungimas
-        gm.SaveData();
-        gm.data.level1 = 0;
-        gm.data.level2 = 0;
-        gm.data.level3 = 0;
-        gm.data.coins = 0;
-        gm.data.frogBodyOwned = false;
-        gm.data.thirdPlayerBodyOwned = false;
-        firebase.ui.ClearRegisterFields();
-        firebase.ui.ClearLoginFields();
-        firebase.isLoggedIn = false;
-        firebase.auth.SignOut();
+        if (firebase.isLoggedIn) {
+            gm.data.level1 = 0;
+            gm.data.level2 = 0;
+            gm.data.level3 = 0;
+            gm.data.coins = 0;
+            gm.data.frogBodyOwned = false;
+            gm.data.thirdPlayerBodyOwned = false;
+            firebase.ui.ClearRegisterFields();
+            firebase.ui.ClearLoginFields();
+            firebase.isLoggedIn = false;
+            firebase.auth.SignOut();
+        }
         settings.LoadSettings();
         gm.SaveData();
         menu.ClickMainButton();

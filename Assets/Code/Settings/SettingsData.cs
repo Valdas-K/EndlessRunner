@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Localization.Settings;
 
 public class SettingsData : MonoBehaviour {
@@ -12,11 +11,6 @@ public class SettingsData : MonoBehaviour {
         //Žaidimo valdymas
         PlayerPrefs.SetInt("JumpKey", (int)settings.input.jumpKey);
         PlayerPrefs.SetInt("PauseKey", (int)settings.input.pauseKey);
-
-        //Ekrano režimas ir rezoliucija
-        PlayerPrefs.SetInt("fullScreen", Convert.ToInt16(settings.screen.screenTypeToggle.isOn));
-        PlayerPrefs.SetInt("ResolutionX", settings.screen.selectedWidth);
-        PlayerPrefs.SetInt("ResolutionY", settings.screen.selectedHeight);
 
         //Muzika ir efektai
         settings.sound.audioMixer.GetFloat("MusicVolume", out sliderValue);
@@ -52,26 +46,6 @@ public class SettingsData : MonoBehaviour {
             settings.input.pauseKey = (KeyCode)PlayerPrefs.GetInt("PauseKey");
         } else {
             settings.input.pauseKey = KeyCode.Escape;
-        }
-
-        //Ekrano režimas ir rezoliucija
-        if (PlayerPrefs.HasKey("fullScreen")) {
-            Screen.fullScreen = Convert.ToBoolean(PlayerPrefs.GetInt("fullScreen"));
-        } else {
-            Screen.fullScreen = true;
-        }
-        if (PlayerPrefs.HasKey("ResolutionX") && PlayerPrefs.HasKey("ResolutionY")) {
-            if (Screen.fullScreen == true) {             
-                Screen.SetResolution(PlayerPrefs.GetInt("ResolutionX"), PlayerPrefs.GetInt("ResolutionY"), FullScreenMode.FullScreenWindow, Screen.currentResolution.refreshRateRatio);
-            } else {
-                Screen.SetResolution(PlayerPrefs.GetInt("ResolutionX"), PlayerPrefs.GetInt("ResolutionY"), FullScreenMode.Windowed, Screen.currentResolution.refreshRateRatio);
-            }
-        } else {
-            if (Screen.fullScreen == true) {
-                Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, FullScreenMode.FullScreenWindow, Screen.currentResolution.refreshRateRatio);
-            } else {
-                Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, FullScreenMode.Windowed, Screen.currentResolution.refreshRateRatio);
-            }
         }
 
         //Muzika ir efektai
