@@ -9,8 +9,8 @@ public class DestroyObject : MonoBehaviour {
         }
     }
 
-    //Kliūtys sunaikinamos kai paliečia nematomą ribą
     private void OnTriggerEnter2D(Collider2D other) {
+        //Kliūtys sunaikinamos kai paliečia nematomą ribą
         if (other.transform.CompareTag("Destroy")) {
             if (gameObject.CompareTag("Obstacle")) {
                 GameManager.Instance.EnemyDefeated();

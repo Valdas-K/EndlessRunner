@@ -113,19 +113,19 @@ public class GameManager : MonoBehaviour {
         gameScore = 0;
     }
 
-    //Paėmus pinigą
     public void CoinCollected() {
+        //Pinigo paėmimas
         mc.PlayCoinSound();
         coinsScore += 1;
     }
 
-    //Įveikus kliūtį
     public void EnemyDefeated() {
+        //Kliūties įveikimas
         obstaclesScore += 1;
     }
 
-    //Pasibaigus žaidimui
     public void GameOver() {
+        //Žaidimo pabaiga
         //Veikėjų dydžiai ir laikas atstatomi į pradines padėtis, kad vėliau neatsirastų klaidų
         Time.timeScale = 1.0f;
         for (int i = 0; i < playerBody.Length; i++) {
@@ -176,24 +176,21 @@ public class GameManager : MonoBehaviour {
     }
 
     public void SaveData() {
-        //Išsaugomi surinkti pinigai ir geriausias rezultatas
+        //Išsaugomi surinkti pinigai ir rezultatai
         SaveSystem.Save("save", data);
     }
 
     private void OnGUI() {
+        //Atvaizduojami rezultatai
         if (LocalizationSettings.SelectedLocale.ToString() == "Lithuanian (lt)") {
-            //Atvaizduojami rezultatai
             scoreUI.text = "Laikas: " + timeScore.ToString("F0") + "\nPinigai: " + coinsScore + "\nKliūtys: " + obstaclesScore;
         } else {
-            //Atvaizduojami rezultatai
             scoreUI.text = "Time: " + timeScore.ToString("F0") + "\nCoins: " + coinsScore + "\nObstacles: " + obstaclesScore;
         }
     }
 
-    //Pasibaigus žaidimui, paleidžiamas meniu ir parodomi rezultatai
     public void ActivateGameOverUI() {
-        //scoreUI.text = "";
-        //scoreUI.enabled = false;
+        //Pasibaigus žaidimui, paleidžiamas meniu ir parodomi rezultatai
         gameOverMenu.SetActive(true);
         if (LocalizationSettings.SelectedLocale.ToString() == "Lithuanian (lt)") {
             gameOverTimeScore.text = "Laikas: " + timeScore.ToString("F0");

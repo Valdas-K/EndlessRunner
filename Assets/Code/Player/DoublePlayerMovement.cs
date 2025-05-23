@@ -26,8 +26,8 @@ public class DoublePlayerMovement : PlayerMovement {
         }
     }
 
-    //Tikrinama, ar Veikėjas yra ant žemės
     private void OnCollisionEnter2D(Collision2D other) {
+        //Tikrinama, ar Veikėjas yra ant žemės
         if (other.gameObject.CompareTag("Ground")) {
             isGrounded = true;
             playerAnimation.PlayCharacterAnim(anim, "ground");
@@ -35,8 +35,8 @@ public class DoublePlayerMovement : PlayerMovement {
         }
     }
 
-    //Tikrinama, ar Veikėjas yra ore
     private void OnCollisionExit2D(Collision2D other) {
+        //Tikrinama, ar Veikėjas yra ore
         if (other.gameObject.CompareTag("Ground")) {
             isGrounded = false;
             playerAnimation.PlayCharacterAnim(anim, "jump");

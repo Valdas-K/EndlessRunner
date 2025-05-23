@@ -47,5 +47,4 @@ public class FirebaseLogout : MonoBehaviour {
         gm.SaveData();
         menu.ClickMainButton();
     }
-
 }

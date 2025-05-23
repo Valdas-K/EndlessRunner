@@ -181,11 +181,4 @@ public class MenuController : MonoBehaviour {
         registerMenu.SetActive(false);
         loginMenu.SetActive(false);
     }
-
-    public void ResetProfileMenu() {
-        //Uždaromi visi profilio langai
-        profileMenu.SetActive(false);
-        loginMenu.SetActive(false);
-        registerMenu.SetActive(false);
-    }
 }

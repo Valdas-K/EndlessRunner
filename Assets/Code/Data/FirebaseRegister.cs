@@ -95,7 +95,7 @@ public class FirebaseRegister : MonoBehaviour {
 
     IEnumerator ShowLogin() {
         //Pereinama į prisijungimo ekraną
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSecondsRealtime(0.5f);
         firebase.ui.ClearRegisterFields();
         menu.OpenLoginMenu();
     }
