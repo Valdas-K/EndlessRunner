@@ -2,6 +2,9 @@
 
 public class PlayerCollision : MonoBehaviour {
     [SerializeField] SwitchPlayer player;
+    //[SerializeField] GameObject lj;
+    //[SerializeField] GameObject dj;
+    //[SerializeField] GameObject tp;
 
     private void OnCollisionEnter2D(Collision2D other) {
         //Palietus kliūtį, žaidimas pasibaigia

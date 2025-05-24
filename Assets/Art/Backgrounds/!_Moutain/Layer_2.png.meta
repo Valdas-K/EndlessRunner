@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 367fef7c7a0cf8b4e8fc2020259965e9
+guid: f742986c8cfb0f9408700b55894aba73
 AssetOrigin:
   serializedVersion: 1
   productId: 205812
   packageName: Free 2D Cartoon Parallax Background
   packageVersion: 1.0
-  assetPath: Assets/Free 2D Cartoon Parallax Background/FullBG/3_Graveyard.png
+  assetPath: Assets/Free 2D Cartoon Parallax Background/!_Moutain/Layer_2.png
   uploadId: 484396
 TextureImporter:
   internalIDToNameTable: []
@@ -52,7 +52,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 108

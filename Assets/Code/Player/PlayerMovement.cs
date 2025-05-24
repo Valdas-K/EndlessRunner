@@ -10,6 +10,7 @@ public abstract class PlayerMovement : MonoBehaviour {
     [SerializeField] protected InputSettings input;
     [SerializeField] protected MusicController mc;
     [SerializeField] protected GameObject player;
+    //[SerializeField] protected int playerLifes;
 
     protected abstract void PlayerJump();
     protected abstract void PlayerFall();

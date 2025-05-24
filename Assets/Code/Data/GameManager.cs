@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour {
         mc.ChangeGameMusic(chosenLevel.levelId);
         mc.StartGameMusic();
     }
-
+    int playerlife;
     public void ResetScores() {
         timeScore = 0;
         coinsScore = 0;

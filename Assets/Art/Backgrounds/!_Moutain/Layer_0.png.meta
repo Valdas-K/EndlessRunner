@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 429517ea1b1287a47952cd5cd8261d74
+guid: ab01f61b3c6a46c4587ab9734c601f5a
 AssetOrigin:
   serializedVersion: 1
   productId: 205812
   packageName: Free 2D Cartoon Parallax Background
   packageVersion: 1.0
-  assetPath: Assets/Free 2D Cartoon Parallax Background/FullBG/4_Snow.png
+  assetPath: Assets/Free 2D Cartoon Parallax Background/!_Moutain/Layer_0.png
   uploadId: 484396
 TextureImporter:
   internalIDToNameTable: []
@@ -52,7 +52,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 108

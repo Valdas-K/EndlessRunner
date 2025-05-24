@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: fd00b29c3d9553d4c8e0ab3b572af409
+guid: c923db515dd60ec4e9cd1f350be245a9
 AssetOrigin:
   serializedVersion: 1
   productId: 205812
   packageName: Free 2D Cartoon Parallax Background
   packageVersion: 1.0
-  assetPath: Assets/Free 2D Cartoon Parallax Background/FullBG/1_Mountain.png
+  assetPath: Assets/Free 2D Cartoon Parallax Background/2_Desert/Layer_0.png
   uploadId: 484396
 TextureImporter:
   internalIDToNameTable: []
@@ -52,7 +52,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 108
