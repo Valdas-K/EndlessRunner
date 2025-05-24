@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 932625547264
-    m_Localized: Lygio pasirinkimas
+    m_Localized: "Lygi\u0173 pasirinkimas"
     m_Metadata:
       m_Items: []
   - m_Id: 991186419712
@@ -75,7 +75,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4314878738432
-    m_Localized: Lygio pasirinkimas
+    m_Localized: "Lygi\u0173 pasirinkimas"
     m_Metadata:
       m_Items: []
   - m_Id: 4352539394048
@@ -171,7 +171,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 9845215363072
-    m_Localized: Lygio pasirinkimas
+    m_Localized: "Lygi\u0173 pasirinkimas"
     m_Metadata:
       m_Items: []
   - m_Id: 9877163376640

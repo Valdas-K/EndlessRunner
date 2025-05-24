@@ -183,7 +183,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 55802384646144
-    m_Localized: Reset Profile
+    m_Localized: Delete Profile
     m_Metadata:
       m_Items: []
   - m_Id: 55886530772992
@@ -211,7 +211,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 56266299834368
-    m_Localized: Enter Username...
+    m_Localized: Enter New Username...
     m_Metadata:
       m_Items: []
   references:
