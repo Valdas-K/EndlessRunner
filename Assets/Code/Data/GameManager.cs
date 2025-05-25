@@ -1,5 +1,4 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Localization.Settings;
@@ -106,7 +105,7 @@ public class GameManager : MonoBehaviour {
         mc.ChangeGameMusic(chosenLevel.levelId);
         mc.StartGameMusic();
     }
-    int playerlife;
+
     public void ResetScores() {
         timeScore = 0;
         coinsScore = 0;
@@ -128,13 +127,11 @@ public class GameManager : MonoBehaviour {
     public void GameOver() {
         //Žaidimo pabaiga
         //Veikėjų dydžiai ir laikas atstatomi į pradines padėtis, kad vėliau neatsirastų klaidų
+        scoreUI.gameObject.SetActive(false);
         Time.timeScale = 1.0f;
         for (int i = 0; i < playerBody.Length; i++) {
             playerBody[i].transform.localScale = Vector3.one;
-            playerBody[i].transform.position = new Vector3(-5f, 6f, 0f);
-            if (playerBody[i].GetComponent<LongPlayerMovement>() != null) {
-                playerBody[i].GetComponent<LongPlayerMovement>().jumpForce = 13f;
-            }
+            playerBody[i].transform.position = new Vector3(-5f, 3f, 0f);
         }
 
         //Sustabdoma muzika ir paleidžiamas žaidimo pabaigos garsas

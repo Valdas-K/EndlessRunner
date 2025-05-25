@@ -1,25 +1,161 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using TMPro;
+using UnityEngine;
+using UnityEngine.Localization.Settings;
 
-public abstract class PlayerMovement : MonoBehaviour {
-    //Pašokimo jėgos kintamasis
-    public float jumpForce;
-    [SerializeField] protected float mass;
-    [SerializeField] protected PlayerAnimation playerAnimation;
+public class PlayerMovement : MonoBehaviour {
+    //Veikėjo pašokimų jėga, kiekis, masė ir gyvybių kiekis
+    [SerializeField] float jumpForce;
+    [SerializeField] float secondJumpForce;
+    [SerializeField] int maxJumps;
+    [SerializeField] float mass;
+    [SerializeField] int lives;
+
+    //Veikėjo animacijos, dabartinis veikėjas ir fizikoas komponentas
+    [SerializeField] PlayerAnimation playerAnimation;
+    [SerializeField] Animator anim;
+    [SerializeField] SwitchPlayer playerPicked;
+    private Rigidbody2D rb;
 
     //Valdymo nustatymai
-    [SerializeField] protected InputSettings input;
-    [SerializeField] protected MusicController mc;
-    [SerializeField] protected GameObject player;
-    //[SerializeField] protected int playerLifes;
+    [SerializeField] InputSettings input;
+    [SerializeField] MusicController mc;
+    [SerializeField] GameObject player;
+    [SerializeField] TextMeshProUGUI heartsUI;
 
-    protected abstract void PlayerJump();
-    protected abstract void PlayerFall();
+    //Parinkto veikėjo pašokimų kiekis
+    private int jumps = 0;
+    private int livesUsed = 0;
+    private bool canCollide = true;
 
-    protected bool isGrounded;
+    //Veikėjo būsena: ant žemės ir ore
+    private bool isGrounded;
+    public bool isJumping = false;
 
-    //Aprašomas veikėjo fizikos komponentas
-    protected Rigidbody2D rb;
     protected void Start() {
-        rb = player.GetComponent<Rigidbody2D>();
+        //Žaidimo pradžioje gaunamas veikėjo fizikos komponentas
+        rb = player.GetComponentInParent<Rigidbody2D>();
+    }
+
+    public void Update() {
+        //Žaidimo metu tikrinama: 
+        if (player.transform.position.x != -5f || player.transform.position.y > 10f || player.transform.position.y < -6f) {
+            //Jei žaidėjas iškrenta iš žaidimo, jo pozicija yra atstatoma
+            player.transform.position = new Vector3(-5f, 4.5f, 0f);
+        }
+
+        if (!PauseGame.gameIsPaused) {
+            //Jei žaidimas nėra sutabdytas, veikia valdymas
+            rb.mass = mass;
+            if (isGrounded && Input.GetKeyDown(input.jumpKey)) {
+                //Pašokimas
+                PlayerJump();
+            }
+            if (!isGrounded && jumps < maxJumps && Input.GetKeyDown(input.jumpKey)) {
+                //Sekantys pašokimai
+                PlayerDoubleJump();
+            }
+            if (!isGrounded && Input.GetKeyUp(input.jumpKey)) {
+                //Kritimas
+                PlayerFall();
+            }
+        }
+
+        if (!GameManager.Instance.isPlaying) {
+            heartsUI.text = "";
+        }
+    }
+
+    private void LifeLost() {
+        //Praradus gyvybę, veikėjo grafikos išsijungia / įsijungia
+        SpriteRenderer sprite = player.GetComponent<SpriteRenderer>();
+        sprite.enabled = !sprite.enabled;
+    }
+
+    private IEnumerator ResetLife() {
+        //Išjungiami susidūrimai su kliūtimis
+        canCollide = false;
+
+        //Paleidžiamas veikėjo grafikos įjungimas / išjungimas
+        InvokeRepeating("LifeLost", 0.0f, 0.1f);
+
+        //Po nustatyto laiko atstatomos reikšmės
+        yield return new WaitForSecondsRealtime(1.5f);
+        CancelInvoke("LifeLost");
+        player.GetComponent<SpriteRenderer>().enabled = true;
+        canCollide = true;
+    }
+
+    private void EndGame() {
+        livesUsed = 0;
+        GameManager.Instance.GameOver();
+        playerAnimation.PlayCharacterAnim(anim, "reset");
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.transform.CompareTag("Obstacle") && canCollide) {
+            //Jei paliečiama kliūtis ir galimi susidūrimai
+            //Padidinamas panaudotų gyvybių kiekis
+            livesUsed++;
+            if (lives - livesUsed == 0) {
+                //Jei gyvybių nebėra, žaidimas pasibaigia
+                playerAnimation.PlayCharacterAnim(anim, "dead");
+                heartsUI.text = "";
+                Invoke("EndGame", 1.5f);
+            } else if (lives - livesUsed > 0) {
+                //Jei gyvybių yra, paleidžiama korutina
+                //Atnaujinamas likusių gyvybių skaičius
+                if (LocalizationSettings.SelectedLocale.ToString() == "Lithuanian (lt)") {
+                    heartsUI.text = "Gyvybės: " + (lives - livesUsed);
+                } else {
+                    heartsUI.text = "Lives: " + (lives - livesUsed);
+                }
+                StartCoroutine(ResetLife());
+            }
+        }
+
+        if (other.gameObject.CompareTag("Ground")) {
+            //Tikrinama, ar veikėjas yra ant žemės
+            isGrounded = true;
+            playerAnimation.PlayCharacterAnim(anim, "ground");
+            jumps = 0;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.transform.CompareTag("Coin")) {
+            //Palietus pinigą, yra paleidžiamas įvykis ir objektas sunaikinamas
+            GameManager.Instance.CoinCollected();
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Ground")) {
+            //Tikrinama, ar veikėjas yra ore
+            isGrounded = false;
+            playerAnimation.PlayCharacterAnim(anim, "jump");
+        }
+    }
+
+    public void PlayerJump() {
+        //Paleidžiamas garso efektas ir veikėjas šoka į viršų
+        mc.PlayJumpSound();
+        jumps++;
+        rb.linearVelocity = new Vector2(0f, jumpForce);
+    }
+
+    public void PlayerFall() {
+        //Veikėjas krenta žemyn
+        isJumping = false;
+        playerAnimation.PlayCharacterAnim(anim, "fall");
+    }
+
+    private void PlayerDoubleJump() {
+        //Veikėjas antrą kartą šoka aukštyn
+        rb.linearVelocity = new Vector2(0f, secondJumpForce);
+        playerAnimation.PlayCharacterAnim(anim, "dJump");
+        mc.PlayJumpSound();
+        jumps++;
     }
 }

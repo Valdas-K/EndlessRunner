@@ -6472,10 +6472,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: -373
+          value: -153
         - localeIdentifier:
             m_Code: lt
-          value: -382.55
+          value: -111
     - rid: 874789603339403373
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -6494,10 +6494,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: 460
+          value: 580
         - localeIdentifier:
             m_Code: lt
-          value: 546
+          value: 572
 --- !u!1 &442195233
 GameObject:
   m_ObjectHideFlags: 0
@@ -7565,10 +7565,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: 460
+          value: 580
         - localeIdentifier:
             m_Code: lt
-          value: 546
+          value: 572
     - rid: 874789550667858244
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -7576,10 +7576,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: -242.14029
+          value: -30
         - localeIdentifier:
             m_Code: lt
-          value: -233
+          value: 41
     - rid: 874789550667858245
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -7882,7 +7882,7 @@ GameObject:
   - component: {fileID: 591309838}
   - component: {fileID: 591309837}
   - component: {fileID: 591309836}
-  - component: {fileID: 591309839}
+  - component: {fileID: 591309840}
   m_Layer: 7
   m_Name: ThirdPlayerBody
   m_TagString: Player
@@ -8028,7 +8028,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &591309839
+--- !u!114 &591309840
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8037,17 +8037,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 591309833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34f36d95dbc7fa046afcf32183eae010, type: 3}
+  m_Script: {fileID: 11500000, guid: 81ebfe51f5186a349a5faa56a9df4c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 17
-  mass: 2
+  jumpForce: 7
+  secondJumpForce: 42
+  maxJumps: 2
+  mass: 1.7
+  lives: 1
   playerAnimation: {fileID: 8453297276261454567}
+  anim: {fileID: 591309837}
+  playerPicked: {fileID: 1427288039480618431}
   input: {fileID: 1579878177}
   mc: {fileID: 2100013332}
-  player: {fileID: 1764921760001020260}
-  jumpTime: 0.2
-  anim: {fileID: 591309837}
+  player: {fileID: 591309833}
+  heartsUI: {fileID: 843311005}
+  isJumping: 0
 --- !u!1 &593448078
 GameObject:
   m_ObjectHideFlags: 0
@@ -8222,6 +8227,7 @@ RectTransform:
   - {fileID: 1483903933}
   - {fileID: 1729063440}
   - {fileID: 1585190334}
+  - {fileID: 843311004}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -11842,6 +11848,142 @@ MonoBehaviour:
   startingObstacleSpeed: 4
   obstacleSpawnTimeFactor: 0.0075
   obstacleSpeedFactor: 0.15
+--- !u!1 &843311003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 843311004}
+  - component: {fileID: 843311006}
+  - component: {fileID: 843311005}
+  m_Layer: 5
+  m_Name: HeartUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &843311004
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843311003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 603159554}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -524, y: -436}
+  m_SizeDelta: {x: 295.5359, y: 75.0879}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &843311005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843311003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 0.50980395, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 42
+  m_fontSizeBase: 42
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &843311006
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843311003}
+  m_CullTransparentMesh: 1
 --- !u!1 &843854378
 GameObject:
   m_ObjectHideFlags: 0
@@ -16177,10 +16319,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: -59.00001
+          value: 580
         - localeIdentifier:
             m_Code: lt
-          value: 15
+          value: 572.00006
     - rid: 874789603339403361
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -16188,10 +16330,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: 459.4641
+          value: 534.01
         - localeIdentifier:
             m_Code: lt
-          value: 493.1301
+          value: 534.01
     - rid: 874789603339403374
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -16199,10 +16341,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: -383.38028
+          value: -392
         - localeIdentifier:
             m_Code: lt
-          value: -429.29333
+          value: -388.29
     - rid: 874789603339403375
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -16518,10 +16660,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: -58.997925
+          value: 580
         - localeIdentifier:
             m_Code: lt
-          value: 15
+          value: 572
     - rid: 874789603339403378
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -16529,10 +16671,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: -253.56029
+          value: -277
         - localeIdentifier:
             m_Code: lt
-          value: -315
+          value: -274
     - rid: 874789603339403379
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -16540,10 +16682,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: 459.46
+          value: 534.01
         - localeIdentifier:
             m_Code: lt
-          value: 493.13
+          value: 534.01
     - rid: 874789603339403380
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -16551,7 +16693,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: 126.71
+          value: 104.38
         - localeIdentifier:
             m_Code: lt
           value: 111.99
@@ -28460,10 +28602,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: -467.82922
+          value: 166.4303
         - localeIdentifier:
             m_Code: lt
-          value: -502
+          value: 61
     - rid: 874789603339403383
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -28471,10 +28613,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: -309.6503
+          value: -331.26
         - localeIdentifier:
             m_Code: lt
-          value: -415.26
+          value: -323.89
     - rid: 874789603339403384
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -28482,10 +28624,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: 238.89
+          value: 212.9
         - localeIdentifier:
             m_Code: lt
-          value: 111.03
+          value: 211.77
     - rid: 874789603339403386
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -28493,10 +28635,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: 303.6685
+          value: 256.8079
         - localeIdentifier:
             m_Code: lt
-          value: 493.13
+          value: 451.9161
 --- !u!1 &1947184665
 GameObject:
   m_ObjectHideFlags: 0
@@ -31913,19 +32055,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &101526327024297933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1764921760001020260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93dfa6a10e161a54ebefdca435a27911, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1427288039480618431}
 --- !u!114 &1427288039480618431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31961,7 +32090,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5402312914941829994}
   - component: {fileID: 8453297276261454566}
-  - component: {fileID: 101526327024297933}
   - component: {fileID: 1427288039480618431}
   - component: {fileID: 8453297276261454567}
   m_Layer: 7
@@ -32076,7 +32204,7 @@ Animator:
   m_GameObject: {fileID: 9218071952471561782}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 54b56ebda25d1444ca4073215973d1b0, type: 2}
+  m_Controller: {fileID: 9100000, guid: efe81f3bb2167d248aabcbb8d293cd40, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -32100,7 +32228,7 @@ GameObject:
   - component: {fileID: 5180173805140496180}
   - component: {fileID: 2128072601552686720}
   - component: {fileID: 9104377147137867163}
-  - component: {fileID: 9104377147137867164}
+  - component: {fileID: 9104377147137867165}
   m_Layer: 7
   m_Name: DoubleJumpBody
   m_TagString: Player
@@ -32324,7 +32452,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.24403667, y: 0.25787854}
   m_EdgeRadius: 0
---- !u!114 &9104377147137867164
+--- !u!114 &9104377147137867165
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32333,18 +32461,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 6506812372986070304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1ba54b0a8edcbb45af6cf17501d4433, type: 3}
+  m_Script: {fileID: 11500000, guid: 81ebfe51f5186a349a5faa56a9df4c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 9
-  mass: 35
+  jumpForce: 31
+  secondJumpForce: 4.5
+  maxJumps: 2
+  mass: 1.1
+  lives: 2
   playerAnimation: {fileID: 8453297276261454567}
+  anim: {fileID: 2128072601552686720}
+  playerPicked: {fileID: 1427288039480618431}
   input: {fileID: 1579878177}
   mc: {fileID: 2100013332}
-  player: {fileID: 1764921760001020260}
-  doubleJumpForce: 7
-  anim: {fileID: 2128072601552686720}
-  maxJumps: 2
+  player: {fileID: 6506812372986070304}
+  heartsUI: {fileID: 843311005}
+  isJumping: 0
 --- !u!1 &9218071952471561782
 GameObject:
   m_ObjectHideFlags: 0
@@ -32357,7 +32489,7 @@ GameObject:
   - component: {fileID: 8102890579267973727}
   - component: {fileID: 5572122899256294840}
   - component: {fileID: 7470312869129220373}
-  - component: {fileID: 9218071952471561783}
+  - component: {fileID: 9218071952471561784}
   m_Layer: 7
   m_Name: LongJumpBody
   m_TagString: Player
@@ -32365,7 +32497,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &9218071952471561783
+--- !u!114 &9218071952471561784
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32374,17 +32506,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 9218071952471561782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b6bee895af85ba43821fffc2cfc7442, type: 3}
+  m_Script: {fileID: 11500000, guid: 81ebfe51f5186a349a5faa56a9df4c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 13
-  mass: 0.6
+  jumpForce: 24
+  secondJumpForce: 0
+  maxJumps: 1
+  mass: 0.4
+  lives: 3
   playerAnimation: {fileID: 8453297276261454567}
+  anim: {fileID: 5572122899256294840}
+  playerPicked: {fileID: 1427288039480618431}
   input: {fileID: 1579878177}
   mc: {fileID: 2100013332}
-  player: {fileID: 1764921760001020260}
-  jumpTime: 0.5
-  anim: {fileID: 5572122899256294840}
+  player: {fileID: 9218071952471561782}
+  heartsUI: {fileID: 843311005}
+  isJumping: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

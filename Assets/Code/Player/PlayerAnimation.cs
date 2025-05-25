@@ -7,6 +7,8 @@ public class PlayerAnimation : MonoBehaviour {
         anim.SetBool("isFalling", false);
         anim.SetBool("isJumping", false);
         anim.SetBool("isDoubleJumping", false);
+        anim.SetBool("isDead", false);
+        anim.SetBool("isReset", false);
         switch (type) {
             case "ground":
                 anim.SetBool("isGrounded", true);
@@ -19,6 +21,12 @@ public class PlayerAnimation : MonoBehaviour {
                 break;
             case "fall":
                 anim.SetBool("isFalling", true);
+                break;
+            case "dead":
+                anim.SetBool("isDead", true);
+                break;
+            case "reset":
+                anim.SetBool("isReset", true);
                 break;
         }
     }
