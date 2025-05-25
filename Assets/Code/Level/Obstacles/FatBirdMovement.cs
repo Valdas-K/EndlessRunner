@@ -7,7 +7,7 @@ public class FatBirdMovement : ObstacleMovement {
         if (other.transform.CompareTag("Ground")) {
             rb.mass = 100f;
             rb.gravityScale = -0.001f;
-            rb.linearVelocityX = Random.Range(-7f, -3f);
+            rb.linearVelocityX = Random.Range(-6.5f, -2f);
         }
     }
 }
