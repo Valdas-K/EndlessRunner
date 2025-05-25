@@ -21,11 +21,11 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] InputSettings input;
     [SerializeField] MusicController mc;
     [SerializeField] GameObject player;
-    [SerializeField] TextMeshProUGUI heartsUI;
+    public TextMeshProUGUI heartsUI;
 
     //Parinkto veikėjo pašokimų kiekis
     private int jumps = 0;
-    private int livesUsed = 0;
+    public int livesUsed = 0;
     private bool canCollide = true;
 
     //Veikėjo būsena: ant žemės ir ore
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         if (!GameManager.Instance.isPlaying) {
-            heartsUI.text = "";
+            ResetHeartsUI();
         }
     }
 
@@ -100,16 +100,11 @@ public class PlayerMovement : MonoBehaviour {
             if (lives - livesUsed == 0) {
                 //Jei gyvybių nebėra, žaidimas pasibaigia
                 playerAnimation.PlayCharacterAnim(anim, "dead");
-                heartsUI.text = "";
+                ResetHeartsUI();
                 Invoke("EndGame", 1.5f);
             } else if (lives - livesUsed > 0) {
                 //Jei gyvybių yra, paleidžiama korutina
-                //Atnaujinamas likusių gyvybių skaičius
-                if (LocalizationSettings.SelectedLocale.ToString() == "Lithuanian (lt)") {
-                    heartsUI.text = "Gyvybės: " + (lives - livesUsed);
-                } else {
-                    heartsUI.text = "Lives: " + (lives - livesUsed);
-                }
+                UpdateHeartsUI();
                 StartCoroutine(ResetLife());
             }
         }
@@ -157,5 +152,18 @@ public class PlayerMovement : MonoBehaviour {
         playerAnimation.PlayCharacterAnim(anim, "dJump");
         mc.PlayJumpSound();
         jumps++;
+    }
+
+    public void UpdateHeartsUI() {
+        //Atnaujinamas likusių gyvybių skaičius
+        if (LocalizationSettings.SelectedLocale.ToString() == "Lithuanian (lt)") {
+            heartsUI.text = "Gyvybės: " + (lives - livesUsed);
+        } else {
+            heartsUI.text = "Lives: " + (lives - livesUsed);
+        }
+    }
+
+    public void ResetHeartsUI() {
+        heartsUI.text = "";
     }
 }

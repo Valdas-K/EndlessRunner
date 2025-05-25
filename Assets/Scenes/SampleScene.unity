@@ -1145,7 +1145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 79890276}
   m_Layer: 0
-  m_Name: SandyDessert
+  m_Name: SunnyDesert
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3044,7 +3044,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pixel City
+  m_text: Pixel Mountains
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4050,7 +4050,7 @@ MonoBehaviour:
   - {fileID: 202927077}
   - {fileID: 902184393}
   - {fileID: 1497119136}
-  pixelCity:
+  pixelMountain:
   - {fileID: 1110971378}
   - {fileID: 732313586}
   - {fileID: 1939828327}
@@ -5507,7 +5507,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &384308041
 Transform:
   m_ObjectHideFlags: 0
@@ -8052,6 +8052,7 @@ MonoBehaviour:
   mc: {fileID: 2100013332}
   player: {fileID: 591309833}
   heartsUI: {fileID: 843311005}
+  livesUsed: 0
   isJumping: 0
 --- !u!1 &593448078
 GameObject:
@@ -10502,7 +10503,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &733059029
 Transform:
   m_ObjectHideFlags: 0
@@ -10627,7 +10628,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &749232151
 Transform:
   m_ObjectHideFlags: 0
@@ -11761,7 +11762,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &834678164
 Transform:
   m_ObjectHideFlags: 0
@@ -11813,7 +11814,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &837626098
 Transform:
   m_ObjectHideFlags: 0
@@ -12144,10 +12145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
-  - {fileID: 3230723760321511379, guid: 486a65d260a7bef44b60d949dd8b8ca3, type: 3}
-  - {fileID: 769090483790306232, guid: ea6ba0be14128d547a4c7b02cd798a0f, type: 3}
-  startingObstacleSpawnTime: 12
-  startingObstacleSpeed: 2
+  - {fileID: 3317248675309286609, guid: 348bade773522df4dbd0cd6dc1c54b57, type: 3}
+  startingObstacleSpawnTime: 1
+  startingObstacleSpeed: 4
   obstacleSpawnTimeFactor: 0.01
   obstacleSpeedFactor: 0.01
 --- !u!1 &862702130
@@ -12297,7 +12297,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -506, y: -29}
+  m_AnchoredPosition: {x: -530, y: -46}
   m_SizeDelta: {x: 497.9348, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &896958458
@@ -18271,7 +18271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
-  - {fileID: 8454754817216932882, guid: d50b934de168af24180bb7dba19a7a8a, type: 3}
+  - {fileID: 626464691022518557, guid: daab5ef788541234b9719fca9dc21cd6, type: 3}
+  - {fileID: 8553014846927901817, guid: f80f3dda7c8322842b17a8288b42e58b, type: 3}
   startingObstacleSpawnTime: 1
   startingObstacleSpeed: 5
   obstacleSpawnTimeFactor: 0.015
@@ -19695,10 +19696,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
-  - {fileID: 3230723760321511379, guid: 486a65d260a7bef44b60d949dd8b8ca3, type: 3}
   - {fileID: 769090483790306232, guid: ea6ba0be14128d547a4c7b02cd798a0f, type: 3}
-  startingObstacleSpawnTime: 12
-  startingObstacleSpeed: 2
+  - {fileID: 4640729795011857002, guid: 264c68637da2b0642a14d82fce98ef6b, type: 3}
+  startingObstacleSpawnTime: 1
+  startingObstacleSpeed: 4
   obstacleSpawnTimeFactor: 0.01
   obstacleSpeedFactor: 0.01
 --- !u!1 &1318866544
@@ -21542,7 +21543,7 @@ GameObject:
   - component: {fileID: 1462386811}
   - component: {fileID: 1462386810}
   m_Layer: 5
-  m_Name: PixelCity
+  m_Name: PixelMountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21565,8 +21566,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 567, y: 178}
-  m_SizeDelta: {x: 415.9883, y: 135}
+  m_AnchoredPosition: {x: 584, y: 162}
+  m_SizeDelta: {x: 511.3351, y: 207}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1462386810
 MonoBehaviour:
@@ -23003,7 +23004,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 49, y: 67.5}
+  m_AnchoredPosition: {x: 22, y: 67.5}
   m_SizeDelta: {x: 553.51, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1555469119
@@ -29055,7 +29056,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1973234894}
   m_Layer: 0
-  m_Name: PixelCity
+  m_Name: PixelMountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31980,7 +31981,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2145146158
 Transform:
   m_ObjectHideFlags: 0
@@ -32476,6 +32477,7 @@ MonoBehaviour:
   mc: {fileID: 2100013332}
   player: {fileID: 6506812372986070304}
   heartsUI: {fileID: 843311005}
+  livesUsed: 0
   isJumping: 0
 --- !u!1 &9218071952471561782
 GameObject:
@@ -32521,6 +32523,7 @@ MonoBehaviour:
   mc: {fileID: 2100013332}
   player: {fileID: 9218071952471561782}
   heartsUI: {fileID: 843311005}
+  livesUsed: 0
   isJumping: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

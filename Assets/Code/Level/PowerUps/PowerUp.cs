@@ -5,18 +5,15 @@ public abstract class PowerUp : MonoBehaviour {
     [SerializeField] protected float multiplier;
     [SerializeField] protected float duration;
     [SerializeField] protected AudioSource sound;
+    [SerializeField] protected Animator anim;
 
     protected void OnTriggerEnter2D(Collider2D other) {
         //Palietus žaidėją, paleidžiamas metodas
         if (other.CompareTag("Player")) {
+            anim.SetBool("collect", true);
             StartLogic(other);
         }
     }
 
     protected abstract void StartLogic(Collider2D player);
-    protected void ChangeFactors() {
-        //Išjungiami pastiprinimo komponentai, kad jų nematytų žaidėjas ir būtų geresnė vartotojo patirtis
-        GetComponent<SpriteRenderer>().enabled = false;
-        GetComponent<Collider2D>().enabled = false;
-    }
 }

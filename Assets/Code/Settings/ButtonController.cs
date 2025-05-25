@@ -18,7 +18,7 @@ public class ButtonController : MonoBehaviour {
     //Lygių nuotraukų masyvai
     [SerializeField] GameObject[] sunnyDessert;
     [SerializeField] GameObject[] spookyForrest;
-    [SerializeField] GameObject[] pixelCity;
+    [SerializeField] GameObject[] pixelMountain;
 
     //Lygių konteineriai
     [SerializeField] GameObject level1;
@@ -155,16 +155,16 @@ public class ButtonController : MonoBehaviour {
                 break;
             case 2:
                 level3.SetActive(true);
-                layer0_0 = pixelCity[0];
-                layer0_1 = pixelCity[1];
-                layer1_0 = pixelCity[2];
-                layer1_1 = pixelCity[3];
-                layer2_0 = pixelCity[4];
-                layer2_1 = pixelCity[5];
-                layer3_0 = pixelCity[6];
-                layer3_1 = pixelCity[7];
-                layer4_0 = pixelCity[8];
-                layer4_1 = pixelCity[9];
+                layer0_0 = pixelMountain[0];
+                layer0_1 = pixelMountain[1];
+                layer1_0 = pixelMountain[2];
+                layer1_1 = pixelMountain[3];
+                layer2_0 = pixelMountain[4];
+                layer2_1 = pixelMountain[5];
+                layer3_0 = pixelMountain[6];
+                layer3_1 = pixelMountain[7];
+                layer4_0 = pixelMountain[8];
+                layer4_1 = pixelMountain[9];
                 break;
             default:
                 level2.SetActive(true);
