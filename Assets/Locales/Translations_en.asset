@@ -176,10 +176,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 21669923028992
-    m_Localized: "Character, Pickup, Obstacle Art - Pixel Frog\nCoin Art - Goldmetal\nCursor
-      - Th\u1E53th\nBackground - CPasteGame\nIcons - SHarmiD\nMusic - Monsieur Fred\nSound
-      Effects - Bright Shining Star\nSound Effects - Dustyroom\nCoding, Game Design
-      - Valdas"
+    m_Localized: "Character Graphics - Pixel Frog\nBackground Graphics - CPasteGame\nAdditional
+      Graphics - Goldmetal\nAdditional Graphics - Th\u1E53th\nIcons - SHarmiD\nMusic
+      - Monsieur Fred\nSound Effects - Bright Shining Star\nSound Effects - Dustyroom\nCoding,
+      Game Design - Valdas"
     m_Metadata:
       m_Items: []
   - m_Id: 55802384646144
@@ -212,6 +212,28 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 56266299834368
     m_Localized: Enter New Username...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1407271306297344
+    m_Localized: '#. Username - Score'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1439532063948800
+    m_Localized: 'Ability: Single Jump
+
+      Lifes: 3'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1440051159400448
+    m_Localized: 'Ability: Double Jump
+
+      Lifes: 2'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1440104808742912
+    m_Localized: 'Ability: Triple Jump
+
+      Lifes: 1'
     m_Metadata:
       m_Items: []
   references:

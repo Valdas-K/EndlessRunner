@@ -119,9 +119,14 @@ public class PlayerMovement : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.transform.CompareTag("Coin")) {
-            //Palietus pinigą, yra paleidžiamas įvykis ir objektas sunaikinamas
+            //Palietus pinigą, yra paleidžiamas įvykis
             GameManager.Instance.CoinCollected();
-            Destroy(other.gameObject);
+            mc.PlayCoinSound();
+            other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        } 
+        if (other.transform.CompareTag("PowerUp")) {
+            //Palietus pastiprinimą, yra paleižiamas įvykis
+            GameManager.Instance.CoinCollected();
         }
     }
 

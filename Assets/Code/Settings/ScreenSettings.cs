@@ -8,7 +8,6 @@ public class ScreenSettings : MonoBehaviour {
     //Visos galimos ekrano rezoliucijos, naudojamos rezoliucijos ir laukelio užpildymas
     private Resolution[] allResolutions;
     private List<Vector2Int> validRes = new();
-    private List<string> options = new();
 
     //rezoliucijų keitimo ir ekrano režimo mygtukai
     [SerializeField] TMP_Dropdown resolutionDropdown;

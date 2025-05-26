@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour {
     //Sukuriamas klasės objektas (singleton)
     public static GameManager Instance;
 
-    [SerializeField] TextMeshProUGUI scoreUI;
-
     //Valdymo nustatymai
     [SerializeField] MusicController mc;
     [SerializeField] ButtonController chosenLevel;
@@ -26,6 +24,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] TextMeshProUGUI gameOverTotalCoins;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject gameOverMenu;
+    [SerializeField] TextMeshProUGUI scoreUI;
 
     private void Awake() {
         if (Instance == null) {
@@ -52,6 +51,7 @@ public class GameManager : MonoBehaviour {
     public UnityEvent onGameOver = new();
 
     private void Start() {
+        //Užkraunami duomenys
         LoadData();
         mc.StartMenuMusic();
         //Pasibaigus žaidimui, paleidžiamas atitinkamas meniu
@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour {
                 thirdPlayerBodyOwned = false,
             };
         }
+        //Priskiriamos reikšmės
         totalCoins = data.coins;
         highScore1 = data.level1;
         highScore2 = data.level2;
@@ -101,21 +102,16 @@ public class GameManager : MonoBehaviour {
         highScore1 = data.level1;
         highScore2 = data.level2;
         highScore3 = data.level3;
-        ResetScores();
-        mc.ChangeGameMusic(chosenLevel.levelId);
-        mc.StartGameMusic();
-    }
-
-    public void ResetScores() {
         timeScore = 0;
         coinsScore = 0;
         obstaclesScore = 0;
         gameScore = 0;
+        mc.ChangeGameMusic(chosenLevel.levelId);
+        mc.StartGameMusic();
     }
 
     public void CoinCollected() {
         //Pinigo paėmimas
-        mc.PlayCoinSound();
         coinsScore += 1;
     }
 
@@ -166,10 +162,9 @@ public class GameManager : MonoBehaviour {
             }
         }
 
+        //Išsaugomi duomenys, baigiamas žaidimas
         SaveData();
         isPlaying = false;
-
-        //Baigiamas žaidimas
         onGameOver.Invoke();
     }
 
@@ -179,7 +174,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void OnGUI() {
-        //Atvaizduojami rezultatai
+        //Žaidimo metu atvaizduojami rezultatai
         if (LocalizationSettings.SelectedLocale.ToString() == "Lithuanian (lt)") {
             scoreUI.text = "Laikas: " + timeScore.ToString("F0") + "\nPinigai: " + coinsScore + "\nKliūtys: " + obstaclesScore;
         } else {

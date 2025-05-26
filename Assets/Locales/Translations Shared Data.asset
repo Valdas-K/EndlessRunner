@@ -214,6 +214,22 @@ MonoBehaviour:
       Area/Placeholder
     m_Metadata:
       m_Items: []
+  - m_Id: 1407271306297344
+    m_Key: SampleScene/UI/Menu/Leaderboards/Text (TMP) (3)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1439532063948800
+    m_Key: SampleScene/UI/Menu/Shop/LJAbilityText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1440051159400448
+    m_Key: SampleScene/UI/Menu/Shop/DJAbilityText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1440104808742912
+    m_Key: SampleScene/UI/Menu/Shop/TPAbilityText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

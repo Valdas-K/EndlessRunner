@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HealthPower : PowerUp {
     protected override void StartLogic(Collider2D player) {

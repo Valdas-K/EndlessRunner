@@ -58,7 +58,7 @@ public class FirebaseLogin : MonoBehaviour {
 
     public IEnumerator LoadUserData() {
         //Užkraunami vartotojo duomenys
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSecondsRealtime(0.4f);
         Task<DataSnapshot> DBTask = firebase.DBreference.Child("users").Child(firebase.User.UserId).GetValueAsync();
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
         if (DBTask.Result.Value == null) {
