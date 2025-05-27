@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 460887426755975592}
-  soundTime: 6
+  soundTime: 7
 --- !u!82 &460887426755975592
 AudioSource:
   m_ObjectHideFlags: 0
@@ -99,8 +99,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 0c8865e27372c694390fe164874ee9de, type: 2}
-  m_audioClip: {fileID: 8300000, guid: d0b07f9bb4e89234397cfeaf2122fcc0, type: 3}
-  m_Resource: {fileID: 8300000, guid: d0b07f9bb4e89234397cfeaf2122fcc0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 81652031b64c342cc8dbc59c138d77c5, type: 3}
+  m_Resource: {fileID: 8300000, guid: 81652031b64c342cc8dbc59c138d77c5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

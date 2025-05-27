@@ -377,9 +377,9 @@ AudioSource:
   m_GameObject: {fileID: 24248443}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -2013115594259221239, guid: 0c8865e27372c694390fe164874ee9de, type: 2}
-  m_audioClip: {fileID: 8300000, guid: df729d213c4be44a9b55cd109f5cd4f9, type: 3}
-  m_Resource: {fileID: 8300000, guid: df729d213c4be44a9b55cd109f5cd4f9, type: 3}
+  OutputAudioMixerGroup: {fileID: 9069034188553106566, guid: 0c8865e27372c694390fe164874ee9de, type: 2}
+  m_audioClip: {fileID: 8300000, guid: a0ca8964c08d54c5dbebf245bdc474ca, type: 3}
+  m_Resource: {fileID: 8300000, guid: a0ca8964c08d54c5dbebf245bdc474ca, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1929,10 +1929,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: 29.75
+          value: 29.25
         - localeIdentifier:
             m_Code: lt
-          value: 28.8
+          value: 28.55
     - rid: 874789639745175712
       type: {class: TrackedRectTransform, ns: UnityEngine.Localization.PropertyVariants.TrackedObjects, asm: Unity.Localization}
       data:
@@ -2578,7 +2578,7 @@ GameObject:
   - component: {fileID: 196369605}
   - component: {fileID: 196369606}
   m_Layer: 0
-  m_Name: SandyDessert
+  m_Name: SandyDesert
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3809,8 +3809,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 9069034188553106566, guid: 0c8865e27372c694390fe164874ee9de, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
-  m_Resource: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
+  m_Resource: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4207,6 +4207,14 @@ MonoBehaviour:
   - {fileID: 1991783024}
   - {fileID: 1849947127}
   - {fileID: 697509760}
+  - {fileID: 833808636}
+  - {fileID: 641374309}
+  - {fileID: 697509760}
+  - {fileID: 1836607083}
+  - {fileID: 328150066}
+  - {fileID: 708646191}
+  - {fileID: 1393580378}
+  - {fileID: 385220123}
   levelId: 0
 --- !u!1 &287775973
 GameObject:
@@ -8437,9 +8445,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ebfe51f5186a349a5faa56a9df4c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 7
-  secondJumpForce: 42
-  maxJumps: 2
+  jumpForce: 3
+  secondJumpForce: 17
+  maxJumps: 3
   mass: 1.7
   lives: 1
   playerAnimation: {fileID: 8453297276261454567}
@@ -8886,7 +8894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 8553014846927901817, guid: f80f3dda7c8322842b17a8288b42e58b, type: 3}
-  startingObstacleSpawnTime: 2.5
+  startingObstacleSpawnTime: 3
   startingObstacleSpeed: 7
   obstacleSpawnTimeFactor: 0.18
   obstacleSpeedFactor: 0.1
@@ -14727,7 +14735,7 @@ GameObject:
   - component: {fileID: 986032686}
   - component: {fileID: 986032687}
   m_Layer: 0
-  m_Name: SpookyForrest
+  m_Name: DarkForrest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15128,7 +15136,7 @@ Transform:
   m_GameObject: {fileID: 1005886498}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12, y: 1.35, z: 0}
+  m_LocalPosition: {x: 12, y: 1.3, z: 0}
   m_LocalScale: {x: 20, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21568,8 +21576,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 9069034188553106566, guid: 0c8865e27372c694390fe164874ee9de, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 32d4b1811dda14a6cb9e059ee8ad17d2, type: 3}
-  m_Resource: {fileID: 8300000, guid: 32d4b1811dda14a6cb9e059ee8ad17d2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0994c12e202f342459a4212e7287f7e8, type: 3}
+  m_Resource: {fileID: 8300000, guid: 0994c12e202f342459a4212e7287f7e8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -23980,7 +23988,7 @@ GameObject:
   - component: {fileID: 1519562925}
   - component: {fileID: 1519562926}
   m_Layer: 0
-  m_Name: PixelCity
+  m_Name: PixelMountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29340,7 +29348,6 @@ GameObject:
   - component: {fileID: 1919709361}
   - component: {fileID: 1919709364}
   - component: {fileID: 1919709363}
-  - component: {fileID: 1919709362}
   m_Layer: 5
   m_Name: EffectsIcon
   m_TagString: Untagged
@@ -29367,62 +29374,6 @@ RectTransform:
   m_AnchoredPosition: {x: -39.999992, y: 89.86401}
   m_SizeDelta: {x: 133.567, y: 135.432}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1919709362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1919709360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1919709363}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2100013332}
-        m_TargetAssemblyTypeName: MusicController, Assembly-CSharp
-        m_MethodName: SetVolume
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 20
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1919709363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32872,7 +32823,6 @@ GameObject:
   - component: {fileID: 2092440948}
   - component: {fileID: 2092440950}
   - component: {fileID: 2092440949}
-  - component: {fileID: 2092440951}
   m_Layer: 5
   m_Name: MusicIcon
   m_TagString: Untagged
@@ -32937,62 +32887,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092440947}
   m_CullTransparentMesh: 1
---- !u!114 &2092440951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2092440947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 2092440949}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2100013332}
-        m_TargetAssemblyTypeName: MusicController, Assembly-CSharp
-        m_MethodName: SetVolume
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 20
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &2093506164
 GameObject:
   m_ObjectHideFlags: 0
@@ -33039,10 +32933,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 1227845991043812912, guid: b8f2b7bcb88bff748bb3e4d19c3e1c83, type: 3}
-  startingObstacleSpawnTime: 11
-  startingObstacleSpeed: 7
-  obstacleSpawnTimeFactor: 0.135
-  obstacleSpeedFactor: 0.125
+  startingObstacleSpawnTime: 12
+  startingObstacleSpeed: 6
+  obstacleSpawnTimeFactor: 0.12
+  obstacleSpeedFactor: 0.11
 --- !u!1 &2100013327
 GameObject:
   m_ObjectHideFlags: 0
@@ -34028,10 +33922,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ebfe51f5186a349a5faa56a9df4c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 31
-  secondJumpForce: 4.5
+  jumpForce: 15
+  secondJumpForce: 5
   maxJumps: 2
-  mass: 1.1
+  mass: 1.3
   lives: 2
   playerAnimation: {fileID: 8453297276261454567}
   anim: {fileID: 2128072601552686720}
@@ -34074,7 +33968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ebfe51f5186a349a5faa56a9df4c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 24
+  jumpForce: 20
   secondJumpForce: 0
   maxJumps: 1
   mass: 0.4
