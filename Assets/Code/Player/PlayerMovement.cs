@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour {
                 //Jei gyvybių nebėra, žaidimas pasibaigia
                 playerAnimation.PlayCharacterAnim(anim, "dead");
                 ResetHeartsUI();
-                Invoke("EndGame", 1.5f);
+                Invoke("EndGame", 0.8f);
             } else if (lives - livesUsed > 0) {
                 //Jei gyvybių yra, paleidžiama korutina
                 UpdateHeartsUI();

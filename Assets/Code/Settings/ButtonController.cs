@@ -27,7 +27,6 @@ public class ButtonController : MonoBehaviour {
     //Fono judėjimo greitis, vienos nuotraukos plotis (Nuotraukų pločiai vienodi) ir y aukštis
     [SerializeField] float[] scrollSpeed;
     [SerializeField] float imageSize;
-    [SerializeField] float imageY;
 
     //Lygių konteinerio, paspaudimo garso, visų mygtukų masyvo ir lygių keitimo kintamieji
     [SerializeField] Transform levelContainer;
@@ -89,7 +88,7 @@ public class ButtonController : MonoBehaviour {
         if (layer == 4) {
             imageX = ((bg == layer4_0) ? layer4_1 : layer4_0).transform.localPosition.x + imageSize;
         }
-        bg.transform.localPosition = new Vector3(imageX, imageY, 0f);
+        bg.transform.localPosition = new Vector3(imageX, 0f, 0f);
     }
 
     private void UpdateButtonSound() {

@@ -4180,7 +4180,6 @@ MonoBehaviour:
   - 1
   - 1.9
   imageSize: 18.5
-  imageY: 0
   levelContainer: {fileID: 811386133}
   clickSound: {fileID: 1364697930}
   allButtons:
@@ -8445,10 +8444,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ebfe51f5186a349a5faa56a9df4c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 3
-  secondJumpForce: 17
+  jumpForce: 4
+  secondJumpForce: 14
   maxJumps: 3
-  mass: 1.7
+  mass: 2
   lives: 1
   playerAnimation: {fileID: 8453297276261454567}
   anim: {fileID: 591309837}
@@ -33922,10 +33921,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ebfe51f5186a349a5faa56a9df4c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 15
-  secondJumpForce: 5
+  jumpForce: 11
+  secondJumpForce: 3
   maxJumps: 2
-  mass: 1.3
+  mass: 1.5
   lives: 2
   playerAnimation: {fileID: 8453297276261454567}
   anim: {fileID: 2128072601552686720}
@@ -33968,10 +33967,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ebfe51f5186a349a5faa56a9df4c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 20
+  jumpForce: 13
   secondJumpForce: 0
   maxJumps: 1
-  mass: 0.4
+  mass: 0.5
   lives: 3
   playerAnimation: {fileID: 8453297276261454567}
   anim: {fileID: 5572122899256294840}
