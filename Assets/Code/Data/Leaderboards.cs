@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -18,27 +19,33 @@ public class Leaderboards : MonoBehaviour {
 
     public IEnumerator LoadScoreboardData() {
         //Atnaujinami geriausi visų lygių rezultatai
-        firebaseManager.DBreference.Child("users").OrderByChild("highscore1").LimitToLast(10).GetValueAsync().ContinueWith(task => {
+        firebaseManager.DBreference.Child("users").OrderByChild("highscore1").LimitToFirst(10).GetValueAsync().ContinueWith(task => {
             if (task.IsCompleted) {
                 //Neapdoroti duomenys
                 Dictionary<string, object> unsortedLeaderboard = (Dictionary<string, object>)task.Result.Value;
 
-                //Apdorojami ir rūšiuojami duomenys
-                List<KeyValuePair<string, object>> unsortedLeaderboardList = new(unsortedLeaderboard);
-                List<KeyValuePair<string, object>> sortedLeaderboard = unsortedLeaderboardList.OrderBy((x) => 
-                    ((Dictionary<string, object>)x.Value)["highscore1"].ToString()).ToList();
+                //Gaunami atskiri vartotojų vardų ir jų rezultatų duomenys
+                string[] names = unsortedLeaderboard.Values.Select(value => (Dictionary<string, object>)value).
+                Select(d => d["username"].ToString()).ToArray();
+                int[] scores = unsortedLeaderboard.Values.Select(value => (Dictionary<string, object>)value).
+                Select(d => Convert.ToInt32(d["highscore1"])).ToArray();
 
-                //Informacijos atvaizdavimas
-                int rank = 1;
+                //Gauti duomenys sujungiami į Tuple tipą
+                Tuple<string, int>[] userScores = new Tuple<string, int>[scores.Length];
+                for (int i = 0; i < scores.Length; i++) {
+                    userScores[i] = new(names[i], scores[i]);
+                }
+
+                //Tuple tipas surūšiuoja pagal rezultatus
+                Tuple<string, int>[] sortedScores = userScores.OrderByDescending(tuple => tuple.Item2).ToArray();
                 string leaderboard = "";
-                foreach (KeyValuePair<string, object> result in sortedLeaderboard) {
-                    Dictionary<string, object> resultData = (Dictionary<string, object>)result.Value;
-                    leaderboard += rank + ". " + resultData["username"].ToString() + " - " + resultData["highscore1"].ToString() + "\n";
-                    rank++;
+                for (int i = 0; i < sortedScores.Length; i++) {
+                    //Rezultatai atvaizduojami
+                    leaderboard += (i+1) + ". " + sortedScores[i].Item1 + " - " + sortedScores[i].Item2 + "\n";
                 }
 
                 context.Post(_ => {
-                    //Teksto atnaujinimas perkeliamas į pagrindinę giją
+                    //Teksto atnaujinimas perkeliamas į pagrindinę giją, vartotojas mato rezultatus
                     leaderboard1.text = leaderboard;
                 }, null);
             }
@@ -49,22 +56,28 @@ public class Leaderboards : MonoBehaviour {
                 //Neapdoroti duomenys
                 Dictionary<string, object> unsortedLeaderboard = (Dictionary<string, object>)task.Result.Value;
 
-                //Apdorojami ir rūšiuojami duomenys
-                List<KeyValuePair<string, object>> unsortedLeaderboardList = new(unsortedLeaderboard);
-                List<KeyValuePair<string, object>> sortedLeaderboard = unsortedLeaderboardList.OrderBy((x) =>
-                    ((Dictionary<string, object>)x.Value)["highscore2"].ToString()).ToList();
+                //Gaunami atskiri vartotojų vardų ir jų rezultatų duomenys
+                string[] names = unsortedLeaderboard.Values.Select(value => (Dictionary<string, object>)value).
+                Select(d => d["username"].ToString()).ToArray();
+                int[] scores = unsortedLeaderboard.Values.Select(value => (Dictionary<string, object>)value).
+                Select(d => Convert.ToInt32(d["highscore2"])).ToArray();
 
-                //Informacijos atvaizdavimas
-                int rank = 1;
+                //Gauti duomenys sujungiami į Tuple tipą
+                Tuple<string, int>[] userScores = new Tuple<string, int>[scores.Length];
+                for (int i = 0; i < scores.Length; i++) {
+                    userScores[i] = new(names[i], scores[i]);
+                }
+
+                //Tuple tipas surūšiuoja pagal rezultatus
+                Tuple<string, int>[] sortedScores = userScores.OrderByDescending(tuple => tuple.Item2).ToArray();
                 string leaderboard = "";
-                foreach (KeyValuePair<string, object> result in sortedLeaderboard) {
-                    Dictionary<string, object> resultData = (Dictionary<string, object>)result.Value;
-                    leaderboard += rank + ". " + resultData["username"].ToString() + " - " + resultData["highscore2"].ToString() + "\n";
-                    rank++;
+                for (int i = 0; i < sortedScores.Length; i++) {
+                    //Rezultatai atvaizduojami
+                    leaderboard += (i + 1) + ". " + sortedScores[i].Item1 + " - " + sortedScores[i].Item2 + "\n";
                 }
 
                 context.Post(_ => {
-                    //Teksto atnaujinimas perkeliamas į pagrindinę giją
+                    //Teksto atnaujinimas perkeliamas į pagrindinę giją, vartotojas mato rezultatus
                     leaderboard2.text = leaderboard;
                 }, null);
             }
@@ -75,22 +88,28 @@ public class Leaderboards : MonoBehaviour {
                 //Neapdoroti duomenys
                 Dictionary<string, object> unsortedLeaderboard = (Dictionary<string, object>)task.Result.Value;
 
-                //Apdorojami ir rūšiuojami duomenys
-                List<KeyValuePair<string, object>> unsortedLeaderboardList = new(unsortedLeaderboard);
-                List<KeyValuePair<string, object>> sortedLeaderboard = unsortedLeaderboardList.OrderBy((x) =>
-                    ((Dictionary<string, object>)x.Value)["highscore3"].ToString()).ToList();
+                //Gaunami atskiri vartotojų vardų ir jų rezultatų duomenys
+                string[] names = unsortedLeaderboard.Values.Select(value => (Dictionary<string, object>)value).
+                Select(d => d["username"].ToString()).ToArray();
+                int[] scores = unsortedLeaderboard.Values.Select(value => (Dictionary<string, object>)value).
+                Select(d => Convert.ToInt32(d["highscore3"])).ToArray();
 
-                //Informacijos atvaizdavimas
-                int rank = 1;
+                //Gauti duomenys sujungiami į Tuple tipą
+                Tuple<string, int>[] userScores = new Tuple<string, int>[scores.Length];
+                for (int i = 0; i < scores.Length; i++) {
+                    userScores[i] = new(names[i], scores[i]);
+                }
+
+                //Tuple tipas surūšiuoja pagal rezultatus
+                Tuple<string, int>[] sortedScores = userScores.OrderByDescending(tuple => tuple.Item2).ToArray();
                 string leaderboard = "";
-                foreach (KeyValuePair<string, object> result in sortedLeaderboard) {
-                    Dictionary<string, object> resultData = (Dictionary<string, object>)result.Value;
-                    leaderboard += rank + ". " + resultData["username"].ToString() + " - " + resultData["highscore3"].ToString() + "\n";
-                    rank++;
+                for (int i = 0; i < sortedScores.Length; i++) {
+                    //Rezultatai atvaizduojami
+                    leaderboard += (i + 1) + ". " + sortedScores[i].Item1 + " - " + sortedScores[i].Item2 + "\n";
                 }
 
                 context.Post(_ => {
-                    //Teksto atnaujinimas perkeliamas į pagrindinę giją
+                    //Teksto atnaujinimas perkeliamas į pagrindinę giją, vartotojas mato rezultatus
                     leaderboard3.text = leaderboard;
                 }, null);
             }
