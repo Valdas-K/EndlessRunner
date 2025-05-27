@@ -195,15 +195,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 56048514793472
-    m_Localized: 'SandyDesert HighScore:'
+    m_Localized: 'Sandy Desert Score:'
     m_Metadata:
       m_Items: []
   - m_Id: 56103317569536
-    m_Localized: 'Spooky Forrest HighScore:'
+    m_Localized: 'Dark Forest Score:'
     m_Metadata:
       m_Items: []
   - m_Id: 56149052260352
-    m_Localized: 'Pixel City HighScore:'
+    m_Localized: 'Pixel Mountain Score:'
     m_Metadata:
       m_Items: []
   - m_Id: 56174557822976

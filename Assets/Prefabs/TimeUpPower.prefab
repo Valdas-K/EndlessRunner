@@ -215,8 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e99795a20f4a6488ae5d68b103e04b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 2
-  duration: 3
+  multiplier: 3
+  duration: 1
   sound: {fileID: 4980888159947558761}
   anim: {fileID: 3147221846265265599}
 --- !u!82 &4980888159947558761

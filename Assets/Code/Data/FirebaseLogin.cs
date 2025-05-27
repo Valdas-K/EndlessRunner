@@ -13,6 +13,7 @@ public class FirebaseLogin : MonoBehaviour {
     [SerializeField] FirebaseManager firebase;
     [SerializeField] GameManager gm;
     [SerializeField] MenuController mc;
+    [SerializeField] SwitchPlayer player;
 
     //Prisijungimo meniu laukai
     public TMP_InputField emailLogin;
@@ -79,8 +80,10 @@ public class FirebaseLogin : MonoBehaviour {
             string c2 = snapshot.Child("characters2").Value.ToString();
             gm.data.thirdPlayerBodyOwned = Boolean.Parse(c2);
 
+            player.ChangePlayer(0);
             gm.SaveData();
             firebase.SaveDataButton();
+
         }
         mc.ClickProfileButton();
         firebase.ui.ClearLoginFields();

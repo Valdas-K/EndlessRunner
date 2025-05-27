@@ -3153,7 +3153,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pixel Mountains
+  m_text: Pixel Mountain
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4567,7 +4567,7 @@ Transform:
   m_GameObject: {fileID: 297891804}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.5, y: 1.7, z: 0}
+  m_LocalPosition: {x: 11.5, y: 1.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4589,9 +4589,9 @@ MonoBehaviour:
   - {fileID: 7630132476307739333, guid: 9726d8f5fcbd5a4469cde14ca9345a7b, type: 3}
   - {fileID: 52217791619742828, guid: c2cfa55de9c66974d826017f5e05a65d, type: 3}
   startingObstacleSpawnTime: 3
-  startingObstacleSpeed: 4
-  obstacleSpawnTimeFactor: 0.0025
-  obstacleSpeedFactor: 0.05
+  startingObstacleSpeed: 6
+  obstacleSpawnTimeFactor: 0.007
+  obstacleSpeedFactor: 0.06
 --- !u!1 &301997547
 GameObject:
   m_ObjectHideFlags: 0
@@ -4627,8 +4627,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 644, y: -343}
-  m_SizeDelta: {x: 600, y: 100}
+  m_AnchoredPosition: {x: 613.64703, y: -343}
+  m_SizeDelta: {x: 539.2941, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &301997549
 MonoBehaviour:
@@ -4650,7 +4650,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'SandyDesert HighScore:'
+  m_text: 'Sandy Desert Score:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4684,7 +4684,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 48
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4715,7 +4715,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -100.491394, y: 0, z: 0, w: 0}
+  m_margin: {x: -0.4085083, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5821,10 +5821,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 8454754817216932882, guid: d50b934de168af24180bb7dba19a7a8a, type: 3}
-  startingObstacleSpawnTime: 6
+  startingObstacleSpawnTime: 4
   startingObstacleSpeed: 2
-  obstacleSpawnTimeFactor: 0.015
-  obstacleSpeedFactor: 0.01
+  obstacleSpawnTimeFactor: 0.035
+  obstacleSpeedFactor: 0.0001
 --- !u!1 &385220121
 GameObject:
   m_ObjectHideFlags: 0
@@ -6808,7 +6808,7 @@ Transform:
   m_GameObject: {fileID: 427346972}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 2.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6828,10 +6828,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 5223336214400574532, guid: af41fa45a445f5f44878fd0b6950605c, type: 3}
-  startingObstacleSpawnTime: 3
-  startingObstacleSpeed: 4
-  obstacleSpawnTimeFactor: 0.0025
-  obstacleSpeedFactor: 0.05
+  startingObstacleSpawnTime: 15
+  startingObstacleSpeed: 3.8
+  obstacleSpawnTimeFactor: 0.003
+  obstacleSpeedFactor: 0.04
 --- !u!1 &442195233
 GameObject:
   m_ObjectHideFlags: 0
@@ -7045,7 +7045,7 @@ Transform:
   m_GameObject: {fileID: 448804685}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10, y: 6, z: 0}
+  m_LocalPosition: {x: 10, y: 6.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7065,9 +7065,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 4233396240888655795, guid: ae03c6b6a7270f84aaea6adb4376ebb7, type: 3}
-  startingObstacleSpawnTime: 3
-  startingObstacleSpeed: 4
-  obstacleSpawnTimeFactor: 0.0025
+  startingObstacleSpawnTime: 7
+  startingObstacleSpeed: 4.9
+  obstacleSpawnTimeFactor: 0.004
   obstacleSpeedFactor: 0.05
 --- !u!1 &453926607
 GameObject:
@@ -7363,11 +7363,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70f627a73b86c4499c3af02ac266f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnObjectPrefabs: []
-  startingObstacleSpawnTime: 1
-  startingObstacleSpeed: 5
-  obstacleSpawnTimeFactor: 0.015
-  obstacleSpeedFactor: 0.01
+  spawnObjectPrefabs:
+  - {fileID: 626464691022518557, guid: daab5ef788541234b9719fca9dc21cd6, type: 3}
+  - {fileID: 769090483790306232, guid: ea6ba0be14128d547a4c7b02cd798a0f, type: 3}
+  - {fileID: 3317248675309286609, guid: 348bade773522df4dbd0cd6dc1c54b57, type: 3}
+  startingObstacleSpawnTime: 12
+  startingObstacleSpeed: 2
+  obstacleSpawnTimeFactor: 0.02
+  obstacleSpeedFactor: 0.0001
 --- !u!1 &498864219
 GameObject:
   m_ObjectHideFlags: 0
@@ -8277,7 +8280,6 @@ GameObject:
   - component: {fileID: 591309837}
   - component: {fileID: 591309836}
   - component: {fileID: 591309840}
-  - component: {fileID: 591309841}
   m_Layer: 7
   m_Name: ThirdPlayerBody
   m_TagString: Player
@@ -8449,45 +8451,6 @@ MonoBehaviour:
   heartsUI: {fileID: 843311005}
   livesUsed: 0
   isJumping: 0
---- !u!114 &591309841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 591309833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TrackedObjects:
-  - rid: 874789639745175709
-  references:
-    version: 2
-    RefIds:
-    - rid: 874789639745175709
-      type: {class: TrackedMonoBehaviourObject, ns: UnityEngine.Localization.PropertyVariants.TrackedObjects, asm: Unity.Localization}
-      data:
-        m_Target: {fileID: 591309840}
-        m_TrackedProperties:
-          items:
-          - rid: 874789639745175710
-        m_UpdateType: 0
-        m_Changed:
-          m_PersistentCalls:
-            m_Calls: []
-    - rid: 874789639745175710
-      type: {class: IntTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
-      data:
-        m_PropertyPath: maxJumps
-        m_VariantData:
-        - localeIdentifier:
-            m_Code: en
-          value: 2
-        - localeIdentifier:
-            m_Code: lt
-          value: 3
 --- !u!1 &593448078
 GameObject:
   m_ObjectHideFlags: 0
@@ -8903,7 +8866,7 @@ Transform:
   m_GameObject: {fileID: 623170426}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10, y: 1.5, z: 0}
+  m_LocalPosition: {x: 10, y: 1.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8923,10 +8886,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 8553014846927901817, guid: f80f3dda7c8322842b17a8288b42e58b, type: 3}
-  startingObstacleSpawnTime: 3
-  startingObstacleSpeed: 4
-  obstacleSpawnTimeFactor: 0.15
-  obstacleSpeedFactor: 0.2
+  startingObstacleSpawnTime: 2.5
+  startingObstacleSpeed: 7
+  obstacleSpawnTimeFactor: 0.18
+  obstacleSpeedFactor: 0.1
 --- !u!1 &641374306
 GameObject:
   m_ObjectHideFlags: 0
@@ -9567,10 +9530,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 1451194980854508684, guid: 96d8a6875e0b33042b4254dc6bc5baa2, type: 3}
-  startingObstacleSpawnTime: 3
+  startingObstacleSpawnTime: 25
   startingObstacleSpeed: 4
-  obstacleSpawnTimeFactor: 0.15
-  obstacleSpeedFactor: 0.2
+  obstacleSpawnTimeFactor: 0.16
+  obstacleSpeedFactor: 0.14
 --- !u!1 &681805208
 GameObject:
   m_ObjectHideFlags: 0
@@ -11511,7 +11474,7 @@ Transform:
   m_GameObject: {fileID: 776288743}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: 0.5, z: 0}
+  m_LocalPosition: {x: 6, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11532,10 +11495,10 @@ MonoBehaviour:
   spawnObjectPrefabs:
   - {fileID: 860704146474536765, guid: 6e3f368ace7a44c4fad1f133c97f2f77, type: 3}
   - {fileID: 454587647782085180, guid: a7b4801f13f82d947a2397d01efe8fd7, type: 3}
-  startingObstacleSpawnTime: 3
-  startingObstacleSpeed: 4
-  obstacleSpawnTimeFactor: 0.15
-  obstacleSpeedFactor: 0.2
+  startingObstacleSpawnTime: 12
+  startingObstacleSpeed: 6
+  obstacleSpawnTimeFactor: 0.05
+  obstacleSpeedFactor: 0.09
 --- !u!1 &792851626
 GameObject:
   m_ObjectHideFlags: 0
@@ -12485,7 +12448,7 @@ Transform:
   m_GameObject: {fileID: 834678163}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9, y: 1.6, z: 0}
+  m_LocalPosition: {x: 9, y: 1.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12507,9 +12470,9 @@ MonoBehaviour:
   - {fileID: 860704146474536765, guid: 6e3f368ace7a44c4fad1f133c97f2f77, type: 3}
   - {fileID: 6199188743141015973, guid: 4278b0a28a5c97040ba3ea6caa1e9c7c, type: 3}
   startingObstacleSpawnTime: 3
-  startingObstacleSpeed: 4
-  obstacleSpawnTimeFactor: 0.15
-  obstacleSpeedFactor: 0.2
+  startingObstacleSpeed: 6.5
+  obstacleSpawnTimeFactor: 0.1
+  obstacleSpeedFactor: 0.01
 --- !u!1 &843311003
 GameObject:
   m_ObjectHideFlags: 0
@@ -12806,11 +12769,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
+  - {fileID: 626464691022518557, guid: daab5ef788541234b9719fca9dc21cd6, type: 3}
+  - {fileID: 4640729795011857002, guid: 264c68637da2b0642a14d82fce98ef6b, type: 3}
   - {fileID: 3317248675309286609, guid: 348bade773522df4dbd0cd6dc1c54b57, type: 3}
-  startingObstacleSpawnTime: 1
-  startingObstacleSpeed: 4
-  obstacleSpawnTimeFactor: 0.01
-  obstacleSpeedFactor: 0.01
+  startingObstacleSpawnTime: 8.5
+  startingObstacleSpeed: 2
+  obstacleSpawnTimeFactor: 0.065
+  obstacleSpeedFactor: 0.0001
 --- !u!1 &862702130
 GameObject:
   m_ObjectHideFlags: 0
@@ -13094,8 +13059,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -530, y: -46}
-  m_SizeDelta: {x: 497.9348, y: 135}
+  m_AnchoredPosition: {x: -535, y: -34}
+  m_SizeDelta: {x: 511.34, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &896958458
 MonoBehaviour:
@@ -17806,6 +17771,7 @@ MonoBehaviour:
   firebase: {fileID: 1088347408}
   gm: {fileID: 544746394}
   mc: {fileID: 1294125404}
+  player: {fileID: 1427288039480618431}
   emailLogin: {fileID: 328121657}
   passwordLogin: {fileID: 1838618644}
   loginText: {fileID: 2067207607}
@@ -18442,7 +18408,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sunny Desert
+  m_text: Sandy Desert
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19206,10 +19172,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 8454754817216932882, guid: d50b934de168af24180bb7dba19a7a8a, type: 3}
-  startingObstacleSpawnTime: 1
-  startingObstacleSpeed: 5
-  obstacleSpawnTimeFactor: 0.015
-  obstacleSpeedFactor: 0.01
+  startingObstacleSpawnTime: 5
+  startingObstacleSpeed: 2
+  obstacleSpawnTimeFactor: 0.03
+  obstacleSpeedFactor: 0.0001
 --- !u!1 &1209066106
 GameObject:
   m_ObjectHideFlags: 0
@@ -19628,8 +19594,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1287.3191, y: -361}
-  m_SizeDelta: {x: 586.6381, y: 100}
+  m_AnchoredPosition: {x: 1278.2953, y: -361}
+  m_SizeDelta: {x: 591.5604, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1236167781
 MonoBehaviour:
@@ -19685,7 +19651,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 48
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -19716,7 +19682,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 1.640625, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -19961,8 +19927,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 688.7458, y: -388}
-  m_SizeDelta: {x: 459.4916, y: 100}
+  m_AnchoredPosition: {x: 613, y: -388}
+  m_SizeDelta: {x: 531.6825, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1249733283
 MonoBehaviour:
@@ -19984,7 +19950,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Pixel City HighScore:'
+  m_text: 'Pixel Mountain Score:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -20011,14 +19977,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
+  m_fontSize: 47.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 48
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -20049,7 +20015,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -110.21634, y: 0, z: -0.8026123, w: 0}
+  m_margin: {x: -0.28927612, y: 0, z: -0.8026123, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -20505,7 +20471,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sunny Desert
+  m_text: Sandy Desert
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -20628,11 +20594,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70f627a73b86c4499c3af02ac266f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnObjectPrefabs: []
-  startingObstacleSpawnTime: 1
-  startingObstacleSpeed: 4
-  obstacleSpawnTimeFactor: 0.01
-  obstacleSpeedFactor: 0.01
+  spawnObjectPrefabs:
+  - {fileID: 626464691022518557, guid: daab5ef788541234b9719fca9dc21cd6, type: 3}
+  - {fileID: 3230723760321511379, guid: 486a65d260a7bef44b60d949dd8b8ca3, type: 3}
+  - {fileID: 769090483790306232, guid: ea6ba0be14128d547a4c7b02cd798a0f, type: 3}
+  startingObstacleSpawnTime: 10
+  startingObstacleSpeed: 2
+  obstacleSpawnTimeFactor: 0.05
+  obstacleSpeedFactor: 0.0001
 --- !u!1 &1318866544
 GameObject:
   m_ObjectHideFlags: 0
@@ -22081,10 +22050,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 14, y: -8}
+  - {x: 52.516186, y: -8.208385}
   - {x: -17, y: -8}
   - {x: -17, y: 8}
-  - {x: 14, y: 8}
+  - {x: 52.594482, y: 7.8012686}
+  - {x: 52.523125, y: -8.237399}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -22838,8 +22808,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 584, y: 162}
-  m_SizeDelta: {x: 511.3351, y: 207}
+  m_AnchoredPosition: {x: 546, y: 152}
+  m_SizeDelta: {x: 511.3351, y: 129.276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1462386810
 MonoBehaviour:
@@ -23266,8 +23236,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 619, y: -361}
-  m_SizeDelta: {x: 600, y: 100}
+  m_AnchoredPosition: {x: 619.8203, y: -361}
+  m_SizeDelta: {x: 522.887, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1469016195
 MonoBehaviour:
@@ -23289,7 +23259,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Spooky Forrest HighScore:'
+  m_text: 'Dark Forest Score:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -23323,7 +23293,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 48
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -23354,7 +23324,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -110.21634, y: 0, z: 0, w: 0}
+  m_margin: {x: -3.5707397, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -23674,8 +23644,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 327}
-  m_SizeDelta: {x: 262.7628, y: 50}
+  m_AnchoredPosition: {x: 0.000018597, y: 327}
+  m_SizeDelta: {x: 211.6406, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1499391158
 MonoBehaviour:
@@ -23697,7 +23667,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spooky Forrest
+  m_text: Dark Forest
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -24277,8 +24247,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1293.3191, y: -343}
-  m_SizeDelta: {x: 586.6381, y: 100}
+  m_AnchoredPosition: {x: 1281.8341, y: -343}
+  m_SizeDelta: {x: 599.7638, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1531405509
 MonoBehaviour:
@@ -24334,7 +24304,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 48
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -24621,8 +24591,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22, y: 67.5}
-  m_SizeDelta: {x: 553.51, y: 135}
+  m_AnchoredPosition: {x: 6.6973, y: 58}
+  m_SizeDelta: {x: 511.34, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1555469119
 MonoBehaviour:
@@ -25081,10 +25051,10 @@ MonoBehaviour:
   - {fileID: 860704146474536765, guid: 6e3f368ace7a44c4fad1f133c97f2f77, type: 3}
   - {fileID: 7252808694372594816, guid: 7d1c52ab82e00ed4fa0b6e94f5ab4bd9, type: 3}
   - {fileID: 6199188743141015973, guid: 4278b0a28a5c97040ba3ea6caa1e9c7c, type: 3}
-  startingObstacleSpawnTime: 3
-  startingObstacleSpeed: 4
-  obstacleSpawnTimeFactor: 0.15
-  obstacleSpeedFactor: 0.2
+  startingObstacleSpawnTime: 6
+  startingObstacleSpeed: 6
+  obstacleSpawnTimeFactor: 0.09
+  obstacleSpeedFactor: 0.09
 --- !u!1 &1592269541
 GameObject:
   m_ObjectHideFlags: 0
@@ -25119,8 +25089,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1288.3083, y: -388}
-  m_SizeDelta: {x: 576.6166, y: 100}
+  m_AnchoredPosition: {x: 1278.4642, y: -388}
+  m_SizeDelta: {x: 586.4607, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1592269543
 MonoBehaviour:
@@ -25176,7 +25146,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 48
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -25278,7 +25248,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spooky Forrest
+  m_text: Dark Forest
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -28974,10 +28944,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 8454754817216932882, guid: d50b934de168af24180bb7dba19a7a8a, type: 3}
-  startingObstacleSpawnTime: 6
+  startingObstacleSpawnTime: 3
   startingObstacleSpeed: 2
-  obstacleSpawnTimeFactor: 0.015
-  obstacleSpeedFactor: 0.01
+  obstacleSpawnTimeFactor: 0.05
+  obstacleSpeedFactor: 0.0001
 --- !u!1 &1916565170
 GameObject:
   m_ObjectHideFlags: 0
@@ -29526,7 +29496,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 693, y: -620}
+  m_AnchoredPosition: {x: 608, y: -620}
   m_SizeDelta: {x: 544.3823, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1922916148
@@ -29583,7 +29553,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 48
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -29815,8 +29785,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1284.6381, y: -620}
-  m_SizeDelta: {x: 573.2761, y: 100}
+  m_AnchoredPosition: {x: 1284.0239, y: -620}
+  m_SizeDelta: {x: 591.324, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1943169155
 MonoBehaviour:
@@ -29872,7 +29842,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 48
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -32120,10 +32090,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 1321837915353031818, guid: 3ac136b79497e6f4c96dd649b6d9b23f, type: 3}
-  startingObstacleSpawnTime: 3
-  startingObstacleSpeed: 4
-  obstacleSpawnTimeFactor: 0.15
-  obstacleSpeedFactor: 0.2
+  startingObstacleSpawnTime: 15
+  startingObstacleSpeed: 5
+  obstacleSpawnTimeFactor: 0.17
+  obstacleSpeedFactor: 0.11
 --- !u!1 &2052444371
 GameObject:
   m_ObjectHideFlags: 0
@@ -33049,7 +33019,7 @@ Transform:
   m_GameObject: {fileID: 2093506164}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5, y: 0.5, z: 0}
+  m_LocalPosition: {x: 4, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33069,10 +33039,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 1227845991043812912, guid: b8f2b7bcb88bff748bb3e4d19c3e1c83, type: 3}
-  startingObstacleSpawnTime: 3
-  startingObstacleSpeed: 4
-  obstacleSpawnTimeFactor: 0.15
-  obstacleSpeedFactor: 0.2
+  startingObstacleSpawnTime: 11
+  startingObstacleSpeed: 7
+  obstacleSpawnTimeFactor: 0.135
+  obstacleSpeedFactor: 0.125
 --- !u!1 &2100013327
 GameObject:
   m_ObjectHideFlags: 0
