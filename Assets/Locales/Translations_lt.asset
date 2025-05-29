@@ -222,15 +222,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1439532063948800
-    m_Localized: "Savyb\u0117: Vienas pa\u0161okimas\nGyvyb\u0117s: 3"
+    m_Localized: "Pa\u0161okimai: 1\nGyvyb\u0117s: 3"
     m_Metadata:
       m_Items: []
   - m_Id: 1440051159400448
-    m_Localized: "Savyb\u0117: Du pa\u0161okimai\nGyvyb\u0117s: 2"
+    m_Localized: "Pa\u0161okimai: 2\nGyvyb\u0117s: 2"
     m_Metadata:
       m_Items: []
   - m_Id: 1440104808742912
-    m_Localized: "Savyb\u0117: Trys pa\u0161okimai\nGyvyb\u0117s: 1"
+    m_Localized: "Pa\u0161okimai: 3\nGyvyb\u0117s: 1"
     m_Metadata:
       m_Items: []
   references:

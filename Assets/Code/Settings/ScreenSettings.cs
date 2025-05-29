@@ -21,7 +21,8 @@ public class ScreenSettings : MonoBehaviour {
     public void FillResolutionDropdown() {
         //Leidžiamos rezoliucijos
         List<Vector2Int> allowedResolutions = new() {
-            new(800, 1280), new(1366, 768), new(1440, 900), new(1600, 900), new(1680, 1050),
+            new(720, 480), new(800, 600), new(1024, 768), new(1280, 960), new(1280, 1024),
+            new(800, 1280),new(1280, 720), new(1366, 768), new(1440, 900), new(1600, 900), new(1680, 1050),
             new(1920, 1200), new(1920, 1080), new(2560, 1600), new(2560, 1440), new(3840, 2160)
         };
 

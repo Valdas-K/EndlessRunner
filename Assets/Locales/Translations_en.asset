@@ -219,19 +219,19 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1439532063948800
-    m_Localized: 'Ability: Single Jump
+    m_Localized: 'Jumps: 1
 
       Lifes: 3'
     m_Metadata:
       m_Items: []
   - m_Id: 1440051159400448
-    m_Localized: 'Ability: Double Jump
+    m_Localized: 'Jumps: 2
 
       Lifes: 2'
     m_Metadata:
       m_Items: []
   - m_Id: 1440104808742912
-    m_Localized: 'Ability: Triple Jump
+    m_Localized: 'Jumps: 3
 
       Lifes: 1'
     m_Metadata:
