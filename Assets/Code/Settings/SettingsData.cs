@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using UnityEngine.Localization.Settings;
+﻿using UnityEngine; using UnityEngine.Localization.Settings;
 
 public class SettingsData : MonoBehaviour {
     //Nustatymų valdymas ir garso lygis
@@ -30,7 +29,6 @@ public class SettingsData : MonoBehaviour {
 
         //Paskutinis naudotas veikėjas
         PlayerPrefs.SetInt("PlayerPicked", settings.player.playerPicked);
-
         PlayerPrefs.Save();
     }
 

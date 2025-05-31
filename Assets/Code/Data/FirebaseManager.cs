@@ -1,8 +1,5 @@
-﻿using UnityEngine;
-using Firebase;
-using Firebase.Auth;
-using Firebase.Database;
-using TMPro;
+﻿using UnityEngine; using Firebase; using Firebase.Auth;
+using Firebase.Database; using TMPro;
 
 public class FirebaseManager : MonoBehaviour {
     //Duomenų bazės statusas, autentifikacija, sujungimas ir vartotojas

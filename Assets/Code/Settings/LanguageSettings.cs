@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using UnityEngine.Localization.Settings;
+﻿using UnityEngine; using UnityEngine.Localization.Settings;
 
 public class LanguageSettings : MonoBehaviour {
     public string languageCode;

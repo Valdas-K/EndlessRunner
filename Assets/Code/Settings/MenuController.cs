@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using UnityEngine;
-using TMPro;
-using UnityEngine.Localization.Settings;
+﻿using System.Collections; using UnityEngine;
+using TMPro; using UnityEngine.Localization.Settings;
 using System.Diagnostics;
 
 public class MenuController : MonoBehaviour {
@@ -92,26 +90,14 @@ public class MenuController : MonoBehaviour {
     public void ClickShopButton() {
         //Parduotuvės mygtukas, patikrinama, ar yra atrakinti veikėjai ir atnaujinamas tekstas
         if (LocalizationSettings.SelectedLocale.ToString() == "Lithuanian (lt)") {
-            if (gm.data.frogBodyOwned) {
-                shop.djButtonText.text = "Pasirinkti";
-            }
-            if (gm.data.thirdPlayerBodyOwned) {
-                shop.tpButtonText.text = "Pasirinkti";
-            }
+            if (gm.data.frogBodyOwned) shop.djButtonText.text = "Pasirinkti";
+            if (gm.data.thirdPlayerBodyOwned) shop.tpButtonText.text = "Pasirinkti";
         } else {
-            if (gm.data.frogBodyOwned) {
-                shop.djButtonText.text = "Select";
-            }
-            if (gm.data.thirdPlayerBodyOwned) {
-                shop.tpButtonText.text = "Select";
-            }
+            if (gm.data.frogBodyOwned) shop.djButtonText.text = "Select";
+            if (gm.data.thirdPlayerBodyOwned) shop.tpButtonText.text = "Select";
         }
-        if(gm.data.frogBodyOwned == false) {
-            shop.djButtonText.text = "10C";
-        }
-        if (gm.data.thirdPlayerBodyOwned == false) {
-            shop.tpButtonText.text = "50C";
-        }
+        if (gm.data.frogBodyOwned == false) shop.djButtonText.text = "10C";
+        if (gm.data.thirdPlayerBodyOwned == false) shop.tpButtonText.text = "50C";
         UpdateCoinsUI();
         ChangeMenu(MenuType.Shop);
     }
@@ -125,9 +111,7 @@ public class MenuController : MonoBehaviour {
         //Pradinio meniu mygtukas, kurį paspaudus yra išsaugomi visi rezultatai
         gm.SaveData();
         settings.SaveSettings();
-        if (firebaseManager.isLoggedIn) {
-            firebaseManager.SaveDataButton();
-        }
+        if (firebaseManager.isLoggedIn) firebaseManager.SaveDataButton();
         ChangeMenu(MenuType.Main);
     }
 

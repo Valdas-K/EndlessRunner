@@ -12,12 +12,8 @@ public class ObstacleSound : MonoBehaviour {
         soundTimer += Time.deltaTime;
         if (soundTimer >= soundTime) {
             //Paleidžiamas kliūties garsas ir laikmatis atstatomas į 0
-            PlaySound();
+            sound.Play();
             soundTimer = 0f;
         }
-    }
-    public void PlaySound() {
-        //Paleidžiamas kliūties garsas
-        sound.Play();
     }
 }

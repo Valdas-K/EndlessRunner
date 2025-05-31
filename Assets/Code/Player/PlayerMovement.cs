@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using TMPro;
-using UnityEngine;
-using UnityEngine.Localization.Settings;
+﻿using System.Collections; using UnityEngine;
+using TMPro; using UnityEngine.Localization.Settings;
 
 public class PlayerMovement : MonoBehaviour {
     //Veikėjo pašokimų jėga, kiekis, masė ir gyvybių kiekis
@@ -39,31 +37,23 @@ public class PlayerMovement : MonoBehaviour {
 
     public void Update() {
         //Žaidimo metu tikrinama: 
-        if (player.transform.position.x != -5f || player.transform.position.y > 10f || player.transform.position.y < -6f) {
-            //Jei žaidėjas iškrenta iš žaidimo, jo pozicija yra atstatoma
-            player.transform.position = new Vector3(-5f, 4.5f, 0f);
-        }
 
+        //Jei žaidėjas iškrenta iš žaidimo, jo pozicija yra atstatoma
+        if (player.transform.position.x != -5f || player.transform.position.y > 10f || player.transform.position.y < -6f) 
+            player.transform.position = new Vector3(-5f, 4.5f, 0f);
+        
         if (!PauseGame.gameIsPaused) {
             //Jei žaidimas nėra sutabdytas, veikia valdymas
             rb.mass = mass;
-            if (isGrounded && Input.GetKeyDown(input.jumpKey)) {
-                //Pašokimas
-                PlayerJump();
-            }
-            if (!isGrounded && jumps < maxJumps && Input.GetKeyDown(input.jumpKey)) {
-                //Sekantys pašokimai
-                PlayerDoubleJump();
-            }
-            if (!isGrounded && Input.GetKeyUp(input.jumpKey)) {
-                //Kritimas
-                PlayerFall();
-            }
-        }
 
-        if (!GameManager.Instance.isPlaying) {
-            ResetHeartsUI();
+            //Pašokimas
+            if (isGrounded && Input.GetKeyDown(input.jumpKey)) PlayerJump();
+            //Sekantys pašokimai
+            if (!isGrounded && jumps < maxJumps && Input.GetKeyDown(input.jumpKey)) PlayerDoubleJump();
+            //Kritimas
+            if (!isGrounded && Input.GetKeyUp(input.jumpKey)) PlayerFall();
         }
+        if (!GameManager.Instance.isPlaying) ResetHeartsUI();
     }
 
     private void LifeLost() {
@@ -123,11 +113,9 @@ public class PlayerMovement : MonoBehaviour {
             GameManager.Instance.CoinCollected();
             mc.PlayCoinSound();
             other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        } 
-        if (other.transform.CompareTag("PowerUp")) {
-            //Palietus pastiprinimą, yra paleižiamas įvykis
-            GameManager.Instance.CoinCollected();
         }
+        //Palietus pastiprinimą, yra paleižiamas įvykis
+        if (other.transform.CompareTag("PowerUp")) GameManager.Instance.CoinCollected();
     }
 
     private void OnCollisionExit2D(Collision2D other) {

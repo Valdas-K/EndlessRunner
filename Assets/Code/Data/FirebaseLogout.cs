@@ -1,18 +1,18 @@
-﻿using Firebase.Database;
-using UnityEngine;
+﻿using Firebase.Database; using UnityEngine;
 
 public class FirebaseLogout : MonoBehaviour {
     [SerializeField] FirebaseManager firebase;
     [SerializeField] GameManager gm;
     [SerializeField] SettingsController settings;
     [SerializeField] MenuController menu;
+
     public void DeleteAccount() {
         //Šalinama vartotojo paskyra iš autentifikavimo
         Firebase.Auth.FirebaseUser user = firebase.auth.CurrentUser;
         if (user != null) {
             user.DeleteAsync().ContinueWith(task => {
                 if (task.IsCanceled || task.IsFaulted) {
-                    Debug.LogError("DeleteAsync encountered an error: " + task.Exception);
+                    firebase.ui.UpdateHintText(19);
                     return;
                 }
             });
@@ -20,12 +20,9 @@ public class FirebaseLogout : MonoBehaviour {
             //Šalinamas vartotojas iš duomenų bazės, ištrinami visi duomenys
             FirebaseDatabase.DefaultInstance.GetReference("users").Child(firebase.User.UserId).RemoveValueAsync().ContinueWith(task => {
                 if (task.IsFaulted || task.IsCanceled) {
-                    Debug.LogError("Failed to delete user data: " + task.Exception);
-                } else {
-                    Debug.Log("User data deleted from Realtime Database.");
+                    firebase.ui.UpdateHintText(19);
                 }
             });
-
             LogOutAccount();
         }
     }

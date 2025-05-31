@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using TMPro;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using System.Collections.Generic; using System.Linq;
+using TMPro; using UnityEngine; using UnityEngine.UI;
 
 public class ScreenSettings : MonoBehaviour {
     //Visos galimos ekrano rezoliucijos, naudojamos rezoliucijos ir laukelio užpildymas
@@ -35,9 +32,7 @@ public class ScreenSettings : MonoBehaviour {
         //Gaunamos visos tinkamos rezoliucijos
         for (int i = 0; i < allResolutions.Length; i++) {
             Vector2Int tempRes = new (allResolutions[i].width, allResolutions[i].height);
-            if (allowedResolutions.Contains(tempRes) && !validRes.Contains(tempRes)) {
-                validRes.Add(tempRes);
-            }
+            if (allowedResolutions.Contains(tempRes) && !validRes.Contains(tempRes)) validRes.Add(tempRes);
         }
 
         //Rezoliucijos paverčiamos į teksto tipą, kad būtų galima atvaizduoti

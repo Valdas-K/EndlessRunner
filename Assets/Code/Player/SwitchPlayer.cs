@@ -1,9 +1,6 @@
-﻿using System.Threading.Tasks;
-using TMPro;
-using UnityEngine;
+﻿using System.Threading.Tasks; using TMPro;
+using UnityEngine; using UnityEngine.UI;
 using UnityEngine.Localization.Settings;
-using UnityEngine.UI;
-
 //LJ - Long Jump (Default), DJ - Double Jump (Frog), TP - Third Player
 
 public class SwitchPlayer : MonoBehaviour {

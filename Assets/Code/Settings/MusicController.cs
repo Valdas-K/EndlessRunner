@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using UnityEngine.Audio;
-using UnityEngine.UI;
+﻿using UnityEngine; using UnityEngine.Audio; using UnityEngine.UI;
 
 public class MusicController : MonoBehaviour {
     //Meniu ir lygių muzika

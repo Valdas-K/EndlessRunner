@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine; using UnityEngine.UI;
 
 public class ButtonController : MonoBehaviour {
     //Foninės nuotraukos
@@ -73,21 +72,11 @@ public class ButtonController : MonoBehaviour {
     private void ResetPicture(GameObject bg, int layer) {
         //Perkeliama reikiama nuotrauka
         float imageX = 0f;
-        if (layer == 0) {
-            imageX = ((bg == layer0_0) ? layer0_1 : layer0_0).transform.localPosition.x + imageSize;
-        }
-        if (layer == 1) {
-            imageX = ((bg == layer1_0) ? layer1_1 : layer1_0).transform.localPosition.x + imageSize;
-        }
-        if (layer == 2) {
-            imageX = ((bg == layer2_0) ? layer2_1 : layer2_0).transform.localPosition.x + imageSize;
-        }
-        if (layer == 3) {
-            imageX = ((bg == layer3_0) ? layer3_1 : layer3_0).transform.localPosition.x + imageSize;
-        }
-        if (layer == 4) {
-            imageX = ((bg == layer4_0) ? layer4_1 : layer4_0).transform.localPosition.x + imageSize;
-        }
+        if (layer == 0) imageX = ((bg == layer0_0) ? layer0_1 : layer0_0).transform.localPosition.x + imageSize;
+        if (layer == 1) imageX = ((bg == layer1_0) ? layer1_1 : layer1_0).transform.localPosition.x + imageSize;
+        if (layer == 2) imageX = ((bg == layer2_0) ? layer2_1 : layer2_0).transform.localPosition.x + imageSize;
+        if (layer == 3) imageX = ((bg == layer3_0) ? layer3_1 : layer3_0).transform.localPosition.x + imageSize;
+        if (layer == 4) imageX = ((bg == layer4_0) ? layer4_1 : layer4_0).transform.localPosition.x + imageSize;
         bg.transform.localPosition = new Vector3(imageX, 0f, 0f);
     }
 
@@ -127,55 +116,19 @@ public class ButtonController : MonoBehaviour {
         switch (index) {
             case 0:
                 level1.SetActive(true);
-                layer0_0 = sunnyDessert[0];
-                layer0_1 = sunnyDessert[1];
-                layer1_0 = sunnyDessert[2];
-                layer1_1 = sunnyDessert[3];
-                layer2_0 = sunnyDessert[4];
-                layer2_1 = sunnyDessert[5];
-                layer3_0 = sunnyDessert[6];
-                layer3_1 = sunnyDessert[7];
-                layer4_0 = sunnyDessert[8];
-                layer4_1 = sunnyDessert[9];
+                LoadBackground(sunnyDessert);
                 break;
             case 1:
                 level2.SetActive(true);
-                layer0_0 = spookyForrest[0];
-                layer0_1 = spookyForrest[1];
-                layer1_0 = spookyForrest[2];
-                layer1_1 = spookyForrest[3];
-                layer2_0 = spookyForrest[4];
-                layer2_1 = spookyForrest[5];
-                layer3_0 = spookyForrest[6];
-                layer3_1 = spookyForrest[7];
-                layer4_0 = spookyForrest[8];
-                layer4_1 = spookyForrest[9];
+                LoadBackground(spookyForrest);
                 break;
             case 2:
                 level3.SetActive(true);
-                layer0_0 = pixelMountain[0];
-                layer0_1 = pixelMountain[1];
-                layer1_0 = pixelMountain[2];
-                layer1_1 = pixelMountain[3];
-                layer2_0 = pixelMountain[4];
-                layer2_1 = pixelMountain[5];
-                layer3_0 = pixelMountain[6];
-                layer3_1 = pixelMountain[7];
-                layer4_0 = pixelMountain[8];
-                layer4_1 = pixelMountain[9];
+                LoadBackground(pixelMountain);
                 break;
             default:
-                level2.SetActive(true);
-                layer0_0 = sunnyDessert[0];
-                layer0_1 = sunnyDessert[1];
-                layer1_0 = sunnyDessert[2];
-                layer1_1 = sunnyDessert[3];
-                layer2_0 = sunnyDessert[4];
-                layer2_1 = sunnyDessert[5];
-                layer3_0 = sunnyDessert[6];
-                layer3_1 = sunnyDessert[7];
-                layer4_0 = sunnyDessert[8];
-                layer4_1 = sunnyDessert[9];
+                level1.SetActive(true);
+                LoadBackground(sunnyDessert);
                 break;
         }
 
@@ -190,5 +143,18 @@ public class ButtonController : MonoBehaviour {
         layer3_1.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(-scrollSpeed[3], 0);
         layer4_0.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(-scrollSpeed[4], 0);
         layer4_1.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(-scrollSpeed[4], 0);
+    }
+
+    public void LoadBackground(GameObject[] loadedBackground) {
+        layer0_0 = loadedBackground[0];
+        layer0_1 = loadedBackground[1];
+        layer1_0 = loadedBackground[2];
+        layer1_1 = loadedBackground[3];
+        layer2_0 = loadedBackground[4];
+        layer2_1 = loadedBackground[5];
+        layer3_0 = loadedBackground[6];
+        layer3_1 = loadedBackground[7];
+        layer4_0 = loadedBackground[8];
+        layer4_1 = loadedBackground[9];
     }
 }

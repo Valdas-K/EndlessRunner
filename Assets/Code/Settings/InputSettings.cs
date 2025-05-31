@@ -1,5 +1,4 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using TMPro; using UnityEngine;
 
 public class InputSettings : MonoBehaviour {
     //Mygtukų komponentai
@@ -16,10 +15,8 @@ public class InputSettings : MonoBehaviour {
 
     private void Update() {
         //Tikrinama, ar keičiamas mygtukas
-        if (waitingForInput) {
-            //Jei taip, paleidžiama mygtuko priskyrimo funkcija
-            DetectNewKey();
-        }
+        //Jei taip, paleidžiama mygtuko priskyrimo funkcija
+        if (waitingForInput) DetectNewKey();
     }
 
     public void StartKeyChange(string action) {
@@ -35,12 +32,8 @@ public class InputSettings : MonoBehaviour {
             //Jei naujas mygtukas nėra priskirtas kitam veiksmui, jis yra atnaujinamas
             if (key != KeyCode.None && key != jumpKey && key != pauseKey) {
                 //Atnaujinamas reikiamas mygtukas
-                if (actionToChange == "Jump") {
-                    jumpKey = key;
-                }
-                if (actionToChange == "Pause") {
-                    pauseKey = key;
-                }
+                if (actionToChange == "Jump") jumpKey = key;
+                if (actionToChange == "Pause") pauseKey = key;
             }
             //Atnaujinamas tekstas ir baigiamas keitimas
             waitingForInput = false;
@@ -51,9 +44,7 @@ public class InputSettings : MonoBehaviour {
     private KeyCode GetPressedKey() {
         //Gaunamas paspaustas naujas mygtukas
         foreach (KeyCode keyCode in System.Enum.GetValues(typeof(KeyCode))) {
-            if (Input.GetKeyDown(keyCode)) {
-                return keyCode;
-            }
+            if (Input.GetKeyDown(keyCode)) return keyCode;
         }
         return KeyCode.None;
     }

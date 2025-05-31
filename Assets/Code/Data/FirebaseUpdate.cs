@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using UnityEngine;
-using Firebase.Auth;
-using System.Threading.Tasks;
+﻿using System.Collections; using UnityEngine;
+using Firebase.Auth; using System.Threading.Tasks;
 
 public class FirebaseUpdate : MonoBehaviour {
     [SerializeField] FirebaseManager firebase;
@@ -15,7 +13,6 @@ public class FirebaseUpdate : MonoBehaviour {
 
         Task DBTask = firebase.DBreference.Child("users").Child(firebase.User.UserId).Child("username").SetValueAsync(firebase.usernameField.text); 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
-
         firebase.usernameField.text = firebase.User.DisplayName;
     }
 

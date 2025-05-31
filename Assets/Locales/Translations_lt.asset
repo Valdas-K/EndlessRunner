@@ -198,7 +198,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 56048514793472
-    m_Localized: 'SandyDesert rezultatas:'
+    m_Localized: 'Sandy Desert rezultatas:'
     m_Metadata:
       m_Items: []
   - m_Id: 56103317569536
@@ -231,6 +231,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1440104808742912
     m_Localized: "Pa\u0161okimai: 3\nGyvyb\u0117s: 1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3231668828667904
+    m_Localized: 
     m_Metadata:
       m_Items: []
   references:

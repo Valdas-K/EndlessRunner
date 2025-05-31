@@ -1,13 +1,6 @@
-﻿using System.Collections;
-using UnityEngine;
-using Firebase;
-using Firebase.Auth;
-using Firebase.Database;
-using System.Threading.Tasks;
-using TMPro;
-using UnityEngine.UI;
-using System;
-using UnityEngine.Localization.Settings;
+﻿using System.Collections; using UnityEngine; using Firebase;
+using Firebase.Database; using System.Threading.Tasks;
+using TMPro; using UnityEngine.UI; using System; using Firebase.Auth;
 
 public class FirebaseLogin : MonoBehaviour {
     [SerializeField] FirebaseManager firebase;
@@ -30,19 +23,22 @@ public class FirebaseLogin : MonoBehaviour {
             AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
             switch (errorCode) {
                 case AuthError.MissingEmail:
-                    UpdateLoginText(1);
+                    firebase.ui.UpdateHintText(1);
                     break;
                 case AuthError.MissingPassword:
-                    UpdateLoginText(2);
+                    firebase.ui.UpdateHintText(2);
                     break;
                 case AuthError.WrongPassword:
-                    UpdateLoginText(3);
+                    firebase.ui.UpdateHintText(3);
                     break;
                 case AuthError.InvalidEmail:
-                    UpdateLoginText(4);
+                    firebase.ui.UpdateHintText(4);
                     break;
                 case AuthError.UserNotFound:
-                    UpdateLoginText(5);
+                    firebase.ui.UpdateHintText(5);
+                    break;
+                case AuthError.CredentialAlreadyInUse:
+                    firebase.ui.UpdateHintText(7);
                     break;
             }
             firebase.ui.ClearLoginFields();
@@ -52,14 +48,15 @@ public class FirebaseLogin : MonoBehaviour {
             firebase.User = LoginTask.Result.User;
             firebase.usernameField.text = firebase.User.DisplayName;
             firebase.isLoggedIn = true;
-            UpdateLoginText(6);
+            firebase.ui.UpdateHintText(6);
             StartCoroutine(LoadUserData());
         }
     }
 
     public IEnumerator LoadUserData() {
         //Užkraunami vartotojo duomenys
-        yield return new WaitForSecondsRealtime(0.4f);
+        yield return new WaitForSecondsRealtime(0.3f);
+        EnableLoginButton();
         Task<DataSnapshot> DBTask = firebase.DBreference.Child("users").Child(firebase.User.UserId).GetValueAsync();
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
         if (DBTask.Result.Value == null) {
@@ -67,23 +64,15 @@ public class FirebaseLogin : MonoBehaviour {
         } else {
             firebase.usernameField.text = firebase.User.DisplayName;
             DataSnapshot snapshot = DBTask.Result;
-            string l1 = snapshot.Child("highscore1").Value.ToString();
-            gm.data.level1 = int.Parse(l1);
-            string l2 = snapshot.Child("highscore2").Value.ToString();
-            gm.data.level2 = int.Parse(l2);
-            string l3 = snapshot.Child("highscore3").Value.ToString();
-            gm.data.level3 = int.Parse(l3);
-            string c = snapshot.Child("coins").Value.ToString();
-            gm.data.coins = int.Parse(c);
-            string c1 = snapshot.Child("characters1").Value.ToString();
-            gm.data.frogBodyOwned = Boolean.Parse(c1);
-            string c2 = snapshot.Child("characters2").Value.ToString();
-            gm.data.thirdPlayerBodyOwned = Boolean.Parse(c2);
-
+            gm.data.level1 = int.Parse(snapshot.Child("highscore1").Value.ToString());
+            gm.data.level2 = int.Parse(snapshot.Child("highscore2").Value.ToString());
+            gm.data.level3 = int.Parse(snapshot.Child("highscore3").Value.ToString());
+            gm.data.coins = int.Parse(snapshot.Child("coins").Value.ToString());
+            gm.data.frogBodyOwned = Boolean.Parse(snapshot.Child("characters1").Value.ToString());
+            gm.data.thirdPlayerBodyOwned = Boolean.Parse(snapshot.Child("characters2").Value.ToString());
             player.ChangePlayer(0);
             gm.SaveData();
             firebase.SaveDataButton();
-
         }
         mc.ClickProfileButton();
         firebase.ui.ClearLoginFields();
@@ -92,29 +81,5 @@ public class FirebaseLogin : MonoBehaviour {
     public void EnableLoginButton() {
         loginButton.enabled = true;
         loginText.text = "";
-    }
-
-    public void UpdateLoginText(int code) {
-        if (LocalizationSettings.SelectedLocale.ToString() == "Lithuanian (lt)") {
-            loginText.text = code switch {
-                1 => "Trūksta el. pašto!",
-                2 => "Trūksta slaptažodžio!",
-                3 => "Neteisingas slaptažodis!",
-                4 => "Neteisingas el. paštas!",
-                5 => "Paskyra neegzistuoja!",
-                6 => "Prisijungta sėkmingai!",
-                _ => "Prisijungti nepavyko!",
-            };
-        } else {
-            loginText.text = code switch {
-                1 => "Missing Email!",
-                2 => "Missing Password!",
-                3 => "Wrong Password!",
-                4 => "Invalid Email!",
-                5 => "Account does not exist!",
-                6 => "Logged In!",
-                _ => "Login Failed!",
-            };
-        }
     }
 }
