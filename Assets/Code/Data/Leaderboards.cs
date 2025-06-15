@@ -16,7 +16,7 @@ public class Leaderboards : MonoBehaviour {
         //Atnaujinami geriausi visų lygių rezultatai
         for(int i = 1; i <= 3; i++) {
             int index = i;
-            firebaseManager.DBreference.Child("users").OrderByChild("highscore" + index).LimitToFirst(10).GetValueAsync().ContinueWith(task => {
+            firebaseManager.DBreference.Child("users").OrderByChild("highscore" + index).LimitToLast(10).GetValueAsync().ContinueWith(task => {
                 if (task.IsCompleted) {
                     //Neapdoroti duomenys
                     Dictionary<string, object> unsortedLeaderboard = (Dictionary<string, object>)task.Result.Value;

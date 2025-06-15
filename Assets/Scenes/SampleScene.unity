@@ -4426,8 +4426,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -522, y: 277}
-  m_SizeDelta: {x: 314.0627, y: 50}
+  m_AnchoredPosition: {x: 518, y: 277}
+  m_SizeDelta: {x: 343.3167, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &294958164
 MonoBehaviour:
@@ -4530,7 +4530,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '# Username Score'
+  m_text: '#. Username - Score'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9598,9 +9598,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 1451194980854508684, guid: 96d8a6875e0b33042b4254dc6bc5baa2, type: 3}
-  startingObstacleSpawnTime: 26
-  startingObstacleSpeed: 3.5
-  obstacleSpawnTimeFactor: 0.12
+  startingObstacleSpawnTime: 22
+  startingObstacleSpeed: 4
+  obstacleSpawnTimeFactor: 0.13
   obstacleSpeedFactor: 0.11
 --- !u!1 &681805208
 GameObject:
@@ -11218,7 +11218,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 511, y: -22.143}
+  m_AnchoredPosition: {x: 511, y: -22.141}
   m_SizeDelta: {x: 452.73, y: 516.7117}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &767372729
@@ -20840,7 +20840,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -522, y: 277}
-  m_SizeDelta: {x: 314.0627, y: 50}
+  m_SizeDelta: {x: 346.1018, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345308481
 MonoBehaviour:
@@ -20931,7 +20931,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '# Username Score'
+  m_text: '#. Username - Score'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -20996,7 +20996,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 1.3925781, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -21159,7 +21159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -520, y: -22.142}
+  m_AnchoredPosition: {x: -525, y: -22.142}
   m_SizeDelta: {x: 452.73, y: 516.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1360573410
@@ -24318,8 +24318,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -522, y: 277}
-  m_SizeDelta: {x: 314.0627, y: 50}
+  m_AnchoredPosition: {x: -0.000020027, y: 277}
+  m_SizeDelta: {x: 337.7444, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1549961495
 MonoBehaviour:
@@ -24410,7 +24410,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '# Username Score'
+  m_text: '#. Username - Score'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -31967,10 +31967,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 1321837915353031818, guid: 3ac136b79497e6f4c96dd649b6d9b23f, type: 3}
-  startingObstacleSpawnTime: 16
-  startingObstacleSpeed: 4.5
-  obstacleSpawnTimeFactor: 0.13
-  obstacleSpeedFactor: 0.09
+  startingObstacleSpawnTime: 14
+  startingObstacleSpeed: 5
+  obstacleSpawnTimeFactor: 0.15
+  obstacleSpeedFactor: 0.13
 --- !u!1 &2052444371
 GameObject:
   m_ObjectHideFlags: 0
