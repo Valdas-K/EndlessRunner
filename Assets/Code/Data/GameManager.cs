@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1.0f;
         for (int i = 0; i < playerBody.Length; i++) {
             playerBody[i].transform.localScale = Vector3.one;
-            playerBody[i].transform.position = new Vector3(-5f, 3f, 0f);
+            playerBody[i].transform.position = new Vector3(-4.5f, 3.5f, 0f);
         }
 
         //Sustabdoma muzika ir paleidžiamas žaidimo pabaigos garsas

@@ -36,16 +36,14 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public void Update() {
-        //Žaidimo metu tikrinama: 
-
+        //Žaidimo metu tikrinama:
         //Jei žaidėjas iškrenta iš žaidimo, jo pozicija yra atstatoma
-        if (player.transform.position.x != -5f || player.transform.position.y > 10f || player.transform.position.y < -6f) 
-            player.transform.position = new Vector3(-5f, 4.5f, 0f);
+        if (player.transform.position.x != -4.5f || player.transform.position.y > 10f || player.transform.position.y < -6f) 
+            player.transform.position = new Vector3(-4.5f, 4.5f, 0f);
         
         if (!PauseGame.gameIsPaused) {
             //Jei žaidimas nėra sutabdytas, veikia valdymas
             rb.mass = mass;
-
             //Pašokimas
             if (isGrounded && Input.GetKeyDown(input.jumpKey)) PlayerJump();
             //Sekantys pašokimai

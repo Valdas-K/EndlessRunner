@@ -573,7 +573,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: 0.6
+          value: 0
         - localeIdentifier:
             m_Code: lt
           value: 0
@@ -584,7 +584,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: lt
           value: 0
@@ -623,7 +623,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 740, y: -226}
+  m_AnchoredPosition: {x: 650, y: -226}
   m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &48649915
@@ -1824,8 +1824,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -564.89, y: -753.75}
-  m_SizeDelta: {x: 514.478, y: 206.5}
+  m_AnchoredPosition: {x: -559, y: -249.36}
+  m_SizeDelta: {x: 413.8243, y: 277.7286}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &132367031
 MonoBehaviour:
@@ -1847,10 +1847,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Character, Pickup, Obstacle Art - Pixel Frog\nCoin Art - Goldmetal\nCursor
-    - Th\u1E53th\nBackground - CPasteGame\nIcons - SHarmiD\nMusic - Monsieur Fred\nSound
-    Effects - Bright Shining Star\nSound Effects - Dustyroom\nCoding, Game Design
-    - Valdas"
+  m_text: "Character Graphics - Pixel Frog\nBackground Graphics - CPasteGame\nAdditional
+    Graphics - Goldmetal\nAdditional Graphics - Th\u1E53th\nIcons - MR POLY\nMusic
+    - Monsieur Fred\nAdditional Music - Chris Kohler\nSound Effects - Bright Shining
+    Star\nSound Effects - Dustyroom\nCoding, Game Design - Valdas"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1877,7 +1877,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.25
+  m_fontSize: 21.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1915,7 +1915,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -51.094604, w: -129.01361}
+  m_margin: {x: 0, y: 0, z: 2.0723267, w: 2.132141}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2489,7 +2489,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 32
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4234,11 +4234,11 @@ MonoBehaviour:
   level2: {fileID: 584249153}
   level3: {fileID: 1973234893}
   scrollSpeed:
-  - 0.2
+  - 0.07
+  - 0.25
   - 0.5
-  - 0.7
-  - 1
-  - 1.9
+  - 0.9
+  - 2.5
   imageSize: 18.5
   levelContainer: {fileID: 811386133}
   clickSound: {fileID: 1364697930}
@@ -6694,8 +6694,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 460, y: -353}
-  m_SizeDelta: {x: 534.01, y: 135}
+  m_AnchoredPosition: {x: 570.1166, y: -143.5}
+  m_SizeDelta: {x: 534.01, y: 102.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &421609317
 MonoBehaviour:
@@ -6876,7 +6876,7 @@ Transform:
   m_GameObject: {fileID: 427346972}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5, y: 0, z: 0}
+  m_LocalPosition: {x: 6.5, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7927,8 +7927,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 611, y: -135}
-  m_SizeDelta: {x: 534.0154, y: 135}
+  m_AnchoredPosition: {x: 570.1166, y: -32.5}
+  m_SizeDelta: {x: 534.0154, y: 102.225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &534194736
 MonoBehaviour:
@@ -8404,7 +8404,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.0040879846}
+  m_Offset: {x: 0.0062081814, y: -0.017957449}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -8414,7 +8414,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.22390747, y: 0.28491628}
+  m_Size: {x: 0.45981455, y: 0.6189203}
   m_EdgeRadius: 0
 --- !u!95 &591309837
 Animator:
@@ -8505,8 +8505,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ebfe51f5186a349a5faa56a9df4c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 4
-  secondJumpForce: 14
+  jumpForce: 5
+  secondJumpForce: 10
   maxJumps: 3
   mass: 2
   lives: 1
@@ -8954,10 +8954,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 8553014846927901817, guid: f80f3dda7c8322842b17a8288b42e58b, type: 3}
-  startingObstacleSpawnTime: 3
-  startingObstacleSpeed: 7
-  obstacleSpawnTimeFactor: 0.18
-  obstacleSpeedFactor: 0.1
+  startingObstacleSpawnTime: 5
+  startingObstacleSpeed: 5
+  obstacleSpawnTimeFactor: 0.11
+  obstacleSpeedFactor: 0.17
 --- !u!1 &641374306
 GameObject:
   m_ObjectHideFlags: 0
@@ -9149,7 +9149,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ability: Triple Jump
+  m_text: 'Jumps: 3
 
     Lifes: 1'
   m_isRightToLeft: 0
@@ -9178,7 +9178,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.35
+  m_fontSize: 52.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9598,10 +9598,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 1451194980854508684, guid: 96d8a6875e0b33042b4254dc6bc5baa2, type: 3}
-  startingObstacleSpawnTime: 25
-  startingObstacleSpeed: 4
-  obstacleSpawnTimeFactor: 0.16
-  obstacleSpeedFactor: 0.14
+  startingObstacleSpawnTime: 26
+  startingObstacleSpeed: 3.5
+  obstacleSpawnTimeFactor: 0.12
+  obstacleSpeedFactor: 0.11
 --- !u!1 &681805208
 GameObject:
   m_ObjectHideFlags: 0
@@ -11542,7 +11542,7 @@ Transform:
   m_GameObject: {fileID: 776288743}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6, y: 0.5, z: 0}
+  m_LocalPosition: {x: 6.5, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11564,9 +11564,9 @@ MonoBehaviour:
   - {fileID: 860704146474536765, guid: 6e3f368ace7a44c4fad1f133c97f2f77, type: 3}
   - {fileID: 454587647782085180, guid: a7b4801f13f82d947a2397d01efe8fd7, type: 3}
   startingObstacleSpawnTime: 12
-  startingObstacleSpeed: 6
-  obstacleSpawnTimeFactor: 0.05
-  obstacleSpeedFactor: 0.09
+  startingObstacleSpeed: 5
+  obstacleSpawnTimeFactor: 0.06
+  obstacleSpeedFactor: 0.06
 --- !u!1 &792851626
 GameObject:
   m_ObjectHideFlags: 0
@@ -11858,10 +11858,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1777476524}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 2000, y: 0}
-  m_SizeDelta: {x: 14000, y: 6000}
+  m_SizeDelta: {x: 12080, y: 4920}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &806702889
 MonoBehaviour:
@@ -12015,7 +12015,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter NUsername...
+  m_text: Enter New Username...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12206,7 +12206,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 380.37, y: -185}
-  m_SizeDelta: {x: 660.7484, y: 103.448975}
+  m_SizeDelta: {x: 745.5262, y: 103.449}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &822166907
 MonoBehaviour:
@@ -12373,10 +12373,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: 380.37
+          value: 337.5
         - localeIdentifier:
             m_Code: lt
-          value: 397.08
+          value: 379.88867
     - rid: 874789706651926684
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -12384,7 +12384,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: en
-          value: -185
+          value: -191
         - localeIdentifier:
             m_Code: lt
           value: -202
@@ -12547,7 +12547,7 @@ Transform:
   m_GameObject: {fileID: 834678163}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9, y: 1.75, z: 0}
+  m_LocalPosition: {x: 9, y: 2.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14682,11 +14682,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ability: Single Jump
+  m_text: 'Jumps: 1
 
-    Palyer Lifes: 3
-
-    Size: Medium'
+    Lifes: 3'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14713,7 +14711,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.1
+  m_fontSize: 52.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -15227,7 +15225,7 @@ Transform:
   m_GameObject: {fileID: 1005886498}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12, y: 1.3, z: 0}
+  m_LocalPosition: {x: 12, y: 1.15, z: 0}
   m_LocalScale: {x: 20, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17089,7 +17087,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -633.52, y: -43}
+  m_AnchoredPosition: {x: -612.15, y: -42.5}
   m_SizeDelta: {x: 385, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1070205949
@@ -17236,8 +17234,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37.2729, y: -353}
-  m_SizeDelta: {x: 459.4641, y: 135}
+  m_AnchoredPosition: {x: 569.92664, y: -373.5}
+  m_SizeDelta: {x: 533.66, y: 102.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1078933255
 MonoBehaviour:
@@ -17577,8 +17575,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -609.72, y: -353}
-  m_SizeDelta: {x: 533.2877, y: 135}
+  m_AnchoredPosition: {x: 570.1166, y: -256.5}
+  m_SizeDelta: {x: 533.2877, y: 102.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1084916363
 MonoBehaviour:
@@ -23740,7 +23738,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Reset Profile
+  m_text: Delete Profile
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -24763,7 +24761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6d0e88ad5b9a8346aab1507517857f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  languageCode: 
+  languageCode: en
 --- !u!1 &1585190333
 GameObject:
   m_ObjectHideFlags: 0
@@ -27243,7 +27241,7 @@ RectTransform:
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!222 &1777476526
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28445,7 +28443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 573, y: -379}
+  m_AnchoredPosition: {x: 380.37012, y: -379}
   m_SizeDelta: {x: 575, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1849947127
@@ -29803,8 +29801,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -609.36, y: -135}
-  m_SizeDelta: {x: 303.6685, y: 135}
+  m_AnchoredPosition: {x: 149, y: -315}
+  m_SizeDelta: {x: 284.4618, y: 219.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1943836245
 MonoBehaviour:
@@ -31656,7 +31654,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ability: Double Jump
+  m_text: 'Jumps: 2
 
     Lifes: 2'
   m_isRightToLeft: 0
@@ -31685,7 +31683,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.8
+  m_fontSize: 52.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -31969,10 +31967,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 1321837915353031818, guid: 3ac136b79497e6f4c96dd649b6d9b23f, type: 3}
-  startingObstacleSpawnTime: 15
-  startingObstacleSpeed: 5
-  obstacleSpawnTimeFactor: 0.17
-  obstacleSpeedFactor: 0.11
+  startingObstacleSpawnTime: 16
+  startingObstacleSpeed: 4.5
+  obstacleSpawnTimeFactor: 0.13
+  obstacleSpeedFactor: 0.09
 --- !u!1 &2052444371
 GameObject:
   m_ObjectHideFlags: 0
@@ -32841,7 +32839,7 @@ Transform:
   m_GameObject: {fileID: 2093506164}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: 0.3, z: 0}
+  m_LocalPosition: {x: 6.5, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32861,10 +32859,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefabs:
   - {fileID: 1227845991043812912, guid: b8f2b7bcb88bff748bb3e4d19c3e1c83, type: 3}
-  startingObstacleSpawnTime: 12
-  startingObstacleSpeed: 6
-  obstacleSpawnTimeFactor: 0.12
-  obstacleSpeedFactor: 0.11
+  startingObstacleSpawnTime: 13
+  startingObstacleSpeed: 5.5
+  obstacleSpawnTimeFactor: 0.1
+  obstacleSpeedFactor: 0.09
 --- !u!1 &2100013327
 GameObject:
   m_ObjectHideFlags: 0
@@ -33570,7 +33568,7 @@ Transform:
   m_GameObject: {fileID: 1764921760001020260}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 2, z: 0}
+  m_LocalPosition: {x: -4.5, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -33670,7 +33668,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0020439625, y: -0.0061320066}
+  m_Offset: {x: -0.0020439625, y: 0.0028828382}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -33680,7 +33678,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.21981955, y: 0.2563002}
+  m_Size: {x: 0.48469782, y: 0.65214324}
   m_EdgeRadius: 0
 --- !u!212 &8102890579267973727
 SpriteRenderer:
@@ -33785,7 +33783,7 @@ Transform:
   m_GameObject: {fileID: 6506812372986070304}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33825,7 +33823,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.00817585, y: -0.008175969}
+  m_Offset: {x: 0.010448217, y: 0.0044931173}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -33835,7 +33833,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.24403667, y: 0.25787854}
+  m_Size: {x: 0.45511198, y: 0.62158036}
   m_EdgeRadius: 0
 --- !u!114 &9104377147137867165
 MonoBehaviour:
@@ -33849,7 +33847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ebfe51f5186a349a5faa56a9df4c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 11
+  jumpForce: 12
   secondJumpForce: 3
   maxJumps: 2
   mass: 1.5

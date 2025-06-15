@@ -36,13 +36,13 @@ public class SwitchPlayer : MonoBehaviour {
         thirdPlayerBody.SetActive(false);
         if (playerPicked == 1) {
             doubleJumpBody.SetActive(true);
-            doubleJumpBody.transform.position = new Vector3(-5f, doubleJumpBody.transform.position.y, 0f);
+            doubleJumpBody.transform.position = new Vector3(-4.5f, doubleJumpBody.transform.position.y, 0f);
         } else if (playerPicked == 2) {
             thirdPlayerBody.SetActive(true);
-            thirdPlayerBody.transform.position = new Vector3(-5f, thirdPlayerBody.transform.position.y, 0f);
+            thirdPlayerBody.transform.position = new Vector3(-4.5f, thirdPlayerBody.transform.position.y, 0f);
         } else {
             longJumpBody.SetActive(true);
-            longJumpBody.transform.position = new Vector3(-5f, longJumpBody.transform.position.y, 0f);
+            longJumpBody.transform.position = new Vector3(-4.5f, longJumpBody.transform.position.y, 0f);
         }
         mc.ClickMainButton();
     }

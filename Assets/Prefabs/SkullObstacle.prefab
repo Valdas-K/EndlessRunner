@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3902452347452659291}
   - component: {fileID: 2583702171734955382}
   - component: {fileID: 4278200101411703595}
-  - component: {fileID: 7588954464210464253}
+  - component: {fileID: 5121190336542690041}
   m_Layer: 9
   m_Name: Skull
   m_TagString: Obstacle
@@ -111,8 +111,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!58 &7588954464210464253
-CircleCollider2D:
+--- !u!60 &5121190336542690041
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -145,8 +145,26 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.006956339, y: 0}
-  m_Radius: 0.7811433
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.625, y: 1.6875}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.39317858, y: 0.33552337}
+      - {x: -0.09977153, y: 0.40008003}
+      - {x: -0.57744515, y: 0.26116312}
+      - {x: -0.5901509, y: 0.006169975}
+      - {x: -0.2293644, y: -0.45174813}
+      - {x: 0.24709797, y: -0.42218912}
+      - {x: 0.6857747, y: 0.15764412}
+  m_UseDelaunayMesh: 0
 --- !u!1 &6199188743141015973
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections; using UnityEngine;
 using TMPro; using UnityEngine.Localization.Settings;
-using System.Diagnostics;
+using System.Diagnostics; using System;
+using System.Threading.Tasks;
 
 public class MenuController : MonoBehaviour {
     //Aprašomi meniu konteineriai, meniu pakeitimo laikas ir vartotojo sąsajos elementai
@@ -25,44 +26,55 @@ public class MenuController : MonoBehaviour {
     }
 
     private void ChangeMenu(MenuType menuType) {
-        //Patikrinamas norimo meniu tipas ir gaunama reikiama pozicija
-        Vector3 newPosition;
+        //Patikrinamas norimo meniu tipas ir gaunama reikiama nauja ir sena pozicija
+        Vector3 newPosition, oldPosition;
         if (menuType == MenuType.LevelSelect) {
             newPosition = new Vector3(-3900f, 0f, 0f);
+            oldPosition = menuContainer.anchoredPosition3D;
         } else if (menuType == MenuType.Shop) {
             newPosition = new Vector3(3900f, 0f, 0f);
+            oldPosition = new Vector3(0f, 0f, 0f);
         } else if (menuType == MenuType.Settings) {
             newPosition = new Vector3(0f, 2200f, 0f);
+            oldPosition = new Vector3(0f, 0f, 0f);
         } else if (menuType == MenuType.Profile) {
             newPosition = new Vector3(0f, -2200f, 0f);
+            oldPosition = new Vector3(0f, 0f, 0f);
         } else if (menuType == MenuType.Leaderboards) {
             newPosition = new Vector3(-7800f, 0f, 0f);
+            oldPosition = new Vector3(-3900f, 0f, 0f);
         } else {
             newPosition = Vector3.zero;
+            oldPosition = menuContainer.anchoredPosition3D;
         }
+
+        //Suapvalinami kintamieji, kad neatsirastų klaidų
+        oldPosition.x = (float)Math.Round(oldPosition.x / 100f) * 100f;
+        oldPosition.y = (float)Math.Round(oldPosition.y / 100f) * 100f;
+        oldPosition.z = 0f;
 
         //Sustabdomos visos korutinos siekiant išvengti nenumatytų atvejų ir kitų klaidų
         StopAllCoroutines();
 
         //Paleidžiama meniu perjungimo korutina su reikiamo meniu pozicija
-        StartCoroutine(MenuTransition(newPosition));
+        StartCoroutine(MenuTransition(newPosition, oldPosition));
     }
 
-    private IEnumerator MenuTransition(Vector3 newPosition) {
-        //Meniu perjungimas, suteikiami kintamieji praėjusiam laikui ir senai meniu pozicijai
-        Vector3 oldPosition = menuContainer.anchoredPosition3D;
-
+    private IEnumerator MenuTransition(Vector3 newPosition, Vector3 oldPosition) {
         //Kaupiamas laikas, atnaujinama pozicija
-        for (elapsedTime = 0f; elapsedTime <= transitionTime; elapsedTime += Time.deltaTime) {
-            Vector3 currentPosition = Vector3.Lerp(oldPosition, newPosition, elapsedTime / transitionTime);
+        for (elapsedTime = 0f; elapsedTime <= transitionTime; elapsedTime += Time.unscaledDeltaTime) {
+            float t = Math.Min(elapsedTime / transitionTime, 1f);
+            Vector3 currentPosition = Vector3.Lerp(oldPosition, newPosition, t);
             menuContainer.anchoredPosition3D = currentPosition;
             yield return null;
         }
+        menuContainer.anchoredPosition3D = newPosition;
     }
 
     public void ClickLevelSelectButton() {
         //Lygių pasirinkimo mygtukas
         ChangeMenu(MenuType.LevelSelect);
+        board.ClearScoreboardData();
     }
 
     public void ClickLeaderboardsButton() {
@@ -119,7 +131,8 @@ public class MenuController : MonoBehaviour {
         //Žaidimo pabaigos mygtukas, sustabdomos korutinos, baigiamos meniu tranzicijos ir išsaugomi duomenys
         gm.SaveData();
         StopAllCoroutines();
-        elapsedTime = transitionTime;
+        firebaseManager.SignOutButton();
+        Task.Delay(1000);
         Application.Quit();
         Process.GetCurrentProcess().Kill();
     }

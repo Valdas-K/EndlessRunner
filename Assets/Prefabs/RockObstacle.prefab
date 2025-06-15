@@ -48,10 +48,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.25
+  m_Mass: 0.4
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: -0.02
+  m_GravityScale: -0.05
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -322,8 +322,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0.92362565, y: 0.17699203}
-      - {x: 0.5923527, y: 0.65997267}
-      - {x: 0.18794811, y: 0.8706801}
+      - {x: 0.6962604, y: 0.59434676}
+      - {x: 0.28091824, y: 0.843336}
       - {x: -0.38585454, y: 0.84471714}
       - {x: -0.85869926, y: 0.3661189}
       - {x: -1.05843, y: -0.35231438}

@@ -5,9 +5,14 @@ public class FatBirdMovement : ObstacleMovement {
         //Fizikos komponentui suteikiamos masės ir gravitacijos reikšmės
         //Palietus žemę, kliūtis juda tiesiai
         if (other.transform.CompareTag("Ground")) {
-            rb.mass = 100f;
+            rb.mass = 90f;
             rb.gravityScale = -0.001f;
-            rb.linearVelocityX = Random.Range(-6.5f, -2f);
+            rb.linearVelocityX = Random.Range(-8f, -5f);
+        }
+
+        if (other.transform.CompareTag("Player")) {
+            rb.linearVelocityX = -20f;
+            rb.linearVelocityY = -20f;
         }
     }
 }

@@ -230,10 +230,6 @@ MonoBehaviour:
     m_Key: SampleScene/UI/Menu/Shop/TPAbilityText
     m_Metadata:
       m_Items: []
-  - m_Id: 3231668828667904
-    m_Key: SampleScene/UI/Menu/Profile/HintText
-    m_Metadata:
-      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

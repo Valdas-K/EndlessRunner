@@ -40,6 +40,9 @@ public class FirebaseLogin : MonoBehaviour {
                 case AuthError.CredentialAlreadyInUse:
                     firebase.ui.UpdateHintText(7);
                     break;
+                default:
+                    firebase.ui.UpdateHintText(-1);
+                    break;
             }
             firebase.ui.ClearLoginFields();
             loginButton.enabled = false;

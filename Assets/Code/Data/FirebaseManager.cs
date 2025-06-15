@@ -1,5 +1,5 @@
-﻿using UnityEngine; using Firebase; using Firebase.Auth;
-using Firebase.Database; using TMPro;
+﻿using UnityEngine; using Firebase; using TMPro;
+using Firebase.Auth; using Firebase.Database;
 
 public class FirebaseManager : MonoBehaviour {
     //Duomenų bazės statusas, autentifikacija, sujungimas ir vartotojas
@@ -28,6 +28,7 @@ public class FirebaseManager : MonoBehaviour {
                 auth = FirebaseAuth.DefaultInstance;
                 DBreference = FirebaseDatabase.DefaultInstance.RootReference;
                 logout.LogOutAccount();
+                FirebaseDatabase.DefaultInstance.SetPersistenceEnabled(false);
             }
         });
     }

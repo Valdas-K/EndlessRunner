@@ -21,6 +21,7 @@ public class FirebaseLogout : MonoBehaviour {
             FirebaseDatabase.DefaultInstance.GetReference("users").Child(firebase.User.UserId).RemoveValueAsync().ContinueWith(task => {
                 if (task.IsFaulted || task.IsCanceled) {
                     firebase.ui.UpdateHintText(19);
+                    return;
                 }
             });
             LogOutAccount();

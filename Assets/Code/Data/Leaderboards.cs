@@ -51,4 +51,13 @@ public class Leaderboards : MonoBehaviour {
 
         yield return null;
     }
+
+    public void ClearScoreboardData() {
+        context.Post(_ => {
+            //Teksto atnaujinimas perkeliamas į pagrindinę giją, vartotojas mato rezultatus
+            leaderboards[0].text = "";
+            leaderboards[1].text = "";
+            leaderboards[2].text = "";
+        }, null);
+    }
 }

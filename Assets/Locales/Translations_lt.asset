@@ -233,10 +233,6 @@ MonoBehaviour:
     m_Localized: "Pa\u0161okimai: 3\nGyvyb\u0117s: 1"
     m_Metadata:
       m_Items: []
-  - m_Id: 3231668828667904
-    m_Localized: 
-    m_Metadata:
-      m_Items: []
   references:
     version: 2
     RefIds: []

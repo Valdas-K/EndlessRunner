@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using System.Collections; using UnityEngine;
 
 public class SizeDownPower : PowerUp {
     protected override void StartLogic(Collider2D player) {

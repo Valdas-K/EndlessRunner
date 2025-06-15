@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5859926783292436200}
   - component: {fileID: 126131367321685132}
-  - component: {fileID: 3749940013617436884}
   - component: {fileID: 697957261958960123}
+  - component: {fileID: 5645103448348925486}
   m_Layer: 10
   m_Name: FatBird
   m_TagString: Obstacle
@@ -89,7 +89,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &3749940013617436884
+--- !u!95 &697957261958960123
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497098265666961571}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f52f5acf5b75cf1468936883e408bef4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &5645103448348925486
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,34 +157,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.5582995, y: 0.17191628}
-      - {x: -0.021682113, y: 0.6958957}
-      - {x: -0.5848975, y: 0.06665233}
-      - {x: -0.51005137, y: -0.49857974}
-      - {x: 0.45358098, y: -0.51205325}
+    - - {x: 0.026835099, y: 0.46962678}
+      - {x: -0.33437687, y: 0.30580527}
+      - {x: -0.44959676, y: -0.36101514}
+      - {x: 0.41606933, y: -0.34246963}
+      - {x: 0.5052809, y: 0.081941225}
   m_UseDelaunayMesh: 0
---- !u!95 &697957261958960123
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 497098265666961571}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f52f5acf5b75cf1468936883e408bef4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1451194980854508684
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +212,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.5
+  m_Mass: 2
   m_LinearDamping: 0
   m_AngularDamping: 0
   m_GravityScale: 1

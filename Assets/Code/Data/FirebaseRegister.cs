@@ -52,6 +52,9 @@ public class FirebaseRegister : MonoBehaviour {
                     case AuthError.EmailAlreadyInUse:
                         firebase.ui.UpdateHintText(17);
                         break;
+                    default:
+                        firebase.ui.UpdateHintText(-1);
+                        break;
                 }
                 firebase.ui.ClearRegisterFields();
                 registerButton.enabled = false;
